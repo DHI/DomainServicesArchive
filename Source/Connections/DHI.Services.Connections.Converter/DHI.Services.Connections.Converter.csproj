@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net472</TargetFrameworks>
+    <DefaultItemExcludes>$(DefaultItemExcludes);nuget\*.nupkg;nuget\*.log</DefaultItemExcludes>
+    <NoWarn>1701;1702;1591</NoWarn>
+    <PackageId>DHI.Services.Connections.Converter</PackageId>
+    <Version>2.0.0</Version>
+    <PackageReleaseNotes>Replace DHI ILogger with MSoft ILogger</PackageReleaseNotes>
+    <Company>DHI</Company>
+    <Authors>dhigroup</Authors>
+    <PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/DHI/DomainServices/blob/master/README.md</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/DHI/DomainServices</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <Description>Connection converter.</Description>
+    <Product>DHI Domain Services Connection Converter</Product>
+    <PackageIcon>ds-icon-64.png</PackageIcon>
+    <PackageTags>Connetions, Converter</PackageTags>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <LangVersion>latest</LangVersion>
+	<PackageReadmeFile>readme.md</PackageReadmeFile>
+  </PropertyGroup>
+
+	<PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+		<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+	</PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DHI.Services" Version="15.0.0" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+	  <None Include="nuget\readme.md">
+		  <Pack>true</Pack>
+		  <PackagePath></PackagePath>
+	  </None>
+    <None Include="nuget\ds-icon-64.png" Pack="true" PackagePath="" />
+  </ItemGroup>
+
+</Project>

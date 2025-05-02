@@ -1,0 +1,68 @@
+name: ci-spreadsheets
+
+on:
+  push:
+    branches:
+      - master 
+      - '*release*'
+      - develop
+    paths:
+      - 'Source/Spreadsheets/**'
+  pull_request:
+    branches:
+      - master 
+      - '*release*'
+      - develop
+    paths:
+      - 'Source/Spreadsheets/**' 
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 5
+    - name: Detect changed folders
+      id: filter
+      uses: dorny/paths-filter@v3
+      with:
+        filters: |
+          spreadsheets:
+            - 'Source/Spreadsheets/DHI.Services.Spreadsheets/**'
+          webapi:
+            - 'Source/Spreadsheets/DHI.Services.Spreadsheets.WebApi/**'
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+    - name: Restore dependencies
+      run: | 
+        dotnet restore ./Source/Spreadsheets/DHI.Services.Spreadsheets.sln -s https://api.nuget.org/v3/index.json 
+        dotnet restore ./Source/Spreadsheets/DHI.Services.Spreadsheets.WebApi.sln -s https://api.nuget.org/v3/index.json
+    - name: Build
+      run: | 
+        dotnet build ./Source/Spreadsheets/DHI.Services.Spreadsheets.sln --no-restore
+        dotnet build ./Source/Spreadsheets/DHI.Services.Spreadsheets.WebApi.sln --no-restore
+    - name: Test
+      run: |
+        dotnet test ./Source/Spreadsheets/DHI.Services.Spreadsheets.Test/DHI.Services.Spreadsheets.Test.csproj --no-build --verbosity normal
+        dotnet test ./Source/Spreadsheets/DHI.Services.Spreadsheets.WebApi.Host.Test/DHI.Services.Spreadsheets.WebApi.Host.Test.csproj --no-build --verbosity normal
+    - name: Pack & Push Spreadsheets
+      if: |
+        github.ref == 'refs/heads/master' &&
+        steps.filter.outputs.spreadsheets == 'true'
+      shell: cmd
+      working-directory: Source\Spreadsheets\DHI.Services.Spreadsheets\nuget
+      env:
+        NUGET_API_KEY_PUBLISH: ${{ secrets.NUGET_API_KEY_PUBLISH }}
+      run: PackAndPushPublish.bat yes
+    - name: Pack & Push Spreadsheets.WebApi
+      if: |
+        github.ref == 'refs/heads/master' &&
+        steps.filter.outputs.webapi == 'true'
+      shell: cmd
+      working-directory: Source\Spreadsheets\DHI.Services.Spreadsheets.WebApi\nuget
+      env:
+        NUGET_API_KEY_PUBLISH: ${{ secrets.NUGET_API_KEY_PUBLISH }}
+      run: PackAndPushPublish.bat yes

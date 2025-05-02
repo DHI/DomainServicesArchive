@@ -1,0 +1,17 @@
+﻿{
+  "$type": "System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[DHI.Services.IConnection, DHI.Services]], mscorlib",
+  "mo": {
+    "$type": "DHI.Services.TimeSteps.WebApi.TimeStepServiceConnection, DHI.Services.TimeSteps.WebApi",
+    "ConnectionString": "database=v33;configuration=Sava5",
+    "ServerType": "DHI.Services.Provider.MC.Operations.TimeStepServer, DHI.Services.Provider.MC.Operations",
+    "Name": "MIKE OPERATIONS timestep connection",
+    "Id": "mo"
+  },
+  "dfs2": {
+    "$type": "DHI.Services.TimeSteps.WebApi.TimeStepServiceConnection, DHI.Services.TimeSteps.WebApi",
+    "ConnectionString": "[AppData]R20141001.dfs2",
+    "ServerType": "DHI.Services.Provider.MIKECore.Dfs2TimeStepServer, DHI.Services.Provider.MIKECore",
+    "Name": "Dfs2 timestep connection",
+    "Id": "dfs2"
+  }
+}

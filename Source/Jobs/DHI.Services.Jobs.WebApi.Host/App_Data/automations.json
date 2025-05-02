@@ -1,0 +1,53 @@
+{
+  "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[DHI.Services.Jobs.Automations.Automation`1[[System.String, System.Private.CoreLib]], DHI.Services.Jobs]], System.Private.CoreLib]], System.Private.CoreLib",
+  "my-group-1": {
+    "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[DHI.Services.Jobs.Automations.Automation`1[[System.String, System.Private.CoreLib]], DHI.Services.Jobs]], System.Private.CoreLib",
+    "my-automation": {
+      "$type": "DHI.Services.Jobs.Automations.Automation, DHI.Services.Jobs",
+      "TaskId": "my-task",
+      "Priority": 1,
+      "IsEnabled": true,
+      "TriggerCondition": {
+        "Triggers": [
+          {
+            "$type": "DHI.Services.Jobs.Automations.Triggers.ScheduledTrigger, DHI.Services.Jobs",
+            "Id": "trigger1",
+            "StartTimeUtc": "2023-01-01T00:00:00",
+            "Interval": "01:00:00",
+            "Description": "Trigger once every hour",
+            "IsEnabled": true,
+            "Type": "DHI.Services.Jobs.Automations.Triggers.ScheduledTrigger, DHI.Services.Jobs, Version=7.13.0.0, Culture=neutral, PublicKeyToken=null"
+          },
+          {
+            "$type": "DHI.Services.Jobs.Automations.Triggers.JobCompletedTrigger, DHI.Services.Jobs",
+            "Id": "trigger2",
+            "TaskId": "someTask",
+            "RepositoryType": "DHI.Services.Jobs.JobRepository, DHI.Services.Jobs, Version=7.13.0.0, Culture=neutral, PublicKeyToken=null",
+            "ConnectionString": "[AppData]jobs.json",
+            "Description": "Job of type 'someTask' has completed.",
+            "IsEnabled": true,
+            "Type": "DHI.Services.Jobs.Automations.Triggers.JobCompletedTrigger, DHI.Services.Jobs, Version=7.13.0.0, Culture=neutral, PublicKeyToken=null"
+          }
+        ],
+        "Conditional": "trigger1 AND trigger2"
+      },
+        "FullName": "my-group-1/my-automation",
+        "Group": "my-group-1",
+        "Name": "my-automation",
+        "Id": "my-group-1/my-automation"
+      }
+  },
+  "my-group-2": {
+    "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[DHI.Services.Jobs.Automations.Automation`1[[System.String, System.Private.CoreLib]], DHI.Services.Jobs]], System.Private.CoreLib",
+    "my-automation": {
+      "$type": "DHI.Services.Jobs.Automations.Automation, DHI.Services.Jobs",
+      "TaskId": "my-task",
+      "Priority": 1,
+      "IsEnabled": false,
+      "FullName": "my-group-2/my-automation",
+      "Group": "my-group-2",
+      "Name": "my-automation",
+      "Id": "my-group-2/my-automation"
+    }
+  }
+}

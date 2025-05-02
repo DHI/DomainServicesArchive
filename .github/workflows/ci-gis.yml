@@ -1,0 +1,68 @@
+name: ci-gis
+
+on:
+  push:
+    branches:
+      - master
+      - '*release*'
+      - develop
+    paths:
+      - 'Source/GIS/**'
+  pull_request:
+    branches:
+      - master
+      - '*release*'
+      - develop
+    paths:
+      - 'Source/GIS/**' 
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 5
+    - name: Detect changed folders
+      id: filter
+      uses: dorny/paths-filter@v3
+      with:
+        filters: |
+          gis:
+            - 'Source/GIS/DHI.Services.GIS/**'
+          webapi:
+            - 'Source/GIS/DHI.Services.GIS.WebApi/**'
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+    - name: Restore dependencies
+      run: | 
+        dotnet restore ./Source/GIS/DHI.Services.GIS.sln -s https://api.nuget.org/v3/index.json 
+        dotnet restore ./Source/GIS/DHI.Services.GIS.WebApi.sln -s https://api.nuget.org/v3/index.json
+    - name: Build
+      run: | 
+        dotnet build ./Source/GIS/DHI.Services.GIS.sln --no-restore
+        dotnet build ./Source/GIS/DHI.Services.GIS.WebApi.sln --no-restore
+    - name: Test
+      run: |
+        dotnet test ./Source/GIS/DHI.Services.GIS.Test/DHI.Services.GIS.Test.csproj --no-build --verbosity normal
+        dotnet test ./Source/GIS/DHI.Services.GIS.WebApi.Host.Test/DHI.Services.GIS.WebApi.Host.Test.csproj --no-build --verbosity normal
+    - name: Pack & Push GIS
+      if: |
+        github.ref == 'refs/heads/master' &&
+        steps.filter.outputs.gis == 'true'
+      shell: cmd
+      working-directory: Source\GIS\DHI.Services.GIS\nuget
+      env:
+        NUGET_API_KEY_PUBLISH: ${{ secrets.NUGET_API_KEY_PUBLISH }}
+      run: PackAndPushPublish.bat yes
+    - name: Pack & Push GIS.WebApi
+      if: |
+        github.ref == 'refs/heads/master' &&
+        steps.filter.outputs.webapi == 'true'
+      shell: cmd
+      working-directory: Source\GIS\DHI.Services.GIS.WebApi\nuget
+      env:
+        NUGET_API_KEY_PUBLISH: ${{ secrets.NUGET_API_KEY_PUBLISH }}
+      run: PackAndPushPublish.bat yes

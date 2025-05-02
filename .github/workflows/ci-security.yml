@@ -1,0 +1,53 @@
+name: ci-security
+
+on:
+  push:
+    branches:
+      - master 
+      - '*release*'
+      - develop
+    paths:
+      - 'Source/Security/**'
+  pull_request:
+    branches:
+      - master 
+      - '*release*'
+      - develop
+    paths:
+      - 'Source/Security/**' 
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 5
+    - name: Detect changed folders
+      id: filter
+      uses: dorny/paths-filter@v3
+      with:
+        filters: |
+          webapi:
+            - 'Source/Security/DHI.Services.Security.WebApi/**'
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.0.x
+    - name: Restore dependencies
+      run: dotnet restore ./Source/Security/DHI.Services.Security.WebApi.sln -s https://api.nuget.org/v3/index.json
+    - name: Build
+      run: dotnet build ./Source/Security/DHI.Services.Security.WebApi.sln --no-restore
+    - name: Test
+      run: |
+        dotnet test ./Source/Security/DHI.Services.Security.WebApi.Test/DHI.Services.Security.WebApi.Test.csproj --no-build --verbosity normal
+        dotnet test ./Source/Security/DHI.Services.Security.WebApi.Host.Test/DHI.Services.Security.WebApi.Host.Test.csproj --no-build --verbosity normal
+    - name: Pack & Push Security.WebApi
+      if: |
+        github.ref == 'refs/heads/master' &&
+        steps.filter.outputs.webapi == 'true'
+      shell: cmd
+      working-directory: Source\Security\DHI.Services.Security.WebApi\nuget
+      env:
+        NUGET_API_KEY_PUBLISH: ${{ secrets.NUGET_API_KEY_PUBLISH }}
+      run: PackAndPushPublish.bat yes

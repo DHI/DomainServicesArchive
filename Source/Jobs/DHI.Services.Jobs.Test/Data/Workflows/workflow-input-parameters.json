@@ -1,0 +1,5 @@
+﻿{
+  "Recipient": "abcd@domain.com",
+  "Message": "Mail workflow test",
+  "SubjectTitle": "This is a workflow MailTest service test"
+}

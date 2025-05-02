@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30225.117
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DHI.Services.JobRunner", "DHI.Services.JobRunner\DHI.Services.JobRunner.csproj", "{FB29DE64-F387-4D6E-850A-DAB00F707735}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DHI.Services.JobRunner.Test", "DHI.Services.JobRunner.Test\DHI.Services.JobRunner.Test.csproj", "{417B55AF-8271-43C5-9EAB-809E7FC6755F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FB29DE64-F387-4D6E-850A-DAB00F707735}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB29DE64-F387-4D6E-850A-DAB00F707735}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB29DE64-F387-4D6E-850A-DAB00F707735}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB29DE64-F387-4D6E-850A-DAB00F707735}.Release|Any CPU.Build.0 = Release|Any CPU
+		{417B55AF-8271-43C5-9EAB-809E7FC6755F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{417B55AF-8271-43C5-9EAB-809E7FC6755F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{417B55AF-8271-43C5-9EAB-809E7FC6755F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{417B55AF-8271-43C5-9EAB-809E7FC6755F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E548655C-7C1A-46BF-BBF2-11F23162002D}
+	EndGlobalSection
+EndGlobal

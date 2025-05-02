@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+  <metadata minClientVersion="4.0.0">
+    <id>DHI.Services.TimeSeries.Web</id>
+    <version>$version$</version>
+    <title>Web API for timeSeries services and analysis.</title>
+    <authors>DHI</authors>
+    <owners>DHI</owners>
+    <iconUrl>http://www.mikepoweredbydhi.com/upload/nuget-icons/domain-services-icon32x32.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Web API for timeSeries services and analysis.</description>
+    <summary>Web API for timeSeries services and analysis.</summary>
+    <releaseNotes />
+    <dependencies>
+      <dependency id="Microsoft.AspNet.WebApi" version="5.2.6" />
+      <dependency id="Microsoft.AspNet.WebApi.Cors" version="5.2.6" />
+      <dependency id="Microsoft.AspNet.WebApi.Extensions.Compression.Server" version="2.0.6" />
+      <dependency id="Microsoft.AspNet.WebApi.Versioning" version="2.3.0" />
+      <dependency id="Thinktecture.IdentityModel.WebApi.AuthenticationHandler" version="1.1.0" />
+      <dependency id="Strathweb.CacheOutput.WebApi2" version="0.11.0" />
+      <dependency id="DHI.Services.TimeSeries" version="3.34.0" />
+    </dependencies>
+    <contentFiles>
+      <files include="any\net472\DHI.Services.TimeSeries.Web.xml" buildAction="Content" copyToOutput="true" />
+    </contentFiles>
+  </metadata>
+  <files>
+    <file src="..\bin\DHI.Services.TimeSeries.Web.dll" target="lib\net472" />
+    <file src="..\bin\DHI.Services.TimeSeries.Web.xml" target="lib\net472" />
+    <file src="..\bin\DHI.Services.TimeSeries.Web.xml" target="contentFiles\any\net472" />
+  </files>
+</package>

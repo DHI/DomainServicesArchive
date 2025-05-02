@@ -1,0 +1,24 @@
+﻿namespace DHI.Services
+{
+    /// <summary>
+    ///     interface to provide a generic mechanism to build guard clause extension methods from.
+    /// </summary>
+    public interface IGuardClause
+    {
+    }
+
+    /// <summary>
+    ///     An entry point to a set of Guard Clauses defined as extension methods on IGuardClause.
+    /// </summary>
+    public class Guard : IGuardClause
+    {
+        private Guard()
+        {
+        }
+
+        /// <summary>
+        ///     An entry point to a set of Guard Clauses.
+        /// </summary>
+        public static IGuardClause Against { get; } = new Guard();
+    }
+}

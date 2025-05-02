@@ -1,0 +1,68 @@
+name: ci-documents
+
+on:
+  push:
+    branches:
+      - master
+      - '*release*'
+      - develop
+    paths:
+      - 'Source/Documents/**'
+  pull_request:
+    branches:
+      - master
+      - '*release*'
+      - develop
+    paths:
+      - 'Source/Documents/**' 
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 5
+    - name: Detect changed folders
+      id: filter
+      uses: dorny/paths-filter@v3
+      with:
+        filters: |
+          documents:
+            - 'Source/Documents/DHI.Services.Documents/**'
+          webapi:
+            - 'Source/Documents/DHI.Services.Documents.WebApi/**'
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+    - name: Restore dependencies
+      run: | 
+        dotnet restore ./Source/Documents/DHI.Services.Documents.sln -s https://api.nuget.org/v3/index.json 
+        dotnet restore ./Source/Documents/DHI.Services.Documents.WebApi.sln -s https://api.nuget.org/v3/index.json
+    - name: Build
+      run: | 
+        dotnet build ./Source/Documents/DHI.Services.Documents.sln --no-restore
+        dotnet build ./Source/Documents/DHI.Services.Documents.WebApi.sln --no-restore
+    - name: Test
+      run: |
+        dotnet test ./Source/Documents/DHI.Services.Documents.Test/DHI.Services.Documents.Test.csproj --no-build --verbosity normal
+        dotnet test ./Source/Documents/DHI.Services.Documents.WebApi.Host.Test/DHI.Services.Documents.WebApi.Host.Test.csproj --no-build --verbosity normal
+    - name: Pack & Push Documents
+      if: |
+        github.ref == 'refs/heads/master' &&
+        steps.filter.outputs.documents == 'true'
+      shell: cmd
+      working-directory: Source\Documents\DHI.Services.Documents\nuget
+      env:
+        NUGET_API_KEY_PUBLISH: ${{ secrets.NUGET_API_KEY_PUBLISH }}
+      run: PackAndPushPublish.bat yes
+    - name: Pack & Push Documents.WebApi
+      if: |
+        github.ref == 'refs/heads/master' &&
+        steps.filter.outputs.webapi == 'true'
+      shell: cmd
+      working-directory: Source\Documents\DHI.Services.Documents.WebApi\nuget
+      env:
+        NUGET_API_KEY_PUBLISH: ${{ secrets.NUGET_API_KEY_PUBLISH }}
+      run: PackAndPushPublish.bat yes

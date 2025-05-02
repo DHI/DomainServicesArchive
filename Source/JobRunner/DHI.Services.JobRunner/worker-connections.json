@@ -1,0 +1,19 @@
+{
+  "$type": "System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[DHI.Services.IConnection, DHI.Services]], mscorlib",
+  "wf-worker": {
+    "$type": "DHI.Services.JobRunner.JobWorkerConnection, DHI.Services.JobRunner",
+    "JobRepositoryConnectionString": "baseUrl=http:\//localhost:5000/api/jobs/wf-jobs;baseUrlTokens=https:\//domainservices.dhigroup.com;userName=admin;password=Solutions!",
+    "JobRepositoryType": "DHI.Services.Provider.DS.JobRepository, DHI.Services.Provider.DS",
+    "TaskRepositoryConnectionString": "baseUrl=http:\//localhost:5000/api/tasks/wf-tasks;baseUrlTokens=https:\//domainservices.dhigroup.com;userName=admin;password=Solutions!",
+    "TaskRepositoryType": "DHI.Services.Provider.DS.WorkflowRepository, DHI.Services.Provider.DS",
+    "HostRepositoryConnectionString": "baseUrl=http:\//localhost:5000/api/jobhosts;baseUrlTokens=https:\//domainservices.dhigroup.com;userName=admin;password=Solutions!",
+    "HostRepositoryType": "DHI.Services.Provider.DS.HostRepository, DHI.Services.Provider.DS",
+    "WorkerType": "DHI.Services.Provider.WF.RemoteWorker, DHI.Services.Provider.WF",
+    "LoggerConnectionString": "C:\\Users\\lam\\Source\\Repos\\DomainServices\\Jobs\\DHI.Services.Jobs.WebApi.Host\\App_Data\\Logs",
+    "LoggerType": "DHI.Services.Provider.WF.WorkflowLogger, DHI.Services.Provider.WF",
+    "RepositoryLoggerConnectionString": "[Path]DHI.Services.JobRunner.log",
+    "RepositoryLoggerType": "DHI.Services.Logging.SimpleLogger, DHI.Services",
+    "Name": "Workflow worker",
+    "Id": "wf-worker"
+  }
+}

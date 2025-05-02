@@ -1,0 +1,14 @@
+{
+  "DateColumn": 1,
+  "DateFormat": "yyyy-MM-dd",
+  "TimeColumn": 2,
+  "TimeFormat": "HH:mm",
+  "TimeSeriesColumns": [
+    {
+      "Column": 3,
+      "Id": "MyTimeseries1"
+    }
+  ],
+  "DataLineNumber": 1,
+  "SkipIfCannotParse":  true 
+}

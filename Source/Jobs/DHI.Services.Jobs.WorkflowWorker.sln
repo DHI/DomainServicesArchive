@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DHI.Services.Jobs.WorkflowWorker", "DHI.Services.Jobs.WorkflowWorker\DHI.Services.Jobs.WorkflowWorker.csproj", "{43E131B4-C3C3-4585-9B1A-CA1207C1093F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DHI.Services.Jobs.WorkflowWorker.Test", "DHI.Services.Jobs.WorkflowWorker.Test\DHI.Services.Jobs.WorkflowWorker.Test.csproj", "{00E651E0-A1C4-4FBC-8769-7A5C987C9DE2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{43E131B4-C3C3-4585-9B1A-CA1207C1093F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43E131B4-C3C3-4585-9B1A-CA1207C1093F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43E131B4-C3C3-4585-9B1A-CA1207C1093F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43E131B4-C3C3-4585-9B1A-CA1207C1093F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00E651E0-A1C4-4FBC-8769-7A5C987C9DE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00E651E0-A1C4-4FBC-8769-7A5C987C9DE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00E651E0-A1C4-4FBC-8769-7A5C987C9DE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00E651E0-A1C4-4FBC-8769-7A5C987C9DE2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,13 @@
+{
+	"YearColumn": 1,
+	"MonthColumn": 2,
+	"DayColumn": 3,
+	"HourColumn": 4,
+	"MinuteColumn": 5,
+	"ValueDelimiter": " ",
+	"HeaderLineNumber": 1,
+	"DataLineNumber": 3,
+	"Replace": {
+		"  ": " "
+	}
+}

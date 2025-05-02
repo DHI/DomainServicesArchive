@@ -1,0 +1,86 @@
+﻿{
+  "$type": "System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[DHI.Services.IConnection, DHI.Services]], mscorlib",
+  "mc-ws1": {
+    "$type": "DHI.Services.TimeSeries.WebApi.GroupedUpdatableTimeSeriesServiceConnection, DHI.Services.TimeSeries.WebApi",
+    "ConnectionString": "database=mc2014.2",
+    "RepositoryType": "DHI.Services.Provider.MCLite.TimeSeriesRepository, DHI.Services.Provider.MCLite",
+    "Name": "Local MC time series connection to workspace1",
+    "Id": "mc-ws1"
+  },
+  "mc-ws2": {
+    "$type": "DHI.Services.TimeSeries.WebApi.GroupedUpdatableTimeSeriesServiceConnection, DHI.Services.TimeSeries.WebApi",
+    "ConnectionString": "database=mc2014.2;workspace=workspace2",
+    "RepositoryType": "DHI.Services.Provider.MC.TimeSeriesRepository, DHI.Services.Provider.MC",
+    "Name": "Local MC time series connection to workspace2",
+    "Id": "mc-ws2"
+  },
+  "res1d": {
+    "$type": "DHI.Services.TimeSeries.WebApi.GroupedDiscreteTimeSeriesServiceConnection, DHI.Services.TimeSeries.WebApi",
+    "ConnectionString": "C:\\Temp",
+    "RepositoryType": "DHI.Services.Provider.MIKE.Res1DGroupedTimeSeriesRepository, DHI.Services.Provider.MIKE",
+    "Name": "MIKE res1d time series connection",
+    "Id": "res1d"
+  },
+  "dfs0": {
+    "$type": "DHI.Services.TimeSeries.WebApi.GroupedDiscreteTimeSeriesServiceConnection, DHI.Services.TimeSeries.WebApi",
+    "ConnectionString": "[AppData]dfs0",
+    "RepositoryType": "DHI.Services.Provider.MIKE.Dfs0GroupedTimeSeriesRepository, DHI.Services.Provider.MIKE",
+    "Name": "MIKE dfs0 time series connection",
+    "Id": "dfs0"
+  },
+  "dfs2": {
+    "$type": "DHI.Services.TimeSeries.WebApi.TimeSeriesServiceConnection, DHI.Services.TimeSeries.WebApi",
+    "ConnectionString": "C:\\Temp\\R20141001.dfs2",
+    "RepositoryType": "DHI.Services.Provider.MIKE.Dfs2TimeSeriesRepository, DHI.Services.Provider.MIKE",
+    "Name": "MIKE dfs2 time series connection",
+    "Id": "dfs2"
+  },
+  "dims": {
+    "$type": "DHI.Services.TimeSeries.WebApi.DiscreteTimeSeriesServiceConnection, DHI.Services.TimeSeries.WebApi",
+    "ConnectionString": "dimstest2016.dhi.dk;{BB729FC3-0135-11E5-BFFA-24FD526B9663};11818178 Brede Å;Master;AEorHVne42mrRUi;ADwdjCq2wyG8DkuRauN4Sqr1wMvJ3mWTPup39litCHE/dEOjiJIK89AQ3qEY/EkG2UGCtkCl+GC+aA22AX4bRH3WthyQ7jrldXrp3fFJ5+RqKHK;1453633290",
+    "RepositoryType": "DHI.Services.Provider.DIMS.TimeSeriesRepository, DHI.Services.Provider.DIMS",
+    "Name": "DIMS time series connection",
+    "Id": "dims"
+  },
+  "mo": {
+    "$type": "DHI.Services.TimeSeries.WebApi.GroupedDiscreteTimeSeriesServiceConnection, DHI.Services.TimeSeries.WebApi",
+    "ConnectionString": "database=v33;configuration=Sava5",
+    "RepositoryType": "DHI.Services.Provider.MC.Operations.TimeSeriesRepository, DHI.Services.Provider.MC.Operations",
+    "Name": "MIKE OPERATIONS time series connection",
+    "Id": "mo"
+  },
+  "mclite": {
+    "$type": "DHI.Services.TimeSeries.WebApi.GroupedUpdatableTimeSeriesServiceConnection, DHI.Services.TimeSeries.WebApi",
+    "ConnectionString": "database=[AppData]MCSQLiteTest.sqlite;dbflavour=SQLite",
+    "RepositoryType": "DHI.Services.Provider.MCLite.TimeSeriesRepository, DHI.Services.Provider.MCLite",
+    "Name": "Local MC Lite time series connection to workspace1",
+    "Id": "mclite"
+  },
+  "azure": {
+    "$type": "DHI.Services.TimeSeries.WebApi.UpdatableTimeSeriesServiceConnection, DHI.Services.TimeSeries.WebApi",
+    "ConnectionString": "DefaultEndpointsProtocol=https;AccountName=fikrstorage;AccountKey=Dafk/iTn/F1Ym/jXSN/pOwXE1wzuc/rl41pXZiDoQMYH9JPKRfgqNbMsmI4E6uCK3E+RmUOruvSBT9Zw6qcuJA==",
+    "RepositoryType": "DHI.Services.Provider.AzureStorage.TimeSeriesRepository, DHI.Services.Provider.AzureStorage",
+    "Name": "Azure Storage time series service connection",
+    "Id": "azure"
+  },
+  "usgs": {
+    "$type": "DHI.Services.TimeSeries.WebApi.TimeSeriesServiceConnection, DHI.Services.TimeSeries.WebApi",
+    "ConnectionString": "http://waterservices.usgs.gov/nwis/dv/?startDT=2015-01-01&endDt=2015-01-31",
+    "RepositoryType": "DHI.Services.Provider.Http.USGS.TimeSeriesRepository, DHI.Services.Provider.Http",
+    "Name": "USGS time series service connection",
+    "Id": "usgs"
+  },
+  "csv": {
+    "$type": "DHI.Services.TimeSeries.WebApi.GroupedDiscreteTimeSeriesServiceConnection, DHI.Services.TimeSeries.WebApi",
+    "ConnectionString": "[AppData]csv",
+    "RepositoryType": "DHI.Services.TimeSeries.CSV.TimeSeriesRepository, DHI.Services.TimeSeries",
+    "Name": "CSV time series service connection",
+    "Id": "csv"
+  },
+  "daylight": {
+    "$type": "DHI.Services.TimeSeries.WebApi.CoreTimeSeriesServiceConnection, DHI.Services.TimeSeries.WebApi",
+    "RepositoryType": "DHI.Services.TimeSeries.Daylight.TimeSeriesRepository, DHI.Services.TimeSeries",
+    "Name": "Daylight time series service connection",
+    "Id": "daylight"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "admin-::1": {
+    "Token": "ZHs8u6vds10cNVI//o8FHbNddtEDU\u002BlkWo71VDIaZrw=",
+    "AccountId": "admin",
+    "Expiration": "2025-08-30T09:11:48.8627575Z",
+    "ClientIp": "::1",
+    "Permissions": [
+    ],
+    "Id": "admin-::1",
+    "Updated": "2024-08-30T09:11:48.8856123Z",
+    "Metadata": {
+    }
+  }
+}

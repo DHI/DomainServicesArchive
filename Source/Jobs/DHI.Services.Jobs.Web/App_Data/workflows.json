@@ -1,0 +1,9 @@
+{
+  "$type": "System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[DHI.Services.Jobs.Workflows.Workflow, DHI.Services.Jobs]], mscorlib",
+  "WriteToFile": {
+    "$type": "DHI.Services.Jobs.Workflows.Workflow, DHI.Services.Jobs",
+    "Definition": "<Sequence mc:Ignorable=\"sads sap\" sap:VirtualizedContainerService.HintSize=\"222,146\" mva:VisualBasic.Settings=\"Assembly references and imported namespaces serialized as XML namespaces\"\r\n xmlns=\"http://schemas.microsoft.com/netfx/2009/xaml/activities\"\r\n xmlns:dwac=\"clr-namespace:DHI.Workflow.Activity.Core;assembly=DHI.Workflow.Activity.Core\"\r\n xmlns:mc=\"http://schemas.openxmlformats.org/markup-compatibility/2006\"\r\n xmlns:mva=\"clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities\"\r\n xmlns:sads=\"http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger\"\r\n xmlns:sap=\"http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation\"\r\n xmlns:scg=\"clr-namespace:System.Collections.Generic;assembly=mscorlib\"\r\n xmlns:x=\"http://schemas.microsoft.com/winfx/2006/xaml\">\r\n  <sap:WorkflowViewStateService.ViewState>\r\n    <scg:Dictionary x:TypeArguments=\"x:String, x:Object\">\r\n      <x:Boolean x:Key=\"IsExpanded\">True</x:Boolean>\r\n    </scg:Dictionary>\r\n  </sap:WorkflowViewStateService.ViewState>\r\n  <dwac:WriteToFile Append=\"False\" DisplayName=\"WriteFile\" FileName=\"C:\\Temp\\__test.txt\" sap:VirtualizedContainerService.HintSize=\"200,22\" Text=\"Hello World!\" />\r\n</Sequence>",
+    "Name": "WriteToFile",
+    "Id": "WriteToFile"
+  }
+}

@@ -1,0 +1,69 @@
+name: ci-places
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master 
+      - '*release*'
+      - develop
+    paths:
+      - 'Source/Places/**'
+  pull_request:
+    branches:
+      - master 
+      - '*release*'
+      - develop
+    paths:
+      - 'Source/Places/**' 
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 5
+    - name: Detect changed folders
+      id: filter
+      uses: dorny/paths-filter@v3
+      with:
+        filters: |
+          places:
+            - 'Source/Places/DHI.Services.Places/**'
+          webapi:
+            - 'Source/Places/DHI.Services.Places.WebApi/**'
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+    - name: Restore dependencies
+      run: | 
+        dotnet restore ./Source/Places/DHI.Services.Places.sln -s https://api.nuget.org/v3/index.json 
+        dotnet restore ./Source/Places/DHI.Services.Places.WebApi.sln -s https://api.nuget.org/v3/index.json
+    - name: Build
+      run: | 
+        dotnet build ./Source/Places/DHI.Services.Places.sln --no-restore
+        dotnet build ./Source/Places/DHI.Services.Places.WebApi.sln --no-restore
+    - name: Test
+      run: |
+        dotnet test ./Source/Places/DHI.Services.Places.Test/DHI.Services.Places.Test.csproj --no-build --verbosity normal
+        dotnet test ./Source/Places/DHI.Services.Places.WebApi.Host.Test/DHI.Services.Places.WebApi.Host.Test.csproj --no-build --verbosity normal
+    - name: Pack & Push Places
+      if: |
+        github.ref == 'refs/heads/master' &&
+        steps.filter.outputs.places == 'true'
+      shell: cmd
+      working-directory: Source\Places\DHI.Services.Places\nuget
+      env:
+        NUGET_API_KEY_PUBLISH: ${{ secrets.NUGET_API_KEY_PUBLISH }}
+      run: PackAndPushPublish.bat yes
+    - name: Pack & Push Places.WebApi
+      if: |
+        github.ref == 'refs/heads/master' &&
+        steps.filter.outputs.webapi == 'true'
+      shell: cmd
+      working-directory: Source\Places\DHI.Services.Places.WebApi\nuget
+      env:
+        NUGET_API_KEY_PUBLISH: ${{ secrets.NUGET_API_KEY_PUBLISH }}
+      run: PackAndPushPublish.bat yes

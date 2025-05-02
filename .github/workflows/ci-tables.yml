@@ -1,0 +1,68 @@
+name: ci-tables
+
+on:
+  push:
+    branches:
+      - master 
+      - '*release*'
+      - develop
+    paths:
+      - 'Source/Tables/**'
+  pull_request:
+    branches:
+      - master 
+      - '*release*'
+      - develop
+    paths:
+      - 'Source/Tables/**' 
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 5
+    - name: Detect changed folders
+      id: filter
+      uses: dorny/paths-filter@v3
+      with:
+        filters: |
+          tables:
+            - 'Source/Tables/DHI.Services.Tables/**'
+          webapi:
+            - 'Source/Tables/DHI.Services.Tables.WebApi/**'
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+    - name: Restore dependencies
+      run: | 
+        dotnet restore ./Source/Tables/DHI.Services.Tables.sln -s https://api.nuget.org/v3/index.json 
+        dotnet restore ./Source/Tables/DHI.Services.Tables.WebApi.sln -s https://api.nuget.org/v3/index.json
+    - name: Build
+      run: | 
+        dotnet build ./Source/Tables/DHI.Services.Tables.sln --no-restore
+        dotnet build ./Source/Tables/DHI.Services.Tables.WebApi.sln --no-restore
+    - name: Test
+      run: |
+        dotnet test ./Source/Tables/DHI.Services.Tables.Test/DHI.Services.Tables.Test.csproj --no-build --verbosity normal
+        dotnet test ./Source/Tables/DHI.Services.Tables.WebApi.Host.Test/DHI.Services.Tables.WebApi.Host.Test.csproj --no-build --verbosity normal
+    - name: Pack & Push Tables
+      if: |
+        github.ref == 'refs/heads/master' &&
+        steps.filter.outputs.tables == 'true'
+      shell: cmd
+      working-directory: Source\Tables\DHI.Services.Tables\nuget
+      env:
+        NUGET_API_KEY_PUBLISH: ${{ secrets.NUGET_API_KEY_PUBLISH }}
+      run: PackAndPushPublish.bat yes
+    - name: Pack & Push Tables.WebApi
+      if: |
+        github.ref == 'refs/heads/master' &&
+        steps.filter.outputs.webapi == 'true'
+      shell: cmd
+      working-directory: Source\Tables\DHI.Services.Tables.WebApi\nuget
+      env:
+        NUGET_API_KEY_PUBLISH: ${{ secrets.NUGET_API_KEY_PUBLISH }}
+      run: PackAndPushPublish.bat yes

@@ -1,0 +1,9 @@
+{
+    "MyFirstCodeWorkflow":{
+        "Id": "MyFirstCodeWorkflow",
+        "HostGroup": "xaml",
+        "AssemblyName":"DHI.Workflow.Engine.Example, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+        "TypeName":"DHI.Workflow.Engine.Example.MyFirstCodeWorkflow"
+    }
+   
+}

@@ -1,0 +1,68 @@
+name: ci-models
+
+on:
+  push:
+    branches:
+      - master 
+      - '*release*'
+      - develop
+    paths:
+      - 'Source/Models/**'
+  pull_request:
+    branches:
+      - master 
+      - '*release*'
+      - develop
+    paths:
+      - 'Source/Models/**' 
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 5
+    - name: Detect changed folders
+      id: filter
+      uses: dorny/paths-filter@v3
+      with:
+        filters: |
+          models:
+            - 'Source/Models/DHI.Services.Models/**'
+          webapi:
+            - 'Source/Models/DHI.Services.Models.WebApi/**'
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+    - name: Restore dependencies
+      run: | 
+        dotnet restore ./Source/Models/DHI.Services.Models.sln -s https://api.nuget.org/v3/index.json 
+        dotnet restore ./Source/Models/DHI.Services.Models.WebApi.sln -s https://api.nuget.org/v3/index.json
+    - name: Build
+      run: | 
+        dotnet build ./Source/Models/DHI.Services.Models.sln --no-restore
+        dotnet build ./Source/Models/DHI.Services.Models.WebApi.sln --no-restore
+    - name: Test
+      run: |
+        dotnet test ./Source/Models/DHI.Services.Models.Test/DHI.Services.Models.Test.csproj --no-build --verbosity normal
+        dotnet test ./Source/Models/DHI.Services.Models.WebApi.Host.Test/DHI.Services.Models.WebApi.Host.Test.csproj --no-build --verbosity normal
+    - name: Pack & Push Models
+      if: |
+        github.ref == 'refs/heads/master' &&
+        steps.filter.outputs.models == 'true'
+      shell: cmd
+      working-directory: Source\Models\DHI.Services.Models\nuget
+      env:
+        NUGET_API_KEY_PUBLISH: ${{ secrets.NUGET_API_KEY_PUBLISH }}
+      run: PackAndPushPublish.bat yes
+    - name: Pack & Push Models.WebApi
+      if: |
+        github.ref == 'refs/heads/master' &&
+        steps.filter.outputs.webapi == 'true'
+      shell: cmd
+      working-directory: Source\Models\DHI.Services.Models.WebApi\nuget
+      env:
+        NUGET_API_KEY_PUBLISH: ${{ secrets.NUGET_API_KEY_PUBLISH }}
+      run: PackAndPushPublish.bat yes

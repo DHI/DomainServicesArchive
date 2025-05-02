@@ -1,0 +1,5 @@
+{
+	"DateTimeAsUnixTime": true,
+	"DateTimeQuery": "$.data.forecastGraphs.swell-height.dataConfig.series.groups[*].points[*].x",
+	"ValueQuery": "$.data.forecastGraphs.swell-height.dataConfig.series.groups[*].points[*].y"
+}

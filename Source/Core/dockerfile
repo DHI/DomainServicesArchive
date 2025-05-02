@@ -1,0 +1,16 @@
+FROM microsoft/iis:10.0.14393.206
+
+SHELL ["powershell", "-command"]
+
+RUN Install-WindowsFeature NET-Framework-45-ASPNET ; \  
+    Install-WindowsFeature Web-Asp-Net45;
+
+RUN Remove-WebSite -Name 'Default Web Site'; \
+    mkdir C:\api; \
+    New-Website -Name 'api' -Port 80 \  
+    -PhysicalPath 'C:\api' -ApplicationPool '.NET v4.5'
+
+EXPOSE 80  
+
+COPY DHI.Services.Web c:\api
+

@@ -1,0 +1,49 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <OutputType>Library</OutputType>
+    <IsPackable>true</IsPackable>
+    <IncludeOpenAPIAnalyzers>true</IncludeOpenAPIAnalyzers>
+    <DefaultItemExcludes>$(DefaultItemExcludes);nuget\*.log</DefaultItemExcludes>
+    <NoWarn>1701;1702;1591</NoWarn>
+    <PackageId>DHI.Services.Meshes.WebApi</PackageId>
+    <Version>3.0.0-rc1</Version>
+    <PackageReleaseNotes>GetContoursInRange endpoint added.</PackageReleaseNotes>
+    <Company>DHI</Company>
+    <Authors>dhigroup</Authors>
+    <PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/DHI/DomainServices/blob/master/README.md</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/DHI/DomainServices</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <Description>Web API for mesh services.</Description>
+    <Product>DHI Domain Services</Product>
+    <PackageIcon>ds-icon-64.png</PackageIcon>
+    <PackageTags></PackageTags>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <LangVersion>latest</LangVersion>
+    <PackageReadmeFile>readme.md</PackageReadmeFile>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DHI.Services.Meshes" Version="5.1.0-rc1" />
+    <PackageReference Include="DHI.Services.WebApiCore" Version="6.0.0" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="nuget\ds-icon-64.png" Pack="true" PackagePath="" />
+    <None Include="nuget\readme.md" Pack="true" PackagePath="\" />
+  </ItemGroup>  
+
+</Project>

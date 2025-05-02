@@ -1,0 +1,52 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <OutputType>Library</OutputType>
+    <IsPackable>true</IsPackable>
+    <IncludeOpenAPIAnalyzers>true</IncludeOpenAPIAnalyzers>
+    <DefaultItemExcludes>$(DefaultItemExcludes);nuget\*.nupkg;nuget\*.log</DefaultItemExcludes>
+    <NoWarn>1701;1702;1591</NoWarn>
+    <PackageId>DHI.Services.Rasters.WebApi</PackageId>
+    <Version>4.0.0</Version>
+    <PackageReleaseNotes>Refactor from Newtonsoft.Json to System.Text.Json</PackageReleaseNotes>
+    <Company>DHI</Company>
+    <Authors>dhigroup</Authors>
+    <PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/DHI/DomainServices/blob/master/README.md</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/DHI/DomainServices</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <Description>Web API for raster, radar image and zone services.</Description>
+    <Product>DHI Domain Services</Product>
+    <PackageTags>Radar images, zones</PackageTags>
+    <PackageIcon>ds-icon-64.png</PackageIcon>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+	<PackageReadmeFile>readme.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DHI.Services.Rasters" Version="5.2.1" />
+    <PackageReference Include="DHI.Services.WebApiCore" Version="7.0.0" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+	  <None Include="nuget\readme.md">
+		  <Pack>true</Pack>
+		  <PackagePath></PackagePath>
+	  </None>
+    <None Include="nuget\ds-icon-64.png" Pack="true" PackagePath="" />
+  </ItemGroup>
+
+</Project>
+

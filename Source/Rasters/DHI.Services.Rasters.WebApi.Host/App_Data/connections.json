@@ -1,0 +1,17 @@
+﻿{
+  "$type": "System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[DHI.Services.IConnection, DHI.Services]], mscorlib",
+  "aarhus-radar": {
+    "$type": "DHI.Services.Rasters.Radar.RadarImageServiceConnection`1[[DHI.Services.Rasters.Radar.X00.RadarImage, DHI.Services.Rasters]], DHI.Services.Rasters",
+    "ConnectionString": "token=dcradargw;{15C2A90C-C3DA-11E2-B891-083E8EE1ED34};11093400 LAWR-Radar;Master;AEorHVne42mrRUi;ADwdjCq2wyG8DfDtossxfwKdcL5G73FLVGkU2XSrXnXcc9N8DFKhPVSUZCiYazIpDZzaQqn4oz/AyufHDt/ED4xlSQel+m;494699537;timeSeriesName=AROS",
+    "RepositoryType": "DHI.Services.Provider.DIMS.RadarImageRepository`1[[DHI.Services.Rasters.Radar.X00.RadarImage, DHI.Services.Rasters]], DHI.Services.Provider.DIMS",
+    "Name": "DIMS-CORE X00 radar images connection for Aarhus weather radar",
+    "Id": "aarhus-radar"
+  },
+  "ascii": {
+    "$type": "DHI.Services.Rasters.WebApi.DelimitedAsciiRadarImageServiceConnection, DHI.Services.Rasters.WebApi",
+    "ConnectionString": "[AppData]RadarImages;PM_{datetimeFormat}.txt;yyyyMMddHH_$$$",
+    "RepositoryType": "DHI.Services.Rasters.Radar.DELIMITEDASCII.DelimitedAsciiRepository, DHI.Services.Rasters",
+    "Name": "Delimited ASCII radar images connection",
+    "Id": "ascii"
+  }
+}

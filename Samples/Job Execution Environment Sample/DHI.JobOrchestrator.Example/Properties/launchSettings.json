@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "DHI.JobOrchestrator.Example": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "https://localhost:5001"
+    }
+  }
+}

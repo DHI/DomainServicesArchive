@@ -1,0 +1,1 @@
+﻿v 5.0.0 - replaced Newtonsoft.Json with System.Text.Json

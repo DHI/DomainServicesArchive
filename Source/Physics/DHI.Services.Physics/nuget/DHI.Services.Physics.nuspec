@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+  <metadata minClientVersion="4.0">
+    <id>DHI.Services.Physics</id>
+    <version>$version$</version>
+    <title>Domain Services - Physics</title>
+    <authors>DHI</authors>
+    <owners>DHI</owners>
+    <iconUrl>http://www.mikepoweredbydhi.com/upload/nuget-icons/domain-services-icon32x32.png</iconUrl>
+    <projectUrl>https://github.com/DHI/DomainServices/blob/master/README.md</projectUrl>
+    <repository type="git" url="https://github.com/DHI/DomainServices" />
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Services for handling physical quantities and units. Provides a predefined collection of quantities and units, but also basic classes that can be used to build custom quantity- and unit-systems</description>
+    <summary>Services for handling physical quantities and units.</summary>
+    <dependencies>
+      <dependency id="DHI.Physics" version="3.0.2" />
+      <dependency id="DHI.Services" version="15.0.0" />
+    </dependencies>
+    <references>
+      <reference file="DHI.Services.Physics.dll" />
+    </references>
+    <releaseNotes></releaseNotes>
+  </metadata>
+  <files>
+    <file src="..\bin\$configuration$\netstandard2.0\DHI.Services.Physics.dll" target="lib\netstandard2.0" />
+    <file src="..\bin\$configuration$\net472\DHI.Services.Physics.dll" target="lib\net472" />
+  </files>
+</package>

@@ -1,0 +1,50 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <DefaultItemExcludes>$(DefaultItemExcludes);nuget\*.log</DefaultItemExcludes>
+    <NoWarn>1591;CA2235</NoWarn>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <PackageId>DHI.Services.Meshes</PackageId>
+    <Version>6.2.0</Version>
+    <Company>DHI</Company>
+    <Authors>dhigroup</Authors>
+    <PackageReleaseNotes>Updated DHI.Servies.GIS to v12.1.0</PackageReleaseNotes>
+    <PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/DHI/DomainServices/blob/master/README.md</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/DHI/DomainServices</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <Description>Spatial (mesh) time series services.</Description>
+    <Product>DHI Domain Services</Product>
+    <PackageTags></PackageTags>
+    <PackageIcon>ds-icon-64.png</PackageIcon>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <PackageReadmeFile>readme.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DHI.Services" Version="15.1.0" />
+    <PackageReference Include="DHI.Services.GIS" Version="12.1.0" />
+    <PackageReference Include="DHI.Services.TimeSeries" Version="6.0.2" />
+    <PackageReference Include="DHI.Spatial" Version="2.6.2" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="NetTopologySuite" Version="2.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="nuget\ds-icon-64.png" Pack="true" PackagePath="" />
+    <None Include="nuget\readme.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+</Project>

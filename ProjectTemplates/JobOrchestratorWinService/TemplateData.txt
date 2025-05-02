@@ -1,0 +1,17 @@
+  <TemplateData>
+    <Name>DHI Domain Services Job Orchestrator</Name>
+    <Description>Project template for a DHI Domain Services job orchestrator hosted as a Windows Service.</Description>
+    <ProjectType>CSharp</ProjectType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>JobOrchestratorWinService</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <CreateInPlace>true</CreateInPlace>
+    <Icon>__TemplateIcon.png</Icon>
+    <LanguageTag>C#</LanguageTag>
+    <PlatformTag>Windows</PlatformTag>
+    <ProjectTypeTag>Windows Service</ProjectTypeTag>
+    <ProjectTypeTag>DHI</ProjectTypeTag>
+  </TemplateData>

@@ -1,0 +1,49 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFrameworks>netstandard2.0;net472;net6.0</TargetFrameworks>
+        <DefaultItemExcludes>$(DefaultItemExcludes);nuget\*.nupkg;nuget\*.log</DefaultItemExcludes>
+        <NoWarn>1701;1702;1591</NoWarn>
+        <PackageId>DHI.Services.Jobs</PackageId>
+        <Version>15.1.0</Version>
+        <PackageReleaseNotes>Updated DHI.Services to v15.1.0</PackageReleaseNotes>
+        <Company>DHI</Company>
+        <Authors>dhigroup</Authors>
+        <PackageReleaseNotes>Replace DHI ILogger with MSoft ILogger</PackageReleaseNotes>
+        <PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/DHI/DomainServices/blob/master/README.md</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/DHI/DomainServices</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <Description>Library of job, scenario and workflow services.</Description>
+        <Product>DHI Domain Services</Product>
+        <PackageTags>Jobs, Scenarios, Workflows, Hosts</PackageTags>
+        <PackageIcon>ds-icon-64.png</PackageIcon>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+        <GenerateDocumentationFile>True</GenerateDocumentationFile>
+        <LangVersion>latest</LangVersion>
+        <PackageReadmeFile>readme.md</PackageReadmeFile>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+        <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Argon" Version="0.5.2" />
+        <PackageReference Include="Argon.JsonPath" Version="0.5.2" />
+        <PackageReference Include="DHI.Services" Version="15.1.0" />
+        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="System.ComponentModel.Composition" Version="5.0.0" />
+        <PackageReference Include="System.Net.Http.Json" Version="7.0.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="nuget\ds-icon-64.png" Pack="true" PackagePath="" />
+        <None Include="nuget\readme.md" Pack="true" PackagePath="\" />
+    </ItemGroup>
+
+</Project>

@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DHI.Services.TimeSeries.WebApi", "DHI.Services.TimeSeries.WebApi\DHI.Services.TimeSeries.WebApi.csproj", "{E80B37F7-8ECA-4A4D-B0CD-53B005DCF50C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DHI.Services.TimeSeries.WebApi.Host.Test", "DHI.Services.TimeSeries.WebApi.Host.Test\DHI.Services.TimeSeries.WebApi.Host.Test.csproj", "{2B44CC6D-CA0C-4BF5-9169-49363FACB9DC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DHI.Services.TimeSeries.WebApi.Host", "DHI.Services.TimeSeries.WebApi.Host\DHI.Services.TimeSeries.WebApi.Host.csproj", "{558A3F55-EACA-4063-9692-44478E5D148C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E80B37F7-8ECA-4A4D-B0CD-53B005DCF50C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E80B37F7-8ECA-4A4D-B0CD-53B005DCF50C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E80B37F7-8ECA-4A4D-B0CD-53B005DCF50C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E80B37F7-8ECA-4A4D-B0CD-53B005DCF50C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B44CC6D-CA0C-4BF5-9169-49363FACB9DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B44CC6D-CA0C-4BF5-9169-49363FACB9DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B44CC6D-CA0C-4BF5-9169-49363FACB9DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B44CC6D-CA0C-4BF5-9169-49363FACB9DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{558A3F55-EACA-4063-9692-44478E5D148C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{558A3F55-EACA-4063-9692-44478E5D148C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{558A3F55-EACA-4063-9692-44478E5D148C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{558A3F55-EACA-4063-9692-44478E5D148C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B9E10BED-0BCE-45C5-BC61-6D98E93CF276}
+	EndGlobalSection
+EndGlobal

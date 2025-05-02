@@ -1,0 +1,24 @@
+﻿{
+  "$type": "System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[DHI.Services.IConnection, DHI.Services]], mscorlib",
+  "mc-ws1-sps": {
+    "$type": "DHI.Services.Spreadsheets.WebApi.SpreadsheetServiceConnection, DHI.Services.Spreadsheets.WebApi",
+    "ConnectionString": "database=mc2014.2",
+    "RepositoryType": "DHI.Services.Provider.MCLite.SpreadsheetRepository, DHI.Services.Provider.MCLite",
+    "Name": "Local MC spreadsheet connection to workspace1",
+    "Id": "mc-ws1-sps"
+  },
+  "xlsx": {
+    "$type": "DHI.Services.Spreadsheets.WebApi.SpreadsheetServiceConnection, DHI.Services.Spreadsheets.WebApi",
+    "ConnectionString": "[AppData]",
+    "RepositoryType": "DHI.Services.Provider.OpenXML.SpreadsheetRepository, DHI.Services.Provider.OpenXML",
+    "Name": "spreadsheet connection to Microsoft Excel worksheet repository",
+    "Id": "xlsx"
+  },
+  "mclite-ws1-sps": {
+    "$type": "DHI.Services.Spreadsheets.WebApi.SpreadsheetServiceConnection, DHI.Services.Spreadsheets.WebApi",
+    "ConnectionString": "database=[AppData]MCSQLiteTest.sqlite;dbflavour=SQLite",
+    "RepositoryType": "DHI.Services.Provider.MCLite.SpreadsheetRepository, DHI.Services.Provider.MCLite",
+    "Name": "Local MC Lite spreadsheet connection to workspace1",
+    "Id": "mclite-ws1-sps"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "profiles": {
+    "Docker Compose": {
+      "commandName": "DockerCompose",
+      "commandVersion": "1.0",
+      "composeLaunchAction": "LaunchBrowser",
+      "composeLaunchServiceName": "dhi.joborchestrator.example",
+      "composeLaunchUrl": "http://localhost:32405/",
+      "serviceActions": {
+        "adminer": "StartWithoutDebugging",
+        "db": "StartWithoutDebugging",
+        "seq": "StartWithoutDebugging"
+      }
+    }
+  }
+}

@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DHI.Services.Models.Scenario">
+    <Position X="1.5" Y="0.5" Width="2.25" />
+    <Members>
+      <Method Name="Scenario" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAgAgAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Scenario.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DHI.Services.Models.ScenarioService">
+    <Position X="1" Y="2.75" Width="2.75" />
+    <Members>
+      <Field Name="_worker" Hidden="true" />
+      <Method Name="ScenarioService" Hidden="true" />
+      <Method Name="ValidateScenario" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAYAAACAACAAAoQAIAAAAgCAAAAAAAAAAABAABAAgAA=</HashCode>
+      <FileName>ScenarioService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DHI.Services.Models.ScenarioRepository">
+    <Position X="1.25" Y="6.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ScenarioRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DHI.Services.Models.Simulation">
+    <Position X="10.75" Y="4" Width="1.75" />
+    <Members>
+      <Method Name="Simulation" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>CAAAAAAEQAAAAAAAAAQAAAgAAAIAAAAAAAgAAACAAAA=</HashCode>
+      <FileName>Simulation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DHI.Services.Models.ModelDataReaderService">
+    <Position X="4.75" Y="1.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>ModelDataReaderService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DHI.Services.Models.ModelDataReader&lt;TModelDataReader&gt;" Collapsed="true">
+    <Position X="4.75" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAACAAAAAAAAAgAAAAAACDgABAAAAAAAQAA=</HashCode>
+      <FileName>ModelDataReader.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DHI.Services.Models.ModelDataReaderRepository">
+    <Position X="5" Y="3.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ModelDataReaderRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="DHI.Services.Models.IScenarioWorker">
+    <Position X="8.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IScenarioWorker.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DHI.Services.Models.IModelDataReader">
+    <Position X="8.25" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAACAAAAAAAAAgAAAAAACDgABAAAAAAAAAA=</HashCode>
+      <FileName>IModelDataReader.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DHI.Services.Models.IModelInputReader">
+    <Position X="10.75" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAACAAAAAAAAAAAAAAAAACgAAAAAAAAAAAA=</HashCode>
+      <FileName>IModelInputReader.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DHI.Services.Models.IModelOutputReader">
+    <Position X="10.75" Y="2.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAgAAAAAACAAABAAAAAAAAAA=</HashCode>
+      <FileName>IModelOutputReader.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

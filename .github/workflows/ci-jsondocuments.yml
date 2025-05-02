@@ -1,0 +1,69 @@
+name: ci-jsondocuments
+
+on:
+  push:
+    branches:
+      - master
+      - '*release*'
+      - develop
+    paths:
+      - 'Source/JsonDocuments/**'
+  pull_request:
+    branches:
+      - master
+      - '*release*'
+      - develop
+    paths:
+      - 'Source/JsonDocuments/**' 
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 5
+    - name: Detect changed folders
+      id: filter
+      uses: dorny/paths-filter@v3
+      with:
+        filters: |
+          jsondocuments:
+            - 'Source/JsonDocuments/DHI.Services.JsonDocuments/**'
+          webapi:
+            - 'Source/JsonDocuments/DHI.Services.JsonDocuments.WebApi/**'
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+    - name: Restore dependencies
+      run: | 
+        dotnet restore ./Source/JsonDocuments/DHI.Services.JsonDocuments.sln -s https://api.nuget.org/v3/index.json 
+        dotnet restore ./Source/JsonDocuments/DHI.Services.JsonDocuments.WebApi.sln -s https://api.nuget.org/v3/index.json
+    - name: Build
+      run: | 
+        dotnet build ./Source/JsonDocuments/DHI.Services.JsonDocuments.sln --no-restore
+        dotnet build ./Source/JsonDocuments/DHI.Services.JsonDocuments.WebApi.sln --no-restore
+    - name: Test
+      run: |
+        dotnet test ./Source/JsonDocuments/DHI.Services.JsonDocuments.Test/DHI.Services.JsonDocuments.Test.csproj --no-build --verbosity normal
+        dotnet test ./Source/JsonDocuments/DHI.Services.JsonDocuments.WebApi.Test/DHI.Services.JsonDocuments.WebApi.Test.csproj --no-build --verbosity normal
+        dotnet test ./Source/JsonDocuments/DHI.Services.JsonDocuments.WebApi.Host.Test/DHI.Services.JsonDocuments.WebApi.Host.Test.csproj --no-build --verbosity normal
+    - name: Pack & Push JsonDocuments
+      if: |
+        github.ref == 'refs/heads/master' &&
+        steps.filter.outputs.jsondocuments == 'true'
+      shell: cmd
+      working-directory: Source\JsonDocuments\DHI.Services.JsonDocuments\nuget
+      env:
+        NUGET_API_KEY_PUBLISH: ${{ secrets.NUGET_API_KEY_PUBLISH }}
+      run: PackAndPushPublish.bat yes
+    - name: Pack & Push JsonDocuments.WebApi
+      if: |
+        github.ref == 'refs/heads/master' &&
+        steps.filter.outputs.webapi == 'true'
+      shell: cmd
+      working-directory: Source\JsonDocuments\DHI.Services.JsonDocuments.WebApi\nuget
+      env:
+        NUGET_API_KEY_PUBLISH: ${{ secrets.NUGET_API_KEY_PUBLISH }}
+      run: PackAndPushPublish.bat yes

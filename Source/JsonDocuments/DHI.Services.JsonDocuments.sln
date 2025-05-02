@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DHI.Services.JsonDocuments", "DHI.Services.JsonDocuments\DHI.Services.JsonDocuments.csproj", "{418B7924-C87D-4408-8A29-559C9C1CBBCE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DHI.Services.JsonDocuments.Test", "DHI.Services.JsonDocuments.Test\DHI.Services.JsonDocuments.Test.csproj", "{BEA87658-F7F7-44E8-A8D1-5A761308F99D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{418B7924-C87D-4408-8A29-559C9C1CBBCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{418B7924-C87D-4408-8A29-559C9C1CBBCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{418B7924-C87D-4408-8A29-559C9C1CBBCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{418B7924-C87D-4408-8A29-559C9C1CBBCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEA87658-F7F7-44E8-A8D1-5A761308F99D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEA87658-F7F7-44E8-A8D1-5A761308F99D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEA87658-F7F7-44E8-A8D1-5A761308F99D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEA87658-F7F7-44E8-A8D1-5A761308F99D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9E43FED9-90A5-4396-8AB3-0F98399148BF}
+	EndGlobalSection
+EndGlobal

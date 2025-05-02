@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DHI.Services.Places.Place&lt;TCollectionId&gt;">
+    <Position X="1" Y="2.25" Width="1.75" />
+    <Members>
+      <Method Name="Place" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Place.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="FeatureId" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Indicators" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="DHI.Services.Places.FeatureId&lt;TCollectionId&gt;">
+    <Position X="4.25" Y="2.25" Width="2" />
+    <Members>
+      <Method Name="Equals" Hidden="true" />
+      <Method Name="FeatureId" Hidden="true" />
+      <Method Name="GetHashCode" Hidden="true" />
+      <Method Name="operator !=" Hidden="true" />
+      <Method Name="operator ==" Hidden="true" />
+      <Method Name="ToString" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAEgAAAAAAAAAEAAIAAAAAAAAAAQiA=</HashCode>
+      <FileName>FeatureId.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DHI.Services.Places.Indicator">
+    <Position X="3.25" Y="4.5" Width="2.25" />
+    <Members>
+      <Method Name="Indicator" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAgAIAAAgCAAAAAAAAAAAIAAACAAAAAA=</HashCode>
+      <FileName>Indicator.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="DataSource" />
+      <Property Name="TimeInterval" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DHI.Services.Places.TimeInterval">
+    <Position X="9" Y="5" Width="1.5" />
+    <Members>
+      <Method Name="CreateAll" Hidden="true" />
+      <Method Name="CreateFixed" Hidden="true" />
+      <Method Name="CreateRelativeToDateTime" Hidden="true" />
+      <Method Name="CreateRelativeToNow" Hidden="true" />
+      <Method Name="TimeInterval" Hidden="true" />
+      <Method Name="ToPeriod" Hidden="true" />
+      <Method Name="ToString" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAICAAACACAABAAGAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>TimeInterval.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Type" />
+    </ShowAsAssociation>
+  </Class>
+  <Struct Name="DHI.Services.Places.DataSource">
+    <Position X="7.5" Y="3" Width="1.5" />
+    <Members>
+      <Method Name="DataSource" Hidden="true" />
+      <Method Name="Equals" Hidden="true" />
+      <Method Name="GetHashCode" Hidden="true" />
+      <Method Name="operator !=" Hidden="true" />
+      <Method Name="operator ==" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAggAAAAAAAAAAAAIAAAQAAAAAAAiA=</HashCode>
+      <FileName>DataSource.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Type" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Struct>
+  <Enum Name="DHI.Services.Places.TimeIntervalType">
+    <Position X="11.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAgAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAABAAAA=</HashCode>
+      <FileName>TimeIntervalType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DHI.Services.Places.DataSourceType">
+    <Position X="10.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAACAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataSourceType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

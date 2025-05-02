@@ -1,0 +1,64 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net472;net6.0</TargetFrameworks>
+    <DefaultItemExcludes>$(DefaultItemExcludes);nuget\*.nupkg;nuget\*.log</DefaultItemExcludes>
+    <NoWarn>1701;1702;1591</NoWarn>
+    <PackageId>DHI.Services.Jobs.Automations</PackageId>
+    <Version>3.0.0</Version>
+    <PackageReleaseNotes>To change from MySql.Data to MySqlConnector so there won't be licensing issue</PackageReleaseNotes>
+    <Company>DHI</Company>
+    <Authors>dhigroup</Authors>
+    <PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/DHI/DomainServices/blob/master/README.md</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/DHI/DomainServices</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <Description>Library of job automations.</Description>
+    <Product>DHI Domain Services</Product>
+    <PackageTags>Jobs, Automations</PackageTags>
+    <PackageIcon>ds-icon-64.png</PackageIcon>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <LangVersion>latest</LangVersion>
+    <PackageReadmeFile>readme.md</PackageReadmeFile>
+    <UserSecretsId>cf6852c1-1e98-4c3c-a7ed-3468d7afa194</UserSecretsId>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Dapper" Version="2.1.28" />
+        <PackageReference Include="Argon" Version="0.5.2" />
+        <PackageReference Include="Argon.JsonPath" Version="0.5.2" />
+        <PackageReference Include="DHI.Services" Version="15.1.0" />
+        <PackageReference Include="DHI.Services.Jobs" Version="15.0.0" />
+        <PackageReference Include="DHI.Services.Scalars" Version="5.0.0" />
+        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="MySqlConnector" Version="2.4.0" />
+        <PackageReference Include="Npgsql" Version="8.0.5" />
+        <PackageReference Include="System.ComponentModel.Composition" Version="5.0.0" />
+        <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.1" />
+        <PackageReference Include="Microsoft.Data.Sqlite" Version="8.0.1" />
+        <PackageReference Include="System.Net.Http.Json" Version="7.0.1" />
+
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="nuget\ds-icon-64.png" Pack="true" PackagePath="" />
+    <None Include="nuget\readme.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
+      <_Parameter1>$(AssemblyName).Test</_Parameter1>
+    </AssemblyAttribute>
+  </ItemGroup>
+
+</Project>
