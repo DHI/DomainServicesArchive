@@ -1,0 +1,15 @@
+{
+  "profiles": {
+    "DHI.Workflow.Host.Template": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:55836;http://localhost:55837"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

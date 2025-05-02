@@ -1,0 +1,100 @@
+﻿{
+  "$type": "System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[DHI.Services.IConnection, DHI.Services]], mscorlib",
+  "mc-ws1": {
+    "$type": "DHI.Services.GIS.WebApi.GroupedGisServiceConnection, DHI.Services.GIS.WebApi",
+    "ConnectionString": "database=mc2014.2",
+    "RepositoryType": "DHI.Services.Provider.MCLite.FeatureRepository, DHI.Services.Provider.MCLite",
+    "Name": "Local MC gis connection to workspace1",
+    "Id": "mc-ws1"
+  },
+  "mc-groupedmap": {
+    "$type": "DHI.Services.GIS.WebApi.GroupedMapServiceConnection, DHI.Services.GIS.WebApi",
+    "MapSourceConnectionString": "database=[AppData]MCSQLiteTest.sqlite;dbflavour=SQLite",
+    "MapSourceType": "DHI.Services.Provider.MCLite.GroupedMapSource, DHI.Services.Provider.MCLite",
+    "Name": "Local MCLite gis connection to workspace1",
+    "Id": "mc-groupedmap"
+  },
+  "shape": {
+    "$type": "DHI.Services.GIS.WebApi.GisServiceConnection, DHI.Services.GIS.WebApi",
+    "ConnectionString": "[AppData]shp",
+    "RepositoryType": "DHI.Services.Provider.ShapeFile.FeatureRepository, DHI.Services.Provider.ShapeFile",
+    "Name": "Shape file gis connection",
+    "Id": "shape"
+  },
+  "res1d": {
+    "$type": "DHI.Services.GIS.WebApi.GroupedGisServiceConnection, DHI.Services.GIS.WebApi",
+    "ConnectionString": "[AppData]res1d",
+    "RepositoryType": "DHI.Services.Provider.MIKE.Res1DGroupedGisRepository, DHI.Services.Provider.MIKE",
+    "Name": "Res1d gis connection",
+    "Id": "res1d"
+  },
+  "dfs2-map": {
+    "$type": "DHI.Services.GIS.WebApi.MapServiceConnection, DHI.Services.GIS.WebApi",
+    "MapSourceConnectionString": "[AppData]dfs2\\R20141001.dfs2",
+    "MapSourceType": "DHI.Services.Provider.MIKECore.Dfs2MapSource, DHI.Services.Provider.MIKECore",
+    "MapStyleConnectionString": "[AppData]styles.json",
+    "MapStyleRepositoryType": "DHI.Services.GIS.Maps.MapStyleRepository, DHI.Services.GIS",
+    "Name": "Dfs2 map connection",
+    "Id": "dfs2-map"
+  },
+  "dfs2-map-cached": {
+    "$type": "DHI.Services.GIS.WebApi.CachedMapServiceConnection, DHI.Services.GIS.WebApi",
+    "MapSourceConnectionString": "[AppData]dfs2\\R20141001.dfs2",
+    "MapSourceProperties": {
+      "$type": "DHI.Services.Parameters, DHI.Services",
+      "NameInfo": "Some info",
+      "KeywordInfo": "keyword1,keyword2",
+      "CachedImageWidth": 100,
+      "CacheExpirationInMinutes": 2
+    },
+    "MapSourceType": "DHI.Services.Provider.MIKECore.Dfs2MapSource, DHI.Services.Provider.MIKECore",
+    "MapStyleConnectionString": "[AppData]styles.json",
+    "MapStyleRepositoryType": "DHI.Services.GIS.Maps.MapStyleRepository, DHI.Services.GIS",
+    "Name": "Cached Dfs2 map service connection",
+    "Id": "dfs2-map-cached"
+  },
+  "dfsu-map": {
+    "$type": "DHI.Services.GIS.WebApi.MapServiceConnection, DHI.Services.GIS.WebApi",
+    "MapSourceConnectionString": "[AppData]",
+    "MapSourceType": "DHI.Services.Provider.MIKECore.DfsuMapSource, DHI.Services.Provider.MIKECore",
+    "MapStyleConnectionString": "[AppData]styles.json",
+    "MapStyleRepositoryType": "DHI.Services.GIS.Maps.MapStyleRepository, DHI.Services.GIS",
+    "Name": "MIKE dfsu map service connection",
+    "Id": "dfsu-map"
+  },
+  "dims": {
+    "$type": "DHI.Services.GIS.WebApi.GisServiceConnection, DHI.Services.GIS.WebApi",
+    "ConnectionString": "dimstest2016.dhi.dk;{BB729FC3-0135-11E5-BFFA-24FD526B9663};11818178 Brede Å;Master;AEorHVne42mrRUi;ADwdjCq2wyG8DkuRauN4Sqr1wMvJ3mWTPup39litCHE/dEOjiJIK89AQ3qEY/EkG2UGCtkCl+GC+aA22AX4bRH3WthyQ7jrldXrp3fFJ5+RqKHK;1453633290",
+    "RepositoryType": "DHI.Services.Provider.DIMS.FeatureRepository, DHI.Services.Provider.DIMS",
+    "Name": "DIMS gis connection",
+    "Id": "dims"
+  },
+  "mo": {
+    "$type": "DHI.Services.GIS.WebApi.GisServiceConnection, DHI.Services.GIS.WebApi",
+    "ConnectionString": "database=v33;configuration=Sava5",
+    "RepositoryType": "DHI.Services.Provider.MC.Operations.FeatureCollectionRepository, DHI.Services.Provider.MC.Operations",
+    "Name": "MIKE OPERATIONS gis connection",
+    "Id": "mo"
+  },
+  "mclite": {
+    "$type": "DHI.Services.GIS.WebApi.GroupedUpdatableGisServiceConnection, DHI.Services.GIS.WebApi",
+    "ConnectionString": "database=[AppData]MCSQLiteTest.sqlite;dbflavour=SQLite",
+    "RepositoryType": "DHI.Services.Provider.MCLite.FeatureRepository, DHI.Services.Provider.MCLite",
+    "Name": "Local MC Lite gis connection to workspace1",
+    "Id": "mclite"
+  },
+  "groupedmap-mclite": {
+    "$type": "DHI.Services.GIS.WebApi.GroupedMapServiceConnection, DHI.Services.GIS.WebApi",
+    "MapSourceConnectionString": "database=[AppData]MCSQLiteTest.sqlite;dbflavour=SQLite",
+    "MapSourceType": "DHI.Services.Provider.MCLite.GroupedMapSourceRepository, DHI.Services.Provider.MCLite",
+    "Name": "Local MCLite gis connection to workspace1",
+    "Id": "groupedmap-mclite"
+  },
+  "azure-gis": {
+    "$type": "DHI.Services.GIS.WebApi.UpdatableGisServiceConnection, DHI.Services.GIS.WebApi",
+    "ConnectionString": "Server=mesh-geometry.postgres.database.azure.com;Port=5432;Database=geofeaturetesting;User Id=postgre@mesh-geometry;Password = Aaa123456;|feature_dataset|workspace1",
+    "RepositoryType": "DHI.Services.Provider.PostgreSQL.GisRepository, DHI.Services.Provider.PostgreSQL",
+    "Name": "Feature entity service connection",
+    "Id": "azure-gis"
+  }
+}

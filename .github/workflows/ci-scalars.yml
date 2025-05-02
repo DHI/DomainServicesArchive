@@ -1,0 +1,69 @@
+name: ci-scalars
+
+on:
+  push:
+    branches:
+      - master 
+      - '*release*'
+      - develop
+    paths:
+      - 'Source/Scalars/**'
+  pull_request:
+    branches:
+      - master 
+      - '*release*'
+      - develop
+    paths:
+      - 'Source/Scalars/**' 
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 5
+    - name: Detect changed folders
+      id: filter
+      uses: dorny/paths-filter@v3
+      with:
+        filters: |
+          scalars:
+            - 'Source/Scalars/DHI.Services.Scalars/**'
+          webapi:
+            - 'Source/Scalars/DHI.Services.Scalars.WebApi/**'
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+    - name: Restore dependencies
+      run: | 
+        dotnet restore ./Source/Scalars/DHI.Services.Scalars.sln -s https://api.nuget.org/v3/index.json 
+        dotnet restore ./Source/Scalars/DHI.Services.Scalars.WebApi.sln -s https://api.nuget.org/v3/index.json
+    - name: Build
+      run: | 
+        dotnet build ./Source/Scalars/DHI.Services.Scalars.sln --no-restore
+        dotnet build ./Source/Scalars/DHI.Services.Scalars.WebApi.sln --no-restore
+    - name: Test
+      run: |
+        dotnet test ./Source/Scalars/DHI.Services.Scalars.Test/DHI.Services.Scalars.Test.csproj --no-build --verbosity normal
+        dotnet test ./Source/Scalars/DHI.Services.Scalars.WebApi.Test/DHI.Services.Scalars.WebApi.Test.csproj --no-build --verbosity normal
+        dotnet test ./Source/Scalars/DHI.Services.Scalars.WebApi.Host.Test/DHI.Services.Scalars.WebApi.Host.Test.csproj --no-build --verbosity normal
+    - name: Pack & Push Scalars
+      if: |
+        github.ref == 'refs/heads/master' &&
+        steps.filter.outputs.scalars == 'true'
+      shell: cmd
+      working-directory: Source\Scalars\DHI.Services.Scalars\nuget
+      env:
+        NUGET_API_KEY_PUBLISH: ${{ secrets.NUGET_API_KEY_PUBLISH }}
+      run: PackAndPushPublish.bat yes
+    - name: Pack & Push Scalars.WebApi
+      if: |
+        github.ref == 'refs/heads/master' &&
+        steps.filter.outputs.webapi == 'true'
+      shell: cmd
+      working-directory: Source\Scalars\DHI.Services.Scalars.WebApi\nuget
+      env:
+        NUGET_API_KEY_PUBLISH: ${{ secrets.NUGET_API_KEY_PUBLISH }}
+      run: PackAndPushPublish.bat yes

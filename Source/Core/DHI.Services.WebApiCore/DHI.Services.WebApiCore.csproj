@@ -1,0 +1,51 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <OutputType>Library</OutputType>
+    <IsPackable>true</IsPackable>
+    <NoDefaultLaunchSettingsFile>true</NoDefaultLaunchSettingsFile>
+    <DefaultItemExcludes>$(DefaultItemExcludes);nuget\*.nupkg;nuget\*.log</DefaultItemExcludes>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+    <PackageId>DHI.Services.WebApiCore</PackageId>
+    <Version>7.0.0</Version>
+    <PackageReleaseNotes>DHI ILogger replacement</PackageReleaseNotes>
+    <Company>DHI</Company>
+    <Authors>dhigroup</Authors>
+    <PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/DHI/DomainServices/blob/master/README.md</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/DHI/DomainServices</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <Description>Core Web API library for DHI Domain Services.</Description>
+    <Product>DHI Domain Services</Product>
+    <PackageTags>DDD, Clean-Architecture</PackageTags>
+    <PackageIcon>ds-icon-64.png</PackageIcon>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <PackageReadmeFile>readme.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DHI.Services" Version="15.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.0.0" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.12.2" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="nuget\ds-icon-64.png" Pack="true" PackagePath="" />
+    <None Include="nuget\readme.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+</Project>

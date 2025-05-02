@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DHI.Services.Documents", "DHI.Services.Documents\DHI.Services.Documents.csproj", "{F6D63398-4ED3-41D9-808F-E0ABB225D629}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{288B90A9-5580-4CFA-9A10-C14AFF0D39F1}"
+	ProjectSection(SolutionItems) = preProject
+		DHI.Services.Documents.sln.DotSettings = DHI.Services.Documents.sln.DotSettings
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DHI.Services.Documents.Test", "DHI.Services.Documents.Test\DHI.Services.Documents.Test.csproj", "{FDEB5CE2-F6F4-49C0-A12D-8B0EF6F91704}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F6D63398-4ED3-41D9-808F-E0ABB225D629}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6D63398-4ED3-41D9-808F-E0ABB225D629}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6D63398-4ED3-41D9-808F-E0ABB225D629}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6D63398-4ED3-41D9-808F-E0ABB225D629}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDEB5CE2-F6F4-49C0-A12D-8B0EF6F91704}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDEB5CE2-F6F4-49C0-A12D-8B0EF6F91704}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDEB5CE2-F6F4-49C0-A12D-8B0EF6F91704}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDEB5CE2-F6F4-49C0-A12D-8B0EF6F91704}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {940136F9-DE14-432D-8DB3-35298A3005D5}
+	EndGlobalSection
+EndGlobal

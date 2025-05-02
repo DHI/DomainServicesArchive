@@ -1,0 +1,331 @@
+{
+	"data": {
+		"location": {
+			"id": 10027,
+			"name": "Goolwa Beach",
+			"region": "Fleurieu Peninsula",
+			"state": "SA",
+			"postcode": "5214",
+			"timeZone": "Australia\/Adelaide",
+			"lat": -35.51069,
+			"lng": 138.77109,
+			"typeId": 2,
+			"timeZoneOffset": 34200
+		},
+		"forecastGraphs": {
+			"sunrisesunset": {
+				"dataConfig": {
+					"series": {
+						"config": {
+							"id": "sunrisesunset",
+							"lineFill": true,
+							"lineRenderer": "StraightLineRenderer",
+							"showPoints": false,
+							"pointRenderer": "SunriseSunsetPointRenderer",
+							"pointFormatter": "SunriseSunsetPointFormatter"
+						},
+						"yAxisDataMin": null,
+						"yAxisDataMax": null,
+						"yAxisMin": null,
+						"yAxisMax": null,
+						"groups": [{
+								"dateTime": 1562630400,
+								"points": [{
+										"x": 1562655340,
+										"description": "First Light",
+										"type": "first-light"
+									}, {
+										"x": 1562657020,
+										"description": "Sunrise",
+										"type": "sunrise"
+									}, {
+										"x": 1562692597,
+										"description": "Sunset",
+										"type": "sunset"
+									}, {
+										"x": 1562694277,
+										"description": "Last Light",
+										"type": "last-light"
+									}
+								]
+							}, {
+								"dateTime": 1562716800,
+								"points": [{
+										"x": 1562741725,
+										"description": "First Light",
+										"type": "first-light"
+									}, {
+										"x": 1562743403,
+										"description": "Sunrise",
+										"type": "sunrise"
+									}, {
+										"x": 1562779031,
+										"description": "Sunset",
+										"type": "sunset"
+									}, {
+										"x": 1562780709,
+										"description": "Last Light",
+										"type": "last-light"
+									}
+								]
+							}, {
+								"dateTime": 1562803200,
+								"points": [{
+										"x": 1562828109,
+										"description": "First Light",
+										"type": "first-light"
+									}, {
+										"x": 1562829784,
+										"description": "Sunrise",
+										"type": "sunrise"
+									}, {
+										"x": 1562865466,
+										"description": "Sunset",
+										"type": "sunset"
+									}, {
+										"x": 1562867141,
+										"description": "Last Light",
+										"type": "last-light"
+									}
+								]
+							}, {
+								"dateTime": 1562889600,
+								"points": [{
+										"x": 1562914491,
+										"description": "First Light",
+										"type": "first-light"
+									}, {
+										"x": 1562916164,
+										"description": "Sunrise",
+										"type": "sunrise"
+									}, {
+										"x": 1562951902,
+										"description": "Sunset",
+										"type": "sunset"
+									}, {
+										"x": 1562953575,
+										"description": "Last Light",
+										"type": "last-light"
+									}
+								]
+							}, {
+								"dateTime": 1562976000,
+								"points": [{
+										"x": 1563000872,
+										"description": "First Light",
+										"type": "first-light"
+									}, {
+										"x": 1563002542,
+										"description": "Sunrise",
+										"type": "sunrise"
+									}, {
+										"x": 1563038339,
+										"description": "Sunset",
+										"type": "sunset"
+									}, {
+										"x": 1563040009,
+										"description": "Last Light",
+										"type": "last-light"
+									}
+								]
+							}
+						],
+						"controlPoints": {
+							"pre": null,
+							"post": null
+						},
+						"controlPoint": null
+					},
+					"xAxisMin": 1562630400,
+					"xAxisMax": 1563062399
+				},
+				"carousel": {
+					"size": 1096,
+					"start": 555
+				}
+			},
+			"swell-height": {
+				"dataConfig": {
+					"series": {
+						"config": {
+							"id": "swell-height",
+							"color": "#0094F8",
+							"lineWidth": 2,
+							"lineFill": true,
+							"lineRenderer": "StraightLineRenderer",
+							"showPoints": true,
+							"pointRenderer": "ArrowPointRenderer",
+							"pointFormatter": "DirectionPointFormatter"
+						},
+						"yAxisDataMin": 1.8,
+						"yAxisDataMax": 3.3,
+						"yAxisMin": 0,
+						"yAxisMax": 8,
+						"groups": [{
+								"dateTime": 1562630400,
+								"points": [{
+										"x": 1562632200,
+										"y": 1.8,
+										"direction": 214.82,
+										"directionText": "SW",
+										"description": "moderate",
+										"pointStyle": {
+											"fill": "#5dacfd",
+											"stroke": "#4178b1"
+										}
+									}, {
+										"x": 1562643000,
+										"y": 1.9,
+										"direction": 217.18,
+										"directionText": "SW",
+										"description": "moderate",
+										"pointStyle": {
+											"fill": "#5dacfd",
+											"stroke": "#4178b1"
+										}
+									}, {
+										"x": 1562653800,
+										"y": 3.3,
+										"direction": 223.6,
+										"directionText": "SW",
+										"description": "rough",
+										"pointStyle": {
+											"fill": "#3399ff",
+											"stroke": "#246bb2"
+										}
+									}, {
+										"x": 1562664600,
+										"y": 2.4,
+										"direction": 221.52,
+										"directionText": "SW",
+										"description": "moderate",
+										"pointStyle": {
+											"fill": "#5dacfd",
+											"stroke": "#4178b1"
+										}
+									}, {
+										"x": 1562675400,
+										"y": 2.6,
+										"direction": 220.04,
+										"directionText": "SW",
+										"description": "rough",
+										"pointStyle": {
+											"fill": "#3399ff",
+											"stroke": "#246bb2"
+										}
+									}, {
+										"x": 1562686200,
+										"y": 2.8,
+										"direction": 219.67,
+										"directionText": "SW",
+										"description": "rough",
+										"pointStyle": {
+											"fill": "#3399ff",
+											"stroke": "#246bb2"
+										}
+									}
+								]
+							}
+						],
+						"controlPoints": {
+							"pre": {
+								"x": 1562621400,
+								"y": 1.6,
+								"direction": 215.41,
+								"directionText": "SW",
+								"description": "moderate",
+								"pointStyle": {
+									"fill": "#5dacfd",
+									"stroke": "#4178b1"
+								}
+							},
+							"post": null
+						},
+						"controlPoint": null
+					},
+					"xAxisMin": 1562630400,
+					"xAxisMax": 1563062399
+				},
+				"carousel": {
+					"size": 10,
+					"start": 10
+				},
+				"units": {
+					"height": "m"
+				},
+				"issueDateTime": "2019-07-02 08:59:06",
+				"nextIssueDateTime": "2019-07-02 09:23:06"
+			},
+			"swell-period": {
+				"dataConfig": {
+					"series": {
+						"config": {
+							"id": "swell-period",
+							"color": "#003355",
+							"lineWidth": 2,
+							"lineFill": false,
+							"lineRenderer": "StraightLineRenderer",
+							"showPoints": true,
+							"pointRenderer": "CirclePointRenderer",
+							"pointFormatter": "SwellPeriodPointFormatter",
+							"pointStyle": {
+								"fill": "#FFFFFF",
+								"stroke": "#003355"
+							}
+						},
+						"yAxisDataMin": 10.67,
+						"yAxisDataMax": 11.55,
+						"yAxisMin": 0,
+						"yAxisMax": 20,
+						"groups": [{
+								"dateTime": 1562630400,
+								"points": [{
+										"x": 1562632200,
+										"y": 11.55
+									}, {
+										"x": 1562643000,
+										"y": 10.85
+									}, {
+										"x": 1562653800,
+										"y": 10.87
+									}, {
+										"x": 1562664600,
+										"y": 10.67
+									}, {
+										"x": 1562675400,
+										"y": 10.91
+									}, {
+										"x": 1562686200,
+										"y": 10.92
+									}
+								]
+							}
+						],
+						"controlPoints": {
+							"pre": {
+								"x": 1562621400,
+								"y": 11.9
+							},
+							"post": null
+						},
+						"controlPoint": null
+					},
+					"xAxisMin": 1562630400,
+					"xAxisMax": 1563062399
+				},
+				"carousel": {
+					"size": 10,
+					"start": 10
+				},
+				"units": {
+					"period": "sec"
+				},
+				"issueDateTime": "2019-07-02 08:59:06",
+				"nextIssueDateTime": "2019-07-02 09:23:06"
+			}
+		},
+		"observationalGraphs": [],
+		"stations": []
+	},
+	"timestamp": 1562031563000
+}

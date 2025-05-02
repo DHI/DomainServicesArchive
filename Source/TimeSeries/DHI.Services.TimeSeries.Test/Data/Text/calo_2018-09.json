@@ -1,0 +1,11 @@
+{
+  "DateTimeFormat": "yyyy-MM-ddTHH:mm:ss.fffzzz",
+  "DateTimeColumn": 1,
+  "TimeSeriesColumns": [
+    {
+      "Column": 6,
+      "Id": "MyTimeseries1"
+    }
+  ],
+  "DataLineNumber": 1
+}

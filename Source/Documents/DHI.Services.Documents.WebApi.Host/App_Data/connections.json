@@ -1,0 +1,17 @@
+﻿{
+  "$type": "System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[DHI.Services.IConnection, DHI.Services]], mscorlib",
+  "mc-doc": {
+    "$type": "DHI.Services.Documents.WebApi.DocumentServiceConnection, DHI.Services.Documents.WebApi",
+    "ConnectionString": "database=mc2014.2",
+    "RepositoryType": "DHI.Services.Provider.MC.DocumentRepository, DHI.Services.Provider.MC",
+    "Name": "MC document connection",
+    "Id": "mc-doc"
+  },
+  "mclite": {
+    "$type": "DHI.Services.Documents.WebApi.GroupedDocumentServiceConnection, DHI.Services.Documents.WebApi",
+    "ConnectionString": "database=[AppData]MCSQLiteTest.sqlite;dbflavour=SQLite",
+    "RepositoryType": "DHI.Services.Provider.MCLite.DocumentRepository, DHI.Services.Provider.MCLite",
+    "Name": "MC document connection",
+    "Id": "mclite"
+  }
+}

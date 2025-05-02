@@ -1,0 +1,35 @@
+﻿{
+  "$type": "System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[DHI.Services.IConnection, DHI.Services]], mscorlib",
+  "mc-task": {
+    "$type": "DHI.Services.Jobs.Web.TaskServiceConnection, DHI.Services.Jobs.Web",
+    "ConnectionString": "database=mc2014.2",
+    "RepositoryType": "DHI.Services.Provider.MC.TaskRepository, DHI.Services.Provider.MC",
+    "Name": "Local MC task connection to workspace1",
+    "Id": "mc-task"
+  },
+  "mc-job": {
+    "$type": "DHI.Services.Jobs.Web.JobServiceConnection, DHI.Services.Jobs.Web",
+    "JobRepositoryConnectionString": "jobs.json",
+    "JobRepositoryType": "DHI.Services.Jobs.Web.JobRepository, DHI.Services.Jobs.Web",
+    "TaskRepositoryConnectionString": "database=mc2014.2",
+    "TaskRepositoryType": "DHI.Services.Provider.MC.TaskRepository, DHI.Services.Provider.MC",
+    "Name": "Local MC job connection to workspace1",
+    "Id": "mc-job"
+  },
+  "wf-jobs": {
+    "$type": "DHI.Services.Jobs.Web.JobServiceConnection, DHI.Services.Jobs.Web",
+    "JobRepositoryConnectionString": "jobs.json",
+    "JobRepositoryType": "DHI.Services.Jobs.Web.JobRepository, DHI.Services.Jobs.Web",
+    "TaskRepositoryConnectionString": "[AppData]workflows.json",
+    "TaskRepositoryType": "DHI.Services.Jobs.Workflows.WorkflowRepository, DHI.Services.Jobs",
+    "Name": "Workflow jobs",
+    "Id": "wf-jobs"
+  },
+  "wf-tasks": {
+    "$type": "DHI.Services.Jobs.Web.TaskServiceConnection, DHI.Services.Jobs.Web",
+    "ConnectionString": "[AppData]workflows.json",
+    "RepositoryType": "DHI.Services.Jobs.Workflows.WorkflowRepository, DHI.Services.Jobs",
+    "Name": "Workflow tasks",
+    "Id": "wf-tasks"
+  }
+}

@@ -1,0 +1,30 @@
+<Sequence mc:Ignorable="sap sads" sap:VirtualizedContainerService.HintSize="264,186" mva:VisualBasic.Settings="Assembly references and imported namespaces serialized as XML namespaces"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities"
+ xmlns:s="clr-namespace:System;assembly=mscorlib"
+ xmlns:s1="clr-namespace:System;assembly=System.Core"
+ xmlns:s2="clr-namespace:System;assembly=System"
+ xmlns:s3="clr-namespace:System;assembly=System.ComponentModel.Composition"
+ xmlns:sa="clr-namespace:System.Activities;assembly=System.Activities"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Sequence.Variables>
+    <Variable x:TypeArguments="x:String" Name="heWhoShallNotBeNamed" />
+  </Sequence.Variables>
+  <sap:WorkflowViewStateService.ViewState>
+    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+    </scg:Dictionary>
+  </sap:WorkflowViewStateService.ViewState>
+  <Assign sap:VirtualizedContainerService.HintSize="242,62">
+    <Assign.To>
+      <OutArgument x:TypeArguments="x:String">[heWhoShallNotBeNamed]</OutArgument>
+    </Assign.To>
+    <Assign.Value>
+      <InArgument x:TypeArguments="x:String">Tom Riddle</InArgument>
+    </Assign.Value>
+  </Assign>
+</Sequence>

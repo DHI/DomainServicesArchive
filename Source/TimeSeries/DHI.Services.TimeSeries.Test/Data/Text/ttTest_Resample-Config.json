@@ -1,0 +1,10 @@
+{
+  "DateColumn": 1,
+  "DateFormat": "d'/'MM'/'yyyy",
+  "TimeColumn": 2,
+  "TimeFormat": "HH:mm:ss",
+  "ValueDelimiter": ",", 
+  "HeaderLineNumber": 1, 
+  "DataLineNumber": 2,
+  "ResampleTimeSpan": "00:15:00"
+}

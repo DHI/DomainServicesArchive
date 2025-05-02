@@ -1,0 +1,228 @@
+[33mc1d245c8[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mfeat/MikeCloudWebApi[m[33m, [m[1;31morigin/feat/MikeCloudWebApi[m[33m)[m Update readme.md
+[33mb44af7ba[m Update DHI.Services.Spreadsheets.csproj
+[33me8d26a6e[m Update DHI.Services.Spreadsheets.csproj
+[33mfad7eb24[m Update ToObjectTest.cs
+[33m49d8d740[m feat: Refactor DHI.Services.Logging to official Microsoft and refactor Newtonsoft.Json
+[33mc49cea26[m[33m ([m[1;31morigin/chores/DHI.Services.Spreadsheets[m[33m, [m[1;32mchores/DHI.Services.Spreadsheets[m[33m)[m chores: To delete unused using DHI.Services.Logger
+[33m869772ac[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m Merge pull request #715 from DHI/feat/DHI.Services.Jobs.Automations
+[33mbbb2141b[m[33m ([m[1;31morigin/feat/DHI.Services.Jobs.Automations[m[33m, [m[1;32mfeat/DHI.Services.Jobs.Automations[m[33m)[m feat: Change readme.md
+[33m3ed70448[m feat: Merge from master
+[33mbc297220[m chores: To trigger push into nuget.org
+[33mfb6b04a6[m To add workflow automation so it will upload to nuget.org automatically after merging to master (#707)
+[33m54e7191c[m feat: To change from MySql.Data to MySqlConnector (#714)
+[33m92e19015[m feat: To change from MySql.Data to MySqlConnector
+[33m20cf79f2[m[33m ([m[1;32mfeat/DHI.Services.Models[m[33m)[m Feat/dhi.services.rasters (#705)
+[33ma9e55b2d[m Feat/dhi.services.rasters (#704)
+[33ma22cc3d9[m Feat/dhi.services.rasters (#703)
+[33me6a48099[m Feat/dhi.services.rasters (#702)
+[33mbbd5e769[m feat: Change Zone and ZoneConverter for JsonSerializer (#701)
+[33mb9450b4b[m[33m ([m[1;32mfeat/DHI.Services.TimeSeries.Web[m[33m, [m[1;32mfeat/DHI.Services.Models.WebApi[m[33m, [m[1;32mchores/MIKECloudWebApi[m[33m, [m[1;32mchores/DHI.Services.Meshes.WebApi.Host[m[33m)[m Updated the GIS package in the DHI.Services.Meshes and DHI.Services.Places packages. (#699)
+[33mf3c18c90[m Correct GIS version number. (#698)
+[33m5d0af581[m Updated Base Domain Services Packages (#697)
+[33m6818c4d4[m Bump up DHI.Services.Timeseries to 6.0.2 (#696)
+[33mc3ef14c5[m Feature: Enable fill empty cell value for DHI.Services.Timeseries.Text.TimeseriesRepository (#694)
+[33m46c7dc71[m Updated places package to v4.0.0. (#695)
+[33m315f6e32[m Update GIS Package in Places Service. (#688)
+[33m7588f1ec[m Feature: Update to version 9.0.0 with breaking changes (#693)
+[33me5957f7e[m Enable inject JsonSerializerOptions while serialize SignalR message (#692)
+[33m9e1e63f2[m Update CODEOWNERS (#687)
+[33m13987c13[m update timeseries webapi (#658)
+[33m60b23183[m Bug fixed, Use of RCs removed (#685)
+[33mb480f12e[m Keys are strings ... makes no sense its objects (#684)
+[33m3195dc92[m Fixes a bug in datetime parse in the log service, and adds tests for … (#683)
+[33md9d46308[m update handles the case where the datetime string of the log is json … (#682)
+[33m2ce0befe[m When using the postgres provider, and the mfa part is empty, it will … (#681)
+[33me4056e6a[m Updating to stable version (#666)
+[33m21f68507[m Updated dependant package version (#665)
+[33m2d653330[m Fix job timeout update issue (#664)
+[33m6baf4fdd[m Pass user parameter to Json Documents service in the controller. (#663)
+[33m9e0690a9[m [Snyk] Security upgrade Microsoft.Extensions.Hosting from 6.0.1 to 7.0.0 (#645)
+[33mded16701[m [Snyk] Security upgrade DHI.Services.Scalars from 4.0.0 to 5.0.0 (#657)
+[33mbe473ece[m [Snyk] Security upgrade System.Text.Json from 8.0.4 to 8.0.5 (#656)
+[33mf2bc36bc[m [Snyk] Security upgrade System.Text.Json from 8.0.4 to 8.0.5 (#651)
+[33m47eb091a[m [Snyk] Security upgrade System.Text.Json from 8.0.4 to 8.0.5 (#644)
+[33m61bae56e[m [Snyk] Security upgrade System.Text.Json from 7.0.2 to 8.0.4 (#619)
+[33m75e7b4b9[m fix: Source/Jobs/DHI.Services.Jobs.Automations/DHI.Services.Jobs.Automations.csproj to reduce vulnerabilities (#647)
+[33mb3fd8d71[m fix: Source/Documents/DHI.Services.Documents.WebApi.Host/DHI.Services.Documents.WebApi.Host.csproj to reduce vulnerabilities (#652)
+[33ma1b64e4d[m fix: Source/GIS/DHI.Services.GIS.WebApi.Host/DHI.Services.GIS.WebApi.Host.csproj to reduce vulnerabilities (#653)
+[33ma587be08[m fix: Source/Connections/DHI.Services.Connections.Converter.Test/packages.config to reduce vulnerabilities (#654)
+[33m287343a8[m fix: Source/TimeSeries/DHI.Services.TimeSeries.Web/packages.config to reduce vulnerabilities (#655)
+[33mc176825c[m fix: ProjectTemplates/JobAutomatorWinService/JobAutomatorWinService/JobAutomatorWinService/JobAutomatorWinService.csproj to reduce vulnerabilities (#641)
+[33m4e2bbf29[m fix: Source/Jobs/DHI.Services.Jobs.Automations/DHI.Services.Jobs.Automations.csproj to reduce vulnerabilities (#635)
+[33m998472eb[m fix: Source/TimeSeries/DHI.Services.TimeSeries.Web/packages.config to reduce vulnerabilities (#618)
+[33mc4990a89[m fix: Source/Connections/DHI.Services.Connections.Converter.Test/packages.config to reduce vulnerabilities (#617)
+[33m487ea7dc[m fix: Source/GIS/DHI.Services.GIS.WebApi.Host/DHI.Services.GIS.WebApi.Host.csproj to reduce vulnerabilities (#616)
+[33m1002900f[m [Snyk] Security upgrade System.Text.Json from 7.0.2 to 8.0.4 (#615)
+[33me7cf101b[m fix: Source/Documents/DHI.Services.Documents.WebApi.Host/DHI.Services.Documents.WebApi.Host.csproj to reduce vulnerabilities (#613)
+[33mba2f7ccc[m Published as DHI.Services.TimeSeries.WebApi.4.0.0-rc02
+[33mf21cbc32[m fix: Source/TimeSeries/DHI.Services.TimeSeries.WebApi/DHI.Services.TimeSeries.WebApi.csproj to reduce vulnerabilities (#614)
+[33mfbea0ab5[m fix: Source/Core/DHI.Services/DHI.Services.csproj to reduce vulnerabilities (#612)
+[33m42c1434c[m fix: ProjectTemplates/MIKECloudWebApi/MIKECloudWebApi/MIKECloudWebApi.csproj to reduce vulnerabilities (#606)
+[33m5cea9d34[m fix: Source/Jobs/DHI.Services.Jobs.Automations/DHI.Services.Jobs.Automations.csproj to reduce vulnerabilities (#599)
+[33m64db21a1[m fix: Source/Jobs/DHI.Services.Jobs.Automations/DHI.Services.Jobs.Automations.csproj to reduce vulnerabilities (#589)
+[33mc8920372[m Remove Jobs Pending Status (#638)
+[33ma2810c00[m ILogger Replacement (#626)
+[33m4be8b122[m Update GIS API to use new SkiaSharp based maps for Linux. (#646)
+[33m42b7c04d[m Bug of privilege escalation for any account to be administrator (#595)
+[33m2855d599[m Merge branch 'master' of https://github.com/DHI/DomainServices
+[33m631b3842[m Publised as DHI.Services.GIS 12.0.0-rc1
+[33mff891303[m Authorization Template Reference Update (#640)
+[33m80470a16[m Switch from System.Drawing to SkiaSharp. (#639)
+[33m60a3fb70[m feat - IEC Security Web Api UI Integration & Core Text.Json Version Update (#637)
+[33mcecba961[m feat - Authorization Sample using PostgeSQL Provider for Muse (#631)
+[33m0c49c9f9[m System.Text.Json Vurnerability Version Update in Core (#636)
+[33ma67d3860[m Published as  DHI.Services.Security.WebApi.5.0.0-rc3
+[33m41519414[m Merge branch 'master' of https://github.com/DHI/DomainServices
+[33m0ee81713[m Updated package version
+[33m3fe03b6c[m IEC Authentication Security WebApi Versioning (#623)
+[33m5885e7d4[m 95254/time series deserialization json options support (#620)
+[33ma92cbbc2[m Updated readme file
+[33m4c0e04ea[m IEC Authentication Core Versioning (#622)
+[33m69880899[m IEC Authentication ILogger Merged - Base Service Update (#610)
+[33m86c3d0dc[m Ilogger replacement for jobs workflow worker (#607)
+[33m122f4da5[m ILogger Replacement in the rest of Services (#601)
+[33m90805d00[m[33m ([m[1;33mtag: [m[1;33mscalars.2.1.0[m[33m, [m[1;33mtag: [m[1;33mjobs.automations.1.1.0[m[33m)[m Merge pull request #603 from DHI/wf-jobautomator-local-dev
+[33m39d66c26[m[33m ([m[1;31morigin/release/scalar2.1.1[m[33m, [m[1;31morigin/release/jobs.automations.1.1.0[m[33m)[m delete empty file
+[33m8cdabea6[m better support for local development
+[33m87f94082[m Merge pull request #598 from DHI/ExpressionBuilderAbleToCreateAny
+[33mbb08bf6d[m[33m ([m[1;31morigin/ExpressionBuilderAbleToCreateAny[m[33m)[m delete unused function
+[33m64a5cd1c[m clean up namespaces
+[33m8c704094[m Expression builder is able to handle Any queries
+[33m1dc8d20f[m Dynamic timeout (#591)
+[33m4ef86aaa[m Merge pull request #587 from DHI/Job-Orc-Template-Update
+[33mda290912[m Update Program.cs
+[33m44544c07[m remove some unnecessary nugets sources and such. DHI.Workflow.Host.UpdatesScalarService instead of MrUpdateScalar.
+[33mf4bd4fe1[m fix for synk identified vulnerability with System.IdentityModel.Tokens.Jwt
+[33md354a66e[m minor config fixes
+[33m3f1a3e5a[m Job Orchestrator Sample
+[33mffc285d6[m Update JobOrchestrator template to latest versions.
+[33m7358d1b5[m[33m ([m[1;31morigin/release/timeseries-4.1.0[m[33m)[m Merge pull request #585 from DHI/csv-timeseries-handle-null
+[33m68ac6b1f[m update release note
+[33mc9589f7b[m test
+[33m85913e94[m nuget numbers
+[33m87b8f659[m add null values for csv timeseries
+[33mb0f4a552[m[33m ([m[1;31morigin/release/jobs12.0.2[m[33m)[m Merge pull request #584 from DHI/DevelopToMaster
+[33m72c60286[m Merge branch 'develop' into DevelopToMaster
+[33mee1d57ec[m nuget numbers
+[33ma5a08358[m Merge pull request #572 from DHI/ILogger-replacement-Secuity-WebApi
+[33m6a6ed2f8[m[33m ([m[1;31morigin/ILogger-replacement-Secuity-WebApi[m[33m)[m Updated version notes
+[33m3d4cbc26[m Merge pull request #573 from DHI/ILogger-TryGetPattern-Core
+[33mb8675453[m feat - uni test thread sleep
+[33ma9c1e5cf[m feat - Thread.Sleep in Unit Test
+[33ma55f5263[m feat - Changing Date UTC format in Unit Test
+[33m894e68df[m Merge remote-tracking branch 'origin/develop' into ILogger-TryGetPattern-Core
+[33mdd930816[m Updated release notes
+[33m08e6e633[m Updated release notes
+[33me26f2e7d[m Merge pull request #578 from DHI/add-develop-to-ci
+[33m2404063e[m feat - git CI/CD wf config
+[33mc5e07e03[m update Services/WebApi to latest
+[33m0780559e[m nuget numbers
+[33m44462321[m Merge remote-tracking branch 'origin/develop' into ILogger-TryGetPattern-Core
+[33m339c16aa[m add obsolete tag to try get
+[33mac9ac7ba[m nuget numbers
+[33m9314310b[m fix tests
+[33m3916fc1a[m logging web api update to ILogger
+[33m5fe8a124[m Merge remote-tracking branch 'origin/develop' into ILogger-replacement-Secuity-WebApi
+[33m9f98d4a4[m Merge pull request #574 from DHI/automations-single-file-repository
+[33m172c7b25[m Updated package version
+[33mf6e0d56d[m rc 02
+[33me0892c4d[m add tryget id and tryget ids
+[33mf83c9a20[m abstract the json out
+[33m73ce4cae[m abstract the json out
+[33me691e425[m remove ILogger
+[33m42e0a2af[m Updated package information
+[33m9fc9b197[m Merge pull request #571 from DHI/ILogger-replacement-Core-WebApi-Dev
+[33mb283bd6d[m last core package
+[33m3c5bff4f[m add documentation
+[33mbcd44d57[m better log lines
+[33mbaa046ee[m core web api to use ILogger
+[33m68e5ee7e[m start of single file automations
+[33mfb7f0b02[m Merge pull request #565 from DHI/79827-ILogger-Serivces-Core
+[33mbf701856[m[33m ([m[1;31morigin/79827-ILogger-Serivces-Core[m[33m)[m Updated the version
+[33m7f442a7b[m fix tests
+[33m563e1d8d[m add logging to base service
+[33mb02497e5[m Published as DHI.Services.Jobs 12.0.1
+[33md54f1686[m Errored should set finish time (#568)
+[33mb5ee950c[m Bug fix: ci-core pass even there are test cases fail (#566)
+[33maaee1c07[m  Newtonsoft Refactoring (DHI.Services.Jobs.Orchestrator) (#548)
+[33m720c9bac[m Newtonsoft Refactoring (DHI.Services.Jobs.WorkflowWorker) (#549)
+[33m8c285e0a[m Newtonsoft Refactoring (DHI.Services.Jobs.Executer) (#551)
+[33m48c45953[m Update Model Reader and Simulation Interface (#559)
+[33m5a41b7f6[m better state name
+[33m5a4df0eb[m log to notification
+[33m844bd068[m fix tests
+[33mf19a57dc[m remove repeated tests
+[33m636f910a[m start of test fix
+[33m4e673a5a[m remove logger
+[33mbf1cf5a7[m Replace Newtonsoft for DHI.Services.Logging.WebApi (#550)
+[33m94fc17f2[m Update dependencies of DHI.Services.WebApiCore (#563)
+[33m727ad9d2[m doc: update documentation uri (#536)
+[33m32cc612c[m Newtonsoft Refactoring (DHI.Services.Meshes.WebApi) (#557)
+[33m5e955743[m References Update for DHI.Services.Meshes (#556)
+[33m45c1b168[m Automation add output (#560)
+[33m8199f2c9[m Merge pull request #552 from DHI/feature/NewtonsoftDHIServiceDtRange
+[33m2d2c313c[m Version update
+[33m59a10238[m Version update
+[33m378a7ca8[m feat - Date Format
+[33mb9b82140[m Merge pull request #554 from DHI/Automations-Refactor-NewSln
+[33m8eaf9743[m Version number update
+[33m4658fb61[m Revert "nuget numbers"
+[33m485ac7a0[m nuget numbers
+[33m8700973d[m update readmes
+[33m74aa3433[m nuget numbers
+[33m4179e7df[m move automations to there own project
+[33mb77fa49e[m feat - Tidy Up DateRange Class
+[33m70b85c7e[m feat - using new DateRangeConverterClass
+[33m633cfe6a[m feat - DateRange Refactoring
+[33m5ea031a0[m Ensure that the JsonLogger is created via reflection (#547)
+[33md100f5ad[m Merge pull request #545 from DHI/feature/IECPasswordStrengthDHIServices
+[33mf873d51d[m Removed incorrect comments
+[33m7aad5cc2[m Updated version number
+[33m16ba138e[m Refactored method names
+[33m78bcf6ec[m feat - Feedback adjustment
+[33m5b6a3c10[m feat - Versioning Test
+[33mfd754df1[m feat - Tidy Up
+[33ma4b38401[m feat - Versioning
+[33m95a4a66a[m feat - Password Policy Changes
+[33m36f37e6f[m Published as DHI.Services.Security.WebApi.4.0.2
+[33m28bb8d39[m Merge pull request #541 from DHI/add-removed-repos
+[33me84daac0[m[33m ([m[1;31morigin/add-removed-repos[m[33m)[m Added removed repositories back.
+[33m5c2b8d43[m Updated readme file
+[33m429acb65[m Merge pull request #539 from DHI/ipwhitelistsupportsproxiescontainersetc
+[33m075e57d3[m Merge branch 'ipwhitelistsupportsproxiescontainersetc' of https://github.com/DHI/DomainServices into ipwhitelistsupportsproxiescontainersetc
+[33m1f2bad56[m better exceptions and account for the ipaddress chaining behaviour by proxies
+[33m410aafb2[m Update Source/Security/DHI.Services.Security.WebApi/Controllers/AuthenticationController.cs
+[33m02d0e8ce[m DHI.Services.Security.WebApi 4.0.1
+[33mc1ca8a6b[m Check common proxy ip headers for true request IP Address
+[33m86b55f71[m Merge pull request #535 from DHI/logging-in-signalr-host-repo
+[33mb5bb1343[m Remove test change
+[33m36d5cd6f[m DHI.Services.Jobs.WorkflowWorker 2.0.2
+[33m8f630ce4[m There should only ever be one duplicate
+[33mb6b3f50a[m fix for overlapping client removal issue
+[33md253e3e6[m Merge branch 'master' into logging-in-signalr-host-repo
+[33mcd114ab5[m Merge pull request #533 from DHI/task/ReplaceArgonInScnario-1
+[33m3f75405c[m wip
+[33maf5adf5b[m extract method TryFilterScenarioInfoData
+[33m7b63173c[m add test method ScenarioServiceTest.GetWithDataSelectorIsOk()
+[33m2f9735fa[m Merge pull request #527 from DHI/feat/healthendpoint
+[33mcb73a926[m Updated the package version.
+[33m3859be56[m add description for expectedNumberOfJobs
+[33m6416ac53[m The endpoint path is lowercase. route parameters is camelCase
+[33m23bc6398[m resolve conflict
+[33ma8318f18[m Merge pull request #521 from DHI/JobAutomator-Dynamic-Property-Reading
+[33m5755de44[m Bumped DHI.Services.Jobs package version
+[33m8e8e36e0[m change test method name corresponding to endpoint method name
+[33mf9e53759[m restructure controller structure, change name of each endpoint
+[33m7b3533a6[m Updated DHI.Services.Jobs to 11.1.0
+[33m4976927a[m separate job health endpoints from jobscontroller
+[33mdff51188[m Added serializer options
+[33m9f98fd27[m Changed automation property names to camelCase in tests
+[33mf88e9990[m Refactor code to improve efficiency and maintainability
+[33m74ecc796[m Merge branch 'master' into JobAutomator-Dynamic-Property-Reading
+[33ma58cd24c[m "Refactor JSON serialization options
+[33m0bc45cd8[m change using default value of taskId to null
+[33maca63b0c[m update description
+[33md3ffea6a[m use another job in case of affecting other test method
+[33m04aad496[m 1. modify method and argument naming 2. update description and test method 3. add definition of error ratio, and update the calculation accordingly
+[33m46f33987[m added comment
+[33m2224c77a[m Ref

@@ -1,0 +1,7 @@
+{
+  "DateTimeAsUnixTime": true,
+  "DateTimeQuery": "//product//observations//station[@stn-name='BRISBANE AERO']//period",
+  "DateTimeAttribute": "time-utc",
+  "ValueQuery": "//product//observations//station[@stn-name='BRISBANE AERO']//period//level//element[@type='wind_dir_deg']",
+  "SkipIfCannotParse": true 
+}

@@ -1,0 +1,2894 @@
+<?xml version="1.0" encoding="iso-8859-1" ?><data>
+  <metadata>
+    <sector>weather</sector>
+    <title>Weatherzone</title>
+    <provider>Weatherzone</provider>
+    <provider_url>http://www.weatherzone.com.au</provider_url>
+    <project_version>3.75</project_version>
+    <build>113</build>
+    <revision>30326</revision>
+    <last_commit>2022-02-17 16:30:00 +1000 (Thu, 17 Feb 2022)</last_commit>
+    <schema>twcwx.dtd</schema>
+    <version>2.78</version>
+    <create_time tz="EDT">2022-02-28T15:09:58</create_time>
+    <create_time_utc tz="UTC">2022-02-28T04:09:58</create_time_utc>
+    <validity>
+      <date>2022-02-28</date>
+      <day_name>Monday</day_name>
+    </validity>
+  </metadata>
+  <weather>
+    <countries>
+      <country code="AU" name="Australia" region="Oceania">
+        <location type="TWCID" code="162148" name="Port Adelaide Entrance Beacon" state="SA">
+          <lat units="&#176;N">-34.7802</lat>
+          <long units="&#176;E">138.3755</long>
+          <elevation units="m">-14</elevation>
+          <point_forecasts type="TWC02">
+            <related_location type="TWCID" code="162148" name="Port Adelaide Entrance Beacon" state="SA">
+              <lat units="&#176;N">-34.7802</lat>
+              <long units="&#176;E">138.3755</long>
+              <elevation units="m">-14</elevation>
+            </related_location>
+            <point_forecast time="2022-02-28T15:30:00" tz="ACDT" utc_time="2022-02-28T05:00:00">
+              <temp_c units="&#176;C">23</temp_c>
+              <feels_like_c units="&#176;C">23</feels_like_c>
+              <dp_c units="&#176;C">18</dp_c>
+              <rh units="%">75</rh>
+              <wind_dir_degrees units="&#176;">203</wind_dir_degrees>
+              <wind_dir_compass>SSW</wind_dir_compass>
+              <wind_speed_kph units="km/h">21</wind_speed_kph>
+              <wind_gust_kph units="km/h">28</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1010.8</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">3</cloud_cover_oktas>
+              <cloud_cover_percent units="%">39</cloud_cover_percent>
+              <prob_precip units="%">32</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-02-28T16:30:00" tz="ACDT" utc_time="2022-02-28T06:00:00">
+              <temp_c units="&#176;C">23</temp_c>
+              <feels_like_c units="&#176;C">23</feels_like_c>
+              <dp_c units="&#176;C">19</dp_c>
+              <rh units="%">75</rh>
+              <wind_dir_degrees units="&#176;">203</wind_dir_degrees>
+              <wind_dir_compass>SSW</wind_dir_compass>
+              <wind_speed_kph units="km/h">19</wind_speed_kph>
+              <wind_gust_kph units="km/h">27</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1010.6</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">3</cloud_cover_oktas>
+              <cloud_cover_percent units="%">39</cloud_cover_percent>
+              <prob_precip units="%">16</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-02-28T17:30:00" tz="ACDT" utc_time="2022-02-28T07:00:00">
+              <temp_c units="&#176;C">23</temp_c>
+              <feels_like_c units="&#176;C">23</feels_like_c>
+              <dp_c units="&#176;C">19</dp_c>
+              <rh units="%">75</rh>
+              <wind_dir_degrees units="&#176;">203</wind_dir_degrees>
+              <wind_dir_compass>SSW</wind_dir_compass>
+              <wind_speed_kph units="km/h">21</wind_speed_kph>
+              <wind_gust_kph units="km/h">28</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1010.7</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">4</cloud_cover_oktas>
+              <cloud_cover_percent units="%">44</cloud_cover_percent>
+              <prob_precip units="%">38</prob_precip>
+              <rain_rate_mm units="mm/hour">0.2</rain_rate_mm>
+              <precis>Slight chance shower</precis>
+              <icon filename="possible_shower.gif">Possible shower</icon>
+            </point_forecast>
+            <point_forecast time="2022-02-28T18:30:00" tz="ACDT" utc_time="2022-02-28T08:00:00">
+              <temp_c units="&#176;C">23</temp_c>
+              <feels_like_c units="&#176;C">23</feels_like_c>
+              <dp_c units="&#176;C">18</dp_c>
+              <rh units="%">75</rh>
+              <wind_dir_degrees units="&#176;">203</wind_dir_degrees>
+              <wind_dir_compass>SSW</wind_dir_compass>
+              <wind_speed_kph units="km/h">21</wind_speed_kph>
+              <wind_gust_kph units="km/h">29</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1010.7</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">3</cloud_cover_oktas>
+              <cloud_cover_percent units="%">43</cloud_cover_percent>
+              <prob_precip units="%">48</prob_precip>
+              <rain_rate_mm units="mm/hour">0.1</rain_rate_mm>
+              <precis>Slight chance shower</precis>
+              <icon filename="possible_shower.gif">Possible shower</icon>
+            </point_forecast>
+            <point_forecast time="2022-02-28T19:30:00" tz="ACDT" utc_time="2022-02-28T09:00:00">
+              <temp_c units="&#176;C">23</temp_c>
+              <feels_like_c units="&#176;C">23</feels_like_c>
+              <dp_c units="&#176;C">18</dp_c>
+              <rh units="%">75</rh>
+              <wind_dir_degrees units="&#176;">180</wind_dir_degrees>
+              <wind_dir_compass>S</wind_dir_compass>
+              <wind_speed_kph units="km/h">22</wind_speed_kph>
+              <wind_gust_kph units="km/h">30</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1010.9</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">3</cloud_cover_oktas>
+              <cloud_cover_percent units="%">42</cloud_cover_percent>
+              <prob_precip units="%">38</prob_precip>
+              <rain_rate_mm units="mm/hour">0.2</rain_rate_mm>
+              <precis>Slight chance shower</precis>
+              <icon filename="possible_shower.gif">Possible shower</icon>
+            </point_forecast>
+            <point_forecast time="2022-02-28T20:30:00" tz="ACDT" utc_time="2022-02-28T10:00:00">
+              <temp_c units="&#176;C">22</temp_c>
+              <feels_like_c units="&#176;C">22</feels_like_c>
+              <dp_c units="&#176;C">18</dp_c>
+              <rh units="%">76</rh>
+              <wind_dir_degrees units="&#176;">180</wind_dir_degrees>
+              <wind_dir_compass>S</wind_dir_compass>
+              <wind_speed_kph units="km/h">25</wind_speed_kph>
+              <wind_gust_kph units="km/h">33</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1011.3</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">3</cloud_cover_oktas>
+              <cloud_cover_percent units="%">39</cloud_cover_percent>
+              <prob_precip units="%">17</prob_precip>
+              <rain_rate_mm units="mm/hour">0.1</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-02-28T21:30:00" tz="ACDT" utc_time="2022-02-28T11:00:00">
+              <temp_c units="&#176;C">21</temp_c>
+              <feels_like_c units="&#176;C">21</feels_like_c>
+              <dp_c units="&#176;C">17</dp_c>
+              <rh units="%">78</rh>
+              <wind_dir_degrees units="&#176;">180</wind_dir_degrees>
+              <wind_dir_compass>S</wind_dir_compass>
+              <wind_speed_kph units="km/h">23</wind_speed_kph>
+              <wind_gust_kph units="km/h">31</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1011.8</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">3</cloud_cover_oktas>
+              <cloud_cover_percent units="%">39</cloud_cover_percent>
+              <prob_precip units="%">6</prob_precip>
+              <rain_rate_mm units="mm/hour">0.1</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-02-28T22:30:00" tz="ACDT" utc_time="2022-02-28T12:00:00">
+              <temp_c units="&#176;C">21</temp_c>
+              <feels_like_c units="&#176;C">21</feels_like_c>
+              <dp_c units="&#176;C">17</dp_c>
+              <rh units="%">80</rh>
+              <wind_dir_degrees units="&#176;">158</wind_dir_degrees>
+              <wind_dir_compass>SSE</wind_dir_compass>
+              <wind_speed_kph units="km/h">20</wind_speed_kph>
+              <wind_gust_kph units="km/h">27</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1012.0</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">2</cloud_cover_oktas>
+              <cloud_cover_percent units="%">23</cloud_cover_percent>
+              <prob_precip units="%">6</prob_precip>
+              <rain_rate_mm units="mm/hour">0.1</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-02-28T23:30:00" tz="ACDT" utc_time="2022-02-28T13:00:00">
+              <temp_c units="&#176;C">21</temp_c>
+              <feels_like_c units="&#176;C">21</feels_like_c>
+              <dp_c units="&#176;C">17</dp_c>
+              <rh units="%">80</rh>
+              <wind_dir_degrees units="&#176;">158</wind_dir_degrees>
+              <wind_dir_compass>SSE</wind_dir_compass>
+              <wind_speed_kph units="km/h">18</wind_speed_kph>
+              <wind_gust_kph units="km/h">25</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1011.8</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">3</cloud_cover_oktas>
+              <cloud_cover_percent units="%">36</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-01T00:30:00" tz="ACDT" utc_time="2022-02-28T14:00:00">
+              <temp_c units="&#176;C">20</temp_c>
+              <feels_like_c units="&#176;C">20</feels_like_c>
+              <dp_c units="&#176;C">17</dp_c>
+              <rh units="%">81</rh>
+              <wind_dir_degrees units="&#176;">180</wind_dir_degrees>
+              <wind_dir_compass>S</wind_dir_compass>
+              <wind_speed_kph units="km/h">18</wind_speed_kph>
+              <wind_gust_kph units="km/h">24</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1011.6</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">3</cloud_cover_oktas>
+              <cloud_cover_percent units="%">39</cloud_cover_percent>
+              <prob_precip units="%">16</prob_precip>
+              <rain_rate_mm units="mm/hour">0.1</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-01T01:30:00" tz="ACDT" utc_time="2022-02-28T15:00:00">
+              <temp_c units="&#176;C">20</temp_c>
+              <feels_like_c units="&#176;C">20</feels_like_c>
+              <dp_c units="&#176;C">17</dp_c>
+              <rh units="%">81</rh>
+              <wind_dir_degrees units="&#176;">158</wind_dir_degrees>
+              <wind_dir_compass>SSE</wind_dir_compass>
+              <wind_speed_kph units="km/h">16</wind_speed_kph>
+              <wind_gust_kph units="km/h">22</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1011.3</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">3</cloud_cover_oktas>
+              <cloud_cover_percent units="%">41</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-01T02:30:00" tz="ACDT" utc_time="2022-02-28T16:00:00">
+              <temp_c units="&#176;C">20</temp_c>
+              <feels_like_c units="&#176;C">20</feels_like_c>
+              <dp_c units="&#176;C">17</dp_c>
+              <rh units="%">81</rh>
+              <wind_dir_degrees units="&#176;">158</wind_dir_degrees>
+              <wind_dir_compass>SSE</wind_dir_compass>
+              <wind_speed_kph units="km/h">15</wind_speed_kph>
+              <wind_gust_kph units="km/h">20</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1010.9</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">3</cloud_cover_oktas>
+              <cloud_cover_percent units="%">38</cloud_cover_percent>
+              <prob_precip units="%">15</prob_precip>
+              <rain_rate_mm units="mm/hour">0.1</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-01T03:30:00" tz="ACDT" utc_time="2022-02-28T17:00:00">
+              <temp_c units="&#176;C">20</temp_c>
+              <feels_like_c units="&#176;C">20</feels_like_c>
+              <dp_c units="&#176;C">17</dp_c>
+              <rh units="%">81</rh>
+              <wind_dir_degrees units="&#176;">158</wind_dir_degrees>
+              <wind_dir_compass>SSE</wind_dir_compass>
+              <wind_speed_kph units="km/h">13</wind_speed_kph>
+              <wind_gust_kph units="km/h">18</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1010.7</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">3</cloud_cover_oktas>
+              <cloud_cover_percent units="%">35</cloud_cover_percent>
+              <prob_precip units="%">23</prob_precip>
+              <rain_rate_mm units="mm/hour">0.2</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-01T04:30:00" tz="ACDT" utc_time="2022-02-28T18:00:00">
+              <temp_c units="&#176;C">20</temp_c>
+              <feels_like_c units="&#176;C">20</feels_like_c>
+              <dp_c units="&#176;C">17</dp_c>
+              <rh units="%">81</rh>
+              <wind_dir_degrees units="&#176;">158</wind_dir_degrees>
+              <wind_dir_compass>SSE</wind_dir_compass>
+              <wind_speed_kph units="km/h">12</wind_speed_kph>
+              <wind_gust_kph units="km/h">17</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1010.6</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">4</cloud_cover_oktas>
+              <cloud_cover_percent units="%">44</cloud_cover_percent>
+              <prob_precip units="%">18</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-01T05:30:00" tz="ACDT" utc_time="2022-02-28T19:00:00">
+              <temp_c units="&#176;C">20</temp_c>
+              <feels_like_c units="&#176;C">20</feels_like_c>
+              <dp_c units="&#176;C">17</dp_c>
+              <rh units="%">82</rh>
+              <wind_dir_degrees units="&#176;">158</wind_dir_degrees>
+              <wind_dir_compass>SSE</wind_dir_compass>
+              <wind_speed_kph units="km/h">12</wind_speed_kph>
+              <wind_gust_kph units="km/h">17</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1010.7</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">4</cloud_cover_oktas>
+              <cloud_cover_percent units="%">45</cloud_cover_percent>
+              <prob_precip units="%">10</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-01T06:30:00" tz="ACDT" utc_time="2022-02-28T20:00:00">
+              <temp_c units="&#176;C">20</temp_c>
+              <feels_like_c units="&#176;C">20</feels_like_c>
+              <dp_c units="&#176;C">17</dp_c>
+              <rh units="%">83</rh>
+              <wind_dir_degrees units="&#176;">158</wind_dir_degrees>
+              <wind_dir_compass>SSE</wind_dir_compass>
+              <wind_speed_kph units="km/h">13</wind_speed_kph>
+              <wind_gust_kph units="km/h">17</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1011.0</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">4</cloud_cover_oktas>
+              <cloud_cover_percent units="%">51</cloud_cover_percent>
+              <prob_precip units="%">17</prob_precip>
+              <rain_rate_mm units="mm/hour">0.1</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-01T07:30:00" tz="ACDT" utc_time="2022-02-28T21:00:00">
+              <temp_c units="&#176;C">20</temp_c>
+              <feels_like_c units="&#176;C">20</feels_like_c>
+              <dp_c units="&#176;C">17</dp_c>
+              <rh units="%">84</rh>
+              <wind_dir_degrees units="&#176;">180</wind_dir_degrees>
+              <wind_dir_compass>S</wind_dir_compass>
+              <wind_speed_kph units="km/h">13</wind_speed_kph>
+              <wind_gust_kph units="km/h">17</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1011.5</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">4</cloud_cover_oktas>
+              <cloud_cover_percent units="%">55</cloud_cover_percent>
+              <prob_precip units="%">44</prob_precip>
+              <rain_rate_mm units="mm/hour">0.1</rain_rate_mm>
+              <precis>Slight chance shower</precis>
+              <icon filename="possible_shower.gif">Possible shower</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-01T08:30:00" tz="ACDT" utc_time="2022-02-28T22:00:00">
+              <temp_c units="&#176;C">20</temp_c>
+              <feels_like_c units="&#176;C">20</feels_like_c>
+              <dp_c units="&#176;C">17</dp_c>
+              <rh units="%">83</rh>
+              <wind_dir_degrees units="&#176;">180</wind_dir_degrees>
+              <wind_dir_compass>S</wind_dir_compass>
+              <wind_speed_kph units="km/h">14</wind_speed_kph>
+              <wind_gust_kph units="km/h">20</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1011.8</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">5</cloud_cover_oktas>
+              <cloud_cover_percent units="%">59</cloud_cover_percent>
+              <prob_precip units="%">39</prob_precip>
+              <rain_rate_mm units="mm/hour">0.1</rain_rate_mm>
+              <precis>Slight chance shower</precis>
+              <icon filename="possible_shower.gif">Possible shower</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-01T09:30:00" tz="ACDT" utc_time="2022-02-28T23:00:00">
+              <temp_c units="&#176;C">20</temp_c>
+              <feels_like_c units="&#176;C">20</feels_like_c>
+              <dp_c units="&#176;C">17</dp_c>
+              <rh units="%">82</rh>
+              <wind_dir_degrees units="&#176;">180</wind_dir_degrees>
+              <wind_dir_compass>S</wind_dir_compass>
+              <wind_speed_kph units="km/h">14</wind_speed_kph>
+              <wind_gust_kph units="km/h">19</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1011.9</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">4</cloud_cover_oktas>
+              <cloud_cover_percent units="%">54</cloud_cover_percent>
+              <prob_precip units="%">21</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-01T10:30:00" tz="ACDT" utc_time="2022-03-01T00:00:00">
+              <temp_c units="&#176;C">21</temp_c>
+              <feels_like_c units="&#176;C">21</feels_like_c>
+              <dp_c units="&#176;C">17</dp_c>
+              <rh units="%">81</rh>
+              <wind_dir_degrees units="&#176;">203</wind_dir_degrees>
+              <wind_dir_compass>SSW</wind_dir_compass>
+              <wind_speed_kph units="km/h">15</wind_speed_kph>
+              <wind_gust_kph units="km/h">20</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1012.1</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">5</cloud_cover_oktas>
+              <cloud_cover_percent units="%">57</cloud_cover_percent>
+              <prob_precip units="%">15</prob_precip>
+              <rain_rate_mm units="mm/hour">0.1</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-01T11:30:00" tz="ACDT" utc_time="2022-03-01T01:00:00">
+              <temp_c units="&#176;C">21</temp_c>
+              <feels_like_c units="&#176;C">21</feels_like_c>
+              <dp_c units="&#176;C">17</dp_c>
+              <rh units="%">79</rh>
+              <wind_dir_degrees units="&#176;">203</wind_dir_degrees>
+              <wind_dir_compass>SSW</wind_dir_compass>
+              <wind_speed_kph units="km/h">17</wind_speed_kph>
+              <wind_gust_kph units="km/h">22</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1012.0</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">4</cloud_cover_oktas>
+              <cloud_cover_percent units="%">49</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-01T12:30:00" tz="ACDT" utc_time="2022-03-01T02:00:00">
+              <temp_c units="&#176;C">21</temp_c>
+              <feels_like_c units="&#176;C">21</feels_like_c>
+              <dp_c units="&#176;C">18</dp_c>
+              <rh units="%">79</rh>
+              <wind_dir_degrees units="&#176;">203</wind_dir_degrees>
+              <wind_dir_compass>SSW</wind_dir_compass>
+              <wind_speed_kph units="km/h">19</wind_speed_kph>
+              <wind_gust_kph units="km/h">26</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1011.5</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">3</cloud_cover_oktas>
+              <cloud_cover_percent units="%">41</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-01T13:30:00" tz="ACDT" utc_time="2022-03-01T03:00:00">
+              <temp_c units="&#176;C">22</temp_c>
+              <feels_like_c units="&#176;C">22</feels_like_c>
+              <dp_c units="&#176;C">18</dp_c>
+              <rh units="%">80</rh>
+              <wind_dir_degrees units="&#176;">225</wind_dir_degrees>
+              <wind_dir_compass>SW</wind_dir_compass>
+              <wind_speed_kph units="km/h">22</wind_speed_kph>
+              <wind_gust_kph units="km/h">30</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1011.0</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">3</cloud_cover_oktas>
+              <cloud_cover_percent units="%">35</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-01T14:30:00" tz="ACDT" utc_time="2022-03-01T04:00:00">
+              <temp_c units="&#176;C">22</temp_c>
+              <feels_like_c units="&#176;C">22</feels_like_c>
+              <dp_c units="&#176;C">18</dp_c>
+              <rh units="%">80</rh>
+              <wind_dir_degrees units="&#176;">225</wind_dir_degrees>
+              <wind_dir_compass>SW</wind_dir_compass>
+              <wind_speed_kph units="km/h">25</wind_speed_kph>
+              <wind_gust_kph units="km/h">33</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1010.5</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">2</cloud_cover_oktas>
+              <cloud_cover_percent units="%">26</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-01T15:30:00" tz="ACDT" utc_time="2022-03-01T05:00:00">
+              <temp_c units="&#176;C">22</temp_c>
+              <feels_like_c units="&#176;C">22</feels_like_c>
+              <dp_c units="&#176;C">18</dp_c>
+              <rh units="%">80</rh>
+              <wind_dir_degrees units="&#176;">225</wind_dir_degrees>
+              <wind_dir_compass>SW</wind_dir_compass>
+              <wind_speed_kph units="km/h">27</wind_speed_kph>
+              <wind_gust_kph units="km/h">36</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1010.1</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">3</cloud_cover_oktas>
+              <cloud_cover_percent units="%">35</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-01T16:30:00" tz="ACDT" utc_time="2022-03-01T06:00:00">
+              <temp_c units="&#176;C">22</temp_c>
+              <feels_like_c units="&#176;C">22</feels_like_c>
+              <dp_c units="&#176;C">18</dp_c>
+              <rh units="%">79</rh>
+              <wind_dir_degrees units="&#176;">225</wind_dir_degrees>
+              <wind_dir_compass>SW</wind_dir_compass>
+              <wind_speed_kph units="km/h">28</wind_speed_kph>
+              <wind_gust_kph units="km/h">38</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1009.9</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">2</cloud_cover_oktas>
+              <cloud_cover_percent units="%">23</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-01T17:30:00" tz="ACDT" utc_time="2022-03-01T07:00:00">
+              <temp_c units="&#176;C">22</temp_c>
+              <feels_like_c units="&#176;C">22</feels_like_c>
+              <dp_c units="&#176;C">18</dp_c>
+              <rh units="%">79</rh>
+              <wind_dir_degrees units="&#176;">225</wind_dir_degrees>
+              <wind_dir_compass>SW</wind_dir_compass>
+              <wind_speed_kph units="km/h">29</wind_speed_kph>
+              <wind_gust_kph units="km/h">38</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1009.9</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">2</cloud_cover_oktas>
+              <cloud_cover_percent units="%">20</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-01T18:30:00" tz="ACDT" utc_time="2022-03-01T08:00:00">
+              <temp_c units="&#176;C">22</temp_c>
+              <feels_like_c units="&#176;C">22</feels_like_c>
+              <dp_c units="&#176;C">18</dp_c>
+              <rh units="%">79</rh>
+              <wind_dir_degrees units="&#176;">225</wind_dir_degrees>
+              <wind_dir_compass>SW</wind_dir_compass>
+              <wind_speed_kph units="km/h">26</wind_speed_kph>
+              <wind_gust_kph units="km/h">35</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1009.8</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">2</cloud_cover_oktas>
+              <cloud_cover_percent units="%">22</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-01T19:30:00" tz="ACDT" utc_time="2022-03-01T09:00:00">
+              <temp_c units="&#176;C">22</temp_c>
+              <feels_like_c units="&#176;C">22</feels_like_c>
+              <dp_c units="&#176;C">18</dp_c>
+              <rh units="%">79</rh>
+              <wind_dir_degrees units="&#176;">225</wind_dir_degrees>
+              <wind_dir_compass>SW</wind_dir_compass>
+              <wind_speed_kph units="km/h">28</wind_speed_kph>
+              <wind_gust_kph units="km/h">37</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1010.2</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">2</cloud_cover_oktas>
+              <cloud_cover_percent units="%">24</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-01T20:30:00" tz="ACDT" utc_time="2022-03-01T10:00:00">
+              <temp_c units="&#176;C">21</temp_c>
+              <feels_like_c units="&#176;C">21</feels_like_c>
+              <dp_c units="&#176;C">17</dp_c>
+              <rh units="%">78</rh>
+              <wind_dir_degrees units="&#176;">203</wind_dir_degrees>
+              <wind_dir_compass>SSW</wind_dir_compass>
+              <wind_speed_kph units="km/h">26</wind_speed_kph>
+              <wind_gust_kph units="km/h">34</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1010.6</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">2</cloud_cover_oktas>
+              <cloud_cover_percent units="%">23</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-01T21:30:00" tz="ACDT" utc_time="2022-03-01T11:00:00">
+              <temp_c units="&#176;C">21</temp_c>
+              <feels_like_c units="&#176;C">21</feels_like_c>
+              <dp_c units="&#176;C">17</dp_c>
+              <rh units="%">79</rh>
+              <wind_dir_degrees units="&#176;">203</wind_dir_degrees>
+              <wind_dir_compass>SSW</wind_dir_compass>
+              <wind_speed_kph units="km/h">23</wind_speed_kph>
+              <wind_gust_kph units="km/h">30</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1011.1</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">2</cloud_cover_oktas>
+              <cloud_cover_percent units="%">23</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-01T22:30:00" tz="ACDT" utc_time="2022-03-01T12:00:00">
+              <temp_c units="&#176;C">20</temp_c>
+              <feels_like_c units="&#176;C">20</feels_like_c>
+              <dp_c units="&#176;C">17</dp_c>
+              <rh units="%">80</rh>
+              <wind_dir_degrees units="&#176;">180</wind_dir_degrees>
+              <wind_dir_compass>S</wind_dir_compass>
+              <wind_speed_kph units="km/h">20</wind_speed_kph>
+              <wind_gust_kph units="km/h">27</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1011.3</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">1</cloud_cover_oktas>
+              <cloud_cover_percent units="%">17</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-01T23:30:00" tz="ACDT" utc_time="2022-03-01T13:00:00">
+              <temp_c units="&#176;C">20</temp_c>
+              <feels_like_c units="&#176;C">20</feels_like_c>
+              <dp_c units="&#176;C">17</dp_c>
+              <rh units="%">82</rh>
+              <wind_dir_degrees units="&#176;">180</wind_dir_degrees>
+              <wind_dir_compass>S</wind_dir_compass>
+              <wind_speed_kph units="km/h">18</wind_speed_kph>
+              <wind_gust_kph units="km/h">24</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1011.2</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">2</cloud_cover_oktas>
+              <cloud_cover_percent units="%">22</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-02T00:30:00" tz="ACDT" utc_time="2022-03-01T14:00:00">
+              <temp_c units="&#176;C">20</temp_c>
+              <feels_like_c units="&#176;C">20</feels_like_c>
+              <dp_c units="&#176;C">17</dp_c>
+              <rh units="%">83</rh>
+              <wind_dir_degrees units="&#176;">180</wind_dir_degrees>
+              <wind_dir_compass>S</wind_dir_compass>
+              <wind_speed_kph units="km/h">16</wind_speed_kph>
+              <wind_gust_kph units="km/h">21</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1010.9</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">3</cloud_cover_oktas>
+              <cloud_cover_percent units="%">31</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-02T01:30:00" tz="ACDT" utc_time="2022-03-01T15:00:00">
+              <temp_c units="&#176;C">19</temp_c>
+              <feels_like_c units="&#176;C">19</feels_like_c>
+              <dp_c units="&#176;C">17</dp_c>
+              <rh units="%">84</rh>
+              <wind_dir_degrees units="&#176;">180</wind_dir_degrees>
+              <wind_dir_compass>S</wind_dir_compass>
+              <wind_speed_kph units="km/h">14</wind_speed_kph>
+              <wind_gust_kph units="km/h">18</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1010.6</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">2</cloud_cover_oktas>
+              <cloud_cover_percent units="%">26</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-02T02:30:00" tz="ACDT" utc_time="2022-03-01T16:00:00">
+              <temp_c units="&#176;C">19</temp_c>
+              <feels_like_c units="&#176;C">19</feels_like_c>
+              <dp_c units="&#176;C">17</dp_c>
+              <rh units="%">84</rh>
+              <wind_dir_degrees units="&#176;">180</wind_dir_degrees>
+              <wind_dir_compass>S</wind_dir_compass>
+              <wind_speed_kph units="km/h">13</wind_speed_kph>
+              <wind_gust_kph units="km/h">17</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1010.2</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">2</cloud_cover_oktas>
+              <cloud_cover_percent units="%">22</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-02T03:30:00" tz="ACDT" utc_time="2022-03-01T17:00:00">
+              <temp_c units="&#176;C">19</temp_c>
+              <feels_like_c units="&#176;C">19</feels_like_c>
+              <dp_c units="&#176;C">17</dp_c>
+              <rh units="%">85</rh>
+              <wind_dir_degrees units="&#176;">180</wind_dir_degrees>
+              <wind_dir_compass>S</wind_dir_compass>
+              <wind_speed_kph units="km/h">12</wind_speed_kph>
+              <wind_gust_kph units="km/h">15</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1010.1</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">2</cloud_cover_oktas>
+              <cloud_cover_percent units="%">28</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-02T04:30:00" tz="ACDT" utc_time="2022-03-01T18:00:00">
+              <temp_c units="&#176;C">19</temp_c>
+              <feels_like_c units="&#176;C">19</feels_like_c>
+              <dp_c units="&#176;C">16</dp_c>
+              <rh units="%">85</rh>
+              <wind_dir_degrees units="&#176;">180</wind_dir_degrees>
+              <wind_dir_compass>S</wind_dir_compass>
+              <wind_speed_kph units="km/h">10</wind_speed_kph>
+              <wind_gust_kph units="km/h">14</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1010.0</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">3</cloud_cover_oktas>
+              <cloud_cover_percent units="%">34</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-02T05:30:00" tz="ACDT" utc_time="2022-03-01T19:00:00">
+              <temp_c units="&#176;C">19</temp_c>
+              <feels_like_c units="&#176;C">19</feels_like_c>
+              <dp_c units="&#176;C">16</dp_c>
+              <rh units="%">85</rh>
+              <wind_dir_degrees units="&#176;">180</wind_dir_degrees>
+              <wind_dir_compass>S</wind_dir_compass>
+              <wind_speed_kph units="km/h">10</wind_speed_kph>
+              <wind_gust_kph units="km/h">13</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1010.3</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">3</cloud_cover_oktas>
+              <cloud_cover_percent units="%">36</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-02T06:30:00" tz="ACDT" utc_time="2022-03-01T20:00:00">
+              <temp_c units="&#176;C">19</temp_c>
+              <feels_like_c units="&#176;C">19</feels_like_c>
+              <dp_c units="&#176;C">17</dp_c>
+              <rh units="%">86</rh>
+              <wind_dir_degrees units="&#176;">180</wind_dir_degrees>
+              <wind_dir_compass>S</wind_dir_compass>
+              <wind_speed_kph units="km/h">9</wind_speed_kph>
+              <wind_gust_kph units="km/h">12</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1010.7</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">2</cloud_cover_oktas>
+              <cloud_cover_percent units="%">29</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-02T07:30:00" tz="ACDT" utc_time="2022-03-01T21:00:00">
+              <temp_c units="&#176;C">19</temp_c>
+              <feels_like_c units="&#176;C">19</feels_like_c>
+              <dp_c units="&#176;C">17</dp_c>
+              <rh units="%">86</rh>
+              <wind_dir_degrees units="&#176;">158</wind_dir_degrees>
+              <wind_dir_compass>SSE</wind_dir_compass>
+              <wind_speed_kph units="km/h">9</wind_speed_kph>
+              <wind_gust_kph units="km/h">12</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1011.2</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">3</cloud_cover_oktas>
+              <cloud_cover_percent units="%">32</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-02T08:30:00" tz="ACDT" utc_time="2022-03-01T22:00:00">
+              <temp_c units="&#176;C">19</temp_c>
+              <feels_like_c units="&#176;C">19</feels_like_c>
+              <dp_c units="&#176;C">17</dp_c>
+              <rh units="%">85</rh>
+              <wind_dir_degrees units="&#176;">158</wind_dir_degrees>
+              <wind_dir_compass>SSE</wind_dir_compass>
+              <wind_speed_kph units="km/h">8</wind_speed_kph>
+              <wind_gust_kph units="km/h">11</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1011.5</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">4</cloud_cover_oktas>
+              <cloud_cover_percent units="%">48</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-02T09:30:00" tz="ACDT" utc_time="2022-03-01T23:00:00">
+              <temp_c units="&#176;C">20</temp_c>
+              <feels_like_c units="&#176;C">20</feels_like_c>
+              <dp_c units="&#176;C">17</dp_c>
+              <rh units="%">83</rh>
+              <wind_dir_degrees units="&#176;">158</wind_dir_degrees>
+              <wind_dir_compass>SSE</wind_dir_compass>
+              <wind_speed_kph units="km/h">7</wind_speed_kph>
+              <wind_gust_kph units="km/h">10</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1011.8</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">4</cloud_cover_oktas>
+              <cloud_cover_percent units="%">48</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-02T10:30:00" tz="ACDT" utc_time="2022-03-02T00:00:00">
+              <temp_c units="&#176;C">20</temp_c>
+              <feels_like_c units="&#176;C">20</feels_like_c>
+              <dp_c units="&#176;C">17</dp_c>
+              <rh units="%">82</rh>
+              <wind_dir_degrees units="&#176;">180</wind_dir_degrees>
+              <wind_dir_compass>S</wind_dir_compass>
+              <wind_speed_kph units="km/h">7</wind_speed_kph>
+              <wind_gust_kph units="km/h">9</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1011.9</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">4</cloud_cover_oktas>
+              <cloud_cover_percent units="%">45</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-02T11:30:00" tz="ACDT" utc_time="2022-03-02T01:00:00">
+              <temp_c units="&#176;C">21</temp_c>
+              <feels_like_c units="&#176;C">21</feels_like_c>
+              <dp_c units="&#176;C">17</dp_c>
+              <rh units="%">81</rh>
+              <wind_dir_degrees units="&#176;">225</wind_dir_degrees>
+              <wind_dir_compass>SW</wind_dir_compass>
+              <wind_speed_kph units="km/h">7</wind_speed_kph>
+              <wind_gust_kph units="km/h">10</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1011.8</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">3</cloud_cover_oktas>
+              <cloud_cover_percent units="%">31</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-02T12:30:00" tz="ACDT" utc_time="2022-03-02T02:00:00">
+              <temp_c units="&#176;C">21</temp_c>
+              <feels_like_c units="&#176;C">21</feels_like_c>
+              <dp_c units="&#176;C">18</dp_c>
+              <rh units="%">81</rh>
+              <wind_dir_degrees units="&#176;">248</wind_dir_degrees>
+              <wind_dir_compass>WSW</wind_dir_compass>
+              <wind_speed_kph units="km/h">11</wind_speed_kph>
+              <wind_gust_kph units="km/h">15</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1011.6</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">2</cloud_cover_oktas>
+              <cloud_cover_percent units="%">21</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-02T13:30:00" tz="ACDT" utc_time="2022-03-02T03:00:00">
+              <temp_c units="&#176;C">21</temp_c>
+              <feels_like_c units="&#176;C">21</feels_like_c>
+              <dp_c units="&#176;C">18</dp_c>
+              <rh units="%">82</rh>
+              <wind_dir_degrees units="&#176;">248</wind_dir_degrees>
+              <wind_dir_compass>WSW</wind_dir_compass>
+              <wind_speed_kph units="km/h">15</wind_speed_kph>
+              <wind_gust_kph units="km/h">20</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1011.1</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">2</cloud_cover_oktas>
+              <cloud_cover_percent units="%">19</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-02T14:30:00" tz="ACDT" utc_time="2022-03-02T04:00:00">
+              <temp_c units="&#176;C">22</temp_c>
+              <feels_like_c units="&#176;C">22</feels_like_c>
+              <dp_c units="&#176;C">18</dp_c>
+              <rh units="%">81</rh>
+              <wind_dir_degrees units="&#176;">225</wind_dir_degrees>
+              <wind_dir_compass>SW</wind_dir_compass>
+              <wind_speed_kph units="km/h">17</wind_speed_kph>
+              <wind_gust_kph units="km/h">23</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1010.7</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">3</cloud_cover_oktas>
+              <cloud_cover_percent units="%">31</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-02T15:30:00" tz="ACDT" utc_time="2022-03-02T05:00:00">
+              <temp_c units="&#176;C">22</temp_c>
+              <feels_like_c units="&#176;C">22</feels_like_c>
+              <dp_c units="&#176;C">19</dp_c>
+              <rh units="%">81</rh>
+              <wind_dir_degrees units="&#176;">225</wind_dir_degrees>
+              <wind_dir_compass>SW</wind_dir_compass>
+              <wind_speed_kph units="km/h">19</wind_speed_kph>
+              <wind_gust_kph units="km/h">25</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1010.3</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">2</cloud_cover_oktas>
+              <cloud_cover_percent units="%">22</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-02T16:30:00" tz="ACDT" utc_time="2022-03-02T06:00:00">
+              <temp_c units="&#176;C">22</temp_c>
+              <feels_like_c units="&#176;C">22</feels_like_c>
+              <dp_c units="&#176;C">19</dp_c>
+              <rh units="%">81</rh>
+              <wind_dir_degrees units="&#176;">225</wind_dir_degrees>
+              <wind_dir_compass>SW</wind_dir_compass>
+              <wind_speed_kph units="km/h">20</wind_speed_kph>
+              <wind_gust_kph units="km/h">27</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1010.0</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">1</cloud_cover_oktas>
+              <cloud_cover_percent units="%">15</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-02T17:30:00" tz="ACDT" utc_time="2022-03-02T07:00:00">
+              <temp_c units="&#176;C">23</temp_c>
+              <feels_like_c units="&#176;C">23</feels_like_c>
+              <dp_c units="&#176;C">19</dp_c>
+              <rh units="%">80</rh>
+              <wind_dir_degrees units="&#176;">225</wind_dir_degrees>
+              <wind_dir_compass>SW</wind_dir_compass>
+              <wind_speed_kph units="km/h">20</wind_speed_kph>
+              <wind_gust_kph units="km/h">27</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1010.0</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">2</cloud_cover_oktas>
+              <cloud_cover_percent units="%">26</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-02T18:30:00" tz="ACDT" utc_time="2022-03-02T08:00:00">
+              <temp_c units="&#176;C">23</temp_c>
+              <feels_like_c units="&#176;C">23</feels_like_c>
+              <dp_c units="&#176;C">19</dp_c>
+              <rh units="%">80</rh>
+              <wind_dir_degrees units="&#176;">225</wind_dir_degrees>
+              <wind_dir_compass>SW</wind_dir_compass>
+              <wind_speed_kph units="km/h">20</wind_speed_kph>
+              <wind_gust_kph units="km/h">26</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1010.1</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">2</cloud_cover_oktas>
+              <cloud_cover_percent units="%">22</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-02T19:30:00" tz="ACDT" utc_time="2022-03-02T09:00:00">
+              <temp_c units="&#176;C">23</temp_c>
+              <feels_like_c units="&#176;C">23</feels_like_c>
+              <dp_c units="&#176;C">19</dp_c>
+              <rh units="%">80</rh>
+              <wind_dir_degrees units="&#176;">203</wind_dir_degrees>
+              <wind_dir_compass>SSW</wind_dir_compass>
+              <wind_speed_kph units="km/h">19</wind_speed_kph>
+              <wind_gust_kph units="km/h">25</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1010.3</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">1</cloud_cover_oktas>
+              <cloud_cover_percent units="%">6</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Clear</precis>
+              <icon filename="clear.gif">Clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-02T20:30:00" tz="ACDT" utc_time="2022-03-02T10:00:00">
+              <temp_c units="&#176;C">23</temp_c>
+              <feels_like_c units="&#176;C">23</feels_like_c>
+              <dp_c units="&#176;C">19</dp_c>
+              <rh units="%">79</rh>
+              <wind_dir_degrees units="&#176;">203</wind_dir_degrees>
+              <wind_dir_compass>SSW</wind_dir_compass>
+              <wind_speed_kph units="km/h">17</wind_speed_kph>
+              <wind_gust_kph units="km/h">23</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1010.7</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">1</cloud_cover_oktas>
+              <cloud_cover_percent units="%">7</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Clear</precis>
+              <icon filename="clear.gif">Clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-02T21:30:00" tz="ACDT" utc_time="2022-03-02T11:00:00">
+              <temp_c units="&#176;C">23</temp_c>
+              <feels_like_c units="&#176;C">23</feels_like_c>
+              <dp_c units="&#176;C">19</dp_c>
+              <rh units="%">77</rh>
+              <wind_dir_degrees units="&#176;">180</wind_dir_degrees>
+              <wind_dir_compass>S</wind_dir_compass>
+              <wind_speed_kph units="km/h">16</wind_speed_kph>
+              <wind_gust_kph units="km/h">21</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1011.2</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">1</cloud_cover_oktas>
+              <cloud_cover_percent units="%">9</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Clear</precis>
+              <icon filename="clear.gif">Clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-02T22:30:00" tz="ACDT" utc_time="2022-03-02T12:00:00">
+              <temp_c units="&#176;C">23</temp_c>
+              <feels_like_c units="&#176;C">23</feels_like_c>
+              <dp_c units="&#176;C">19</dp_c>
+              <rh units="%">77</rh>
+              <wind_dir_degrees units="&#176;">158</wind_dir_degrees>
+              <wind_dir_compass>SSE</wind_dir_compass>
+              <wind_speed_kph units="km/h">14</wind_speed_kph>
+              <wind_gust_kph units="km/h">19</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1011.4</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">0</cloud_cover_oktas>
+              <cloud_cover_percent units="%">1</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Clear</precis>
+              <icon filename="clear.gif">Clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-02T23:30:00" tz="ACDT" utc_time="2022-03-02T13:00:00">
+              <temp_c units="&#176;C">22</temp_c>
+              <feels_like_c units="&#176;C">22</feels_like_c>
+              <dp_c units="&#176;C">19</dp_c>
+              <rh units="%">78</rh>
+              <wind_dir_degrees units="&#176;">135</wind_dir_degrees>
+              <wind_dir_compass>SE</wind_dir_compass>
+              <wind_speed_kph units="km/h">12</wind_speed_kph>
+              <wind_gust_kph units="km/h">16</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1011.4</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">0</cloud_cover_oktas>
+              <cloud_cover_percent units="%">1</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Clear</precis>
+              <icon filename="clear.gif">Clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-03T00:30:00" tz="ACDT" utc_time="2022-03-02T14:00:00">
+              <temp_c units="&#176;C">22</temp_c>
+              <feels_like_c units="&#176;C">22</feels_like_c>
+              <dp_c units="&#176;C">18</dp_c>
+              <rh units="%">78</rh>
+              <wind_dir_degrees units="&#176;">135</wind_dir_degrees>
+              <wind_dir_compass>SE</wind_dir_compass>
+              <wind_speed_kph units="km/h">11</wind_speed_kph>
+              <wind_gust_kph units="km/h">14</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1011.1</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">0</cloud_cover_oktas>
+              <cloud_cover_percent units="%">2</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Clear</precis>
+              <icon filename="clear.gif">Clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-03T01:30:00" tz="ACDT" utc_time="2022-03-02T15:00:00">
+              <temp_c units="&#176;C">22</temp_c>
+              <feels_like_c units="&#176;C">22</feels_like_c>
+              <dp_c units="&#176;C">18</dp_c>
+              <rh units="%">79</rh>
+              <wind_dir_degrees units="&#176;">113</wind_dir_degrees>
+              <wind_dir_compass>ESE</wind_dir_compass>
+              <wind_speed_kph units="km/h">9</wind_speed_kph>
+              <wind_gust_kph units="km/h">13</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1010.8</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">0</cloud_cover_oktas>
+              <cloud_cover_percent units="%">2</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Clear</precis>
+              <icon filename="clear.gif">Clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-03T02:30:00" tz="ACDT" utc_time="2022-03-02T16:00:00">
+              <temp_c units="&#176;C">22</temp_c>
+              <feels_like_c units="&#176;C">22</feels_like_c>
+              <dp_c units="&#176;C">18</dp_c>
+              <rh units="%">80</rh>
+              <wind_dir_degrees units="&#176;">113</wind_dir_degrees>
+              <wind_dir_compass>ESE</wind_dir_compass>
+              <wind_speed_kph units="km/h">8</wind_speed_kph>
+              <wind_gust_kph units="km/h">11</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1010.5</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">0</cloud_cover_oktas>
+              <cloud_cover_percent units="%">3</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Clear</precis>
+              <icon filename="clear.gif">Clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-03T03:30:00" tz="ACDT" utc_time="2022-03-02T17:00:00">
+              <temp_c units="&#176;C">21</temp_c>
+              <feels_like_c units="&#176;C">21</feels_like_c>
+              <dp_c units="&#176;C">18</dp_c>
+              <rh units="%">81</rh>
+              <wind_dir_degrees units="&#176;">90</wind_dir_degrees>
+              <wind_dir_compass>E</wind_dir_compass>
+              <wind_speed_kph units="km/h">7</wind_speed_kph>
+              <wind_gust_kph units="km/h">10</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1010.2</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">0</cloud_cover_oktas>
+              <cloud_cover_percent units="%">5</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Clear</precis>
+              <icon filename="clear.gif">Clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-03T04:30:00" tz="ACDT" utc_time="2022-03-02T18:00:00">
+              <temp_c units="&#176;C">21</temp_c>
+              <feels_like_c units="&#176;C">21</feels_like_c>
+              <dp_c units="&#176;C">18</dp_c>
+              <rh units="%">81</rh>
+              <wind_dir_degrees units="&#176;">90</wind_dir_degrees>
+              <wind_dir_compass>E</wind_dir_compass>
+              <wind_speed_kph units="km/h">7</wind_speed_kph>
+              <wind_gust_kph units="km/h">10</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1010.2</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">0</cloud_cover_oktas>
+              <cloud_cover_percent units="%">4</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Clear</precis>
+              <icon filename="clear.gif">Clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-03T05:30:00" tz="ACDT" utc_time="2022-03-02T19:00:00">
+              <temp_c units="&#176;C">21</temp_c>
+              <feels_like_c units="&#176;C">21</feels_like_c>
+              <dp_c units="&#176;C">18</dp_c>
+              <rh units="%">81</rh>
+              <wind_dir_degrees units="&#176;">90</wind_dir_degrees>
+              <wind_dir_compass>E</wind_dir_compass>
+              <wind_speed_kph units="km/h">8</wind_speed_kph>
+              <wind_gust_kph units="km/h">10</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1010.4</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">0</cloud_cover_oktas>
+              <cloud_cover_percent units="%">3</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Clear</precis>
+              <icon filename="clear.gif">Clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-03T06:30:00" tz="ACDT" utc_time="2022-03-02T20:00:00">
+              <temp_c units="&#176;C">22</temp_c>
+              <feels_like_c units="&#176;C">22</feels_like_c>
+              <dp_c units="&#176;C">18</dp_c>
+              <rh units="%">81</rh>
+              <wind_dir_degrees units="&#176;">68</wind_dir_degrees>
+              <wind_dir_compass>ENE</wind_dir_compass>
+              <wind_speed_kph units="km/h">8</wind_speed_kph>
+              <wind_gust_kph units="km/h">10</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1010.7</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">0</cloud_cover_oktas>
+              <cloud_cover_percent units="%">3</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Clear</precis>
+              <icon filename="clear.gif">Clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-03T07:30:00" tz="ACDT" utc_time="2022-03-02T21:00:00">
+              <temp_c units="&#176;C">22</temp_c>
+              <feels_like_c units="&#176;C">22</feels_like_c>
+              <dp_c units="&#176;C">19</dp_c>
+              <rh units="%">81</rh>
+              <wind_dir_degrees units="&#176;">68</wind_dir_degrees>
+              <wind_dir_compass>ENE</wind_dir_compass>
+              <wind_speed_kph units="km/h">8</wind_speed_kph>
+              <wind_gust_kph units="km/h">11</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1011.2</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">0</cloud_cover_oktas>
+              <cloud_cover_percent units="%">3</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Clear</precis>
+              <icon filename="clear.gif">Clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-03T08:30:00" tz="ACDT" utc_time="2022-03-02T22:00:00">
+              <temp_c units="&#176;C">22</temp_c>
+              <feels_like_c units="&#176;C">22</feels_like_c>
+              <dp_c units="&#176;C">19</dp_c>
+              <rh units="%">79</rh>
+              <wind_dir_degrees units="&#176;">68</wind_dir_degrees>
+              <wind_dir_compass>ENE</wind_dir_compass>
+              <wind_speed_kph units="km/h">8</wind_speed_kph>
+              <wind_gust_kph units="km/h">11</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1011.6</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">1</cloud_cover_oktas>
+              <cloud_cover_percent units="%">13</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-03T09:30:00" tz="ACDT" utc_time="2022-03-02T23:00:00">
+              <temp_c units="&#176;C">23</temp_c>
+              <feels_like_c units="&#176;C">23</feels_like_c>
+              <dp_c units="&#176;C">19</dp_c>
+              <rh units="%">76</rh>
+              <wind_dir_degrees units="&#176;">68</wind_dir_degrees>
+              <wind_dir_compass>ENE</wind_dir_compass>
+              <wind_speed_kph units="km/h">7</wind_speed_kph>
+              <wind_gust_kph units="km/h">9</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1011.9</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">2</cloud_cover_oktas>
+              <cloud_cover_percent units="%">21</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-03T10:30:00" tz="ACDT" utc_time="2022-03-03T00:00:00">
+              <temp_c units="&#176;C">24</temp_c>
+              <feels_like_c units="&#176;C">24</feels_like_c>
+              <dp_c units="&#176;C">19</dp_c>
+              <rh units="%">75</rh>
+              <wind_dir_degrees units="&#176;">68</wind_dir_degrees>
+              <wind_dir_compass>ENE</wind_dir_compass>
+              <wind_speed_kph units="km/h">6</wind_speed_kph>
+              <wind_gust_kph units="km/h">8</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1012.0</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">1</cloud_cover_oktas>
+              <cloud_cover_percent units="%">15</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-03T11:30:00" tz="ACDT" utc_time="2022-03-03T01:00:00">
+              <temp_c units="&#176;C">24</temp_c>
+              <feels_like_c units="&#176;C">24</feels_like_c>
+              <dp_c units="&#176;C">19</dp_c>
+              <rh units="%">75</rh>
+              <wind_dir_degrees units="&#176;">270</wind_dir_degrees>
+              <wind_dir_compass>W</wind_dir_compass>
+              <wind_speed_kph units="km/h">6</wind_speed_kph>
+              <wind_gust_kph units="km/h">10</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1012.0</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">1</cloud_cover_oktas>
+              <cloud_cover_percent units="%">17</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-03T12:30:00" tz="ACDT" utc_time="2022-03-03T02:00:00">
+              <temp_c units="&#176;C">24</temp_c>
+              <feels_like_c units="&#176;C">24</feels_like_c>
+              <dp_c units="&#176;C">20</dp_c>
+              <rh units="%">76</rh>
+              <wind_dir_degrees units="&#176;">248</wind_dir_degrees>
+              <wind_dir_compass>WSW</wind_dir_compass>
+              <wind_speed_kph units="km/h">10</wind_speed_kph>
+              <wind_gust_kph units="km/h">14</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1011.7</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">2</cloud_cover_oktas>
+              <cloud_cover_percent units="%">27</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-03T13:30:00" tz="ACDT" utc_time="2022-03-03T03:00:00">
+              <temp_c units="&#176;C">24</temp_c>
+              <feels_like_c units="&#176;C">24</feels_like_c>
+              <dp_c units="&#176;C">20</dp_c>
+              <rh units="%">77</rh>
+              <wind_dir_degrees units="&#176;">248</wind_dir_degrees>
+              <wind_dir_compass>WSW</wind_dir_compass>
+              <wind_speed_kph units="km/h">12</wind_speed_kph>
+              <wind_gust_kph units="km/h">16</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1011.3</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">2</cloud_cover_oktas>
+              <cloud_cover_percent units="%">24</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-03T14:30:00" tz="ACDT" utc_time="2022-03-03T04:00:00">
+              <temp_c units="&#176;C">25</temp_c>
+              <feels_like_c units="&#176;C">25</feels_like_c>
+              <dp_c units="&#176;C">20</dp_c>
+              <rh units="%">76</rh>
+              <wind_dir_degrees units="&#176;">248</wind_dir_degrees>
+              <wind_dir_compass>WSW</wind_dir_compass>
+              <wind_speed_kph units="km/h">14</wind_speed_kph>
+              <wind_gust_kph units="km/h">19</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1010.9</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">4</cloud_cover_oktas>
+              <cloud_cover_percent units="%">44</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-03T15:30:00" tz="ACDT" utc_time="2022-03-03T05:00:00">
+              <temp_c units="&#176;C">25</temp_c>
+              <feels_like_c units="&#176;C">25</feels_like_c>
+              <dp_c units="&#176;C">20</dp_c>
+              <rh units="%">75</rh>
+              <wind_dir_degrees units="&#176;">225</wind_dir_degrees>
+              <wind_dir_compass>SW</wind_dir_compass>
+              <wind_speed_kph units="km/h">16</wind_speed_kph>
+              <wind_gust_kph units="km/h">21</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1010.4</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">3</cloud_cover_oktas>
+              <cloud_cover_percent units="%">34</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-03T16:30:00" tz="ACDT" utc_time="2022-03-03T06:00:00">
+              <temp_c units="&#176;C">25</temp_c>
+              <feels_like_c units="&#176;C">26</feels_like_c>
+              <dp_c units="&#176;C">20</dp_c>
+              <rh units="%">74</rh>
+              <wind_dir_degrees units="&#176;">203</wind_dir_degrees>
+              <wind_dir_compass>SSW</wind_dir_compass>
+              <wind_speed_kph units="km/h">16</wind_speed_kph>
+              <wind_gust_kph units="km/h">22</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1010.1</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">3</cloud_cover_oktas>
+              <cloud_cover_percent units="%">43</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-03T17:30:00" tz="ACDT" utc_time="2022-03-03T07:00:00">
+              <temp_c units="&#176;C">25</temp_c>
+              <feels_like_c units="&#176;C">26</feels_like_c>
+              <dp_c units="&#176;C">20</dp_c>
+              <rh units="%">73</rh>
+              <wind_dir_degrees units="&#176;">203</wind_dir_degrees>
+              <wind_dir_compass>SSW</wind_dir_compass>
+              <wind_speed_kph units="km/h">16</wind_speed_kph>
+              <wind_gust_kph units="km/h">22</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1010.0</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">3</cloud_cover_oktas>
+              <cloud_cover_percent units="%">34</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-03T18:30:00" tz="ACDT" utc_time="2022-03-03T08:00:00">
+              <temp_c units="&#176;C">25</temp_c>
+              <feels_like_c units="&#176;C">26</feels_like_c>
+              <dp_c units="&#176;C">20</dp_c>
+              <rh units="%">72</rh>
+              <wind_dir_degrees units="&#176;">203</wind_dir_degrees>
+              <wind_dir_compass>SSW</wind_dir_compass>
+              <wind_speed_kph units="km/h">16</wind_speed_kph>
+              <wind_gust_kph units="km/h">22</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1010.1</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">3</cloud_cover_oktas>
+              <cloud_cover_percent units="%">39</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-03T19:30:00" tz="ACDT" utc_time="2022-03-03T09:00:00">
+              <temp_c units="&#176;C">25</temp_c>
+              <feels_like_c units="&#176;C">26</feels_like_c>
+              <dp_c units="&#176;C">20</dp_c>
+              <rh units="%">72</rh>
+              <wind_dir_degrees units="&#176;">203</wind_dir_degrees>
+              <wind_dir_compass>SSW</wind_dir_compass>
+              <wind_speed_kph units="km/h">16</wind_speed_kph>
+              <wind_gust_kph units="km/h">22</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1010.2</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">4</cloud_cover_oktas>
+              <cloud_cover_percent units="%">45</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-03T20:30:00" tz="ACDT" utc_time="2022-03-03T10:00:00">
+              <temp_c units="&#176;C">25</temp_c>
+              <feels_like_c units="&#176;C">25</feels_like_c>
+              <dp_c units="&#176;C">20</dp_c>
+              <rh units="%">72</rh>
+              <wind_dir_degrees units="&#176;">203</wind_dir_degrees>
+              <wind_dir_compass>SSW</wind_dir_compass>
+              <wind_speed_kph units="km/h">15</wind_speed_kph>
+              <wind_gust_kph units="km/h">21</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1010.7</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">4</cloud_cover_oktas>
+              <cloud_cover_percent units="%">54</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-03T21:30:00" tz="ACDT" utc_time="2022-03-03T11:00:00">
+              <temp_c units="&#176;C">24</temp_c>
+              <feels_like_c units="&#176;C">24</feels_like_c>
+              <dp_c units="&#176;C">20</dp_c>
+              <rh units="%">73</rh>
+              <wind_dir_degrees units="&#176;">180</wind_dir_degrees>
+              <wind_dir_compass>S</wind_dir_compass>
+              <wind_speed_kph units="km/h">14</wind_speed_kph>
+              <wind_gust_kph units="km/h">19</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1011.1</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">5</cloud_cover_oktas>
+              <cloud_cover_percent units="%">67</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-03T22:30:00" tz="ACDT" utc_time="2022-03-03T12:00:00">
+              <temp_c units="&#176;C">24</temp_c>
+              <feels_like_c units="&#176;C">24</feels_like_c>
+              <dp_c units="&#176;C">19</dp_c>
+              <rh units="%">73</rh>
+              <wind_dir_degrees units="&#176;">135</wind_dir_degrees>
+              <wind_dir_compass>SE</wind_dir_compass>
+              <wind_speed_kph units="km/h">13</wind_speed_kph>
+              <wind_gust_kph units="km/h">17</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1011.2</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">6</cloud_cover_oktas>
+              <cloud_cover_percent units="%">70</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-03T23:30:00" tz="ACDT" utc_time="2022-03-03T13:00:00">
+              <temp_c units="&#176;C">24</temp_c>
+              <feels_like_c units="&#176;C">24</feels_like_c>
+              <dp_c units="&#176;C">19</dp_c>
+              <rh units="%">72</rh>
+              <wind_dir_degrees units="&#176;">113</wind_dir_degrees>
+              <wind_dir_compass>ESE</wind_dir_compass>
+              <wind_speed_kph units="km/h">12</wind_speed_kph>
+              <wind_gust_kph units="km/h">17</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1011.0</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">6</cloud_cover_oktas>
+              <cloud_cover_percent units="%">75</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-04T00:30:00" tz="ACDT" utc_time="2022-03-03T14:00:00">
+              <temp_c units="&#176;C">24</temp_c>
+              <feels_like_c units="&#176;C">24</feels_like_c>
+              <dp_c units="&#176;C">19</dp_c>
+              <rh units="%">73</rh>
+              <wind_dir_degrees units="&#176;">45</wind_dir_degrees>
+              <wind_dir_compass>NE</wind_dir_compass>
+              <wind_speed_kph units="km/h">11</wind_speed_kph>
+              <wind_gust_kph units="km/h">16</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1010.6</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">7</cloud_cover_oktas>
+              <cloud_cover_percent units="%">82</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-04T01:30:00" tz="ACDT" utc_time="2022-03-03T15:00:00">
+              <temp_c units="&#176;C">23</temp_c>
+              <feels_like_c units="&#176;C">23</feels_like_c>
+              <dp_c units="&#176;C">19</dp_c>
+              <rh units="%">73</rh>
+              <wind_dir_degrees units="&#176;">45</wind_dir_degrees>
+              <wind_dir_compass>NE</wind_dir_compass>
+              <wind_speed_kph units="km/h">14</wind_speed_kph>
+              <wind_gust_kph units="km/h">19</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1010.4</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">7</cloud_cover_oktas>
+              <cloud_cover_percent units="%">82</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-04T02:30:00" tz="ACDT" utc_time="2022-03-03T16:00:00">
+              <temp_c units="&#176;C">23</temp_c>
+              <feels_like_c units="&#176;C">23</feels_like_c>
+              <dp_c units="&#176;C">19</dp_c>
+              <rh units="%">74</rh>
+              <wind_dir_degrees units="&#176;">68</wind_dir_degrees>
+              <wind_dir_compass>ENE</wind_dir_compass>
+              <wind_speed_kph units="km/h">15</wind_speed_kph>
+              <wind_gust_kph units="km/h">20</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1010.2</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">7</cloud_cover_oktas>
+              <cloud_cover_percent units="%">82</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-04T03:30:00" tz="ACDT" utc_time="2022-03-03T17:00:00">
+              <temp_c units="&#176;C">23</temp_c>
+              <feels_like_c units="&#176;C">23</feels_like_c>
+              <dp_c units="&#176;C">19</dp_c>
+              <rh units="%">75</rh>
+              <wind_dir_degrees units="&#176;">0</wind_dir_degrees>
+              <wind_dir_compass>N</wind_dir_compass>
+              <wind_speed_kph units="km/h">17</wind_speed_kph>
+              <wind_gust_kph units="km/h">22</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1010.2</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">7</cloud_cover_oktas>
+              <cloud_cover_percent units="%">81</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-04T04:30:00" tz="ACDT" utc_time="2022-03-03T18:00:00">
+              <temp_c units="&#176;C">23</temp_c>
+              <feels_like_c units="&#176;C">23</feels_like_c>
+              <dp_c units="&#176;C">19</dp_c>
+              <rh units="%">76</rh>
+              <wind_dir_degrees units="&#176;">338</wind_dir_degrees>
+              <wind_dir_compass>NNW</wind_dir_compass>
+              <wind_speed_kph units="km/h">19</wind_speed_kph>
+              <wind_gust_kph units="km/h">25</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1010.3</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">7</cloud_cover_oktas>
+              <cloud_cover_percent units="%">81</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-04T05:30:00" tz="ACDT" utc_time="2022-03-03T19:00:00">
+              <temp_c units="&#176;C">23</temp_c>
+              <feels_like_c units="&#176;C">23</feels_like_c>
+              <dp_c units="&#176;C">19</dp_c>
+              <rh units="%">77</rh>
+              <wind_dir_degrees units="&#176;">338</wind_dir_degrees>
+              <wind_dir_compass>NNW</wind_dir_compass>
+              <wind_speed_kph units="km/h">17</wind_speed_kph>
+              <wind_gust_kph units="km/h">23</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1010.6</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">6</cloud_cover_oktas>
+              <cloud_cover_percent units="%">80</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-04T06:30:00" tz="ACDT" utc_time="2022-03-03T20:00:00">
+              <temp_c units="&#176;C">23</temp_c>
+              <feels_like_c units="&#176;C">23</feels_like_c>
+              <dp_c units="&#176;C">19</dp_c>
+              <rh units="%">77</rh>
+              <wind_dir_degrees units="&#176;">293</wind_dir_degrees>
+              <wind_dir_compass>WNW</wind_dir_compass>
+              <wind_speed_kph units="km/h">17</wind_speed_kph>
+              <wind_gust_kph units="km/h">23</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1011.1</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">6</cloud_cover_oktas>
+              <cloud_cover_percent units="%">79</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-04T07:30:00" tz="ACDT" utc_time="2022-03-03T21:00:00">
+              <temp_c units="&#176;C">22</temp_c>
+              <feels_like_c units="&#176;C">22</feels_like_c>
+              <dp_c units="&#176;C">19</dp_c>
+              <rh units="%">78</rh>
+              <wind_dir_degrees units="&#176;">293</wind_dir_degrees>
+              <wind_dir_compass>WNW</wind_dir_compass>
+              <wind_speed_kph units="km/h">19</wind_speed_kph>
+              <wind_gust_kph units="km/h">25</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1011.7</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">6</cloud_cover_oktas>
+              <cloud_cover_percent units="%">80</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-04T08:30:00" tz="ACDT" utc_time="2022-03-03T22:00:00">
+              <temp_c units="&#176;C">22</temp_c>
+              <feels_like_c units="&#176;C">22</feels_like_c>
+              <dp_c units="&#176;C">18</dp_c>
+              <rh units="%">78</rh>
+              <wind_dir_degrees units="&#176;">270</wind_dir_degrees>
+              <wind_dir_compass>W</wind_dir_compass>
+              <wind_speed_kph units="km/h">18</wind_speed_kph>
+              <wind_gust_kph units="km/h">25</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1012.4</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">6</cloud_cover_oktas>
+              <cloud_cover_percent units="%">80</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-04T09:30:00" tz="ACDT" utc_time="2022-03-03T23:00:00">
+              <temp_c units="&#176;C">22</temp_c>
+              <feels_like_c units="&#176;C">22</feels_like_c>
+              <dp_c units="&#176;C">18</dp_c>
+              <rh units="%">78</rh>
+              <wind_dir_degrees units="&#176;">270</wind_dir_degrees>
+              <wind_dir_compass>W</wind_dir_compass>
+              <wind_speed_kph units="km/h">17</wind_speed_kph>
+              <wind_gust_kph units="km/h">23</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1012.9</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">6</cloud_cover_oktas>
+              <cloud_cover_percent units="%">80</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-04T10:30:00" tz="ACDT" utc_time="2022-03-04T00:00:00">
+              <temp_c units="&#176;C">22</temp_c>
+              <feels_like_c units="&#176;C">22</feels_like_c>
+              <dp_c units="&#176;C">18</dp_c>
+              <rh units="%">77</rh>
+              <wind_dir_degrees units="&#176;">270</wind_dir_degrees>
+              <wind_dir_compass>W</wind_dir_compass>
+              <wind_speed_kph units="km/h">16</wind_speed_kph>
+              <wind_gust_kph units="km/h">23</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1013.2</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">6</cloud_cover_oktas>
+              <cloud_cover_percent units="%">77</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-04T11:30:00" tz="ACDT" utc_time="2022-03-04T01:00:00">
+              <temp_c units="&#176;C">22</temp_c>
+              <feels_like_c units="&#176;C">22</feels_like_c>
+              <dp_c units="&#176;C">18</dp_c>
+              <rh units="%">76</rh>
+              <wind_dir_degrees units="&#176;">270</wind_dir_degrees>
+              <wind_dir_compass>W</wind_dir_compass>
+              <wind_speed_kph units="km/h">18</wind_speed_kph>
+              <wind_gust_kph units="km/h">24</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1013.3</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">6</cloud_cover_oktas>
+              <cloud_cover_percent units="%">75</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-04T12:30:00" tz="ACDT" utc_time="2022-03-04T02:00:00">
+              <temp_c units="&#176;C">22</temp_c>
+              <feels_like_c units="&#176;C">22</feels_like_c>
+              <dp_c units="&#176;C">18</dp_c>
+              <rh units="%">75</rh>
+              <wind_dir_degrees units="&#176;">248</wind_dir_degrees>
+              <wind_dir_compass>WSW</wind_dir_compass>
+              <wind_speed_kph units="km/h">19</wind_speed_kph>
+              <wind_gust_kph units="km/h">26</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1013.2</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">6</cloud_cover_oktas>
+              <cloud_cover_percent units="%">72</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-04T13:30:00" tz="ACDT" utc_time="2022-03-04T03:00:00">
+              <temp_c units="&#176;C">22</temp_c>
+              <feels_like_c units="&#176;C">22</feels_like_c>
+              <dp_c units="&#176;C">18</dp_c>
+              <rh units="%">75</rh>
+              <wind_dir_degrees units="&#176;">248</wind_dir_degrees>
+              <wind_dir_compass>WSW</wind_dir_compass>
+              <wind_speed_kph units="km/h">21</wind_speed_kph>
+              <wind_gust_kph units="km/h">28</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1012.9</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">5</cloud_cover_oktas>
+              <cloud_cover_percent units="%">62</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-04T14:30:00" tz="ACDT" utc_time="2022-03-04T04:00:00">
+              <temp_c units="&#176;C">22</temp_c>
+              <feels_like_c units="&#176;C">22</feels_like_c>
+              <dp_c units="&#176;C">17</dp_c>
+              <rh units="%">74</rh>
+              <wind_dir_degrees units="&#176;">248</wind_dir_degrees>
+              <wind_dir_compass>WSW</wind_dir_compass>
+              <wind_speed_kph units="km/h">22</wind_speed_kph>
+              <wind_gust_kph units="km/h">30</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1012.6</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">5</cloud_cover_oktas>
+              <cloud_cover_percent units="%">66</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-04T15:30:00" tz="ACDT" utc_time="2022-03-04T05:00:00">
+              <temp_c units="&#176;C">22</temp_c>
+              <feels_like_c units="&#176;C">22</feels_like_c>
+              <dp_c units="&#176;C">17</dp_c>
+              <rh units="%">73</rh>
+              <wind_dir_degrees units="&#176;">248</wind_dir_degrees>
+              <wind_dir_compass>WSW</wind_dir_compass>
+              <wind_speed_kph units="km/h">24</wind_speed_kph>
+              <wind_gust_kph units="km/h">33</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1012.2</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">5</cloud_cover_oktas>
+              <cloud_cover_percent units="%">59</cloud_cover_percent>
+              <prob_precip units="%">6</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-04T16:30:00" tz="ACDT" utc_time="2022-03-04T06:00:00">
+              <temp_c units="&#176;C">22</temp_c>
+              <feels_like_c units="&#176;C">22</feels_like_c>
+              <dp_c units="&#176;C">17</dp_c>
+              <rh units="%">72</rh>
+              <wind_dir_degrees units="&#176;">248</wind_dir_degrees>
+              <wind_dir_compass>WSW</wind_dir_compass>
+              <wind_speed_kph units="km/h">25</wind_speed_kph>
+              <wind_gust_kph units="km/h">35</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1012.0</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">5</cloud_cover_oktas>
+              <cloud_cover_percent units="%">67</cloud_cover_percent>
+              <prob_precip units="%">13</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-04T17:30:00" tz="ACDT" utc_time="2022-03-04T07:00:00">
+              <temp_c units="&#176;C">22</temp_c>
+              <feels_like_c units="&#176;C">22</feels_like_c>
+              <dp_c units="&#176;C">17</dp_c>
+              <rh units="%">72</rh>
+              <wind_dir_degrees units="&#176;">248</wind_dir_degrees>
+              <wind_dir_compass>WSW</wind_dir_compass>
+              <wind_speed_kph units="km/h">27</wind_speed_kph>
+              <wind_gust_kph units="km/h">37</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1012.2</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">6</cloud_cover_oktas>
+              <cloud_cover_percent units="%">73</cloud_cover_percent>
+              <prob_precip units="%">13</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-04T18:30:00" tz="ACDT" utc_time="2022-03-04T08:00:00">
+              <temp_c units="&#176;C">22</temp_c>
+              <feels_like_c units="&#176;C">22</feels_like_c>
+              <dp_c units="&#176;C">17</dp_c>
+              <rh units="%">73</rh>
+              <wind_dir_degrees units="&#176;">248</wind_dir_degrees>
+              <wind_dir_compass>WSW</wind_dir_compass>
+              <wind_speed_kph units="km/h">29</wind_speed_kph>
+              <wind_gust_kph units="km/h">39</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1012.4</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">5</cloud_cover_oktas>
+              <cloud_cover_percent units="%">66</cloud_cover_percent>
+              <prob_precip units="%">14</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-04T19:30:00" tz="ACDT" utc_time="2022-03-04T09:00:00">
+              <temp_c units="&#176;C">21</temp_c>
+              <feels_like_c units="&#176;C">21</feels_like_c>
+              <dp_c units="&#176;C">17</dp_c>
+              <rh units="%">73</rh>
+              <wind_dir_degrees units="&#176;">248</wind_dir_degrees>
+              <wind_dir_compass>WSW</wind_dir_compass>
+              <wind_speed_kph units="km/h">29</wind_speed_kph>
+              <wind_gust_kph units="km/h">39</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1012.6</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">5</cloud_cover_oktas>
+              <cloud_cover_percent units="%">62</cloud_cover_percent>
+              <prob_precip units="%">11</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-04T20:30:00" tz="ACDT" utc_time="2022-03-04T10:00:00">
+              <temp_c units="&#176;C">21</temp_c>
+              <feels_like_c units="&#176;C">21</feels_like_c>
+              <dp_c units="&#176;C">16</dp_c>
+              <rh units="%">73</rh>
+              <wind_dir_degrees units="&#176;">248</wind_dir_degrees>
+              <wind_dir_compass>WSW</wind_dir_compass>
+              <wind_speed_kph units="km/h">29</wind_speed_kph>
+              <wind_gust_kph units="km/h">39</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1013.0</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">5</cloud_cover_oktas>
+              <cloud_cover_percent units="%">62</cloud_cover_percent>
+              <prob_precip units="%">39</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Slight chance shower</precis>
+              <icon filename="possible_shower.gif">Possible shower</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-04T21:30:00" tz="ACDT" utc_time="2022-03-04T11:00:00">
+              <temp_c units="&#176;C">21</temp_c>
+              <feels_like_c units="&#176;C">21</feels_like_c>
+              <dp_c units="&#176;C">16</dp_c>
+              <rh units="%">75</rh>
+              <wind_dir_degrees units="&#176;">248</wind_dir_degrees>
+              <wind_dir_compass>WSW</wind_dir_compass>
+              <wind_speed_kph units="km/h">28</wind_speed_kph>
+              <wind_gust_kph units="km/h">39</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1013.4</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">5</cloud_cover_oktas>
+              <cloud_cover_percent units="%">58</cloud_cover_percent>
+              <prob_precip units="%">43</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Slight chance shower</precis>
+              <icon filename="possible_shower.gif">Possible shower</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-04T22:30:00" tz="ACDT" utc_time="2022-03-04T12:00:00">
+              <temp_c units="&#176;C">20</temp_c>
+              <feels_like_c units="&#176;C">20</feels_like_c>
+              <dp_c units="&#176;C">16</dp_c>
+              <rh units="%">76</rh>
+              <wind_dir_degrees units="&#176;">248</wind_dir_degrees>
+              <wind_dir_compass>WSW</wind_dir_compass>
+              <wind_speed_kph units="km/h">28</wind_speed_kph>
+              <wind_gust_kph units="km/h">39</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1013.6</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">5</cloud_cover_oktas>
+              <cloud_cover_percent units="%">62</cloud_cover_percent>
+              <prob_precip units="%">32</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-04T23:30:00" tz="ACDT" utc_time="2022-03-04T13:00:00">
+              <temp_c units="&#176;C">20</temp_c>
+              <feels_like_c units="&#176;C">20</feels_like_c>
+              <dp_c units="&#176;C">16</dp_c>
+              <rh units="%">77</rh>
+              <wind_dir_degrees units="&#176;">248</wind_dir_degrees>
+              <wind_dir_compass>WSW</wind_dir_compass>
+              <wind_speed_kph units="km/h">28</wind_speed_kph>
+              <wind_gust_kph units="km/h">38</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1013.5</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">5</cloud_cover_oktas>
+              <cloud_cover_percent units="%">59</cloud_cover_percent>
+              <prob_precip units="%">30</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-05T00:30:00" tz="ACDT" utc_time="2022-03-04T14:00:00">
+              <temp_c units="&#176;C">20</temp_c>
+              <feels_like_c units="&#176;C">20</feels_like_c>
+              <dp_c units="&#176;C">16</dp_c>
+              <rh units="%">79</rh>
+              <wind_dir_degrees units="&#176;">248</wind_dir_degrees>
+              <wind_dir_compass>WSW</wind_dir_compass>
+              <wind_speed_kph units="km/h">27</wind_speed_kph>
+              <wind_gust_kph units="km/h">38</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1013.3</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">5</cloud_cover_oktas>
+              <cloud_cover_percent units="%">66</cloud_cover_percent>
+              <prob_precip units="%">42</prob_precip>
+              <rain_rate_mm units="mm/hour">0.1</rain_rate_mm>
+              <precis>Slight chance shower</precis>
+              <icon filename="possible_shower.gif">Possible shower</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-05T01:30:00" tz="ACDT" utc_time="2022-03-04T15:00:00">
+              <temp_c units="&#176;C">19</temp_c>
+              <feels_like_c units="&#176;C">19</feels_like_c>
+              <dp_c units="&#176;C">16</dp_c>
+              <rh units="%">80</rh>
+              <wind_dir_degrees units="&#176;">248</wind_dir_degrees>
+              <wind_dir_compass>WSW</wind_dir_compass>
+              <wind_speed_kph units="km/h">27</wind_speed_kph>
+              <wind_gust_kph units="km/h">38</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1013.1</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">5</cloud_cover_oktas>
+              <cloud_cover_percent units="%">60</cloud_cover_percent>
+              <prob_precip units="%">43</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Slight chance shower</precis>
+              <icon filename="possible_shower.gif">Possible shower</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-05T02:30:00" tz="ACDT" utc_time="2022-03-04T16:00:00">
+              <temp_c units="&#176;C">19</temp_c>
+              <feels_like_c units="&#176;C">19</feels_like_c>
+              <dp_c units="&#176;C">16</dp_c>
+              <rh units="%">80</rh>
+              <wind_dir_degrees units="&#176;">248</wind_dir_degrees>
+              <wind_dir_compass>WSW</wind_dir_compass>
+              <wind_speed_kph units="km/h">28</wind_speed_kph>
+              <wind_gust_kph units="km/h">38</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1012.9</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">5</cloud_cover_oktas>
+              <cloud_cover_percent units="%">65</cloud_cover_percent>
+              <prob_precip units="%">59</prob_precip>
+              <rain_rate_mm units="mm/hour">0.1</rain_rate_mm>
+              <precis>Chance shower</precis>
+              <icon filename="possible_shower.gif">Possible shower</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-05T03:30:00" tz="ACDT" utc_time="2022-03-04T17:00:00">
+              <temp_c units="&#176;C">19</temp_c>
+              <feels_like_c units="&#176;C">19</feels_like_c>
+              <dp_c units="&#176;C">16</dp_c>
+              <rh units="%">80</rh>
+              <wind_dir_degrees units="&#176;">248</wind_dir_degrees>
+              <wind_dir_compass>WSW</wind_dir_compass>
+              <wind_speed_kph units="km/h">29</wind_speed_kph>
+              <wind_gust_kph units="km/h">40</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1012.8</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">5</cloud_cover_oktas>
+              <cloud_cover_percent units="%">64</cloud_cover_percent>
+              <prob_precip units="%">47</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Slight chance shower</precis>
+              <icon filename="possible_shower.gif">Possible shower</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-05T04:30:00" tz="ACDT" utc_time="2022-03-04T18:00:00">
+              <temp_c units="&#176;C">19</temp_c>
+              <feels_like_c units="&#176;C">19</feels_like_c>
+              <dp_c units="&#176;C">16</dp_c>
+              <rh units="%">80</rh>
+              <wind_dir_degrees units="&#176;">225</wind_dir_degrees>
+              <wind_dir_compass>SW</wind_dir_compass>
+              <wind_speed_kph units="km/h">30</wind_speed_kph>
+              <wind_gust_kph units="km/h">40</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1012.7</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">6</cloud_cover_oktas>
+              <cloud_cover_percent units="%">70</cloud_cover_percent>
+              <prob_precip units="%">29</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-05T05:30:00" tz="ACDT" utc_time="2022-03-04T19:00:00">
+              <temp_c units="&#176;C">19</temp_c>
+              <feels_like_c units="&#176;C">19</feels_like_c>
+              <dp_c units="&#176;C">16</dp_c>
+              <rh units="%">80</rh>
+              <wind_dir_degrees units="&#176;">225</wind_dir_degrees>
+              <wind_dir_compass>SW</wind_dir_compass>
+              <wind_speed_kph units="km/h">30</wind_speed_kph>
+              <wind_gust_kph units="km/h">40</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1012.9</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">6</cloud_cover_oktas>
+              <cloud_cover_percent units="%">73</cloud_cover_percent>
+              <prob_precip units="%">40</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Slight chance shower</precis>
+              <icon filename="possible_shower.gif">Possible shower</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-05T06:30:00" tz="ACDT" utc_time="2022-03-04T20:00:00">
+              <temp_c units="&#176;C">19</temp_c>
+              <feels_like_c units="&#176;C">19</feels_like_c>
+              <dp_c units="&#176;C">16</dp_c>
+              <rh units="%">80</rh>
+              <wind_dir_degrees units="&#176;">225</wind_dir_degrees>
+              <wind_dir_compass>SW</wind_dir_compass>
+              <wind_speed_kph units="km/h">30</wind_speed_kph>
+              <wind_gust_kph units="km/h">40</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1013.4</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">6</cloud_cover_oktas>
+              <cloud_cover_percent units="%">80</cloud_cover_percent>
+              <prob_precip units="%">40</prob_precip>
+              <rain_rate_mm units="mm/hour">0.2</rain_rate_mm>
+              <precis>Slight chance shower</precis>
+              <icon filename="possible_shower.gif">Possible shower</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-05T07:30:00" tz="ACDT" utc_time="2022-03-04T21:00:00">
+              <temp_c units="&#176;C">19</temp_c>
+              <feels_like_c units="&#176;C">19</feels_like_c>
+              <dp_c units="&#176;C">16</dp_c>
+              <rh units="%">79</rh>
+              <wind_dir_degrees units="&#176;">225</wind_dir_degrees>
+              <wind_dir_compass>SW</wind_dir_compass>
+              <wind_speed_kph units="km/h">29</wind_speed_kph>
+              <wind_gust_kph units="km/h">39</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1014.0</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">6</cloud_cover_oktas>
+              <cloud_cover_percent units="%">79</cloud_cover_percent>
+              <prob_precip units="%">50</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Slight chance shower</precis>
+              <icon filename="possible_shower.gif">Possible shower</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-05T08:30:00" tz="ACDT" utc_time="2022-03-04T22:00:00">
+              <temp_c units="&#176;C">19</temp_c>
+              <feels_like_c units="&#176;C">19</feels_like_c>
+              <dp_c units="&#176;C">16</dp_c>
+              <rh units="%">78</rh>
+              <wind_dir_degrees units="&#176;">225</wind_dir_degrees>
+              <wind_dir_compass>SW</wind_dir_compass>
+              <wind_speed_kph units="km/h">29</wind_speed_kph>
+              <wind_gust_kph units="km/h">39</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1014.5</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">6</cloud_cover_oktas>
+              <cloud_cover_percent units="%">75</cloud_cover_percent>
+              <prob_precip units="%">28</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-05T09:30:00" tz="ACDT" utc_time="2022-03-04T23:00:00">
+              <temp_c units="&#176;C">20</temp_c>
+              <feels_like_c units="&#176;C">20</feels_like_c>
+              <dp_c units="&#176;C">15</dp_c>
+              <rh units="%">76</rh>
+              <wind_dir_degrees units="&#176;">225</wind_dir_degrees>
+              <wind_dir_compass>SW</wind_dir_compass>
+              <wind_speed_kph units="km/h">28</wind_speed_kph>
+              <wind_gust_kph units="km/h">37</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1013.5</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">6</cloud_cover_oktas>
+              <cloud_cover_percent units="%">73</cloud_cover_percent>
+              <prob_precip units="%">18</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-05T10:30:00" tz="ACDT" utc_time="2022-03-05T00:00:00">
+              <temp_c units="&#176;C">20</temp_c>
+              <feels_like_c units="&#176;C">20</feels_like_c>
+              <dp_c units="&#176;C">15</dp_c>
+              <rh units="%">75</rh>
+              <wind_dir_degrees units="&#176;">225</wind_dir_degrees>
+              <wind_dir_compass>SW</wind_dir_compass>
+              <wind_speed_kph units="km/h">27</wind_speed_kph>
+              <wind_gust_kph units="km/h">37</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1013.8</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">6</cloud_cover_oktas>
+              <cloud_cover_percent units="%">76</cloud_cover_percent>
+              <prob_precip units="%">10</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-05T11:30:00" tz="ACDT" utc_time="2022-03-05T01:00:00">
+              <temp_c units="&#176;C">20</temp_c>
+              <feels_like_c units="&#176;C">20</feels_like_c>
+              <dp_c units="&#176;C">15</dp_c>
+              <rh units="%">74</rh>
+              <wind_dir_degrees units="&#176;">225</wind_dir_degrees>
+              <wind_dir_compass>SW</wind_dir_compass>
+              <wind_speed_kph units="km/h">27</wind_speed_kph>
+              <wind_gust_kph units="km/h">37</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1013.8</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">6</cloud_cover_oktas>
+              <cloud_cover_percent units="%">72</cloud_cover_percent>
+              <prob_precip units="%">11</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-05T12:30:00" tz="ACDT" utc_time="2022-03-05T02:00:00">
+              <temp_c units="&#176;C">20</temp_c>
+              <feels_like_c units="&#176;C">20</feels_like_c>
+              <dp_c units="&#176;C">16</dp_c>
+              <rh units="%">73</rh>
+              <wind_dir_degrees units="&#176;">225</wind_dir_degrees>
+              <wind_dir_compass>SW</wind_dir_compass>
+              <wind_speed_kph units="km/h">28</wind_speed_kph>
+              <wind_gust_kph units="km/h">38</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1013.8</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">5</cloud_cover_oktas>
+              <cloud_cover_percent units="%">61</cloud_cover_percent>
+              <prob_precip units="%">6</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-05T13:30:00" tz="ACDT" utc_time="2022-03-05T03:00:00">
+              <temp_c units="&#176;C">21</temp_c>
+              <feels_like_c units="&#176;C">21</feels_like_c>
+              <dp_c units="&#176;C">16</dp_c>
+              <rh units="%">72</rh>
+              <wind_dir_degrees units="&#176;">225</wind_dir_degrees>
+              <wind_dir_compass>SW</wind_dir_compass>
+              <wind_speed_kph units="km/h">29</wind_speed_kph>
+              <wind_gust_kph units="km/h">39</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1013.6</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">4</cloud_cover_oktas>
+              <cloud_cover_percent units="%">48</cloud_cover_percent>
+              <prob_precip units="%">7</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-05T14:30:00" tz="ACDT" utc_time="2022-03-05T04:00:00">
+              <temp_c units="&#176;C">21</temp_c>
+              <feels_like_c units="&#176;C">21</feels_like_c>
+              <dp_c units="&#176;C">15</dp_c>
+              <rh units="%">71</rh>
+              <wind_dir_degrees units="&#176;">225</wind_dir_degrees>
+              <wind_dir_compass>SW</wind_dir_compass>
+              <wind_speed_kph units="km/h">31</wind_speed_kph>
+              <wind_gust_kph units="km/h">42</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1013.9</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">4</cloud_cover_oktas>
+              <cloud_cover_percent units="%">50</cloud_cover_percent>
+              <prob_precip units="%">8</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-05T15:30:00" tz="ACDT" utc_time="2022-03-05T05:00:00">
+              <temp_c units="&#176;C">21</temp_c>
+              <feels_like_c units="&#176;C">21</feels_like_c>
+              <dp_c units="&#176;C">16</dp_c>
+              <rh units="%">72</rh>
+              <wind_dir_degrees units="&#176;">225</wind_dir_degrees>
+              <wind_dir_compass>SW</wind_dir_compass>
+              <wind_speed_kph units="km/h">31</wind_speed_kph>
+              <wind_gust_kph units="km/h">42</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1013.4</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">5</cloud_cover_oktas>
+              <cloud_cover_percent units="%">66</cloud_cover_percent>
+              <prob_precip units="%">11</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-05T16:30:00" tz="ACDT" utc_time="2022-03-05T06:00:00">
+              <temp_c units="&#176;C">21</temp_c>
+              <feels_like_c units="&#176;C">21</feels_like_c>
+              <dp_c units="&#176;C">16</dp_c>
+              <rh units="%">71</rh>
+              <wind_dir_degrees units="&#176;">225</wind_dir_degrees>
+              <wind_dir_compass>SW</wind_dir_compass>
+              <wind_speed_kph units="km/h">34</wind_speed_kph>
+              <wind_gust_kph units="km/h">47</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1013.7</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">4</cloud_cover_oktas>
+              <cloud_cover_percent units="%">50</cloud_cover_percent>
+              <prob_precip units="%">19</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy. Windy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-05T17:30:00" tz="ACDT" utc_time="2022-03-05T07:00:00">
+              <temp_c units="&#176;C">21</temp_c>
+              <feels_like_c units="&#176;C">21</feels_like_c>
+              <dp_c units="&#176;C">16</dp_c>
+              <rh units="%">72</rh>
+              <wind_dir_degrees units="&#176;">225</wind_dir_degrees>
+              <wind_dir_compass>SW</wind_dir_compass>
+              <wind_speed_kph units="km/h">34</wind_speed_kph>
+              <wind_gust_kph units="km/h">47</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1014.0</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">4</cloud_cover_oktas>
+              <cloud_cover_percent units="%">50</cloud_cover_percent>
+              <prob_precip units="%">16</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy. Windy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-05T18:30:00" tz="ACDT" utc_time="2022-03-05T08:00:00">
+              <temp_c units="&#176;C">21</temp_c>
+              <feels_like_c units="&#176;C">21</feels_like_c>
+              <dp_c units="&#176;C">16</dp_c>
+              <rh units="%">74</rh>
+              <wind_dir_degrees units="&#176;">203</wind_dir_degrees>
+              <wind_dir_compass>SSW</wind_dir_compass>
+              <wind_speed_kph units="km/h">34</wind_speed_kph>
+              <wind_gust_kph units="km/h">46</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1014.5</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">5</cloud_cover_oktas>
+              <cloud_cover_percent units="%">65</cloud_cover_percent>
+              <prob_precip units="%">23</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-05T19:30:00" tz="ACDT" utc_time="2022-03-05T09:00:00">
+              <temp_c units="&#176;C">20</temp_c>
+              <feels_like_c units="&#176;C">20</feels_like_c>
+              <dp_c units="&#176;C">16</dp_c>
+              <rh units="%">76</rh>
+              <wind_dir_degrees units="&#176;">203</wind_dir_degrees>
+              <wind_dir_compass>SSW</wind_dir_compass>
+              <wind_speed_kph units="km/h">34</wind_speed_kph>
+              <wind_gust_kph units="km/h">46</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1015.2</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">6</cloud_cover_oktas>
+              <cloud_cover_percent units="%">70</cloud_cover_percent>
+              <prob_precip units="%">20</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-05T20:30:00" tz="ACDT" utc_time="2022-03-05T10:00:00">
+              <temp_c units="&#176;C">20</temp_c>
+              <feels_like_c units="&#176;C">20</feels_like_c>
+              <dp_c units="&#176;C">16</dp_c>
+              <rh units="%">76</rh>
+              <wind_dir_degrees units="&#176;">203</wind_dir_degrees>
+              <wind_dir_compass>SSW</wind_dir_compass>
+              <wind_speed_kph units="km/h">33</wind_speed_kph>
+              <wind_gust_kph units="km/h">45</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1016.0</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">6</cloud_cover_oktas>
+              <cloud_cover_percent units="%">79</cloud_cover_percent>
+              <prob_precip units="%">16</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-05T21:30:00" tz="ACDT" utc_time="2022-03-05T11:00:00">
+              <temp_c units="&#176;C">20</temp_c>
+              <feels_like_c units="&#176;C">20</feels_like_c>
+              <dp_c units="&#176;C">16</dp_c>
+              <rh units="%">78</rh>
+              <wind_dir_degrees units="&#176;">203</wind_dir_degrees>
+              <wind_dir_compass>SSW</wind_dir_compass>
+              <wind_speed_kph units="km/h">33</wind_speed_kph>
+              <wind_gust_kph units="km/h">44</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1016.7</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">6</cloud_cover_oktas>
+              <cloud_cover_percent units="%">79</cloud_cover_percent>
+              <prob_precip units="%">48</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Slight chance shower</precis>
+              <icon filename="possible_shower.gif">Possible shower</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-05T22:30:00" tz="ACDT" utc_time="2022-03-05T12:00:00">
+              <temp_c units="&#176;C">19</temp_c>
+              <feels_like_c units="&#176;C">19</feels_like_c>
+              <dp_c units="&#176;C">16</dp_c>
+              <rh units="%">79</rh>
+              <wind_dir_degrees units="&#176;">180</wind_dir_degrees>
+              <wind_dir_compass>S</wind_dir_compass>
+              <wind_speed_kph units="km/h">32</wind_speed_kph>
+              <wind_gust_kph units="km/h">43</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1016.7</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">6</cloud_cover_oktas>
+              <cloud_cover_percent units="%">74</cloud_cover_percent>
+              <prob_precip units="%">35</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Slight chance shower</precis>
+              <icon filename="possible_shower.gif">Possible shower</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-05T23:30:00" tz="ACDT" utc_time="2022-03-05T13:00:00">
+              <temp_c units="&#176;C">19</temp_c>
+              <feels_like_c units="&#176;C">19</feels_like_c>
+              <dp_c units="&#176;C">16</dp_c>
+              <rh units="%">80</rh>
+              <wind_dir_degrees units="&#176;">180</wind_dir_degrees>
+              <wind_dir_compass>S</wind_dir_compass>
+              <wind_speed_kph units="km/h">32</wind_speed_kph>
+              <wind_gust_kph units="km/h">42</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1016.8</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">6</cloud_cover_oktas>
+              <cloud_cover_percent units="%">79</cloud_cover_percent>
+              <prob_precip units="%">30</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-06T00:30:00" tz="ACDT" utc_time="2022-03-05T14:00:00">
+              <temp_c units="&#176;C">19</temp_c>
+              <feels_like_c units="&#176;C">19</feels_like_c>
+              <dp_c units="&#176;C">15</dp_c>
+              <rh units="%">80</rh>
+              <wind_dir_degrees units="&#176;">180</wind_dir_degrees>
+              <wind_dir_compass>S</wind_dir_compass>
+              <wind_speed_kph units="km/h">31</wind_speed_kph>
+              <wind_gust_kph units="km/h">42</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1016.9</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">6</cloud_cover_oktas>
+              <cloud_cover_percent units="%">79</cloud_cover_percent>
+              <prob_precip units="%">27</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-06T01:30:00" tz="ACDT" utc_time="2022-03-05T15:00:00">
+              <temp_c units="&#176;C">19</temp_c>
+              <feels_like_c units="&#176;C">19</feels_like_c>
+              <dp_c units="&#176;C">15</dp_c>
+              <rh units="%">80</rh>
+              <wind_dir_degrees units="&#176;">180</wind_dir_degrees>
+              <wind_dir_compass>S</wind_dir_compass>
+              <wind_speed_kph units="km/h">31</wind_speed_kph>
+              <wind_gust_kph units="km/h">41</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1016.9</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">7</cloud_cover_oktas>
+              <cloud_cover_percent units="%">82</cloud_cover_percent>
+              <prob_precip units="%">11</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-06T02:30:00" tz="ACDT" utc_time="2022-03-05T16:00:00">
+              <temp_c units="&#176;C">18</temp_c>
+              <feels_like_c units="&#176;C">18</feels_like_c>
+              <dp_c units="&#176;C">15</dp_c>
+              <rh units="%">80</rh>
+              <wind_dir_degrees units="&#176;">180</wind_dir_degrees>
+              <wind_dir_compass>S</wind_dir_compass>
+              <wind_speed_kph units="km/h">29</wind_speed_kph>
+              <wind_gust_kph units="km/h">40</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1016.6</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">7</cloud_cover_oktas>
+              <cloud_cover_percent units="%">87</cloud_cover_percent>
+              <prob_precip units="%">11</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-06T03:30:00" tz="ACDT" utc_time="2022-03-05T17:00:00">
+              <temp_c units="&#176;C">18</temp_c>
+              <feels_like_c units="&#176;C">18</feels_like_c>
+              <dp_c units="&#176;C">15</dp_c>
+              <rh units="%">79</rh>
+              <wind_dir_degrees units="&#176;">180</wind_dir_degrees>
+              <wind_dir_compass>S</wind_dir_compass>
+              <wind_speed_kph units="km/h">30</wind_speed_kph>
+              <wind_gust_kph units="km/h">41</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1016.8</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">7</cloud_cover_oktas>
+              <cloud_cover_percent units="%">87</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-06T04:30:00" tz="ACDT" utc_time="2022-03-05T18:00:00">
+              <temp_c units="&#176;C">18</temp_c>
+              <feels_like_c units="&#176;C">18</feels_like_c>
+              <dp_c units="&#176;C">15</dp_c>
+              <rh units="%">79</rh>
+              <wind_dir_degrees units="&#176;">180</wind_dir_degrees>
+              <wind_dir_compass>S</wind_dir_compass>
+              <wind_speed_kph units="km/h">29</wind_speed_kph>
+              <wind_gust_kph units="km/h">40</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1016.9</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">7</cloud_cover_oktas>
+              <cloud_cover_percent units="%">82</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-06T05:30:00" tz="ACDT" utc_time="2022-03-05T19:00:00">
+              <temp_c units="&#176;C">18</temp_c>
+              <feels_like_c units="&#176;C">18</feels_like_c>
+              <dp_c units="&#176;C">15</dp_c>
+              <rh units="%">78</rh>
+              <wind_dir_degrees units="&#176;">180</wind_dir_degrees>
+              <wind_dir_compass>S</wind_dir_compass>
+              <wind_speed_kph units="km/h">29</wind_speed_kph>
+              <wind_gust_kph units="km/h">39</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1017.1</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">6</cloud_cover_oktas>
+              <cloud_cover_percent units="%">74</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-06T06:30:00" tz="ACDT" utc_time="2022-03-05T20:00:00">
+              <temp_c units="&#176;C">18</temp_c>
+              <feels_like_c units="&#176;C">18</feels_like_c>
+              <dp_c units="&#176;C">15</dp_c>
+              <rh units="%">78</rh>
+              <wind_dir_degrees units="&#176;">158</wind_dir_degrees>
+              <wind_dir_compass>SSE</wind_dir_compass>
+              <wind_speed_kph units="km/h">28</wind_speed_kph>
+              <wind_gust_kph units="km/h">38</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1017.3</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">6</cloud_cover_oktas>
+              <cloud_cover_percent units="%">80</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-06T07:30:00" tz="ACDT" utc_time="2022-03-05T21:00:00">
+              <temp_c units="&#176;C">19</temp_c>
+              <feels_like_c units="&#176;C">19</feels_like_c>
+              <dp_c units="&#176;C">15</dp_c>
+              <rh units="%">77</rh>
+              <wind_dir_degrees units="&#176;">158</wind_dir_degrees>
+              <wind_dir_compass>SSE</wind_dir_compass>
+              <wind_speed_kph units="km/h">28</wind_speed_kph>
+              <wind_gust_kph units="km/h">37</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1017.8</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">6</cloud_cover_oktas>
+              <cloud_cover_percent units="%">70</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-06T08:30:00" tz="ACDT" utc_time="2022-03-05T22:00:00">
+              <temp_c units="&#176;C">19</temp_c>
+              <feels_like_c units="&#176;C">19</feels_like_c>
+              <dp_c units="&#176;C">15</dp_c>
+              <rh units="%">76</rh>
+              <wind_dir_degrees units="&#176;">158</wind_dir_degrees>
+              <wind_dir_compass>SSE</wind_dir_compass>
+              <wind_speed_kph units="km/h">27</wind_speed_kph>
+              <wind_gust_kph units="km/h">36</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1018.3</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">6</cloud_cover_oktas>
+              <cloud_cover_percent units="%">79</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-06T09:30:00" tz="ACDT" utc_time="2022-03-05T23:00:00">
+              <temp_c units="&#176;C">19</temp_c>
+              <feels_like_c units="&#176;C">19</feels_like_c>
+              <dp_c units="&#176;C">14</dp_c>
+              <rh units="%">74</rh>
+              <wind_dir_degrees units="&#176;">158</wind_dir_degrees>
+              <wind_dir_compass>SSE</wind_dir_compass>
+              <wind_speed_kph units="km/h">26</wind_speed_kph>
+              <wind_gust_kph units="km/h">35</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1018.6</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">7</cloud_cover_oktas>
+              <cloud_cover_percent units="%">84</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-06T10:30:00" tz="ACDT" utc_time="2022-03-06T00:00:00">
+              <temp_c units="&#176;C">19</temp_c>
+              <feels_like_c units="&#176;C">19</feels_like_c>
+              <dp_c units="&#176;C">14</dp_c>
+              <rh units="%">73</rh>
+              <wind_dir_degrees units="&#176;">158</wind_dir_degrees>
+              <wind_dir_compass>SSE</wind_dir_compass>
+              <wind_speed_kph units="km/h">27</wind_speed_kph>
+              <wind_gust_kph units="km/h">36</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1018.7</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">7</cloud_cover_oktas>
+              <cloud_cover_percent units="%">87</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-06T11:30:00" tz="ACDT" utc_time="2022-03-06T01:00:00">
+              <temp_c units="&#176;C">20</temp_c>
+              <feels_like_c units="&#176;C">20</feels_like_c>
+              <dp_c units="&#176;C">14</dp_c>
+              <rh units="%">71</rh>
+              <wind_dir_degrees units="&#176;">158</wind_dir_degrees>
+              <wind_dir_compass>SSE</wind_dir_compass>
+              <wind_speed_kph units="km/h">26</wind_speed_kph>
+              <wind_gust_kph units="km/h">35</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1018.7</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">6</cloud_cover_oktas>
+              <cloud_cover_percent units="%">80</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-06T12:30:00" tz="ACDT" utc_time="2022-03-06T02:00:00">
+              <temp_c units="&#176;C">20</temp_c>
+              <feels_like_c units="&#176;C">20</feels_like_c>
+              <dp_c units="&#176;C">14</dp_c>
+              <rh units="%">69</rh>
+              <wind_dir_degrees units="&#176;">180</wind_dir_degrees>
+              <wind_dir_compass>S</wind_dir_compass>
+              <wind_speed_kph units="km/h">26</wind_speed_kph>
+              <wind_gust_kph units="km/h">35</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1018.3</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">6</cloud_cover_oktas>
+              <cloud_cover_percent units="%">71</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-06T13:30:00" tz="ACDT" utc_time="2022-03-06T03:00:00">
+              <temp_c units="&#176;C">20</temp_c>
+              <feels_like_c units="&#176;C">20</feels_like_c>
+              <dp_c units="&#176;C">14</dp_c>
+              <rh units="%">67</rh>
+              <wind_dir_degrees units="&#176;">180</wind_dir_degrees>
+              <wind_dir_compass>S</wind_dir_compass>
+              <wind_speed_kph units="km/h">26</wind_speed_kph>
+              <wind_gust_kph units="km/h">35</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1017.7</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">5</cloud_cover_oktas>
+              <cloud_cover_percent units="%">67</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-06T14:30:00" tz="ACDT" utc_time="2022-03-06T04:00:00">
+              <temp_c units="&#176;C">21</temp_c>
+              <feels_like_c units="&#176;C">21</feels_like_c>
+              <dp_c units="&#176;C">14</dp_c>
+              <rh units="%">64</rh>
+              <wind_dir_degrees units="&#176;">180</wind_dir_degrees>
+              <wind_dir_compass>S</wind_dir_compass>
+              <wind_speed_kph units="km/h">27</wind_speed_kph>
+              <wind_gust_kph units="km/h">36</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1017.2</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">5</cloud_cover_oktas>
+              <cloud_cover_percent units="%">68</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-06T15:30:00" tz="ACDT" utc_time="2022-03-06T05:00:00">
+              <temp_c units="&#176;C">21</temp_c>
+              <feels_like_c units="&#176;C">21</feels_like_c>
+              <dp_c units="&#176;C">14</dp_c>
+              <rh units="%">63</rh>
+              <wind_dir_degrees units="&#176;">180</wind_dir_degrees>
+              <wind_dir_compass>S</wind_dir_compass>
+              <wind_speed_kph units="km/h">28</wind_speed_kph>
+              <wind_gust_kph units="km/h">38</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1016.6</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">6</cloud_cover_oktas>
+              <cloud_cover_percent units="%">75</cloud_cover_percent>
+              <prob_precip units="%">6</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-06T16:30:00" tz="ACDT" utc_time="2022-03-06T06:00:00">
+              <temp_c units="&#176;C">21</temp_c>
+              <feels_like_c units="&#176;C">21</feels_like_c>
+              <dp_c units="&#176;C">14</dp_c>
+              <rh units="%">62</rh>
+              <wind_dir_degrees units="&#176;">180</wind_dir_degrees>
+              <wind_dir_compass>S</wind_dir_compass>
+              <wind_speed_kph units="km/h">29</wind_speed_kph>
+              <wind_gust_kph units="km/h">38</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1016.0</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">5</cloud_cover_oktas>
+              <cloud_cover_percent units="%">64</cloud_cover_percent>
+              <prob_precip units="%">10</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-06T17:30:00" tz="ACDT" utc_time="2022-03-06T07:00:00">
+              <temp_c units="&#176;C">21</temp_c>
+              <feels_like_c units="&#176;C">21</feels_like_c>
+              <dp_c units="&#176;C">14</dp_c>
+              <rh units="%">62</rh>
+              <wind_dir_degrees units="&#176;">180</wind_dir_degrees>
+              <wind_dir_compass>S</wind_dir_compass>
+              <wind_speed_kph units="km/h">29</wind_speed_kph>
+              <wind_gust_kph units="km/h">38</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1016.0</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">4</cloud_cover_oktas>
+              <cloud_cover_percent units="%">52</cloud_cover_percent>
+              <prob_precip units="%">6</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-06T18:30:00" tz="ACDT" utc_time="2022-03-06T08:00:00">
+              <temp_c units="&#176;C">21</temp_c>
+              <feels_like_c units="&#176;C">21</feels_like_c>
+              <dp_c units="&#176;C">14</dp_c>
+              <rh units="%">65</rh>
+              <wind_dir_degrees units="&#176;">180</wind_dir_degrees>
+              <wind_dir_compass>S</wind_dir_compass>
+              <wind_speed_kph units="km/h">28</wind_speed_kph>
+              <wind_gust_kph units="km/h">38</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1016.0</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">4</cloud_cover_oktas>
+              <cloud_cover_percent units="%">51</cloud_cover_percent>
+              <prob_precip units="%">10</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-06T19:30:00" tz="ACDT" utc_time="2022-03-06T09:00:00">
+              <temp_c units="&#176;C">20</temp_c>
+              <feels_like_c units="&#176;C">20</feels_like_c>
+              <dp_c units="&#176;C">14</dp_c>
+              <rh units="%">66</rh>
+              <wind_dir_degrees units="&#176;">180</wind_dir_degrees>
+              <wind_dir_compass>S</wind_dir_compass>
+              <wind_speed_kph units="km/h">28</wind_speed_kph>
+              <wind_gust_kph units="km/h">37</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1016.5</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">5</cloud_cover_oktas>
+              <cloud_cover_percent units="%">56</cloud_cover_percent>
+              <prob_precip units="%">10</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-06T20:30:00" tz="ACDT" utc_time="2022-03-06T10:00:00">
+              <temp_c units="&#176;C">20</temp_c>
+              <feels_like_c units="&#176;C">20</feels_like_c>
+              <dp_c units="&#176;C">14</dp_c>
+              <rh units="%">69</rh>
+              <wind_dir_degrees units="&#176;">180</wind_dir_degrees>
+              <wind_dir_compass>S</wind_dir_compass>
+              <wind_speed_kph units="km/h">27</wind_speed_kph>
+              <wind_gust_kph units="km/h">35</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1016.8</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">4</cloud_cover_oktas>
+              <cloud_cover_percent units="%">47</cloud_cover_percent>
+              <prob_precip units="%">8</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-06T21:30:00" tz="ACDT" utc_time="2022-03-06T11:00:00">
+              <temp_c units="&#176;C">19</temp_c>
+              <feels_like_c units="&#176;C">19</feels_like_c>
+              <dp_c units="&#176;C">14</dp_c>
+              <rh units="%">72</rh>
+              <wind_dir_degrees units="&#176;">180</wind_dir_degrees>
+              <wind_dir_compass>S</wind_dir_compass>
+              <wind_speed_kph units="km/h">25</wind_speed_kph>
+              <wind_gust_kph units="km/h">34</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1017.1</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">4</cloud_cover_oktas>
+              <cloud_cover_percent units="%">45</cloud_cover_percent>
+              <prob_precip units="%">8</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-06T22:30:00" tz="ACDT" utc_time="2022-03-06T12:00:00">
+              <temp_c units="&#176;C">19</temp_c>
+              <feels_like_c units="&#176;C">19</feels_like_c>
+              <dp_c units="&#176;C">14</dp_c>
+              <rh units="%">75</rh>
+              <wind_dir_degrees units="&#176;">180</wind_dir_degrees>
+              <wind_dir_compass>S</wind_dir_compass>
+              <wind_speed_kph units="km/h">23</wind_speed_kph>
+              <wind_gust_kph units="km/h">32</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1016.4</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">4</cloud_cover_oktas>
+              <cloud_cover_percent units="%">51</cloud_cover_percent>
+              <prob_precip units="%">13</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-06T23:30:00" tz="ACDT" utc_time="2022-03-06T13:00:00">
+              <temp_c units="&#176;C">19</temp_c>
+              <feels_like_c units="&#176;C">19</feels_like_c>
+              <dp_c units="&#176;C">14</dp_c>
+              <rh units="%">75</rh>
+              <wind_dir_degrees units="&#176;">180</wind_dir_degrees>
+              <wind_dir_compass>S</wind_dir_compass>
+              <wind_speed_kph units="km/h">21</wind_speed_kph>
+              <wind_gust_kph units="km/h">30</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1016.1</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">5</cloud_cover_oktas>
+              <cloud_cover_percent units="%">60</cloud_cover_percent>
+              <prob_precip units="%">11</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-07T00:30:00" tz="ACDT" utc_time="2022-03-06T14:00:00">
+              <temp_c units="&#176;C">19</temp_c>
+              <feels_like_c units="&#176;C">19</feels_like_c>
+              <dp_c units="&#176;C">14</dp_c>
+              <rh units="%">76</rh>
+              <wind_dir_degrees units="&#176;">158</wind_dir_degrees>
+              <wind_dir_compass>SSE</wind_dir_compass>
+              <wind_speed_kph units="km/h">19</wind_speed_kph>
+              <wind_gust_kph units="km/h">27</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1015.6</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">5</cloud_cover_oktas>
+              <cloud_cover_percent units="%">61</cloud_cover_percent>
+              <prob_precip units="%">10</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-07T01:30:00" tz="ACDT" utc_time="2022-03-06T15:00:00">
+              <temp_c units="&#176;C">18</temp_c>
+              <feels_like_c units="&#176;C">18</feels_like_c>
+              <dp_c units="&#176;C">14</dp_c>
+              <rh units="%">76</rh>
+              <wind_dir_degrees units="&#176;">158</wind_dir_degrees>
+              <wind_dir_compass>SSE</wind_dir_compass>
+              <wind_speed_kph units="km/h">17</wind_speed_kph>
+              <wind_gust_kph units="km/h">24</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1015.1</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">5</cloud_cover_oktas>
+              <cloud_cover_percent units="%">57</cloud_cover_percent>
+              <prob_precip units="%">6</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-07T02:30:00" tz="ACDT" utc_time="2022-03-06T16:00:00">
+              <temp_c units="&#176;C">18</temp_c>
+              <feels_like_c units="&#176;C">18</feels_like_c>
+              <dp_c units="&#176;C">14</dp_c>
+              <rh units="%">76</rh>
+              <wind_dir_degrees units="&#176;">158</wind_dir_degrees>
+              <wind_dir_compass>SSE</wind_dir_compass>
+              <wind_speed_kph units="km/h">16</wind_speed_kph>
+              <wind_gust_kph units="km/h">22</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1014.5</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">4</cloud_cover_oktas>
+              <cloud_cover_percent units="%">54</cloud_cover_percent>
+              <prob_precip units="%">25</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-07T03:30:00" tz="ACDT" utc_time="2022-03-06T17:00:00">
+              <temp_c units="&#176;C">18</temp_c>
+              <feels_like_c units="&#176;C">18</feels_like_c>
+              <dp_c units="&#176;C">14</dp_c>
+              <rh units="%">76</rh>
+              <wind_dir_degrees units="&#176;">158</wind_dir_degrees>
+              <wind_dir_compass>SSE</wind_dir_compass>
+              <wind_speed_kph units="km/h">16</wind_speed_kph>
+              <wind_gust_kph units="km/h">21</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1013.9</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">4</cloud_cover_oktas>
+              <cloud_cover_percent units="%">48</cloud_cover_percent>
+              <prob_precip units="%">19</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-07T04:30:00" tz="ACDT" utc_time="2022-03-06T18:00:00">
+              <temp_c units="&#176;C">18</temp_c>
+              <feels_like_c units="&#176;C">18</feels_like_c>
+              <dp_c units="&#176;C">14</dp_c>
+              <rh units="%">76</rh>
+              <wind_dir_degrees units="&#176;">158</wind_dir_degrees>
+              <wind_dir_compass>SSE</wind_dir_compass>
+              <wind_speed_kph units="km/h">15</wind_speed_kph>
+              <wind_gust_kph units="km/h">20</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1013.7</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">4</cloud_cover_oktas>
+              <cloud_cover_percent units="%">49</cloud_cover_percent>
+              <prob_precip units="%">14</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-07T05:30:00" tz="ACDT" utc_time="2022-03-06T19:00:00">
+              <temp_c units="&#176;C">19</temp_c>
+              <feels_like_c units="&#176;C">19</feels_like_c>
+              <dp_c units="&#176;C">14</dp_c>
+              <rh units="%">76</rh>
+              <wind_dir_degrees units="&#176;">158</wind_dir_degrees>
+              <wind_dir_compass>SSE</wind_dir_compass>
+              <wind_speed_kph units="km/h">14</wind_speed_kph>
+              <wind_gust_kph units="km/h">19</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1013.7</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">5</cloud_cover_oktas>
+              <cloud_cover_percent units="%">67</cloud_cover_percent>
+              <prob_precip units="%">16</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-07T06:30:00" tz="ACDT" utc_time="2022-03-06T20:00:00">
+              <temp_c units="&#176;C">19</temp_c>
+              <feels_like_c units="&#176;C">19</feels_like_c>
+              <dp_c units="&#176;C">15</dp_c>
+              <rh units="%">76</rh>
+              <wind_dir_degrees units="&#176;">158</wind_dir_degrees>
+              <wind_dir_compass>SSE</wind_dir_compass>
+              <wind_speed_kph units="km/h">13</wind_speed_kph>
+              <wind_gust_kph units="km/h">18</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1013.9</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">5</cloud_cover_oktas>
+              <cloud_cover_percent units="%">68</cloud_cover_percent>
+              <prob_precip units="%">33</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-07T07:30:00" tz="ACDT" utc_time="2022-03-06T21:00:00">
+              <temp_c units="&#176;C">19</temp_c>
+              <feels_like_c units="&#176;C">19</feels_like_c>
+              <dp_c units="&#176;C">15</dp_c>
+              <rh units="%">76</rh>
+              <wind_dir_degrees units="&#176;">158</wind_dir_degrees>
+              <wind_dir_compass>SSE</wind_dir_compass>
+              <wind_speed_kph units="km/h">12</wind_speed_kph>
+              <wind_gust_kph units="km/h">17</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1014.1</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">6</cloud_cover_oktas>
+              <cloud_cover_percent units="%">70</cloud_cover_percent>
+              <prob_precip units="%">31</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-07T08:30:00" tz="ACDT" utc_time="2022-03-06T22:00:00">
+              <temp_c units="&#176;C">19</temp_c>
+              <feels_like_c units="&#176;C">19</feels_like_c>
+              <dp_c units="&#176;C">15</dp_c>
+              <rh units="%">75</rh>
+              <wind_dir_degrees units="&#176;">158</wind_dir_degrees>
+              <wind_dir_compass>SSE</wind_dir_compass>
+              <wind_speed_kph units="km/h">11</wind_speed_kph>
+              <wind_gust_kph units="km/h">16</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1014.4</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">6</cloud_cover_oktas>
+              <cloud_cover_percent units="%">74</cloud_cover_percent>
+              <prob_precip units="%">27</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-07T09:30:00" tz="ACDT" utc_time="2022-03-06T23:00:00">
+              <temp_c units="&#176;C">19</temp_c>
+              <feels_like_c units="&#176;C">19</feels_like_c>
+              <dp_c units="&#176;C">15</dp_c>
+              <rh units="%">75</rh>
+              <wind_dir_degrees units="&#176;">180</wind_dir_degrees>
+              <wind_dir_compass>S</wind_dir_compass>
+              <wind_speed_kph units="km/h">10</wind_speed_kph>
+              <wind_gust_kph units="km/h">13</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1014.6</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">5</cloud_cover_oktas>
+              <cloud_cover_percent units="%">56</cloud_cover_percent>
+              <prob_precip units="%">26</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-07T10:30:00" tz="ACDT" utc_time="2022-03-07T00:00:00">
+              <temp_c units="&#176;C">19</temp_c>
+              <feels_like_c units="&#176;C">19</feels_like_c>
+              <dp_c units="&#176;C">15</dp_c>
+              <rh units="%">74</rh>
+              <wind_dir_degrees units="&#176;">180</wind_dir_degrees>
+              <wind_dir_compass>S</wind_dir_compass>
+              <wind_speed_kph units="km/h">10</wind_speed_kph>
+              <wind_gust_kph units="km/h">13</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1014.5</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">3</cloud_cover_oktas>
+              <cloud_cover_percent units="%">38</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-07T11:30:00" tz="ACDT" utc_time="2022-03-07T01:00:00">
+              <temp_c units="&#176;C">20</temp_c>
+              <feels_like_c units="&#176;C">20</feels_like_c>
+              <dp_c units="&#176;C">15</dp_c>
+              <rh units="%">72</rh>
+              <wind_dir_degrees units="&#176;">203</wind_dir_degrees>
+              <wind_dir_compass>SSW</wind_dir_compass>
+              <wind_speed_kph units="km/h">12</wind_speed_kph>
+              <wind_gust_kph units="km/h">16</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1014.2</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">3</cloud_cover_oktas>
+              <cloud_cover_percent units="%">41</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly clear</precis>
+              <icon filename="mostly_clear.gif">Mostly clear</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-07T12:30:00" tz="ACDT" utc_time="2022-03-07T02:00:00">
+              <temp_c units="&#176;C">20</temp_c>
+              <feels_like_c units="&#176;C">20</feels_like_c>
+              <dp_c units="&#176;C">15</dp_c>
+              <rh units="%">72</rh>
+              <wind_dir_degrees units="&#176;">203</wind_dir_degrees>
+              <wind_dir_compass>SSW</wind_dir_compass>
+              <wind_speed_kph units="km/h">14</wind_speed_kph>
+              <wind_gust_kph units="km/h">18</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1013.7</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">5</cloud_cover_oktas>
+              <cloud_cover_percent units="%">58</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-07T13:30:00" tz="ACDT" utc_time="2022-03-07T03:00:00">
+              <temp_c units="&#176;C">20</temp_c>
+              <feels_like_c units="&#176;C">20</feels_like_c>
+              <dp_c units="&#176;C">15</dp_c>
+              <rh units="%">72</rh>
+              <wind_dir_degrees units="&#176;">203</wind_dir_degrees>
+              <wind_dir_compass>SSW</wind_dir_compass>
+              <wind_speed_kph units="km/h">17</wind_speed_kph>
+              <wind_gust_kph units="km/h">22</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1013.2</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">5</cloud_cover_oktas>
+              <cloud_cover_percent units="%">58</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+            <point_forecast time="2022-03-07T14:30:00" tz="ACDT" utc_time="2022-03-07T04:00:00">
+              <temp_c units="&#176;C">21</temp_c>
+              <feels_like_c units="&#176;C">21</feels_like_c>
+              <dp_c units="&#176;C">16</dp_c>
+              <rh units="%">72</rh>
+              <wind_dir_degrees units="&#176;">203</wind_dir_degrees>
+              <wind_dir_compass>SSW</wind_dir_compass>
+              <wind_speed_kph units="km/h">20</wind_speed_kph>
+              <wind_gust_kph units="km/h">26</wind_gust_kph>
+              <pressure_msl_hpa units="hPa">1012.6</pressure_msl_hpa>
+              <cloud_cover_oktas units="oktas">5</cloud_cover_oktas>
+              <cloud_cover_percent units="%">57</cloud_cover_percent>
+              <prob_precip units="%">5</prob_precip>
+              <rain_rate_mm units="mm/hour">0.0</rain_rate_mm>
+              <precis>Mostly cloudy</precis>
+              <icon filename="mostly_cloudy.gif">Mostly cloudy</icon>
+            </point_forecast>
+          </point_forecasts>
+        </location>
+      </country>
+    </countries>
+  </weather>
+</data>

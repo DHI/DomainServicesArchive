@@ -1,0 +1,7 @@
+{
+  "DateTimeFormat": "dd-MMM-yy HH:mm:ss",
+  "DateTimeColumn": 1,
+  "ValueDelimiter": "  ",
+  "HeaderLineNumber": 1,
+  "DataLineNumber": 3
+}

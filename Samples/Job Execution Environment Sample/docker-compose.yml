@@ -1,0 +1,27 @@
+version: '3.4'
+
+services:
+  seq:
+    image: datalust/seq
+    environment:
+      - ACCEPT_EULA=Y
+    ports:
+      - 32404:80      
+    volumes:
+      - /seqdata:/data
+  db:
+    image: postgres:12
+    environment:      
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=Solutions!
+      - PGPORT=10032 
+      - POSTGRES_INITDB_ARGS=--auth-host=scram-sha-256
+    ports:
+      - 32432:10032
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 32401:8080 
+volumes:
+  seqdata:

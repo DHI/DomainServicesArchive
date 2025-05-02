@@ -1,0 +1,19 @@
+{
+  "Replace": {
+    ", ": " "
+  }, 
+  "DateColumn": 2,
+  "DateFormat": "yyyy-MM-dd",
+  "TimeColumn": 3,
+  "TimeFormat": "HH:mm:ss.fff",
+  "ValueDelimiter": " ", 
+  "ValueRegExFilterExclude": "<<BINARY>>",
+  "DataLineNumber": 1,
+  "ResampleTimeSpan": "00:00:00.500",
+    "TimeSeriesColumns": [
+        {
+            "Column": 6,
+            "Id": "depth"
+        }
+    ]
+}

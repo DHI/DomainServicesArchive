@@ -1,0 +1,10 @@
+﻿{
+  "$type": "System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[DHI.Services.IConnection, DHI.Services]], mscorlib",
+  "accessdb": {
+    "$type": "DHI.Services.Tables.WebApi.TableServiceConnection, DHI.Services.Tables.WebApi",
+    "ConnectionString": "Driver={Microsoft Access Driver (*.mdb, *.accdb)};Dbq=[AppData]Database1.accdb;Uid=Admin;Pwd=;",
+    "RepositoryType": "DHI.Services.Provider.ODBC.TableRepository, DHI.Services.Provider.ODBC",
+    "Name": "Table connection to Microsoft Access repository",
+    "Id": "accessdb"
+  }
+}

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata minClientVersion="4.0.0">
+    <id>DHI.Services.JobRunner</id>
+    <version>$version$</version>
+    <title>Domain Services Job Runner</title>
+    <authors>DHI</authors>
+    <owners>DHI</owners>
+    <projectUrl>http://mydhinet/personal/lam/Blog/Lists/Categories/Category.aspx?CategoryId=5</projectUrl>
+    <iconUrl>http://www.mikepoweredbydhi.com/upload/nuget-icons/domain-services-icon32x32.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Job Runner for Domain Services.</description>
+    <summary>Job Runner for Domain Services.</summary>
+    <tags>jobs</tags>
+    <releaseNotes></releaseNotes>
+    <dependencies>
+      <dependency id="DHI.Services.Jobs" version="7.2.0" />
+      <dependency id="DHI.Services.Scalars" version="1.7.2" />
+    </dependencies>
+    <contentFiles>
+      <files include="any\net472\*.*" buildAction="Content" copyToOutput="true" />
+    </contentFiles>
+  </metadata>
+  <files>
+    <file src="..\bin\$configuration$\worker-connections.json" target="content" />
+    <file src="..\bin\$configuration$\worker-connections.json" target="contentFiles\any\net472" />
+    <file src="..\bin\$configuration$\DHI.Services.JobRunner.exe.config" target="content" />
+    <file src="..\bin\$configuration$\DHI.Services.JobRunner.exe.config" target="contentFiles\any\net472" />
+    <file src="..\bin\$configuration$\DHI.Services.JobRunner.exe" target="extras" />
+    <file src="..\bin\$configuration$\DHI.Services.JobRunner.Install.bat" target="extras" />
+    <file src="..\bin\$configuration$\DHI.Services.JobRunner.Uninstall.bat" target="extras" />
+    <file src="DHI.Services.JobRunner.targets" target="build" />
+  </files>
+</package>

@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph GraphDirection="LeftToRight" Layout="Sugiyama" ZoomLevel="-1" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="DHI.Services 10.1.0" Category="Package" Bounds="1240.50833333333,300,119.483333333334,25.96" Label="DHI.Services 10.1.0" />
+    <Node Id="DHI.Services.Jobs 3.0.0" Category="Package" Bounds="250.918333333333,300,139.073333333333,25.96" Label="DHI.Services.Jobs 3.0.0" />
+    <Node Id="DHI.Services.Web" Category="Project" Bounds="0,200,111.786666666667,25.96" Label="DHI.Services.Web" />
+    <Node Id="Microsoft.AspNet.Cors 5.2.6" Category="Package" Bounds="952.18,0,166.406666666667,25.96" Label="Microsoft.AspNet.Cors 5.2.6" />
+    <Node Id="Microsoft.AspNet.WebApi 5.2.6" Category="Package" Bounds="228.23,156,184.45,25.96" Label="Microsoft.AspNet.WebApi 5.2.6" />
+    <Node Id="Microsoft.AspNet.WebApi.Client 5.2.6" Category="Package" Bounds="1191.53666666667,200,217.426666666667,25.96" Label="Microsoft.AspNet.WebApi.Client 5.2.6" />
+    <Node Id="Microsoft.AspNet.WebApi.Core 5.2.6" Category="Package" Bounds="929.403333333333,112,211.96,25.96" Label="Microsoft.AspNet.WebApi.Core 5.2.6" />
+    <Node Id="Microsoft.AspNet.WebApi.Cors 5.2.6" Category="Package" Bounds="598.788333333333,7.105427357601E-14,210.776666666667,25.96" Label="Microsoft.AspNet.WebApi.Cors 5.2.6" />
+    <Node Id="Microsoft.AspNet.WebApi.Extensions.Compression.Server 2.0.6" Category="Package" Bounds="529.123333333333,256,350.106666666667,25.96" Label="Microsoft.AspNet.WebApi.Extensions.Compression.Server 2.0.6" />
+    <Node Id="Microsoft.AspNet.WebApi.Versioning 2.3.0" Category="Package" Bounds="199.068333333333,100,242.773333333333,25.96" Label="Microsoft.AspNet.WebApi.Versioning 2.3.0" />
+    <Node Id="Microsoft.AspNet.WebApi.WebHost 5.2.6" Category="Package" Bounds="586.261666666666,144,235.83,25.96" Label="Microsoft.AspNet.WebApi.WebHost 5.2.6" />
+    <Node Id="Microsoft.IO.RecyclableMemoryStream 1.2.2" Category="Package" Bounds="909.23,256,252.306666666667,25.96" Label="Microsoft.IO.RecyclableMemoryStream 1.2.2" />
+    <Node Id="Newtonsoft.Json 11.0.2" Category="Package" Bounds="1438.96333333333,200,141.923333333333,25.96" Label="Newtonsoft.Json 11.0.2" />
+    <Node Id="Strathweb.CacheOutput.WebApi2 0.11.0" Category="Package" Bounds="588.696666666666,200,230.96,25.96" Label="Strathweb.CacheOutput.WebApi2 0.11.0" />
+    <Node Id="Thinktecture.IdentityModel.Core 1.4.0" Category="Package" Bounds="926.3,56,218.166666666667,25.96" Label="Thinktecture.IdentityModel.Core 1.4.0" />
+    <Node Id="Thinktecture.IdentityModel.WebApi 2.0.1" Category="Package" Bounds="586.663333333333,56.0000000000001,235.026666666667,25.96" Label="Thinktecture.IdentityModel.WebApi 2.0.1" />
+    <Node Id="Thinktecture.IdentityModel.WebApi.AuthenticationHandler 1.1.0" Category="Package" Bounds="141.786666666667,44.0000000000001,357.336666666667,25.96" Label="Thinktecture.IdentityModel.WebApi.AuthenticationHandler 1.1.0" />
+  </Nodes>
+  <Links>
+    <Link Source="DHI.Services 10.1.0" Target="Newtonsoft.Json 11.0.2" Category="Package Dependency" Bounds="1327.4658203125,229.834289550781,147.119995117188,70.1657104492188" />
+    <Link Source="DHI.Services.Jobs 3.0.0" Target="DHI.Services 10.1.0" Category="Package Dependency" Bounds="389.991668701172,312.980010986328,841.516632080078,0" />
+    <Link Source="DHI.Services.Web" Target="DHI.Services.Jobs 3.0.0" Category="Installed Package" Bounds="90.1622467041016,225.960006713867,187.498611450195,70.8606414794922" />
+    <Link Source="DHI.Services.Web" Target="Microsoft.AspNet.WebApi 5.2.6" Category="Installed Package" Bounds="111.786666870117,183.436538696289,121.744583129883,20.2476806640625" />
+    <Link Source="DHI.Services.Web" Target="Microsoft.AspNet.WebApi.Cors 5.2.6" Category="Installed Package" Bounds="61.519588470459,12.9799995422363,528.268741607666,187.020000457764" />
+    <Link Source="DHI.Services.Web" Target="Microsoft.AspNet.WebApi.Extensions.Compression.Server 2.0.6" Category="Installed Package" Bounds="111.786666870117,219.740570068359,408.511611938477,37.7387084960938" />
+    <Link Source="DHI.Services.Web" Target="Microsoft.AspNet.WebApi.Versioning 2.3.0" Category="Installed Package" Bounds="90.2334365844727,129.142120361328,187.462791442871,70.8578796386719" />
+    <Link Source="DHI.Services.Web" Target="Strathweb.CacheOutput.WebApi2 0.11.0" Category="Installed Package" Bounds="111.786666870117,212.979995727539,467.90998840332,0" />
+    <Link Source="DHI.Services.Web" Target="Thinktecture.IdentityModel.WebApi.AuthenticationHandler 1.1.0" Category="Installed Package" Bounds="68.2657852172852,72.348991394043,160.747245788574,127.651008605957" />
+    <Link Source="Microsoft.AspNet.WebApi 5.2.6" Target="Microsoft.AspNet.WebApi.WebHost 5.2.6" Category="Package Dependency" Bounds="412.679992675781,160.948837280273,164.586059570313,5.14703369140625" />
+    <Link Source="Microsoft.AspNet.WebApi.Client 5.2.6" Target="Newtonsoft.Json 11.0.2" Category="Package Dependency" Bounds="1408.96337890625,212.979995727539,21,0" />
+    <Link Source="Microsoft.AspNet.WebApi.Core 5.2.6" Target="Microsoft.AspNet.WebApi.Client 5.2.6" Category="Package Dependency" Bounds="1074.451171875,137.960006713867,178.190063476563,59.2023315429688" />
+    <Link Source="Microsoft.AspNet.WebApi.Cors 5.2.6" Target="Microsoft.AspNet.Cors 5.2.6" Category="Package Dependency" Bounds="809.565002441406,12.9799995422363,133.614990234375,0" />
+    <Link Source="Microsoft.AspNet.WebApi.Cors 5.2.6" Target="Microsoft.AspNet.WebApi.Core 5.2.6" Category="Package Dependency" Bounds="742.561157226563,25.9599990844727,245.911987304688,83.1569595336914" />
+    <Link Source="Microsoft.AspNet.WebApi.Extensions.Compression.Server 2.0.6" Target="Microsoft.AspNet.WebApi.Core 5.2.6" Category="Package Dependency" Bounds="748.313659667969,142.071929931641,253.792358398438,113.928070068359" />
+    <Link Source="Microsoft.AspNet.WebApi.Extensions.Compression.Server 2.0.6" Target="Microsoft.IO.RecyclableMemoryStream 1.2.2" Category="Package Dependency" Bounds="879.22998046875,268.980010986328,21,0" />
+    <Link Source="Microsoft.AspNet.WebApi.Versioning 2.3.0" Target="Microsoft.AspNet.WebApi.Core 5.2.6" Category="Package Dependency" Bounds="441.841674804688,112.980003356934,478.567565917969,7.8343505859375" />
+    <Link Source="Microsoft.AspNet.WebApi.WebHost 5.2.6" Target="Microsoft.AspNet.WebApi.Core 5.2.6" Category="Package Dependency" Bounds="821.755432128906,136.083847045898,98.7007446289063,9.53611755371094" />
+    <Link Source="Strathweb.CacheOutput.WebApi2 0.11.0" Target="Microsoft.AspNet.WebApi.Client 5.2.6" Category="Package Dependency" Bounds="819.656677246094,212.979995727539,362.879943847656,0" />
+    <Link Source="Strathweb.CacheOutput.WebApi2 0.11.0" Target="Microsoft.AspNet.WebApi.Core 5.2.6" Category="Package Dependency" Bounds="753.029663085938,140.271072387695,224.802490234375,59.7289276123047" />
+    <Link Source="Thinktecture.IdentityModel.WebApi 2.0.1" Target="Microsoft.AspNet.WebApi.Core 5.2.6" Category="Package Dependency" Bounds="780.945617675781,81.9599990844727,168.794677734375,28.5395889282227" />
+    <Link Source="Thinktecture.IdentityModel.WebApi 2.0.1" Target="Thinktecture.IdentityModel.Core 1.4.0" Category="Package Dependency" Bounds="821.690002441406,68.9800033569336,95.6099853515625,0" />
+    <Link Source="Thinktecture.IdentityModel.WebApi.AuthenticationHandler 1.1.0" Target="Thinktecture.IdentityModel.WebApi 2.0.1" Category="Package Dependency" Bounds="499.123321533203,62.5674362182617,78.5444030761719,2.45629119873047" />
+  </Links>
+  <Categories>
+    <Category Id="Installed Package" />
+    <Category Id="Package" />
+    <Category Id="Package Dependency" />
+    <Category Id="Project" />
+  </Categories>
+  <Properties>
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="Expression" DataType="System.String" />
+    <Property Id="GraphDirection" DataType="Microsoft.VisualStudio.Diagrams.Layout.LayoutOrientation" />
+    <Property Id="GroupLabel" DataType="System.String" />
+    <Property Id="IsEnabled" DataType="System.Boolean" />
+    <Property Id="Label" Label="Label" Description="Displayable label of an Annotatable object" DataType="System.String" />
+    <Property Id="Layout" DataType="System.String" />
+    <Property Id="TargetType" DataType="System.Type" />
+    <Property Id="Value" DataType="System.String" />
+    <Property Id="ValueLabel" DataType="System.String" />
+    <Property Id="ZoomLevel" DataType="System.String" />
+  </Properties>
+  <Styles>
+    <Style TargetType="Node" GroupLabel="Project" ValueLabel="True">
+      <Condition Expression="HasCategory('Project')" />
+      <Setter Property="Background" Value="Blue" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Package Dependency" ValueLabel="True">
+      <Condition Expression="HasCategory('Package Dependency')" />
+      <Setter Property="Background" Value="Yellow" />
+    </Style>
+  </Styles>
+</DirectedGraph>

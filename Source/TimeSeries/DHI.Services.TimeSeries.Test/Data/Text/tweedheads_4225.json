@@ -1,0 +1,12 @@
+{
+  "DateTimeColumn": 1,
+  "DateTimeAsUnixTime": true,
+  "ValueDelimiter": "\t",
+  "TimeSeriesColumns": [
+    {
+      "Column": 6,
+      "Id": "MyTimeseries1"
+    }
+  ],
+  "DataLineNumber": 1
+}

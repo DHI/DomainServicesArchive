@@ -1,0 +1,21 @@
+{
+  "$type": "System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[DHI.Services.GIS.Maps.MapStyle, DHI.Services.GIS]], mscorlib",
+  "MyStyle": {
+    "$type": "DHI.Services.GIS.Maps.MapStyle, DHI.Services.GIS",
+    "StyleCode": "0^10:#800080,#5500AB,#2A00D5,#0000FF,#0038E1,#006FC3,#00A6A6,#00C46E,#00E237,#00FF00,#55FF00,#AAFF00,#FFFF00,#FFAA00,#FF5500,#FF0000",
+    "Name": "My Style",
+    "Id": "MyStyle"
+  },
+  "Ecoli": {
+    "$type": "DHI.Services.GIS.Maps.MapStyle, DHI.Services.GIS",
+    "StyleCode": "0^10:#FFFFFF|0.5:#43A047|2.5:#00C853|5:#76FF03|10:#FFCDD2|20:#E57373|50:#F44336|100:#D32F2F|200:#B71C1C|500:#8e1717",
+    "Name": "Ecoli",
+    "Id": "Ecoli"
+  },
+  "Vector": {
+    "$type": "DHI.Services.GIS.Maps.MapStyle, DHI.Services.GIS",
+    "StyleCode": "0:#E8F5E9",
+    "Name": "Vector",
+    "Id": "Vector"
+  }
+}

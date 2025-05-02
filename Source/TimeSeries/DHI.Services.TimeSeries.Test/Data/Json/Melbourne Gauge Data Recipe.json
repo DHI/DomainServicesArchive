@@ -1,0 +1,4 @@
+{
+  "DateTimeQuery": "$[?(@.the_geom == '0101000020E6100000BC74931804166240AE47E17A142E43C0')].timelastmeasured", // The query to get the date time
+  "ValueQuery": "$[?(@.the_geom == '0101000020E6100000BC74931804166240AE47E17A142E43C0')].surface_current_direction" // The query to get the values
+}

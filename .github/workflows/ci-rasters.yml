@@ -1,0 +1,70 @@
+name: ci-rasters
+
+on:
+  push:
+    branches:
+      - master
+      - dhi.services.xyz 
+      - '*release*'
+      - develop
+    paths:
+      - 'Source/Rasters/**'
+  pull_request:
+    branches:
+      - master
+      - dhi.services.xyz 
+      - '*release*'
+      - develop
+    paths:
+      - 'Source/Rasters/**' 
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 5
+    - name: Detect changed folders
+      id: filter
+      uses: dorny/paths-filter@v3
+      with:
+        filters: |
+          rasters:
+            - 'Source/Rasters/DHI.Services.Rasters/**'
+          webapi:
+            - 'Source/Rasters/DHI.Services.Rasters.WebApi/**'
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+    - name: Restore dependencies
+      run: | 
+        dotnet restore ./Source/Rasters/DHI.Services.Rasters.sln -s https://api.nuget.org/v3/index.json 
+        dotnet restore ./Source/Rasters/DHI.Services.Rasters.WebApi.sln -s https://api.nuget.org/v3/index.json
+    - name: Build
+      run: | 
+        dotnet build ./Source/Rasters/DHI.Services.Rasters.sln --no-restore
+        dotnet build ./Source/Rasters/DHI.Services.Rasters.WebApi.sln --no-restore
+    - name: Test
+      run: |
+        dotnet test ./Source/Rasters/DHI.Services.Rasters.Test/DHI.Services.Rasters.Test.csproj --no-build --verbosity normal
+        dotnet test ./Source/Rasters/DHI.Services.Rasters.WebApi.Host.Test/DHI.Services.Rasters.WebApi.Host.Test.csproj --no-build --verbosity normal
+    - name: Pack & Push Rasters
+      if: |
+        github.ref == 'refs/heads/master' &&
+        steps.filter.outputs.rasters == 'true'
+      shell: cmd
+      working-directory: Source\Rasters\DHI.Services.Rasters\nuget
+      env:
+        NUGET_API_KEY_PUBLISH: ${{ secrets.NUGET_API_KEY_PUBLISH }}
+      run: PackAndPushPublish.bat yes
+    - name: Pack & Push WebApi
+      if: |
+        github.ref == 'refs/heads/master' &&
+        steps.filter.outputs.webapi == 'true'
+      shell: cmd
+      working-directory: Source\Rasters\DHI.Services.Rasters.WebApi\nuget
+      env:
+        NUGET_API_KEY_PUBLISH: ${{ secrets.NUGET_API_KEY_PUBLISH }}
+      run: PackAndPushPublish.bat yes

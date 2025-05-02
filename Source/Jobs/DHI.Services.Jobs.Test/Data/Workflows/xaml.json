@@ -1,0 +1,22 @@
+{
+  "xamlTest": {
+    "Parameters": {
+      "aWonderfullPainter": null
+    },
+    "Name": "xamlTest",
+    "Id": "xamlTest"
+  },
+  "xamlTest2": {
+    "Parameters": {
+      "heWhoShallNotBeNamed": null
+    },
+    "Name": "xamlTest2",
+    "Id": "xamlTest2"
+  },
+  "LongTest": {
+    "Name": "LongTest",
+    "Id": "LongTest",
+    "Added": "2021-06-30T06:24:34.0722661Z",
+    "Updated": "2021-06-30T06:25:47.9219511Z"
+  }
+}

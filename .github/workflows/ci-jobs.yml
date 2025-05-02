@@ -1,0 +1,116 @@
+name: ci-jobs
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+      - '*release*'
+      - develop
+    paths:
+      - 'Source/Jobs/**'
+  pull_request:
+    branches:
+      - master
+      - '*release*'
+      - develop
+    paths:
+      - 'Source/Jobs/**' 
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 5
+    - name: Detect changed folders
+      id: filter
+      uses: dorny/paths-filter@v3
+      with:
+        filters: |
+          domain:
+            - 'Source/Jobs/DHI.Services.Jobs/**'
+          automations:
+            - 'Source/Jobs/DHI.Services.Jobs.Automations/**'
+          orchestrator:
+            - 'Source/Jobs/DHI.Services.Jobs.Orchestrator/**'
+          webapi:
+            - 'Source/Jobs/DHI.Services.Jobs.WebApi/**'
+          worker:
+            - 'Source/Jobs/DHI.Services.Jobs.WorkflowWorker/**'
+    - name: Setup .NET 5
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+    - name: Setup .NET 6
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.0.x
+    - name: Restore dependencies
+      run: |
+        dotnet restore ./Source/Jobs/DHI.Services.Jobs.sln -s https://api.nuget.org/v3/index.json
+        dotnet restore ./Source/Jobs/DHI.Services.Jobs.Automations.sln -s https://api.nuget.org/v3/index.json
+        dotnet restore ./Source/Jobs/DHI.Services.Jobs.Orchestrator.sln -s https://api.nuget.org/v3/index.json
+        dotnet restore ./Source/Jobs/DHI.Services.Jobs.Executer.sln -s https://api.nuget.org/v3/index.json
+        dotnet restore ./Source/Jobs/DHI.Services.Jobs.WorkflowWorker.sln -s https://api.nuget.org/v3/index.json
+        dotnet restore ./Source/Jobs/DHI.Services.Jobs.WebApi.sln -s https://api.nuget.org/v3/index.json
+    - name: Build domain
+      run: dotnet build ./Source/Jobs/DHI.Services.Jobs.sln --no-restore
+    - name: Build orchestrator
+      run: dotnet build ./Source/Jobs/DHI.Services.Jobs.Orchestrator.sln --no-restore
+    - name: Build executer
+      run: dotnet build ./Source/Jobs/DHI.Services.Jobs.Executer.sln --no-restore
+    - name: Build workflow worker
+      run: dotnet build ./Source/Jobs/DHI.Services.Jobs.WorkflowWorker.sln --no-restore
+    - name: Build Web API
+      run: dotnet build ./Source/Jobs/DHI.Services.Jobs.WebApi.sln --no-restore
+    - name: Build Automations
+      run: dotnet build ./Source/Jobs/DHI.Services.Jobs.Automations.sln --no-restore
+    - name: Test domain
+      run: dotnet test ./Source/Jobs/DHI.Services.Jobs.Test/DHI.Services.Jobs.Test.csproj --no-build --verbosity normal
+    - name: Test orchestrator
+      run: dotnet test ./Source/Jobs/DHI.Services.Jobs.Orchestrator.Test/DHI.Services.Jobs.Orchestrator.Test.csproj --no-build --verbosity normal
+    - name: Test executer
+      run: dotnet test ./Source/Jobs/DHI.Services.Jobs.Executer.Test/DHI.Services.Jobs.Executer.Test.csproj --no-build --verbosity normal
+    - name: Test workflow worker
+      run: dotnet test ./Source/Jobs/DHI.Services.Jobs.WorkflowWorker.Test/DHI.Services.Jobs.WorkflowWorker.Test.csproj --no-build --verbosity normal
+    - name: Test Web API
+      run: dotnet test ./Source/Jobs/DHI.Services.Jobs.WebApi.Host.Test/DHI.Services.Jobs.WebApi.Host.Test.csproj --no-build --verbosity normal
+    - name: Test Automations
+      run: dotnet test ./Source/Jobs/DHI.Services.Jobs.Automations.Test/DHI.Services.Jobs.Automations.Test.csproj --no-build --verbosity normal
+    - name: Pack & Push domain
+      if: github.ref == 'refs/heads/master' && steps.filter.outputs.domain == 'true'
+      shell: cmd
+      working-directory: Source\Jobs\DHI.Services.Jobs\nuget
+      env:
+        NUGET_API_KEY_PUBLISH: ${{ secrets.NUGET_API_KEY_PUBLISH }}
+      run: PackAndPushPublish.bat yes
+    - name: Pack & Push automations
+      if: github.ref == 'refs/heads/master' && steps.filter.outputs.automations == 'true'
+      shell: cmd
+      working-directory: Source\Jobs\DHI.Services.Jobs.Automations\nuget
+      env:
+        NUGET_API_KEY_PUBLISH: ${{ secrets.NUGET_API_KEY_PUBLISH }}
+      run: PackAndPushPublish.bat yes
+    - name: Pack & Push orchestrator
+      if: github.ref == 'refs/heads/master' && steps.filter.outputs.orchestrator == 'true'
+      shell: cmd
+      working-directory: Source\Jobs\DHI.Services.Jobs.Orchestrator\nuget
+      env:
+        NUGET_API_KEY_PUBLISH: ${{ secrets.NUGET_API_KEY_PUBLISH }}
+      run: PackAndPushPublish.bat yes
+    - name: Pack & Push workflow worker
+      if: github.ref == 'refs/heads/master' && steps.filter.outputs.worker == 'true'
+      shell: cmd
+      working-directory: Source\Jobs\DHI.Services.Jobs.WorkflowWorker\nuget
+      env:
+        NUGET_API_KEY_PUBLISH: ${{ secrets.NUGET_API_KEY_PUBLISH }}
+      run: PackAndPushPublish.bat yes
+    - name: Pack & Push Web API
+      if: github.ref == 'refs/heads/master' && steps.filter.outputs.webapi == 'true'
+      shell: cmd
+      working-directory: Source\Jobs\DHI.Services.Jobs.WebApi\nuget
+      env:
+        NUGET_API_KEY_PUBLISH: ${{ secrets.NUGET_API_KEY_PUBLISH }}
+      run: PackAndPushPublish.bat yes

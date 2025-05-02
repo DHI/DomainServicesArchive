@@ -1,0 +1,12 @@
+{
+  "DateTimeFormat": "yyyy-MM-dd HH:mm:ss.fff", // The date time format that the date time should be parsed as
+  "DateTimeColumn": 3, // The column containing the date time
+  "ValueRegExFilter": "Molineaux Point2", // Filters the line so that the line needs to contain this string to be included
+  "ValueDelimiter": "  ", // The value deimiter on each line
+  "Replace": {
+    "Instrumentid": "Instrumentid "
+  }, 
+  "TrimCharacter": "\\", // If defined, all cells are trimmed
+  "HeaderLineNumber": 1, // Indicating which line has information on what the time series are called
+  "DataLineNumber": 3 // This is the line number that the data starts being read from
+}

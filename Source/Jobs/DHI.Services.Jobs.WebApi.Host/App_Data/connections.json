@@ -1,0 +1,53 @@
+﻿{
+  "$type": "System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[DHI.Services.IConnection, DHI.Services]], mscorlib",
+  "mc-task": {
+    "$type": "DHI.Services.Jobs.WebApi.TaskServiceConnection, DHI.Services.Jobs.WebApi",
+    "ConnectionString": "database=mc2014.2",
+    "RepositoryType": "DHI.Services.Provider.MC.TaskRepository, DHI.Services.Provider.MC",
+    "Name": "Local MC task service  connection to workspace1",
+    "Id": "mc-task"
+  },
+  "mc-job": {
+    "$type": "DHI.Services.Jobs.WebApi.JobServiceConnection, DHI.Services.Jobs.WebApi",
+    "JobRepositoryConnectionString": "jobs.json",
+    "JobRepositoryType": "DHI.Services.Jobs.WebApi.JobRepository, DHI.Services.Jobs.WebApi",
+    "TaskRepositoryConnectionString": "database=mc2014.2",
+    "TaskRepositoryType": "DHI.Services.Provider.MC.TaskRepository, DHI.Services.Provider.MC",
+    "Name": "Local MC job service connection to workspace1",
+    "Id": "mc-job"
+  },
+  "wf-jobs": {
+    "$type": "DHI.Services.Jobs.WebApi.JobServiceConnection, DHI.Services.Jobs.WebApi",
+    "JobRepositoryConnectionString": "jobs.json",
+    "JobRepositoryType": "DHI.Services.Jobs.WebApi.JobRepository, DHI.Services.Jobs.WebApi",
+    "TaskRepositoryConnectionString": "[AppData]workflows.json",
+    "TaskRepositoryType": "DHI.Services.Jobs.Workflows.WorkflowRepository, DHI.Services.Jobs",
+    "Name": "Job service connection for workflows",
+    "Id": "wf-jobs"
+  },
+  "wf-tasks": {
+    "$type": "DHI.Services.Jobs.WebApi.TaskServiceConnection, DHI.Services.Jobs.WebApi",
+    "ConnectionString": "[AppData]workflows.json",
+    "RepositoryType": "DHI.Services.Jobs.Workflows.WorkflowRepository, DHI.Services.Jobs",
+    "Name": "Task service connection for workflows",
+    "Id": "wf-tasks"
+  },
+  "json-scenarios": {
+    "$type": "DHI.Services.Jobs.WebApi.ScenarioServiceConnection, DHI.Services.Jobs.WebApi",
+    "ConnectionString": "[AppData]Scenarios.json",
+    "RepositoryType": "DHI.Services.Jobs.Scenarios.ScenarioRepository, DHI.Services.Jobs",
+    "JobRepositoryConnectionString": "jobs.json",
+    "JobRepositoryType": "DHI.Services.Jobs.WebApi.JobRepository, DHI.Services.Jobs.WebApi",
+    "Name": "Scenario service connection",
+    "Id": "json-scenarios"
+  },
+  "postgres-scenarios": {
+    "$type": "DHI.Services.Jobs.WebApi.ScenarioServiceConnection, DHI.Services.Jobs.WebApi",
+    "ConnectionString": "Server=localhost;Port=5432;Database=ProviderTest;User Id=postgres;Password=Solutions!",
+    "RepositoryType": "DHI.Services.Provider.PostgreSQL.ScenarioRepository, DHI.Services.Provider.PostgreSQL",
+    "JobRepositoryConnectionString": "jobs.json",
+    "JobRepositoryType": "DHI.Services.Jobs.WebApi.JobRepository, DHI.Services.Jobs.WebApi",
+    "Name": "Scenario service connection",
+    "Id": "postgres-scenarios"
+  }
+}

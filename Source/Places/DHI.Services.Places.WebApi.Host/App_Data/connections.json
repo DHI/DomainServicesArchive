@@ -1,0 +1,26 @@
+{
+  "$type": "System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[DHI.Services.IConnection, DHI.Services]], mscorlib",
+  "csv": {
+    "$type": "DHI.Services.TimeSeries.WebApi.DiscreteTimeSeriesServiceConnection, DHI.Services.TimeSeries.WebApi",
+    "ConnectionString": "[AppData]",
+    "RepositoryType": "DHI.Services.TimeSeries.CSV.TimeSeriesRepository, DHI.Services.TimeSeries",
+    "Name": "CSV time series service connection",
+    "Id": "csv"
+  },
+  "shp": {
+    "$type": "DHI.Services.GIS.WebApi.GisServiceConnection, DHI.Services.GIS.WebApi",
+    "ConnectionString": "[AppData]shp",
+    "RepositoryType": "DHI.Services.Provider.ShapeFile.FeatureRepository, DHI.Services.Provider.ShapeFile",
+    "Name": "Shape file GIS service connection",
+    "Id": "shp"
+  },
+  "json": {
+    "$type": "DHI.Services.Places.WebApi.PlaceServiceConnection, DHI.Services.Places.WebApi",
+    "ConnectionString": "[AppData]places.json",
+    "RepositoryType": "DHI.Services.Places.PlaceRepository, DHI.Services.Places",
+    "GisServiceConnectionId": "shp",
+    "TimeSeriesServiceConnectionIds": [ "csv" ],
+    "Name": "Place service connection",
+    "Id": "json"
+  }
+}

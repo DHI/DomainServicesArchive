@@ -1,0 +1,58 @@
+name: ci-policies
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+      - '*release*'
+      - develop
+    paths:
+      - 'Source/Policies/**'
+  pull_request:
+    branches:
+      - master
+      - '*release*'
+      - develop
+    paths:
+      - 'Source/Policies/**'
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 5
+      - name: Detect changed folders
+        id: filter
+        uses: dorny/paths-filter@v3
+        with:
+          filters: |
+            policies:
+              - 'Source/Policies/DHI.Services.Policies/**'
+      - name: Setup .NET 5
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 5.0.x
+      - name: Setup .NET 6
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 6.0.x
+      - name: Restore dependencies
+        run: |
+          dotnet restore Source/Policies/DHI.Services.Policies/DHI.Services.Policies.csproj -s https://api.nuget.org/v3/index.json
+          dotnet restore Source/Policies/DHI.Services.Policies.Tests/DHI.Services.Policies.Tests.csproj -s https://api.nuget.org/v3/index.json
+      - name: Build
+        run: dotnet build Source/Policies/DHI.Services.Policies.sln --no-restore
+      - name: Test
+        run: dotnet test Source/Policies/DHI.Services.Policies.Tests/DHI.Services.Policies.Tests.csproj --no-build --verbosity normal
+      - name: Pack & Push Policies
+        if: |
+          github.ref == 'refs/heads/master' &&
+          steps.filter.outputs.policies == 'true'
+        shell: cmd
+        working-directory: Source\Policies\DHI.Services.Policies\nuget
+        env:
+          NUGET_API_KEY_PUBLISH: ${{ secrets.NUGET_API_KEY_PUBLISH }}
+        run: PackAndPushPublish.bat yes

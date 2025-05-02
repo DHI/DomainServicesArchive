@@ -1,0 +1,12 @@
+﻿{
+  "$type": "System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[DHI.Services.IConnection, DHI.Services]], mscorlib",
+  "fake": {
+    "$type": "DHI.Services.Scalars.WebApi.GroupedScalarServiceConnection, DHI.Services.Scalars.WebApi",
+    "RepositoryConnectionString": "",
+    "RepositoryType": "DHI.Services.Scalars.WebApi.Host.ScalarRepository, DHI.Services.Scalars.WebApi.Host",
+    "LoggerConnectionString": "[AppData]scalars.log",
+    "LoggerType": "DHI.Services.Logging.SimpleLogger, DHI.Services",
+    "Name": "Fake in-memory scalar service connection",
+    "Id": "fake"
+  }
+}

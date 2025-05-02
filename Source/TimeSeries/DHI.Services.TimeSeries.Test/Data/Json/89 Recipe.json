@@ -1,0 +1,3 @@
+{
+  "ValueQuery": "$..flash_code" // The query to get the values
+}

@@ -1,0 +1,11 @@
+{
+  "DHI.Workflow.Engine.Example.MyFirstCodeWorkflow": {
+    "AssemblyName": "DHI.Workflow.Engine.Example",
+    "Name": "MyFirstCodeWorkflow",
+    "Id": "DHI.Workflow.Engine.Example.MyFirstCodeWorkflow",
+    "Parameters": {
+      "WorkflowTimeout": "System.TimeSpan",
+      "TerminationGracePeriod": "System.TimeSpan"
+    }
+  }
+}

@@ -1,0 +1,52 @@
+name: ci-logging
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master 
+      - '*release*'
+      - develop
+    paths:
+      - 'Source/Logging/**'
+  pull_request:
+    branches:
+      - master 
+      - '*release*'
+      - develop
+    paths:
+      - 'Source/Logging/**' 
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 5
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+    - name: Detect changed folders
+      id: filter
+      uses: dorny/paths-filter@v3
+      with:
+        filters: |
+          logging:
+            - 'Source/Logging/DHI.Services.Logging.WebApi/**'
+    - name: Restore dependencies
+      run: dotnet restore ./Source/Logging/DHI.Services.Logging.WebApi.sln -s https://api.nuget.org/v3/index.json
+    - name: Build
+      run: dotnet build ./Source/Logging/DHI.Services.Logging.WebApi.sln --no-restore
+    - name: Test
+      run: dotnet test ./Source/Logging/DHI.Services.Logging.WebApi.Host.Test/DHI.Services.Logging.WebApi.Host.Test.csproj --no-build --verbosity normal
+    - name: Pack & Push Logging.WebApi
+      if: |
+        github.ref == 'refs/heads/master' &&
+        steps.filter.outputs.logging == 'true'
+      shell: cmd
+      working-directory: Source\Logging\DHI.Services.Logging.WebApi\nuget
+      env:
+        NUGET_API_KEY_PUBLISH: ${{ secrets.NUGET_API_KEY_PUBLISH }}
+      run: PackAndPushPublish.bat yes

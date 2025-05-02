@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoFixture.AutoMoq" Version="4.17.0" />
+    <PackageReference Include="AutoFixture.Xunit2" Version="4.17.0" />
+    <PackageReference Include="Castle.Core" Version="4.4.1" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />
+    <PackageReference Include="xunit" Version="2.4.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <DotNetCliToolReference Include="dotnet-xunit" Version="2.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Data\2018032012_001.csv" />
+    <EmbeddedResource Include="Data\AROS.f15" />
+    <EmbeddedResource Include="Data\AROS1245.i00" />
+    <EmbeddedResource Include="Data\AROS1245.p00" />
+    <EmbeddedResource Include="Data\AROS_20133007_1245_mum-s.dfs2" />
+    <EmbeddedResource Include="Data\KC1160307121008.capjy3w" />
+    <EmbeddedResource Include="Data\MR1160304030003.CAPHHC6" />
+    <EmbeddedResource Include="Data\MR1160304030003.CAPHHC6.png" />
+    <EmbeddedResource Include="Data\NAWABS_Rainfall_20180315_1245.asc" />
+    <EmbeddedResource Include="Data\NAWABS_Rainfall_20180315_1545.asc" />
+    <EmbeddedResource Include="Data\NAWABS_Rainfall_20180316_1245.asc" />
+    <EmbeddedResource Include="Data\PM_2018031712_001.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DHI.Services.Rasters\DHI.Services.Rasters.csproj" />
+  </ItemGroup>
+
+</Project>

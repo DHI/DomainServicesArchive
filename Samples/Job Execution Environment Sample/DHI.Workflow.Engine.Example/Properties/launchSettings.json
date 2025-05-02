@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "DHI.Workflow.Engine.Template": {
+      "commandName": "Project",
+      "commandLineArgs": "WorkflowDefinitionFile=C:\\temp\\testdto.json Environment=Development"
+    }
+  }
+}

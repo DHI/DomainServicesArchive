@@ -1,0 +1,5 @@
+{
+  "DateTimeFormat": "dd'/'MM'/'yy HH:mm",
+  "DateTimeQuery": "$.Data[*].['ResultDate']", 
+  "ValueQuery": "$.Data[*].['100.00']" 
+}

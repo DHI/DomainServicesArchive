@@ -1,0 +1,15 @@
+{
+  "35c7b374-87f7-4d84-931a-e3a78a8ab53e": {
+    "Id": "35c7b374-87f7-4d84-931a-e3a78a8ab53e",
+    "DateTime": "2021-02-17T23:21:29.6047091Z",
+    "LogLevel": "Warning",
+    "Source": "DHI.Services",
+    "Tag": "Web API exception",
+    "MachineName": "LAM-PC1",
+    "Text": "'DHI.Services.IConnection' with id 'fdsfds' was not found.",
+    "Metadata": {
+      "Method": "GET",
+      "Path": "/api/scenarios/fdsfds/fdsfds"
+    }
+  }
+}

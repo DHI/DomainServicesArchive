@@ -1,0 +1,8 @@
+{
+    "DateTimeAsUnixTime": false,
+    "DateTimeQuery": "//weather//countries//location[@name='Port Adelaide Entrance Beacon']//point_forecasts//point_forecast",
+    "DateTimeAttribute": "utc_time",
+	"DateTimeFormat": "yyyy-MM-dd'T'HH:mm:ss", // The date time format that the date time should be parsed as
+    "ValueQuery": "//weather//countries//location[@name='Port Adelaide Entrance Beacon']//point_forecasts//point_forecast//wind_gust_kph",
+	"SkipIfCannotParse": false
+}

@@ -1,0 +1,31 @@
+{
+  "DateTimeAsUnixTime": false,            // If this is true, then it's unix time and DateTimeFormat is ignored
+  "DateTimeFormat": "dd-MM-yyyy HH:mm:ss", 
+  "DateTimeColumn": 10,                    
+  "Replace": {
+        "\",\"": ";",
+		",": ".",
+		"\"": ""
+    },
+  "ValueRegExFilter": "Wave_",
+  "ValueDelimiter": ";",                  // The value deimiter on each line
+  "TimeSeriesColumns": [
+    {
+      "Column": 5,
+      "Id": "Hs"
+    },
+	{
+      "Column": 6,
+      "Id": "Tp"
+    },
+	{
+      "Column": 7,
+      "Id": "Tz"
+    },
+	{
+      "Column": 8,
+      "Id": "MWD"
+    }
+  ],
+  "DataLineNumber": 2,                    // This is the line number that the data starts being read from
+}

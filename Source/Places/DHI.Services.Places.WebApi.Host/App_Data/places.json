@@ -1,0 +1,71 @@
+{
+  "$type": "System.Collections.Generic.IDictionary`2[[System.String, mscorlib],[System.Collections.Generic.IDictionary`2[[System.String, mscorlib],[DHI.Services.Places.Place`1[[System.String, mscorlib]], DHI.Services.Places]], mscorlib]], mscorlib",
+  "Stations": {
+    "$type": "System.Collections.Generic.IDictionary`2[[System.String, mscorlib],[DHI.Services.Places.Place`1[[System.String, mscorlib]], DHI.Services.Places]], mscorlib",
+    "MyStation": {
+      "$type": "DHI.Services.Places.Place, DHI.Services.Places",
+      "FeatureId": {
+        "$type": "DHI.Services.Places.FeatureId, DHI.Services.Places",
+        "FeatureCollectionId": "Stationer.shp",
+        "AttributeKey": "StatId",
+        "AttributeValue": "ID92_M16"
+      },
+      "Indicators": {
+        "$type": "System.Collections.Generic.IDictionary`2[[System.String, mscorlib],[DHI.Services.Places.Indicator, DHI.Services.Places]], mscorlib",
+        "WaterLevel": {
+          "$type": "DHI.Services.Places.Indicator, DHI.Services.Places",
+          "DataSource": {
+            "$type": "DHI.Services.Places.DataSource, DHI.Services.Places",
+            "ConnectionId": "csv",
+            "EntityId": "timeseries.csv;TimeSeries1",
+            "Type": "TimeSeries"
+          },
+          "TimeInterval": {
+            "$type": "DHI.Services.Places.TimeInterval, DHI.Services.Places",
+            "Type": "All"
+          },
+          "AggregationType": {
+            "$type": "DHI.Services.TimeSeries.AggregationType+MaximumAggregationType, DHI.Services.TimeSeries",
+            "DisplayName": "Maximum",
+            "Value": 1
+          },
+          "StyleCode": "0:green|10:red",
+          "PaletteType": "LowerThresholdValues"
+        },
+        "Rainfall": {
+          "$type": "DHI.Services.Places.Indicator, DHI.Services.Places",
+          "DataSource": {
+            "$type": "DHI.Services.Places.DataSource, DHI.Services.Places",
+            "ConnectionId": "csv",
+            "EntityId": "timeseries.csv;TimeSeries2",
+            "Type": "TimeSeries"
+          },
+          "TimeInterval": {
+            "$type": "DHI.Services.Places.TimeInterval, DHI.Services.Places",
+            "Type": "RelativeToDateTime",
+            "Start": -1.0,
+            "End": 0.0
+          },
+          "AggregationType": {
+            "$type": "DHI.Services.TimeSeries.AggregationType+SumAggregationType, DHI.Services.TimeSeries",
+            "DisplayName": "Sum",
+            "Value": 3
+          },
+          "StyleCode": "0~15:#800080,#5500AB,#2A00D5,#0000FF",
+          "PaletteType": "LowerThresholdValues"
+        }
+      },
+      "FullName": "Stations/MyStation",
+      "Group": "Stations",
+      "Name": "MyStation",
+      "Id": "Stations/MyStation",
+      "Updated": "2021-06-07T09:57:37.297211Z",
+      "Metadata": {
+        "$type": "System.Collections.Generic.IDictionary`2[[System.Object, mscorlib],[System.Object, mscorlib]], mscorlib",
+        "PointCategory": "Station",
+        "Letter": "S",
+        "Color": "#FFD700"
+      }
+    }
+  }
+}
