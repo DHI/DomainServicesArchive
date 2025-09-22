@@ -1,0 +1,221 @@
+2025-06-01 00:37:06.914 +07:00 [Information] User profile is available. Using 'C:\Users\mrsm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-06-01 00:37:07.097 +07:00 [Information] Request starting HTTP/1.1 POST http://localhost/api/accounts - application/json; charset=utf-8 418
+2025-06-01 00:37:07.151 +07:00 [Warning] Failed to determine the https port for redirect.
+2025-06-01 00:37:07.221 +07:00 [Information] Executing endpoint 'DHI.Services.Security.WebApi.Controllers.AccountsController.Add (DHI.Services.Security.WebApi)'
+2025-06-01 00:37:07.258 +07:00 [Information] Route matched with {action = "Add", controller = "Accounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[DHI.Services.Security.WebApi.DTOs.AccountDTO]] Add(DHI.Services.Security.WebApi.DTOs.AccountDTO) on controller DHI.Services.Security.WebApi.Controllers.AccountsController (DHI.Services.Security.WebApi).
+2025-06-01 00:37:07.440 +07:00 [Information] Start processing HTTP request GET https://api.pwnedpasswords.com/range/41A75
+2025-06-01 00:37:07.458 +07:00 [Information] Sending HTTP request GET https://api.pwnedpasswords.com/range/41A75
+2025-06-01 00:37:07.652 +07:00 [Information] Received HTTP response headers after 190.8156ms - 200
+2025-06-01 00:37:07.661 +07:00 [Information] End processing HTTP request after 227.7735ms - 200
+2025-06-01 00:37:07.852 +07:00 [Information] Executing CreatedAtActionResult, writing value of type 'DHI.Services.Security.WebApi.DTOs.AccountDTO'.
+2025-06-01 00:37:07.859 +07:00 [Information] Executed action DHI.Services.Security.WebApi.Controllers.AccountsController.Add (DHI.Services.Security.WebApi) in 600.0592ms
+2025-06-01 00:37:07.859 +07:00 [Information] Executed endpoint 'DHI.Services.Security.WebApi.Controllers.AccountsController.Add (DHI.Services.Security.WebApi)'
+2025-06-01 00:37:07.860 +07:00 [Information] Request finished HTTP/1.1 POST http://localhost/api/accounts - 201 null application/json; charset=utf-8 766.5864ms
+2025-06-01 00:37:07.863 +07:00 [Information] Request starting HTTP/1.1 GET http://localhost/api/accounts - null null
+2025-06-01 00:37:07.870 +07:00 [Information] Executing endpoint 'DHI.Services.Security.WebApi.Controllers.AccountsController.GetAll (DHI.Services.Security.WebApi)'
+2025-06-01 00:37:07.873 +07:00 [Information] Route matched with {action = "GetAll", controller = "Accounts"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[DHI.Services.Security.WebApi.DTOs.AccountDTO]] GetAll() on controller DHI.Services.Security.WebApi.Controllers.AccountsController (DHI.Services.Security.WebApi).
+2025-06-01 00:37:07.980 +07:00 [Information] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DHI.Services.Security.WebApi.DTOs.AccountDTO, DHI.Services.Security.WebApi, Version=7.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-06-01 00:37:07.980 +07:00 [Information] Executed action DHI.Services.Security.WebApi.Controllers.AccountsController.GetAll (DHI.Services.Security.WebApi) in 106.8002ms
+2025-06-01 00:37:07.981 +07:00 [Information] Executed endpoint 'DHI.Services.Security.WebApi.Controllers.AccountsController.GetAll (DHI.Services.Security.WebApi)'
+2025-06-01 00:37:07.981 +07:00 [Information] Request finished HTTP/1.1 GET http://localhost/api/accounts - 200 null application/json; charset=utf-8 117.2696ms
+2025-06-01 00:37:07.992 +07:00 [Information] Request starting HTTP/1.1 GET http://localhost/api/accounts/test_user_pg - null null
+2025-06-01 00:37:07.998 +07:00 [Information] Executing endpoint 'DHI.Services.Security.WebApi.Controllers.AccountsController.Get (DHI.Services.Security.WebApi)'
+2025-06-01 00:37:08.003 +07:00 [Information] Route matched with {action = "Get", controller = "Accounts"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[DHI.Services.Security.WebApi.DTOs.AccountDTO] Get(System.String) on controller DHI.Services.Security.WebApi.Controllers.AccountsController (DHI.Services.Security.WebApi).
+2025-06-01 00:37:08.110 +07:00 [Information] Executing OkObjectResult, writing value of type 'DHI.Services.Security.WebApi.DTOs.AccountDTO'.
+2025-06-01 00:37:08.110 +07:00 [Information] Executed action DHI.Services.Security.WebApi.Controllers.AccountsController.Get (DHI.Services.Security.WebApi) in 107.0352ms
+2025-06-01 00:37:08.110 +07:00 [Information] Executed endpoint 'DHI.Services.Security.WebApi.Controllers.AccountsController.Get (DHI.Services.Security.WebApi)'
+2025-06-01 00:37:08.110 +07:00 [Information] Request finished HTTP/1.1 GET http://localhost/api/accounts/test_user_pg - 200 null application/json; charset=utf-8 118.6576ms
+2025-06-01 00:37:08.111 +07:00 [Information] Request starting HTTP/1.1 PUT http://localhost/api/accounts - application/json; charset=utf-8 396
+2025-06-01 00:37:08.112 +07:00 [Information] Executing endpoint 'DHI.Services.Security.WebApi.Controllers.AccountsController.Update (DHI.Services.Security.WebApi)'
+2025-06-01 00:37:08.121 +07:00 [Information] Route matched with {action = "Update", controller = "Accounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[DHI.Services.Security.WebApi.DTOs.AccountDTO]] Update(DHI.Services.Security.WebApi.DTOs.AccountUpdateDTO) on controller DHI.Services.Security.WebApi.Controllers.AccountsController (DHI.Services.Security.WebApi).
+2025-06-01 00:37:08.194 +07:00 [Information] Start processing HTTP request GET https://api.pwnedpasswords.com/range/5D0CE
+2025-06-01 00:37:08.194 +07:00 [Information] Sending HTTP request GET https://api.pwnedpasswords.com/range/5D0CE
+2025-06-01 00:37:08.242 +07:00 [Information] Received HTTP response headers after 47.0901ms - 200
+2025-06-01 00:37:08.242 +07:00 [Information] End processing HTTP request after 47.7002ms - 200
+2025-06-01 00:37:08.309 +07:00 [Information] Executing OkObjectResult, writing value of type 'DHI.Services.Security.WebApi.DTOs.AccountDTO'.
+2025-06-01 00:37:08.309 +07:00 [Information] Executed action DHI.Services.Security.WebApi.Controllers.AccountsController.Update (DHI.Services.Security.WebApi) in 188.2885ms
+2025-06-01 00:37:08.310 +07:00 [Information] Executed endpoint 'DHI.Services.Security.WebApi.Controllers.AccountsController.Update (DHI.Services.Security.WebApi)'
+2025-06-01 00:37:08.310 +07:00 [Information] Request finished HTTP/1.1 PUT http://localhost/api/accounts - 200 null application/json; charset=utf-8 198.2357ms
+2025-06-01 00:37:08.310 +07:00 [Information] Request starting HTTP/1.1 DELETE http://localhost/api/accounts/test_user_pg - null null
+2025-06-01 00:37:08.313 +07:00 [Information] Executing endpoint 'DHI.Services.Security.WebApi.Controllers.AccountsController.Delete (DHI.Services.Security.WebApi)'
+2025-06-01 00:37:08.315 +07:00 [Information] Route matched with {action = "Delete", controller = "Accounts"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Delete(System.String) on controller DHI.Services.Security.WebApi.Controllers.AccountsController (DHI.Services.Security.WebApi).
+2025-06-01 00:37:08.394 +07:00 [Information] Executing StatusCodeResult, setting HTTP status code 204
+2025-06-01 00:37:08.395 +07:00 [Information] Executed action DHI.Services.Security.WebApi.Controllers.AccountsController.Delete (DHI.Services.Security.WebApi) in 78.9927ms
+2025-06-01 00:37:08.395 +07:00 [Information] Executed endpoint 'DHI.Services.Security.WebApi.Controllers.AccountsController.Delete (DHI.Services.Security.WebApi)'
+2025-06-01 00:37:08.395 +07:00 [Information] Request finished HTTP/1.1 DELETE http://localhost/api/accounts/test_user_pg - 204 null null 84.6482ms
+2025-06-01 00:37:08.395 +07:00 [Information] Request starting HTTP/1.1 GET http://localhost/api/accounts/test_user_pg - null null
+2025-06-01 00:37:08.396 +07:00 [Information] Executing endpoint 'DHI.Services.Security.WebApi.Controllers.AccountsController.Get (DHI.Services.Security.WebApi)'
+2025-06-01 00:37:08.396 +07:00 [Information] Route matched with {action = "Get", controller = "Accounts"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[DHI.Services.Security.WebApi.DTOs.AccountDTO] Get(System.String) on controller DHI.Services.Security.WebApi.Controllers.AccountsController (DHI.Services.Security.WebApi).
+2025-06-01 00:37:08.449 +07:00 [Information] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2025-06-01 00:37:08.450 +07:00 [Information] Executed action DHI.Services.Security.WebApi.Controllers.AccountsController.Get (DHI.Services.Security.WebApi) in 54.2503ms
+2025-06-01 00:37:08.450 +07:00 [Information] Executed endpoint 'DHI.Services.Security.WebApi.Controllers.AccountsController.Get (DHI.Services.Security.WebApi)'
+2025-06-01 00:37:08.451 +07:00 [Information] Request finished HTTP/1.1 GET http://localhost/api/accounts/test_user_pg - 404 null application/json; charset=utf-8 55.4507ms
+2025-06-01 00:37:31.176 +07:00 [Information] User profile is available. Using 'C:\Users\mrsm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-06-01 00:37:31.389 +07:00 [Information] Request starting HTTP/1.1 POST http://localhost/api/accounts - application/json; charset=utf-8 418
+2025-06-01 00:37:31.423 +07:00 [Warning] Failed to determine the https port for redirect.
+2025-06-01 00:37:31.463 +07:00 [Information] Executing endpoint 'DHI.Services.Security.WebApi.Controllers.AccountsController.Add (DHI.Services.Security.WebApi)'
+2025-06-01 00:37:31.495 +07:00 [Information] Route matched with {action = "Add", controller = "Accounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[DHI.Services.Security.WebApi.DTOs.AccountDTO]] Add(DHI.Services.Security.WebApi.DTOs.AccountDTO) on controller DHI.Services.Security.WebApi.Controllers.AccountsController (DHI.Services.Security.WebApi).
+2025-06-01 00:37:31.676 +07:00 [Information] Start processing HTTP request GET https://api.pwnedpasswords.com/range/5D0CE
+2025-06-01 00:37:31.689 +07:00 [Information] Sending HTTP request GET https://api.pwnedpasswords.com/range/5D0CE
+2025-06-01 00:37:31.897 +07:00 [Information] Received HTTP response headers after 205.3077ms - 200
+2025-06-01 00:37:31.904 +07:00 [Information] End processing HTTP request after 232.0837ms - 200
+2025-06-01 00:37:32.038 +07:00 [Information] Executing CreatedAtActionResult, writing value of type 'DHI.Services.Security.WebApi.DTOs.AccountDTO'.
+2025-06-01 00:37:32.086 +07:00 [Information] Executed action DHI.Services.Security.WebApi.Controllers.AccountsController.Add (DHI.Services.Security.WebApi) in 579.5682ms
+2025-06-01 00:37:32.090 +07:00 [Information] Executed endpoint 'DHI.Services.Security.WebApi.Controllers.AccountsController.Add (DHI.Services.Security.WebApi)'
+2025-06-01 00:37:32.096 +07:00 [Information] Request finished HTTP/1.1 POST http://localhost/api/accounts - 201 null application/json; charset=utf-8 718.4206ms
+2025-06-01 00:37:32.121 +07:00 [Information] Request starting HTTP/1.1 GET http://localhost/api/accounts - null null
+2025-06-01 00:37:32.143 +07:00 [Information] Executing endpoint 'DHI.Services.Security.WebApi.Controllers.AccountsController.GetAll (DHI.Services.Security.WebApi)'
+2025-06-01 00:37:32.160 +07:00 [Information] Route matched with {action = "GetAll", controller = "Accounts"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[DHI.Services.Security.WebApi.DTOs.AccountDTO]] GetAll() on controller DHI.Services.Security.WebApi.Controllers.AccountsController (DHI.Services.Security.WebApi).
+2025-06-01 00:37:32.218 +07:00 [Information] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DHI.Services.Security.WebApi.DTOs.AccountDTO, DHI.Services.Security.WebApi, Version=7.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-06-01 00:37:32.220 +07:00 [Information] Executed action DHI.Services.Security.WebApi.Controllers.AccountsController.GetAll (DHI.Services.Security.WebApi) in 58.885ms
+2025-06-01 00:37:32.220 +07:00 [Information] Executed endpoint 'DHI.Services.Security.WebApi.Controllers.AccountsController.GetAll (DHI.Services.Security.WebApi)'
+2025-06-01 00:37:32.220 +07:00 [Information] Request finished HTTP/1.1 GET http://localhost/api/accounts - 200 null application/json; charset=utf-8 104.5456ms
+2025-06-01 00:37:32.230 +07:00 [Information] Request starting HTTP/1.1 GET http://localhost/api/accounts/test_user_pg - null null
+2025-06-01 00:37:32.233 +07:00 [Information] Executing endpoint 'DHI.Services.Security.WebApi.Controllers.AccountsController.Get (DHI.Services.Security.WebApi)'
+2025-06-01 00:37:32.236 +07:00 [Information] Route matched with {action = "Get", controller = "Accounts"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[DHI.Services.Security.WebApi.DTOs.AccountDTO] Get(System.String) on controller DHI.Services.Security.WebApi.Controllers.AccountsController (DHI.Services.Security.WebApi).
+2025-06-01 00:37:32.347 +07:00 [Information] Executing OkObjectResult, writing value of type 'DHI.Services.Security.WebApi.DTOs.AccountDTO'.
+2025-06-01 00:37:32.348 +07:00 [Information] Executed action DHI.Services.Security.WebApi.Controllers.AccountsController.Get (DHI.Services.Security.WebApi) in 111.5809ms
+2025-06-01 00:37:32.348 +07:00 [Information] Executed endpoint 'DHI.Services.Security.WebApi.Controllers.AccountsController.Get (DHI.Services.Security.WebApi)'
+2025-06-01 00:37:32.348 +07:00 [Information] Request finished HTTP/1.1 GET http://localhost/api/accounts/test_user_pg - 200 null application/json; charset=utf-8 118.7035ms
+2025-06-01 00:37:36.261 +07:00 [Information] Request starting HTTP/1.1 PUT http://localhost/api/accounts - application/json; charset=utf-8 396
+2025-06-01 00:37:36.263 +07:00 [Information] Executing endpoint 'DHI.Services.Security.WebApi.Controllers.AccountsController.Update (DHI.Services.Security.WebApi)'
+2025-06-01 00:37:36.277 +07:00 [Information] Route matched with {action = "Update", controller = "Accounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[DHI.Services.Security.WebApi.DTOs.AccountDTO]] Update(DHI.Services.Security.WebApi.DTOs.AccountUpdateDTO) on controller DHI.Services.Security.WebApi.Controllers.AccountsController (DHI.Services.Security.WebApi).
+2025-06-01 00:37:36.328 +07:00 [Information] Start processing HTTP request GET https://api.pwnedpasswords.com/range/5D0CE
+2025-06-01 00:37:36.328 +07:00 [Information] Sending HTTP request GET https://api.pwnedpasswords.com/range/5D0CE
+2025-06-01 00:37:36.403 +07:00 [Information] Received HTTP response headers after 74.8955ms - 200
+2025-06-01 00:37:36.404 +07:00 [Information] End processing HTTP request after 75.6969ms - 200
+2025-06-01 00:37:36.452 +07:00 [Information] Executing OkObjectResult, writing value of type 'DHI.Services.Security.WebApi.DTOs.AccountDTO'.
+2025-06-01 00:37:36.453 +07:00 [Information] Executed action DHI.Services.Security.WebApi.Controllers.AccountsController.Update (DHI.Services.Security.WebApi) in 175.1457ms
+2025-06-01 00:37:36.453 +07:00 [Information] Executed endpoint 'DHI.Services.Security.WebApi.Controllers.AccountsController.Update (DHI.Services.Security.WebApi)'
+2025-06-01 00:37:36.453 +07:00 [Information] Request finished HTTP/1.1 PUT http://localhost/api/accounts - 200 null application/json; charset=utf-8 192.3831ms
+2025-06-01 00:37:46.388 +07:00 [Information] Request starting HTTP/1.1 DELETE http://localhost/api/accounts/test_user_pg - null null
+2025-06-01 00:37:46.401 +07:00 [Information] Executing endpoint 'DHI.Services.Security.WebApi.Controllers.AccountsController.Delete (DHI.Services.Security.WebApi)'
+2025-06-01 00:37:46.405 +07:00 [Information] Route matched with {action = "Delete", controller = "Accounts"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Delete(System.String) on controller DHI.Services.Security.WebApi.Controllers.AccountsController (DHI.Services.Security.WebApi).
+2025-06-01 00:37:46.488 +07:00 [Information] Executing StatusCodeResult, setting HTTP status code 204
+2025-06-01 00:37:46.489 +07:00 [Information] Executed action DHI.Services.Security.WebApi.Controllers.AccountsController.Delete (DHI.Services.Security.WebApi) in 83.0951ms
+2025-06-01 00:37:46.489 +07:00 [Information] Executed endpoint 'DHI.Services.Security.WebApi.Controllers.AccountsController.Delete (DHI.Services.Security.WebApi)'
+2025-06-01 00:37:46.489 +07:00 [Information] Request finished HTTP/1.1 DELETE http://localhost/api/accounts/test_user_pg - 204 null null 100.583ms
+2025-06-01 00:37:46.880 +07:00 [Information] Request starting HTTP/1.1 GET http://localhost/api/accounts/test_user_pg - null null
+2025-06-01 00:37:46.882 +07:00 [Information] Executing endpoint 'DHI.Services.Security.WebApi.Controllers.AccountsController.Get (DHI.Services.Security.WebApi)'
+2025-06-01 00:37:46.884 +07:00 [Information] Route matched with {action = "Get", controller = "Accounts"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[DHI.Services.Security.WebApi.DTOs.AccountDTO] Get(System.String) on controller DHI.Services.Security.WebApi.Controllers.AccountsController (DHI.Services.Security.WebApi).
+2025-06-01 00:37:46.936 +07:00 [Information] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2025-06-01 00:37:46.951 +07:00 [Information] Executed action DHI.Services.Security.WebApi.Controllers.AccountsController.Get (DHI.Services.Security.WebApi) in 66.3054ms
+2025-06-01 00:37:46.952 +07:00 [Information] Executed endpoint 'DHI.Services.Security.WebApi.Controllers.AccountsController.Get (DHI.Services.Security.WebApi)'
+2025-06-01 00:37:46.952 +07:00 [Information] Request finished HTTP/1.1 GET http://localhost/api/accounts/test_user_pg - 404 null application/json; charset=utf-8 72.8596ms
+2025-06-01 00:38:10.851 +07:00 [Information] User profile is available. Using 'C:\Users\mrsm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-06-01 00:38:11.004 +07:00 [Information] Request starting HTTP/1.1 POST http://localhost/api/accounts - application/json; charset=utf-8 420
+2025-06-01 00:38:11.033 +07:00 [Warning] Failed to determine the https port for redirect.
+2025-06-01 00:38:11.062 +07:00 [Information] Executing endpoint 'DHI.Services.Security.WebApi.Controllers.AccountsController.Add (DHI.Services.Security.WebApi)'
+2025-06-01 00:38:11.080 +07:00 [Information] Route matched with {action = "Add", controller = "Accounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[DHI.Services.Security.WebApi.DTOs.AccountDTO]] Add(DHI.Services.Security.WebApi.DTOs.AccountDTO) on controller DHI.Services.Security.WebApi.Controllers.AccountsController (DHI.Services.Security.WebApi).
+2025-06-01 00:38:11.162 +07:00 [Information] Start processing HTTP request GET https://api.pwnedpasswords.com/range/DA39A
+2025-06-01 00:38:11.174 +07:00 [Information] Sending HTTP request GET https://api.pwnedpasswords.com/range/DA39A
+2025-06-01 00:38:11.341 +07:00 [Information] Received HTTP response headers after 165.0749ms - 200
+2025-06-01 00:38:11.345 +07:00 [Information] End processing HTTP request after 186.6271ms - 200
+2025-06-01 00:38:11.354 +07:00 [Information] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2025-06-01 00:38:11.372 +07:00 [Information] Executed action DHI.Services.Security.WebApi.Controllers.AccountsController.Add (DHI.Services.Security.WebApi) in 287.6156ms
+2025-06-01 00:38:11.373 +07:00 [Information] Executed endpoint 'DHI.Services.Security.WebApi.Controllers.AccountsController.Add (DHI.Services.Security.WebApi)'
+2025-06-01 00:38:11.379 +07:00 [Information] Request finished HTTP/1.1 POST http://localhost/api/accounts - 400 null application/json; charset=utf-8 377.5748ms
+2025-06-01 00:38:23.611 +07:00 [Information] User profile is available. Using 'C:\Users\mrsm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-06-01 00:38:23.734 +07:00 [Information] Request starting HTTP/1.1 POST http://localhost/api/accounts - application/json; charset=utf-8 420
+2025-06-01 00:38:23.769 +07:00 [Warning] Failed to determine the https port for redirect.
+2025-06-01 00:38:23.814 +07:00 [Information] Executing endpoint 'DHI.Services.Security.WebApi.Controllers.AccountsController.Add (DHI.Services.Security.WebApi)'
+2025-06-01 00:38:23.833 +07:00 [Information] Route matched with {action = "Add", controller = "Accounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[DHI.Services.Security.WebApi.DTOs.AccountDTO]] Add(DHI.Services.Security.WebApi.DTOs.AccountDTO) on controller DHI.Services.Security.WebApi.Controllers.AccountsController (DHI.Services.Security.WebApi).
+2025-06-01 00:38:23.905 +07:00 [Information] Start processing HTTP request GET https://api.pwnedpasswords.com/range/41A75
+2025-06-01 00:38:23.916 +07:00 [Information] Sending HTTP request GET https://api.pwnedpasswords.com/range/41A75
+2025-06-01 00:38:24.093 +07:00 [Information] Received HTTP response headers after 175.3338ms - 200
+2025-06-01 00:38:24.100 +07:00 [Information] End processing HTTP request after 198.6365ms - 200
+2025-06-01 00:38:24.173 +07:00 [Information] Executing CreatedAtActionResult, writing value of type 'DHI.Services.Security.WebApi.DTOs.AccountDTO'.
+2025-06-01 00:38:24.193 +07:00 [Information] Executed action DHI.Services.Security.WebApi.Controllers.AccountsController.Add (DHI.Services.Security.WebApi) in 359.9124ms
+2025-06-01 00:38:24.193 +07:00 [Information] Executed endpoint 'DHI.Services.Security.WebApi.Controllers.AccountsController.Add (DHI.Services.Security.WebApi)'
+2025-06-01 00:38:24.193 +07:00 [Information] Request finished HTTP/1.1 POST http://localhost/api/accounts - 201 null application/json; charset=utf-8 461.6058ms
+2025-06-01 00:38:24.195 +07:00 [Information] Request starting HTTP/1.1 GET http://localhost/api/accounts - null null
+2025-06-01 00:38:24.203 +07:00 [Information] Executing endpoint 'DHI.Services.Security.WebApi.Controllers.AccountsController.GetAll (DHI.Services.Security.WebApi)'
+2025-06-01 00:38:24.205 +07:00 [Information] Route matched with {action = "GetAll", controller = "Accounts"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[DHI.Services.Security.WebApi.DTOs.AccountDTO]] GetAll() on controller DHI.Services.Security.WebApi.Controllers.AccountsController (DHI.Services.Security.WebApi).
+2025-06-01 00:38:24.217 +07:00 [Information] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DHI.Services.Security.WebApi.DTOs.AccountDTO, DHI.Services.Security.WebApi, Version=7.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-06-01 00:38:24.218 +07:00 [Information] Executed action DHI.Services.Security.WebApi.Controllers.AccountsController.GetAll (DHI.Services.Security.WebApi) in 12.202ms
+2025-06-01 00:38:24.218 +07:00 [Information] Executed endpoint 'DHI.Services.Security.WebApi.Controllers.AccountsController.GetAll (DHI.Services.Security.WebApi)'
+2025-06-01 00:38:24.218 +07:00 [Information] Request finished HTTP/1.1 GET http://localhost/api/accounts - 200 null application/json; charset=utf-8 23.2145ms
+2025-06-01 00:38:24.222 +07:00 [Information] Request starting HTTP/1.1 GET http://localhost/api/accounts/test_user_json - null null
+2025-06-01 00:38:24.225 +07:00 [Information] Executing endpoint 'DHI.Services.Security.WebApi.Controllers.AccountsController.Get (DHI.Services.Security.WebApi)'
+2025-06-01 00:38:24.228 +07:00 [Information] Route matched with {action = "Get", controller = "Accounts"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[DHI.Services.Security.WebApi.DTOs.AccountDTO] Get(System.String) on controller DHI.Services.Security.WebApi.Controllers.AccountsController (DHI.Services.Security.WebApi).
+2025-06-01 00:38:24.245 +07:00 [Information] Executing OkObjectResult, writing value of type 'DHI.Services.Security.WebApi.DTOs.AccountDTO'.
+2025-06-01 00:38:24.245 +07:00 [Information] Executed action DHI.Services.Security.WebApi.Controllers.AccountsController.Get (DHI.Services.Security.WebApi) in 16.8789ms
+2025-06-01 00:38:24.245 +07:00 [Information] Executed endpoint 'DHI.Services.Security.WebApi.Controllers.AccountsController.Get (DHI.Services.Security.WebApi)'
+2025-06-01 00:38:24.245 +07:00 [Information] Request finished HTTP/1.1 GET http://localhost/api/accounts/test_user_json - 200 null application/json; charset=utf-8 22.652ms
+2025-06-01 00:38:24.248 +07:00 [Information] Request starting HTTP/1.1 PUT http://localhost/api/accounts - application/json; charset=utf-8 400
+2025-06-01 00:38:24.248 +07:00 [Information] Executing endpoint 'DHI.Services.Security.WebApi.Controllers.AccountsController.Update (DHI.Services.Security.WebApi)'
+2025-06-01 00:38:24.254 +07:00 [Information] Route matched with {action = "Update", controller = "Accounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[DHI.Services.Security.WebApi.DTOs.AccountDTO]] Update(DHI.Services.Security.WebApi.DTOs.AccountUpdateDTO) on controller DHI.Services.Security.WebApi.Controllers.AccountsController (DHI.Services.Security.WebApi).
+2025-06-01 00:38:24.266 +07:00 [Information] Start processing HTTP request GET https://api.pwnedpasswords.com/range/5D0CE
+2025-06-01 00:38:24.267 +07:00 [Information] Sending HTTP request GET https://api.pwnedpasswords.com/range/5D0CE
+2025-06-01 00:38:24.309 +07:00 [Information] Received HTTP response headers after 42.587ms - 200
+2025-06-01 00:38:24.310 +07:00 [Information] End processing HTTP request after 43.6792ms - 200
+2025-06-01 00:38:24.425 +07:00 [Information] Executing OkObjectResult, writing value of type 'DHI.Services.Security.WebApi.DTOs.AccountDTO'.
+2025-06-01 00:38:24.426 +07:00 [Information] Executed action DHI.Services.Security.WebApi.Controllers.AccountsController.Update (DHI.Services.Security.WebApi) in 171.0331ms
+2025-06-01 00:38:24.426 +07:00 [Information] Executed endpoint 'DHI.Services.Security.WebApi.Controllers.AccountsController.Update (DHI.Services.Security.WebApi)'
+2025-06-01 00:38:24.426 +07:00 [Information] Request finished HTTP/1.1 PUT http://localhost/api/accounts - 200 null application/json; charset=utf-8 178.1369ms
+2025-06-01 00:38:24.426 +07:00 [Information] Request starting HTTP/1.1 DELETE http://localhost/api/accounts/test_user_json - null null
+2025-06-01 00:38:24.429 +07:00 [Information] Executing endpoint 'DHI.Services.Security.WebApi.Controllers.AccountsController.Delete (DHI.Services.Security.WebApi)'
+2025-06-01 00:38:24.433 +07:00 [Information] Route matched with {action = "Delete", controller = "Accounts"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Delete(System.String) on controller DHI.Services.Security.WebApi.Controllers.AccountsController (DHI.Services.Security.WebApi).
+2025-06-01 00:38:24.460 +07:00 [Information] Executing StatusCodeResult, setting HTTP status code 204
+2025-06-01 00:38:24.461 +07:00 [Information] Executed action DHI.Services.Security.WebApi.Controllers.AccountsController.Delete (DHI.Services.Security.WebApi) in 27.2397ms
+2025-06-01 00:38:24.461 +07:00 [Information] Executed endpoint 'DHI.Services.Security.WebApi.Controllers.AccountsController.Delete (DHI.Services.Security.WebApi)'
+2025-06-01 00:38:24.461 +07:00 [Information] Request finished HTTP/1.1 DELETE http://localhost/api/accounts/test_user_json - 204 null null 34.3759ms
+2025-06-01 00:38:24.462 +07:00 [Information] Request starting HTTP/1.1 GET http://localhost/api/accounts/test_user_json - null null
+2025-06-01 00:38:24.463 +07:00 [Information] Executing endpoint 'DHI.Services.Security.WebApi.Controllers.AccountsController.Get (DHI.Services.Security.WebApi)'
+2025-06-01 00:38:24.463 +07:00 [Information] Route matched with {action = "Get", controller = "Accounts"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[DHI.Services.Security.WebApi.DTOs.AccountDTO] Get(System.String) on controller DHI.Services.Security.WebApi.Controllers.AccountsController (DHI.Services.Security.WebApi).
+2025-06-01 00:38:24.473 +07:00 [Information] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2025-06-01 00:38:24.500 +07:00 [Information] Executed action DHI.Services.Security.WebApi.Controllers.AccountsController.Get (DHI.Services.Security.WebApi) in 36.6299ms
+2025-06-01 00:38:24.500 +07:00 [Information] Executed endpoint 'DHI.Services.Security.WebApi.Controllers.AccountsController.Get (DHI.Services.Security.WebApi)'
+2025-06-01 00:38:24.500 +07:00 [Information] Request finished HTTP/1.1 GET http://localhost/api/accounts/test_user_json - 404 null application/json; charset=utf-8 38.579ms
+2025-06-01 00:38:31.743 +07:00 [Information] User profile is available. Using 'C:\Users\mrsm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-06-01 00:38:31.875 +07:00 [Information] Request starting HTTP/1.1 POST http://localhost/api/accounts - application/json; charset=utf-8 420
+2025-06-01 00:38:31.907 +07:00 [Warning] Failed to determine the https port for redirect.
+2025-06-01 00:38:31.958 +07:00 [Information] Executing endpoint 'DHI.Services.Security.WebApi.Controllers.AccountsController.Add (DHI.Services.Security.WebApi)'
+2025-06-01 00:38:31.978 +07:00 [Information] Route matched with {action = "Add", controller = "Accounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[DHI.Services.Security.WebApi.DTOs.AccountDTO]] Add(DHI.Services.Security.WebApi.DTOs.AccountDTO) on controller DHI.Services.Security.WebApi.Controllers.AccountsController (DHI.Services.Security.WebApi).
+2025-06-01 00:38:32.050 +07:00 [Information] Start processing HTTP request GET https://api.pwnedpasswords.com/range/A7AB4
+2025-06-01 00:38:32.061 +07:00 [Information] Sending HTTP request GET https://api.pwnedpasswords.com/range/A7AB4
+2025-06-01 00:38:32.240 +07:00 [Information] Received HTTP response headers after 176.079ms - 200
+2025-06-01 00:38:32.247 +07:00 [Information] End processing HTTP request after 202.3307ms - 200
+2025-06-01 00:38:32.307 +07:00 [Information] Executing CreatedAtActionResult, writing value of type 'DHI.Services.Security.WebApi.DTOs.AccountDTO'.
+2025-06-01 00:38:32.346 +07:00 [Information] Executed action DHI.Services.Security.WebApi.Controllers.AccountsController.Add (DHI.Services.Security.WebApi) in 364.4842ms
+2025-06-01 00:38:32.346 +07:00 [Information] Executed endpoint 'DHI.Services.Security.WebApi.Controllers.AccountsController.Add (DHI.Services.Security.WebApi)'
+2025-06-01 00:38:32.353 +07:00 [Information] Request finished HTTP/1.1 POST http://localhost/api/accounts - 201 null application/json; charset=utf-8 480.0766ms
+2025-06-01 00:38:32.362 +07:00 [Information] Request starting HTTP/1.1 GET http://localhost/api/accounts - null null
+2025-06-01 00:38:32.369 +07:00 [Information] Executing endpoint 'DHI.Services.Security.WebApi.Controllers.AccountsController.GetAll (DHI.Services.Security.WebApi)'
+2025-06-01 00:38:32.372 +07:00 [Information] Route matched with {action = "GetAll", controller = "Accounts"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[DHI.Services.Security.WebApi.DTOs.AccountDTO]] GetAll() on controller DHI.Services.Security.WebApi.Controllers.AccountsController (DHI.Services.Security.WebApi).
+2025-06-01 00:38:32.384 +07:00 [Information] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DHI.Services.Security.WebApi.DTOs.AccountDTO, DHI.Services.Security.WebApi, Version=7.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-06-01 00:38:32.386 +07:00 [Information] Executed action DHI.Services.Security.WebApi.Controllers.AccountsController.GetAll (DHI.Services.Security.WebApi) in 14.2254ms
+2025-06-01 00:38:32.386 +07:00 [Information] Executed endpoint 'DHI.Services.Security.WebApi.Controllers.AccountsController.GetAll (DHI.Services.Security.WebApi)'
+2025-06-01 00:38:32.387 +07:00 [Information] Request finished HTTP/1.1 GET http://localhost/api/accounts - 200 null application/json; charset=utf-8 25.3942ms
+2025-06-01 00:38:32.392 +07:00 [Information] Request starting HTTP/1.1 GET http://localhost/api/accounts/test_user_json - null null
+2025-06-01 00:38:32.396 +07:00 [Information] Executing endpoint 'DHI.Services.Security.WebApi.Controllers.AccountsController.Get (DHI.Services.Security.WebApi)'
+2025-06-01 00:38:32.398 +07:00 [Information] Route matched with {action = "Get", controller = "Accounts"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[DHI.Services.Security.WebApi.DTOs.AccountDTO] Get(System.String) on controller DHI.Services.Security.WebApi.Controllers.AccountsController (DHI.Services.Security.WebApi).
+2025-06-01 00:38:32.419 +07:00 [Information] Executing OkObjectResult, writing value of type 'DHI.Services.Security.WebApi.DTOs.AccountDTO'.
+2025-06-01 00:38:32.420 +07:00 [Information] Executed action DHI.Services.Security.WebApi.Controllers.AccountsController.Get (DHI.Services.Security.WebApi) in 21.2045ms
+2025-06-01 00:38:32.420 +07:00 [Information] Executed endpoint 'DHI.Services.Security.WebApi.Controllers.AccountsController.Get (DHI.Services.Security.WebApi)'
+2025-06-01 00:38:32.420 +07:00 [Information] Request finished HTTP/1.1 GET http://localhost/api/accounts/test_user_json - 200 null application/json; charset=utf-8 27.4764ms
+2025-06-01 00:38:32.424 +07:00 [Information] Request starting HTTP/1.1 PUT http://localhost/api/accounts - application/json; charset=utf-8 400
+2025-06-01 00:38:32.425 +07:00 [Information] Executing endpoint 'DHI.Services.Security.WebApi.Controllers.AccountsController.Update (DHI.Services.Security.WebApi)'
+2025-06-01 00:38:32.431 +07:00 [Information] Route matched with {action = "Update", controller = "Accounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[DHI.Services.Security.WebApi.DTOs.AccountDTO]] Update(DHI.Services.Security.WebApi.DTOs.AccountUpdateDTO) on controller DHI.Services.Security.WebApi.Controllers.AccountsController (DHI.Services.Security.WebApi).
+2025-06-01 00:38:32.470 +07:00 [Information] Start processing HTTP request GET https://api.pwnedpasswords.com/range/5D0CE
+2025-06-01 00:38:32.471 +07:00 [Information] Sending HTTP request GET https://api.pwnedpasswords.com/range/5D0CE
+2025-06-01 00:38:32.516 +07:00 [Information] Received HTTP response headers after 45.0027ms - 200
+2025-06-01 00:38:32.516 +07:00 [Information] End processing HTTP request after 45.907ms - 200
+2025-06-01 00:38:32.588 +07:00 [Information] Executing OkObjectResult, writing value of type 'DHI.Services.Security.WebApi.DTOs.AccountDTO'.
+2025-06-01 00:38:32.589 +07:00 [Information] Executed action DHI.Services.Security.WebApi.Controllers.AccountsController.Update (DHI.Services.Security.WebApi) in 157.4764ms
+2025-06-01 00:38:32.589 +07:00 [Information] Executed endpoint 'DHI.Services.Security.WebApi.Controllers.AccountsController.Update (DHI.Services.Security.WebApi)'
+2025-06-01 00:38:32.589 +07:00 [Information] Request finished HTTP/1.1 PUT http://localhost/api/accounts - 200 null application/json; charset=utf-8 165.0693ms
+2025-06-01 00:38:32.589 +07:00 [Information] Request starting HTTP/1.1 DELETE http://localhost/api/accounts/test_user_json - null null
+2025-06-01 00:38:32.592 +07:00 [Information] Executing endpoint 'DHI.Services.Security.WebApi.Controllers.AccountsController.Delete (DHI.Services.Security.WebApi)'
+2025-06-01 00:38:32.595 +07:00 [Information] Route matched with {action = "Delete", controller = "Accounts"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Delete(System.String) on controller DHI.Services.Security.WebApi.Controllers.AccountsController (DHI.Services.Security.WebApi).
+2025-06-01 00:38:32.621 +07:00 [Information] Executing StatusCodeResult, setting HTTP status code 204
+2025-06-01 00:38:32.621 +07:00 [Information] Executed action DHI.Services.Security.WebApi.Controllers.AccountsController.Delete (DHI.Services.Security.WebApi) in 26.3291ms
+2025-06-01 00:38:32.622 +07:00 [Information] Executed endpoint 'DHI.Services.Security.WebApi.Controllers.AccountsController.Delete (DHI.Services.Security.WebApi)'
+2025-06-01 00:38:32.622 +07:00 [Information] Request finished HTTP/1.1 DELETE http://localhost/api/accounts/test_user_json - 204 null null 32.311ms
+2025-06-01 00:38:32.622 +07:00 [Information] Request starting HTTP/1.1 GET http://localhost/api/accounts/test_user_json - null null
+2025-06-01 00:38:32.623 +07:00 [Information] Executing endpoint 'DHI.Services.Security.WebApi.Controllers.AccountsController.Get (DHI.Services.Security.WebApi)'
+2025-06-01 00:38:32.623 +07:00 [Information] Route matched with {action = "Get", controller = "Accounts"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[DHI.Services.Security.WebApi.DTOs.AccountDTO] Get(System.String) on controller DHI.Services.Security.WebApi.Controllers.AccountsController (DHI.Services.Security.WebApi).
+2025-06-01 00:38:32.630 +07:00 [Information] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2025-06-01 00:38:32.649 +07:00 [Information] Executed action DHI.Services.Security.WebApi.Controllers.AccountsController.Get (DHI.Services.Security.WebApi) in 25.6354ms
+2025-06-01 00:38:32.649 +07:00 [Information] Executed endpoint 'DHI.Services.Security.WebApi.Controllers.AccountsController.Get (DHI.Services.Security.WebApi)'
+2025-06-01 00:38:32.649 +07:00 [Information] Request finished HTTP/1.1 GET http://localhost/api/accounts/test_user_json - 404 null application/json; charset=utf-8 27.1059ms

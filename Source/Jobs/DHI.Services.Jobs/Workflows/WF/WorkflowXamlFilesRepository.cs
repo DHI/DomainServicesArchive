@@ -6,9 +6,10 @@
     using System.Linq;
     using System.Linq.Expressions;
     using System.Security.Claims;
+    using System.Text.Encodings.Web;
     using System.Text.Json;
     using System.Text.Json.Serialization;
-    using Jobs;
+    using System.Text.Unicode;
 
     [Obsolete("Use CodeWorkflowRepository instead. This type will eventually be removed.")]
     public class WorkflowXamlFilesRepository : IWorkflowRepository, ITaskRepository<Workflow, string>
@@ -30,10 +31,11 @@
             _serializerOptions = new JsonSerializerOptions
             {
                 WriteIndented = true,
+                Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
                 Converters =
                 {
                     new JsonStringEnumConverter()
-                }
+                },
             };
             _deserializerOptions = new JsonSerializerOptions
             {
@@ -42,9 +44,23 @@
                     new JsonStringEnumConverter()
                 }
             };
+
+            var defaultConverters = new List<JsonConverter>
+            {
+                new JsonStringEnumConverter(),
+                new WorkflowXamlConverter()
+            };
             if (converters != null)
             {
                 foreach (JsonConverter converter in converters)
+                {
+                    _serializerOptions.Converters.Add(converter);
+                    _deserializerOptions.Converters.Add(converter);
+                }
+            }
+            else
+            {
+                foreach (var converter in defaultConverters)
                 {
                     _serializerOptions.Converters.Add(converter);
                     _deserializerOptions.Converters.Add(converter);
@@ -261,7 +277,7 @@
                 using (var streamReader = new StreamReader(fileStream))
                 {
                     var json = streamReader.ReadToEnd();
-                    _entities = new Dictionary<string, Workflow>(JsonSerializer.Deserialize<Dictionary<string, Workflow>>(json, _serializerOptions));
+                    _entities = new Dictionary<string, Workflow>(JsonSerializer.Deserialize<Dictionary<string, Workflow>>(json, _deserializerOptions));
                 }
 
                 var folderPath = Path.Combine(Path.GetDirectoryName(_filePath), Path.GetFileNameWithoutExtension(_filePath));

@@ -1,0 +1,10 @@
+{
+  "$type": "System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[DHI.Services.IConnection, DHI.Services]], mscorlib",
+  "connections-csv": {
+    "$type": "DHI.Services.TimeSeries.WebApi.TimeSeriesServiceConnection, DHI.Services.TimeSeries.WebApi",
+    "ConnectionString": "[AppData]",
+    "RepositoryType": "DHI.Services.TimeSeries.CSV.TimeSeriesRepository, DHI.Services.TimeSeries",
+    "Name": "CSV time series service connection",
+    "Id": "connections-csv"
+  }
+}

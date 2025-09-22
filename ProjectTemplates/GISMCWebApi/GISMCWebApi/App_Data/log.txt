@@ -1,0 +1,44 @@
+2025-07-15 10:35:01.541 +07:00 [Information] User profile is available. Using 'C:\Users\mrsm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-07-15 10:35:01.953 +07:00 [Information] Now listening on: https://localhost:7274
+2025-07-15 10:35:01.956 +07:00 [Information] Now listening on: http://localhost:5010
+2025-07-15 10:35:02.229 +07:00 [Information] Application started. Press Ctrl+C to shut down.
+2025-07-15 10:35:02.233 +07:00 [Information] Hosting environment: Development
+2025-07-15 10:35:02.237 +07:00 [Information] Content root path: C:\Work\Code\DomainService\DSWorktree\ProjectTemplate\GISMCWebApi\ProjectTemplates\GISMCWebApi\GISMCWebApi
+2025-07-15 10:35:03.051 +07:00 [Information] Request starting HTTP/2 GET https://localhost:7274/_framework/aspnetcore-browser-refresh.js - null null
+2025-07-15 10:35:03.051 +07:00 [Information] Request starting HTTP/2 GET https://localhost:7274/_vs/browserLink - null null
+2025-07-15 10:35:03.124 +07:00 [Information] Request finished HTTP/2 GET https://localhost:7274/_framework/aspnetcore-browser-refresh.js - 200 13758 application/javascript; charset=utf-8 81.2002ms
+2025-07-15 10:35:03.244 +07:00 [Information] Request finished HTTP/2 GET https://localhost:7274/_vs/browserLink - 200 null text/javascript; charset=UTF-8 203.2418ms
+2025-07-15 10:35:03.375 +07:00 [Information] Request starting HTTP/2 GET https://localhost:7274/swagger/MyApplicationOpenAPISpecification/swagger.json - null null
+2025-07-15 10:35:03.741 +07:00 [Information] Request finished HTTP/2 GET https://localhost:7274/swagger/MyApplicationOpenAPISpecification/swagger.json - 200 null application/json;charset=utf-8 366.6341ms
+2025-07-15 10:35:41.819 +07:00 [Information] Request starting HTTP/2 GET https://localhost:7274/api/maps/dfsu-map/layers/fullnames - null null
+2025-07-15 10:35:41.885 +07:00 [Information] Executing endpoint 'DHI.Services.GIS.WebApi.MapsController.GetLayerFullnames (DHI.Services.GIS.WebApi)'
+2025-07-15 10:35:41.904 +07:00 [Information] Route matched with {action = "GetLayerFullnames", controller = "Maps"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[System.String]] GetLayerFullnames(System.String, System.String) on controller DHI.Services.GIS.WebApi.MapsController (DHI.Services.GIS.WebApi).
+2025-07-15 10:35:41.987 +07:00 [Information] Executed action DHI.Services.GIS.WebApi.MapsController.GetLayerFullnames (DHI.Services.GIS.WebApi) in 76.7395ms
+2025-07-15 10:35:41.990 +07:00 [Information] Executed endpoint 'DHI.Services.GIS.WebApi.MapsController.GetLayerFullnames (DHI.Services.GIS.WebApi)'
+2025-07-15 10:35:42.019 +07:00 [Information] Request finished HTTP/2 GET https://localhost:7274/api/maps/dfsu-map/layers/fullnames - 500 null application/json 200.1654ms
+2025-07-15 10:36:40.886 +07:00 [Information] User profile is available. Using 'C:\Users\mrsm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-07-15 10:36:41.318 +07:00 [Information] Now listening on: https://localhost:7274
+2025-07-15 10:36:41.320 +07:00 [Information] Now listening on: http://localhost:5010
+2025-07-15 10:36:41.592 +07:00 [Information] Application started. Press Ctrl+C to shut down.
+2025-07-15 10:36:41.595 +07:00 [Information] Hosting environment: Development
+2025-07-15 10:36:41.598 +07:00 [Information] Content root path: C:\Work\Code\DomainService\DSWorktree\ProjectTemplate\GISMCWebApi\ProjectTemplates\GISMCWebApi\GISMCWebApi
+2025-07-15 10:36:42.277 +07:00 [Information] Request starting HTTP/2 GET https://localhost:7274/_framework/aspnetcore-browser-refresh.js - null null
+2025-07-15 10:36:42.277 +07:00 [Information] Request starting HTTP/2 GET https://localhost:7274/_vs/browserLink - null null
+2025-07-15 10:36:42.351 +07:00 [Information] Request finished HTTP/2 GET https://localhost:7274/_framework/aspnetcore-browser-refresh.js - 200 13758 application/javascript; charset=utf-8 74.2269ms
+2025-07-15 10:36:42.459 +07:00 [Information] Request finished HTTP/2 GET https://localhost:7274/_vs/browserLink - 200 null text/javascript; charset=UTF-8 191.5487ms
+2025-07-15 10:36:42.538 +07:00 [Information] Request starting HTTP/2 GET https://localhost:7274/swagger/MyApplicationOpenAPISpecification/swagger.json - null null
+2025-07-15 10:36:42.887 +07:00 [Information] Request finished HTTP/2 GET https://localhost:7274/swagger/MyApplicationOpenAPISpecification/swagger.json - 200 null application/json;charset=utf-8 349.7094ms
+2025-07-15 10:36:54.606 +07:00 [Information] Request starting HTTP/2 GET https://localhost:7274/api/mapstyles/count - null null
+2025-07-15 10:36:54.700 +07:00 [Information] Executing endpoint 'DHI.Services.GIS.WebApi.MapStylesController.GetCount (DHI.Services.GIS.WebApi)'
+2025-07-15 10:36:54.720 +07:00 [Information] Route matched with {action = "GetCount", controller = "MapStyles"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Int32] GetCount() on controller DHI.Services.GIS.WebApi.MapStylesController (DHI.Services.GIS.WebApi).
+2025-07-15 10:36:54.795 +07:00 [Information] Executing OkObjectResult, writing value of type 'System.Int32'.
+2025-07-15 10:36:54.845 +07:00 [Information] Executed action DHI.Services.GIS.WebApi.MapStylesController.GetCount (DHI.Services.GIS.WebApi) in 114.3428ms
+2025-07-15 10:36:54.848 +07:00 [Information] Executed endpoint 'DHI.Services.GIS.WebApi.MapStylesController.GetCount (DHI.Services.GIS.WebApi)'
+2025-07-15 10:36:54.853 +07:00 [Information] Request finished HTTP/2 GET https://localhost:7274/api/mapstyles/count - 200 null application/json; charset=utf-8 246.5853ms
+2025-07-15 10:38:54.965 +07:00 [Information] Request starting HTTP/2 GET https://localhost:7274/api/maps/dfsu-map/datetimes/KBHEC3dF012.dfsu?from=2015-11-14T10%3A00%3A00 - null null
+2025-07-15 10:38:54.998 +07:00 [Information] Executing endpoint 'DHI.Services.GIS.WebApi.MapsController.GetDateTimes (DHI.Services.GIS.WebApi)'
+2025-07-15 10:38:55.011 +07:00 [Information] Route matched with {action = "GetDateTimes", controller = "Maps"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.SortedSet`1[System.DateTime]] GetDateTimes(System.String, System.String, System.Nullable`1[System.DateTime], System.Nullable`1[System.DateTime]) on controller DHI.Services.GIS.WebApi.MapsController (DHI.Services.GIS.WebApi).
+2025-07-15 10:38:55.836 +07:00 [Information] Executing OkObjectResult, writing value of type 'System.Collections.Generic.SortedSet`1[[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-07-15 10:38:55.846 +07:00 [Information] Executed action DHI.Services.GIS.WebApi.MapsController.GetDateTimes (DHI.Services.GIS.WebApi) in 831.2506ms
+2025-07-15 10:38:55.849 +07:00 [Information] Executed endpoint 'DHI.Services.GIS.WebApi.MapsController.GetDateTimes (DHI.Services.GIS.WebApi)'
+2025-07-15 10:38:55.851 +07:00 [Information] Request finished HTTP/2 GET https://localhost:7274/api/maps/dfsu-map/datetimes/KBHEC3dF012.dfsu?from=2015-11-14T10%3A00%3A00 - 200 null application/json; charset=utf-8 890.3404ms

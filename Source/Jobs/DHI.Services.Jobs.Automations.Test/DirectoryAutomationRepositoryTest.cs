@@ -31,7 +31,7 @@ public class DirectoryAutomationRepositoryTest : IDisposable
     {
         var automation = new Automation<string>("NewAutomation", "NewGroup", "taskid")
         {
-            Parameters = new Parameters
+            TaskParameters = new Parameters
             {
                 { "TestParameter", "TestValue" }
             },
@@ -47,7 +47,7 @@ public class DirectoryAutomationRepositoryTest : IDisposable
     {
         var automation = new Automation<string>("NewAutomation", "NewGroup", "taskid")
         {
-            Parameters = new Parameters
+            TaskParameters = new Parameters
             {
                 { "TestParameter", "TestValue" }
             },
@@ -134,6 +134,50 @@ public class DirectoryAutomationRepositoryTest : IDisposable
             name => Assert.Equal("Group1/TestAutomation1", name),
             name => Assert.Equal("Group1/Group2/TestAutomation2", name));
     }
+
+    [Fact]
+    public void VersionFile_IsCreatedAndUpdated()
+    {
+        var versionPath = Path.Combine(_tempDirectory.FullName, "version.txt");
+
+        if (File.Exists(versionPath)) File.Delete(versionPath);
+        Assert.False(File.Exists(versionPath));
+
+        var automation = new Automation<string>("VersionedAuto", "VersionGroup", "task");
+        _repository.Add(automation);
+
+        Assert.True(File.Exists(versionPath));
+        var ts1 = _repository.GetVersionTimestamp();
+
+        Thread.Sleep(10);
+        _repository.TouchVersion();
+        var ts2 = _repository.GetVersionTimestamp();
+
+        Assert.True(ts2 > ts1);
+    }
+
+    [Fact]
+    public void AddUpdateRemove_TriggersVersionUpdate()
+    {
+        var versionPath = Path.Combine(_tempDirectory.FullName, "version.txt");
+        if (File.Exists(versionPath)) File.Delete(versionPath);
+
+        var automation = new Automation<string>("VerTrack", "VerGroup", "task");
+        _repository.Add(automation);
+        var ts1 = _repository.GetVersionTimestamp();
+
+        Thread.Sleep(10);
+        automation.Tag = "updated";
+        _repository.Update(automation);
+        var ts2 = _repository.GetVersionTimestamp();
+        Assert.True(ts2 > ts1);
+
+        Thread.Sleep(10);
+        _repository.Remove("VerGroup/VerTrack");
+        var ts3 = _repository.GetVersionTimestamp();
+        Assert.True(ts3 > ts2);
+    }
+
 
     public void Dispose()
     {

@@ -6,7 +6,7 @@
     using System.Security.Claims;
     using System.Text.Json.Serialization;
     using Filters;
-    using Logging;
+    using Notifications;
     using Microsoft.AspNetCore.Authentication.JwtBearer;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;

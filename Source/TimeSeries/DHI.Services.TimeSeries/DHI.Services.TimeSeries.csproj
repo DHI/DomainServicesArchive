@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net472</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net472;net8.0</TargetFrameworks>
     <DefaultItemExcludes>$(DefaultItemExcludes);nuget\*.nupkg;nuget\*.log</DefaultItemExcludes>
     <NoWarn>1701;1702;1591</NoWarn>
     <PackageId>DHI.Services.TimeSeries</PackageId>
-    <Version>6.1.0</Version>
-    <PackageReleaseNotes>Updated DHI.Services to v15.1.0</PackageReleaseNotes>
+    <Version>7.1.1</Version>
+    <PackageReleaseNotes>Upgrade Domain Services Packages</PackageReleaseNotes>
     <Company>DHI</Company>
     <Authors>dhigroup</Authors>
     <Owners>dhigroup</Owners>
@@ -31,7 +31,7 @@
 
 
   <ItemGroup>
-    <PackageReference Include="DHI.Services" Version="15.1.0" />
+    <PackageReference Include="DHI.Services" Version="16.1.0" />
     <PackageReference Include="Argon.JsonPath" Version="0.5.1" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0">

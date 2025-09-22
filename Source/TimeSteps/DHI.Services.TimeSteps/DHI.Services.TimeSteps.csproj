@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net472</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net472;net8.0</TargetFrameworks>
     <DefaultItemExcludes>$(DefaultItemExcludes);nuget\*.nupkg;nuget\*.log;</DefaultItemExcludes>
     <NoWarn>1701;1702;1591</NoWarn>
     <PackageId>DHI.Services.TimeSteps</PackageId>
-    <Version>5.1.0</Version>
-    <PackageReleaseNotes>Updated DHI.Services to v15.1.0</PackageReleaseNotes>
+    <Version>5.2.1</Version>
+    <PackageReleaseNotes>Upgrade Domain Services Packages</PackageReleaseNotes>
     <Company>DHI</Company>
     <Authors>dhigroup</Authors>
     <PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
@@ -29,7 +29,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DHI.Services" Version="15.1.0" />
+    <PackageReference Include="DHI.Services" Version="16.1.0" />
   </ItemGroup>
 
   <ItemGroup>

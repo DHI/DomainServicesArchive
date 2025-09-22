@@ -2,7 +2,6 @@
 
 using System.Collections.Generic;
 using Automations;
-using Logging;
 using Microsoft.Extensions.Logging;
 
 public abstract class FakeTrigger : BaseTrigger

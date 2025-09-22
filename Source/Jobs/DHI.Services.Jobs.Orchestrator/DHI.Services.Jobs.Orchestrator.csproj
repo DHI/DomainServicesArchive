@@ -1,11 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0;net8.0</TargetFrameworks>
     <DefaultItemExcludes>$(DefaultItemExcludes);nuget\*.log</DefaultItemExcludes>
     <PackageId>DHI.Services.Jobs.Orchestrator</PackageId>
-    <Version>5.1.0</Version>
-    <PackageReleaseNotes>Updated DHI.Services.Jobs to v15.0.0</PackageReleaseNotes>
+    <Version>5.2.3</Version>
+    <PackageReleaseNotes>Upgrade Job package, fix timeoutTimer</PackageReleaseNotes>
     <Company>DHI</Company>
     <Authors>dhigroup</Authors>
     <PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
@@ -30,8 +30,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DHI.Services.Jobs" Version="15.0.0" />
-    <PackageReference Include="DHI.Services.Scalars" Version="5.0.0" />
+    <PackageReference Include="DHI.Services.Jobs" Version="16.0.3" />
+    <PackageReference Include="DHI.Services.Scalars" Version="5.2.1" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

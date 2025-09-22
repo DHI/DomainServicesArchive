@@ -3,9 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using Logging;
 using Microsoft.Extensions.Logging;
-using TriggerParametersExport;
 
 [Serializable]
 public class ScheduledTrigger : BaseTrigger, IScheduledTriggerParameters
@@ -27,32 +25,86 @@ public class ScheduledTrigger : BaseTrigger, IScheduledTriggerParameters
     public override AutomationResult Execute(ILogger logger, IDictionary<string, string> parameters = null)
     {
         Guard.Against.Null(parameters, nameof(parameters));
+        var (nowOpt, prevOpt) = TryGetCycleTimes(parameters);
+        var now = nowOpt ?? DateTime.UtcNow;
 
-        if (!parameters!.TryGetValue("utcNow", out var utcNowString))
+        if (Interval <= TimeSpan.Zero || now < StartTimeUtc)
+            return AutomationResult.NotMet();
+
+        var tolerance = TryGetTolerance(parameters) ?? TimeSpan.FromSeconds(30);
+
+        if (prevOpt is null || now <= prevOpt.Value)
         {
-            throw new ArgumentException("A parameter 'utcNow' with a DateTime literal representing the current UTC time must be given.", nameof(parameters));
+            var met = IsWithinToleranceWindow(now, StartTimeUtc, Interval, tolerance);
+            logger?.LogDebug("ScheduledTrigger {Id}: fallback tolerance (prev missing/invalid) → {Met}", Id, met);
+            return met ? AutomationResult.Met() : AutomationResult.NotMet();
         }
-        if (!DateTime.TryParse(utcNowString, DateTimeFormatInfo.InvariantInfo, DateTimeStyles.None, out var utcNow))
-        {
-            throw new FormatException($"The given parameter 'utcNow' with value '{utcNowString}' could not be parsed as a DateTime. It is not recognized as a valid DateTime.");
-        }
-        return utcNow > StartTimeUtc && IsWithinFirstHalfMinuteOfInterval(utcNow, StartTimeUtc, Interval)
-            ? AutomationResult.Met()
-            : AutomationResult.NotMet();
+
+        var result = HasBoundarySince(prevOpt.Value, now, StartTimeUtc, Interval);
+        return result ? AutomationResult.Met() : AutomationResult.NotMet();
     }
 
-    /// <summary>
-    ///     Determines if the current UTC time is within the first half-minute of the current interval since the start time.
-    /// </summary>
-    /// <param name="utcNow">the time now in UTC</param>
-    /// <param name="startTimeUtc">The start time in UTC.</param>
-    /// <param name="interval">The interval time span.</param>
-    /// <returns>True if within the first half-minute of the current interval, otherwise false.</returns>
-    private static bool IsWithinFirstHalfMinuteOfInterval(DateTime utcNow, DateTime startTimeUtc, TimeSpan interval)
+    /// <summary>Reads parameters["utcNow"] and ["utcPrev"] as UTC datetimes.</summary>
+    private static (DateTime? now, DateTime? prev) TryGetCycleTimes(IDictionary<string, string> parameters)
     {
-        var minutesSinceStart = utcNow.Subtract(startTimeUtc).TotalMinutes;
-        var remainder = minutesSinceStart % interval.TotalMinutes;
+        DateTime? Parse(string key)
+        {
+            if (parameters is null || !parameters.TryGetValue(key, out var s) || string.IsNullOrWhiteSpace(s))
+                return null;
 
-        return remainder < 0.5;
+            if (DateTimeOffset.TryParse(s, CultureInfo.InvariantCulture,
+                    DateTimeStyles.AssumeUniversal | DateTimeStyles.AdjustToUniversal, out var dto))
+                return dto.UtcDateTime;
+
+            if (DateTime.TryParse(s, CultureInfo.InvariantCulture,
+                    DateTimeStyles.AssumeUniversal | DateTimeStyles.AdjustToUniversal, out var dt))
+                return dt.ToUniversalTime();
+
+            throw new FormatException(
+                $"Parameter '{key}' value '{s}' could not be parsed as a DateTime. It is not recognized as a valid DateTime.");
+        }
+
+        return (Parse("utcNow"), Parse("utcPrev"));
+    }
+
+    /// <summary>Reads parameters["toleranceSeconds"] if present and valid.</summary>
+    private static TimeSpan? TryGetTolerance(IDictionary<string, string> parameters)
+    {
+        if (parameters is null || !parameters.TryGetValue("toleranceSeconds", out var s) || string.IsNullOrWhiteSpace(s))
+            return null;
+
+        if (double.TryParse(s, NumberStyles.Float, CultureInfo.InvariantCulture, out var seconds) && seconds >= 0)
+            return TimeSpan.FromSeconds(seconds);
+
+        return null;
+    }
+
+    private static bool HasBoundarySince(DateTime prevUtc, DateTime nowUtc, DateTime startUtc, TimeSpan interval)
+    {
+        if (interval <= TimeSpan.Zero || nowUtc < startUtc)
+            return false;
+
+        if (prevUtc < startUtc)
+            return true;
+
+        var kPrev = (long)((prevUtc - startUtc).Ticks / interval.Ticks);
+        var kNow = (long)((nowUtc - startUtc).Ticks / interval.Ticks);
+
+        return kNow > kPrev;
+    }
+
+    private static bool IsWithinToleranceWindow(DateTime utcNow, DateTime startUtc, TimeSpan interval, TimeSpan tolerance)
+    {
+        if (utcNow < startUtc || interval <= TimeSpan.Zero || tolerance <= TimeSpan.Zero)
+            return false;
+
+        var cappedTolTicks = Math.Min(tolerance.Ticks, Math.Max(1, interval.Ticks - 1));
+        var cappedTolerance = TimeSpan.FromTicks(cappedTolTicks);
+
+        var elapsed = utcNow - startUtc;
+        var remainderTicks = elapsed.Ticks % interval.Ticks;
+        var remainder = TimeSpan.FromTicks(remainderTicks);
+
+        return remainder <= cappedTolerance;
     }
 }

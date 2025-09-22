@@ -1,16 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0;net8.0</TargetFrameworks>
     <DefaultItemExcludes>$(DefaultItemExcludes);nuget\*.log</DefaultItemExcludes>
     <NoWarn>1591;CA2235</NoWarn>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     <PackageId>DHI.Services.Meshes</PackageId>
-    <Version>6.2.0</Version>
+    <Version>6.3.2</Version>
     <Company>DHI</Company>
     <Authors>dhigroup</Authors>
-    <PackageReleaseNotes>Updated DHI.Servies.GIS to v12.1.0</PackageReleaseNotes>
+    <PackageReleaseNotes>Upgrade Domain Services Packages</PackageReleaseNotes>
     <PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/DHI/DomainServices/blob/master/README.md</PackageProjectUrl>
     <RepositoryUrl>https://github.com/DHI/DomainServices</RepositoryUrl>
@@ -31,10 +31,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DHI.Services" Version="15.1.0" />
-    <PackageReference Include="DHI.Services.GIS" Version="12.1.0" />
-    <PackageReference Include="DHI.Services.TimeSeries" Version="6.0.2" />
-    <PackageReference Include="DHI.Spatial" Version="2.6.2" />
+    <PackageReference Include="DHI.Services" Version="16.1.0" />
+    <PackageReference Include="DHI.Services.GIS" Version="13.0.1" />
+    <PackageReference Include="DHI.Services.TimeSeries" Version="7.1.1" />
+    <PackageReference Include="DHI.Spatial" Version="3.0.2" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

@@ -10,7 +10,7 @@
     using Authentication;
     using Authorization;
     using DHI.Services.Authentication.PasswordHistory;
-    using Logging;
+    using Notifications;
     using Mails;
     using Microsoft.AspNetCore.Authentication.JwtBearer;
     using Microsoft.AspNetCore.Builder;

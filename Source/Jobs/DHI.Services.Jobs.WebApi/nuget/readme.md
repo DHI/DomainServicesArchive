@@ -9,3 +9,18 @@
 - v 8.0.0 Added support for .net 6
 - v 8.0.1-rc01 Use same json serializer option for both SignalR and WebApi
 - v 9.0.0 bump up from 8.0.1-rc01. It is considered a breaking change, as the default behavior of the SignalR serializer changed.
+- v 9.1.0 To handle Services via DI instead of connections.json; Pump DHI.Services.Jobs and DHI.Services.Jobs.Automations
+- v 9.2.0 To add .NET 8.0 for the target
+- v 10.0.0 To pump Jobs.Automations package; Removing net6.0 from Target Framework
+- v 10.0.1 To pump Jobs.Automations package
+- v 11.0.0 Decode Automation endpoint to handle "/" char, correctly output Trigger Ids name
+- v 12.0.0 Change enable triggers endpoint into PUT instead of POST
+- v 13.0.0 Bump Jobs Automations version
+- v 13.0.1, 13.0.2, 13.0.3 Upgrade Automations package 
+- v 13.1.0 Pump automation package and add new version endpoint
+- v 13.1.1 & 13.1.2 Upgrade Domain Services Packages
+- v 14.0.0 Upgrade Automations and Jobs packages (might break changes from Automations)
+- v 14.0.1 Pump Jobs packages
+- v 14.0.2 Job Status Fix Issue
+- v 14.0.3 Use range for Automations package
+- v 15.0.0 Restrict updating JobStatus when in the final status

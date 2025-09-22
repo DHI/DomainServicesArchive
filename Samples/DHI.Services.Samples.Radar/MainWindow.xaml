@@ -1,0 +1,249 @@
+﻿<Window x:Class="DHI.Services.Samples.Radar.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:DHI.Services.Samples.Radar.ViewModels"
+        xmlns:helpers="clr-namespace:DHI.Services.Samples.Radar.Helpers"
+        mc:Ignorable="d"
+        Title="Radar Playground"
+        Height="820" Width="1260"
+        WindowStartupLocation="CenterScreen"
+        MinHeight="700" MinWidth="1100">
+
+    <Window.Resources>
+        <helpers:BoolToVisibilityConverter x:Key="BoolToVisibility"/>
+    </Window.Resources>
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Radar connection -->
+        <GroupBox Header="Radar Connection" Grid.Row="0" Margin="0,0,0,10">
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="350"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="Repository type:" VerticalAlignment="Center"/>
+                <ComboBox Grid.Column="2" Width="350"
+                          ItemsSource="{Binding RadarRepositoryTypes}"
+                          SelectedItem="{Binding SelectedRadarRepositoryType}"
+                          DisplayMemberPath="DisplayName"/>
+
+                <TextBlock Grid.Column="4" Text="Connection string:" VerticalAlignment="Center"/>
+                <TextBox Grid.Column="6" Text="{Binding RadarConnectionString}" ToolTip="e.g. C:\data\images;Radar33{datetimeFormat}.ascii;yyyyMMddHHmmss"/>
+
+                <StackPanel Grid.Column="8" Orientation="Horizontal">
+                    <Button Content="Refresh" Command="{Binding RefreshRadarTypesCommand}" Margin="0,0,8,0" Padding="12,6"/>
+                    <Button Content="Connect" Command="{Binding ConnectRadarCommand}" Padding="12,6"/>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+
+        <!-- Zone connection -->
+        <GroupBox Header="Zone Connection" Grid.Row="1" Margin="0,0,0,10">
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="350"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="Repository type:" VerticalAlignment="Center"/>
+                <ComboBox Grid.Column="2" Width="350"
+                          ItemsSource="{Binding ZoneRepositoryTypes}"
+                          SelectedItem="{Binding SelectedZoneRepositoryType}"
+                          DisplayMemberPath="DisplayName"/>
+
+                <TextBlock Grid.Column="4" Text="zones.json path:" VerticalAlignment="Center"/>
+                <TextBox Grid.Column="6" Text="{Binding ZoneConnectionString}" ToolTip="e.g. .\App_Data\zones.json"/>
+
+                <StackPanel Grid.Column="8" Orientation="Horizontal">
+                    <Button Content="Refresh" Command="{Binding RefreshZoneTypesCommand}" Margin="0,0,8,0" Padding="12,6"/>
+                    <Button Content="Connect" Command="{Binding ConnectZoneCommand}" Padding="12,6"/>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+
+        <!-- Body -->
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="6.5*"/>
+                <ColumnDefinition Width="3.5*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Left: image & times -->
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!-- Time window + load -->
+                <GroupBox Header="Time Window" Grid.Row="0" Margin="0,0,0,10">
+                    <Grid Margin="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="10"/>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="10"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="10"/>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="10"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="10"/>
+                            <ColumnDefinition Width="260"/>
+                            <ColumnDefinition Width="10"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="From:" VerticalAlignment="Center"/>
+                        <DatePicker Grid.Column="2" SelectedDate="{Binding FromDate}"/>
+                        <TextBlock Grid.Column="4" Text="To:" VerticalAlignment="Center"/>
+                        <DatePicker Grid.Column="6" SelectedDate="{Binding ToDate}"/>
+
+                        <Button Grid.Column="8" Content="List Times" Command="{Binding LoadTimesCommand}" Padding="10,4"/>
+
+                        <ComboBox Grid.Column="10" ItemsSource="{Binding DateTimes}" SelectedItem="{Binding SelectedDateTime}"/>
+                        <Button Grid.Column="12" Content="Load Image" Command="{Binding LoadImageCommand}" Padding="10,4"/>
+                    </Grid>
+                </GroupBox>
+
+                <!-- Image panel -->
+                <Border Grid.Row="1" BorderBrush="#ddd" BorderThickness="1" CornerRadius="3">
+                    <Grid Background="#111">
+                        <ScrollViewer x:Name="ImageScroller" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                            <Grid>
+                                <!-- Base radar image -->
+                                <Image x:Name="RadarImage"
+                                       Source="{Binding CurrentImage}"
+                                       Stretch="Uniform"
+                                       MouseLeftButtonUp="RadarImage_MouseLeftButtonUp"
+                                       ToolTip="Click to pick pixel when Pick is ON"/>
+
+                                <!-- Zone overlay -->
+                                <Image Source="{Binding ZoneOverlay}" Stretch="Uniform" Opacity="0.45" IsHitTestVisible="False"/>
+
+                                <!-- Crosshair -->
+                                <Canvas IsHitTestVisible="False">
+                                    <Line X1="{Binding CrossX1}" Y1="{Binding CrossY}" X2="{Binding CrossX2}" Y2="{Binding CrossY}" Stroke="Red" StrokeThickness="1" Visibility="{Binding ShowCrosshair, Converter={StaticResource BoolToVisibility}}"/>
+                                    <Line X1="{Binding CrossX}" Y1="{Binding CrossY1}" X2="{Binding CrossX}" Y2="{Binding CrossY2}" Stroke="Red" StrokeThickness="1" Visibility="{Binding ShowCrosshair, Converter={StaticResource BoolToVisibility}}"/>
+                                </Canvas>
+                            </Grid>
+                        </ScrollViewer>
+                    </Grid>
+                </Border>
+            </Grid>
+
+            <!-- Right: analysis -->
+            <Border Grid.Column="1" BorderBrush="#ddd" BorderThickness="1" CornerRadius="3" Margin="10,0,0,0">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel Margin="10" >
+
+                        <StackPanel Orientation="Horizontal">
+                            <ToggleButton Content="Pick (click image)" IsChecked="{Binding IsPicking}" Padding="8,4"/>
+                            <TextBlock Text="{Binding ImageInfo}" Margin="12,0,0,0" Foreground="#666" VerticalAlignment="Center"/>
+                        </StackPanel>
+
+                        <!-- Pixel section -->
+                        <GroupBox Header="Pixel" Margin="0,10,0,0">
+                            <StackPanel Margin="8">
+                                <WrapPanel>
+                                    <TextBlock Text="Col:" VerticalAlignment="Center" Margin="0,0,6,0"/>
+                                    <TextBox Width="80" Text="{Binding PixelCol}"/>
+                                    <TextBlock Text="Row:" VerticalAlignment="Center" Margin="12,0,6,0"/>
+                                    <TextBox Width="80" Text="{Binding PixelRow}"/>
+                                    <Button Content="Get Intensity" Command="{Binding ComputePixelIntensityCommand}" Margin="12,0,0,0" Padding="10,4"/>
+                                </WrapPanel>
+                                <TextBlock Text="{Binding PixelIntensityText}" Margin="0,6,0,0" FontSize="14"/>
+                                <WrapPanel Margin="6,8,0,0">
+                                    <Button Content="Build Time Series" Command="{Binding BuildPixelTimeSeriesCommand}" Padding="10,4"/>
+                                    <Button Content="Compute Depth" Command="{Binding ComputePixelDepthCommand}" Margin="8,0,0,0" Padding="10,4"/>
+                                </WrapPanel>
+                                <TextBlock Text="{Binding PixelDepthText}" Margin="0,6,0,0"/>
+                                <DataGrid ItemsSource="{Binding PixelSeries}" AutoGenerateColumns="False" CanUserAddRows="False" Margin="0,8,0,0" Height="150">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="Time" Binding="{Binding Time}" Width="*" />
+                                        <DataGridTextColumn Header="Intensity" Binding="{Binding Value}" Width="*"/>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </StackPanel>
+                        </GroupBox>
+
+                        <!-- Zone section -->
+                        <GroupBox Header="Zones" Margin="0,10,0,0">
+                            <StackPanel Margin="8">
+                                <WrapPanel>
+                                    <TextBlock Text="Select:" VerticalAlignment="Center" Margin="0,0,6,0"/>
+                                    <ComboBox Width="260" ItemsSource="{Binding Zones}" SelectedItem="{Binding SelectedZone}" DisplayMemberPath="DisplayName"/>
+                                    <CheckBox Content="Show overlay" IsChecked="{Binding ShowZoneOverlay}" Margin="12,0,0,0" VerticalAlignment="Center"/>
+                                </WrapPanel>
+
+                                <WrapPanel Margin="0,8,0,0">
+                                    <Button Content="Average" Command="{Binding ComputeZoneAverageCommand}" Padding="10,4"/>
+                                    <Button Content="Max" Command="{Binding ComputeZoneMaxCommand}" Margin="8,0,0,0" Padding="10,4"/>
+                                    <Button Content="Min" Command="{Binding ComputeZoneMinCommand}" Margin="8,0,0,0" Padding="10,4"/>
+                                    <Button Content="Depth" Command="{Binding ComputeZoneDepthCommand}" Margin="8,0,0,0" Padding="10,4"/>
+                                    <Button Content="Build Series" Command="{Binding BuildZoneTimeSeriesCommand}" Margin="8,0,0,0" Padding="10,4"/>
+                                </WrapPanel>
+
+                                <TextBlock Text="{Binding ZoneResultText}" Margin="0,6,0,0"/>
+
+                                <DataGrid ItemsSource="{Binding ZoneSeries}" AutoGenerateColumns="False" CanUserAddRows="False" Margin="0,8,0,0" Height="150">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="Time" Binding="{Binding Time}" Width="*"/>
+                                        <DataGridTextColumn Header="Intensity" Binding="{Binding Value}" Width="*"/>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+
+                                <Separator Margin="0,8,0,8"/>
+
+                                <!-- Create single-pixel zone -->
+                                <TextBlock Text="Create a single-pixel Zone from the picked pixel (weight=1)" Foreground="#666"/>
+                                <WrapPanel Margin="0,6,0,0">
+                                    <TextBlock Text="Name:" VerticalAlignment="Center" Margin="0,0,6,0"/>
+                                    <TextBox Width="220" Text="{Binding NewZoneName}"/>
+                                    <Button Content="Save Zone" Command="{Binding SavePickedZoneCommand}" Margin="8,0,0,0" Padding="10,4"/>
+                                </WrapPanel>
+                            </StackPanel>
+                        </GroupBox>
+
+                        <TextBox Text="{Binding ErrorText}"
+                         Foreground="#c0392b"
+                         Background="#FFF8F8"
+                         IsReadOnly="True"
+                         BorderThickness="0"
+                         TextWrapping="WrapWithOverflow"
+                         HorizontalScrollBarVisibility="Disabled"
+                         VerticalScrollBarVisibility="Auto"
+                         MaxHeight="160"
+                         Visibility="{Binding HasError, Converter={StaticResource BoolToVisibility}}"
+                         Margin="0,8,0,0"
+                         Width="{Binding ActualWidth, ElementName=RightScroll}"/>
+
+                    </StackPanel>
+                </ScrollViewer>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>

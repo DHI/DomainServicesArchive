@@ -23,6 +23,7 @@
                 DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
                 NumberHandling = JsonNumberHandling.AllowReadingFromString,
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                PropertyNameCaseInsensitive = true,
                 IncludeFields = true,
             };
             _serializer.AddConverters(_defaultJsonConverters());

@@ -117,36 +117,31 @@
         public async Task ValidationFailureDelayResetIsOk(IAccountRepository accountRepository, Account account, string clientIp)
         {
             // Arrange
-            var accountServices = new AccountService(accountRepository);
+            // Add maximum LoginAttemptPolicy, since we will do unit test twice for .NET 6 and .NET 8
+            var loginAttemptPolicy = new LoginAttemptPolicy
+            {
+                MaxNumberOfLoginAttempts = 6,
+            };
+
+            var service = new AuthenticationService(accountRepository, loginAttemptPolicy: loginAttemptPolicy);
             account.SetPassword("password");
-            accountServices.Add(account);
-            var authenticationService = new AuthenticationService(accountRepository);
+            new AccountService(accountRepository).Add(account);
 
-            // Act & Assert
-            // 1st attempt (failure)
-            await authenticationService.Validate(account.Id, "WrongPassword", clientIp);
+            var sw = System.Diagnostics.Stopwatch.StartNew();
 
-            // 2nd attempt (failure)
-            var before = DateTime.UtcNow;
-            await authenticationService.Validate(account.Id, "WrongPassword", clientIp);
-            await Task.Delay(1000);
-            Assert.True(DateTime.UtcNow - before >= TimeSpan.FromSeconds(1));
+            await service.Validate(account.Id, "WrongPassword", clientIp);
+            await service.Validate(account.Id, "WrongPassword", clientIp);
+            await service.Validate(account.Id, "WrongPassword", clientIp);
 
-            // 3rd attempt (failure)
-            before = DateTime.UtcNow;
-            await authenticationService.Validate(account.Id, "WrongPassword", clientIp);
-            await Task.Delay(2000);
-            Assert.True(DateTime.UtcNow - before >= TimeSpan.FromSeconds(2));
+            sw.Restart();
+            var ok = await service.Validate(account.Id, "password", clientIp);
+            Assert.True(ok);
+            Assert.InRange(sw.Elapsed, TimeSpan.Zero, TimeSpan.FromSeconds(1));
 
-            // 4th attempt (success)
-            before = DateTime.UtcNow;
-            await authenticationService.Validate(account.Id, "password", clientIp);
-            Assert.True(DateTime.UtcNow - before <= TimeSpan.FromSeconds(0.1));
-
-            // 5th attempt (after reset)
-            before = DateTime.UtcNow;
-            await authenticationService.Validate(account.Id, "password", clientIp);
-            Assert.True(DateTime.UtcNow - before <= TimeSpan.FromSeconds(0.1));
+            sw.Restart();
+            await service.Validate(account.Id, "password", clientIp);
+            Assert.True(ok);
+            Assert.InRange(sw.Elapsed, TimeSpan.Zero, TimeSpan.FromSeconds(1));
         }
 
     }

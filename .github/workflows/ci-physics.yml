@@ -1,0 +1,53 @@
+name: ci-physics
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+      - '*release*'
+      - develop
+    paths:
+      - 'Source/Physics/**'
+  pull_request:
+    branches:
+      - master
+      - '*release*'
+      - develop
+    paths:
+      - 'Source/Physics/**'
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 5
+      - name: Detect changed folders
+        id: filter
+        uses: dorny/paths-filter@v3
+        with:
+          filters: |
+            physics:
+              - 'Source/Physics/DHI.Services.Physics/**'
+      - name: Setup .NET 8
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 8.0.x
+      - name: Restore dependencies
+        run: |
+          dotnet restore ./Source/Physics/DHI.Services.Physics.sln -s https://api.nuget.org/v3/index.json 
+      - name: Build
+        run: dotnet build Source/Physics/DHI.Services.Physics.sln --no-restore
+      - name: Test
+        run: dotnet test Source/Physics/DHI.Services.Physics.Test/DHI.Services.Physics.Test.csproj --no-build --verbosity normal
+      - name: Pack & Push Physics
+        if: |
+          github.ref == 'refs/heads/master' &&
+          steps.filter.outputs.physics == 'true'
+        shell: cmd
+        working-directory: Source\Physics\DHI.Services.Physics\nuget
+        env:
+          NUGET_API_KEY_PUBLISH: ${{ secrets.NUGET_API_KEY_PUBLISH }}
+        run: PackAndPushPublish.bat yes

@@ -6,7 +6,6 @@
     using System.Linq;
     using System.Security.Claims;
     using GIS;
-    using Logging;
     using Microsoft.Extensions.Logging;
     using Spatial;
     using TimeSeries;

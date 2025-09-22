@@ -6,6 +6,9 @@
     using System.Security.Claims;
     using DHI.Services.GIS.Maps;
     using DHI.Services.WebApiCore;
+    using DHI.Services;
+    using DHI.Services.GIS.WebApi;
+    using DHI.Services.Provider.MCLite;
     using Microsoft.AspNetCore.Authentication.JwtBearer;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
@@ -17,8 +20,8 @@
     using Microsoft.IdentityModel.Tokens;
     using Microsoft.OpenApi.Models;
     using Swashbuckle.AspNetCore.SwaggerUI;
-    using ConnectionRepository = DHI.Services.Connections.WebApi.ConnectionRepository;
     using MapStyleRepository = WebApi.MapStyleRepository;
+    using DHI.Services.Provider.MIKECore;
 
     public class Startup
     {
@@ -100,7 +103,7 @@
 
                 setupAction.EnableAnnotations();
                 setupAction.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "DHI.Services.GIS.WebApi.xml"));
-                setupAction.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "DHI.Services.Connections.WebApi.xml"));
+                //setupAction.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "DHI.Services.Connections.WebApi.xml"));
                 setupAction.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
                     Description = "Enter the word 'Bearer' followed by a space and the JWT.",
@@ -168,9 +171,98 @@
             var contentRootPath = Configuration.GetValue("AppConfiguration:ContentRootPath", env.ContentRootPath);
             AppDomain.CurrentDomain.SetData("DataDirectory", Path.Combine(contentRootPath, "App_Data"));
 
-            // Custom services
-            var lazyCreation = Configuration.GetValue("AppConfiguration:LazyCreation", true);
-            Services.Configure(new ConnectionRepository("connections.json", SerializerOptionsDefault.Options), lazyCreation);
+            var contentRoot = Configuration.GetValue("AppConfiguration:ContentRootPath", env.ContentRootPath);
+            var appData = Path.Combine(contentRoot, "App_Data");
+            AppDomain.CurrentDomain.SetData("DataDirectory", appData);
+
+            ServiceLocator.Register(
+              new GroupedGisService(
+                new Provider.MCLite.FeatureRepository("database=mc2014.2")
+              ),
+              "mc-ws1"
+            );
+
+            var sqliteConn = $"database={Path.Combine(appData, "MCSQLiteTest.sqlite")};dbflavour=SQLite";
+            ServiceLocator.Register(
+              new GroupedMapService(
+                new GroupedMapSource(sqliteConn),
+                new MapStyleService(
+                  new MapStyleRepository(Path.Combine(appData, "styles.json"), SerializerOptionsDefault.Options)
+                )
+              ),
+              "mc-groupedmap"
+            );
+
+            ServiceLocator.Register(
+              new GisService(
+                new DHI.Services.Provider.ShapeFile.FeatureRepository(appData)
+              ),
+              "shape"
+            );
+
+            //ServiceLocator.Register(
+            //  new GroupedGisService(
+            //    new DHI.Services.Provider.MIKE.Res1DGroupedGisRepository(
+            //      Path.Combine(appData, "res1d")
+            //    )
+            //  ),
+            //  "res1d"
+            //);
+
+            var dfs2File = Path.Combine(appData, "dfs2", "R20141001.dfs2");
+            ServiceLocator.Register(
+              new MapService(
+                new Dfs2MapSource(dfs2File),
+                new MapStyleService(
+                  new MapStyleRepository(Path.Combine(appData, "styles.json"), SerializerOptionsDefault.Options)
+                )
+              ),
+              "dfs2-map"
+            );
+
+            //ServiceLocator.Register(
+            //  new WebApi.CachedMapServiceConnection(
+            //    new Dfs2MapSource(dfs2File),
+            //    new MapStyleService(
+            //      new MapStyleRepository(Path.Combine(appData, "styles.json"), SerializerOptionsDefault.Options)
+            //    ),
+            //    new DHI.Services.Parameters
+            //    {
+            //        NameInfo = "Some info",
+            //        KeywordInfo = "keyword1,keyword2",
+            //        CachedImageWidth = 100,
+            //        CacheExpirationInMinutes = 2
+            //    }
+            //  ),
+            //  "dfs2-map-cached"
+            //);
+
+            ServiceLocator.Register(
+              new MapService(
+                new DfsuMapSource(appData),
+                new MapStyleService(
+                  new MapStyleRepository(Path.Combine(appData, "styles.json"), SerializerOptionsDefault.Options)
+                )
+              ),
+              "dfsu-map"
+            );
+
+            ServiceLocator.Register(
+              new GroupedUpdatableGisService(
+                new Provider.MCLite.FeatureRepository(sqliteConn)
+              ),
+              "mclite"
+            );
+
+            ServiceLocator.Register(
+              new GroupedMapService(
+                new GroupedMapSource(sqliteConn),
+                new MapStyleService(
+                  new MapStyleRepository(Path.Combine(appData, "styles.json"), SerializerOptionsDefault.Options)
+                )
+              ),
+              "groupedmap-mclite"
+            );
         }
     }
 }

@@ -32,10 +32,14 @@ jobs:
             - 'Source/JsonDocuments/DHI.Services.JsonDocuments/**'
           webapi:
             - 'Source/JsonDocuments/DHI.Services.JsonDocuments.WebApi/**'
-    - name: Setup .NET
+    - name: Setup .NET 5
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 5.0.x
+    - name: Setup .NET 8
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 8.0.x
     - name: Restore dependencies
       run: | 
         dotnet restore ./Source/JsonDocuments/DHI.Services.JsonDocuments.sln -s https://api.nuget.org/v3/index.json 

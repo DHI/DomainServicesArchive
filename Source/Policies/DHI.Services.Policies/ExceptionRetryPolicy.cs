@@ -35,6 +35,20 @@ namespace DHI.Services.Policies
         {
         }
 
+        /// <summary>
+        /// Constructs an ExceptionRetryPolicy
+        /// </summary>
+        /// <param name="types">Array of Exception types to retry on.</param>
+        /// <param name="waitTimes">Array of timespan describing retry pattern.</param>
+        /// <param name="logger">A DHI.Services.ILogger.</param>
+        public ExceptionRetryPolicy(Type[] types, TimeSpan[] waitTimes, ILogger logger)
+        {
+            policy = Policy
+                .Handle<Exception>(e => types.Contains(e.GetType()))
+                .WaitAndRetry(waitTimes,
+                    (result, timeSpan, retryCount, context) => { logger?.LogInformation(result, "On retry {retryCount} after waiting {TotalSeconds}s after last attempt", retryCount, timeSpan.TotalSeconds); }
+                );
+        }
 
         /// <summary>
         /// Constructs an ExceptionRetryPolicy

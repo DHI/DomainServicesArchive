@@ -1,0 +1,52 @@
+name: ci-notifications
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master 
+      - '*release*'
+      - develop
+    paths:
+      - 'Source/Notifications/**'
+  pull_request:
+    branches:
+      - master 
+      - '*release*'
+      - develop
+    paths:
+      - 'Source/Notifications/**' 
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 5
+    - name: Setup .NET 8
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 8.0.x
+    - name: Detect changed folders
+      id: filter
+      uses: dorny/paths-filter@v3
+      with:
+        filters: |
+          notifications:
+            - 'Source/Notifications/DHI.Services.Notifications.WebApi/**'
+    - name: Restore dependencies
+      run: dotnet restore ./Source/Notifications/DHI.Services.Notifications.WebApi.sln -s https://api.nuget.org/v3/index.json
+    - name: Build
+      run: dotnet build ./Source/Notifications/DHI.Services.Notifications.WebApi.sln --no-restore
+    - name: Test
+      run: dotnet test ./Source/Notifications/DHI.Services.Notifications.WebApi.Host.Test/DHI.Services.Notifications.WebApi.Host.Test.csproj --no-build --verbosity normal
+    - name: Pack & Push Notifications.WebApi
+      if: |
+        github.ref == 'refs/heads/master' &&
+        steps.filter.outputs.notifications == 'true'
+      shell: cmd
+      working-directory: Source\Notifications\DHI.Services.Notifications.WebApi\nuget
+      env:
+        NUGET_API_KEY_PUBLISH: ${{ secrets.NUGET_API_KEY_PUBLISH }}
+      run: PackAndPushPublish.bat yes

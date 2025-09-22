@@ -5,6 +5,7 @@
     using System.IO;
     using System.Security.Claims;
     using System.Text.Json.Serialization;
+    using DHI.Services.Provider.MIKECore;
     using Microsoft.AspNetCore.Authentication.JwtBearer;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
@@ -17,8 +18,6 @@
     using Microsoft.OpenApi.Models;
     using Swashbuckle.AspNetCore.SwaggerUI;
     using WebApiCore;
-    using ConnectionRepository = Connections.WebApi.ConnectionRepository;
-    using ConnectionTypeService = Connections.WebApi.ConnectionTypeService;
 
     public class Startup
     {
@@ -128,7 +127,7 @@
             });
 
             // DHI Domain Services
-            services.AddScoped(_ => new ConnectionTypeService(AppContext.BaseDirectory));
+            //services.AddScoped(_ => new ConnectionTypeService(AppContext.BaseDirectory));
         }
 
         public virtual void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -165,8 +164,13 @@
             AppDomain.CurrentDomain.SetData("DataDirectory", Path.Combine(contentRootPath, "App_Data"));
 
             // Custom services
-            var lazyCreation = Configuration.GetValue("AppConfiguration:LazyCreation", true);
-            Services.Configure(new ConnectionRepository("connections.json", System.Text.Json.JsonSerializerOptions.Default), lazyCreation);
+            //var lazyCreation = Configuration.GetValue("AppConfiguration:LazyCreation", true);
+            //Services.Configure(new ConnectionRepository("connections.json", System.Text.Json.JsonSerializerOptions.Default), lazyCreation);
+
+            ServiceLocator.Register(
+                new TimeStepService<string, object>(new Dfs2TimeStepServer("[AppData]R20141001.dfs2".Resolve())),
+                "dfs2"
+                );
         }
     }
 }

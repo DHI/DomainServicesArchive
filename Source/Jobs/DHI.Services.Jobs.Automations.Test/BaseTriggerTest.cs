@@ -1,6 +1,5 @@
 ﻿namespace DHI.Services.Jobs.Automations.Test;
 
-using Logging;
 using Microsoft.Extensions.Logging;
 using Xunit;
 using Xunit.Abstractions;

@@ -18,6 +18,11 @@
         /// <returns>TimeSeriesData&lt;System.Double&gt;.</returns>
         public static TimeSeriesData<double> Resample(this ITimeSeriesData<double> timeSeriesData, TimeSpan timeSpan, TimeSeriesDataType dataType = null)
         {
+            if (!timeSeriesData.DateTimes.Any())
+            {
+                return new TimeSeriesData<double>();
+            }
+
             if (timeSpan > timeSeriesData.TimeSpan())
             {
                 throw new ArgumentException(
@@ -77,6 +82,11 @@
         /// <returns>TimeSeriesData&lt;System.Double&gt;.</returns>
         public static TimeSeriesData<double> Resample(this ITimeSeriesData<double> timeSeriesData, Period period, TimeSeriesDataType dataType = null)
         {
+            if (!timeSeriesData.DateTimes.Any())
+            {
+                return new TimeSeriesData<double>();
+            }
+
             if (dataType == null)
             {
                 dataType = TimeSeriesDataType.Instantaneous;
@@ -155,6 +165,11 @@
         /// <returns>TimeSeriesData&lt;System.Double&gt;.</returns>
         public static TimeSeriesData<double> ResampleNiceTimesteps(this ITimeSeriesData<double> timeSeriesData, TimeSpan timeSpan, TimeSeriesDataType dataType = null)
         {
+            if (!timeSeriesData.DateTimes.Any())
+            {
+                return new TimeSeriesData<double>();
+            }
+
             if (timeSpan > timeSeriesData.TimeSpan())
             {
                 throw new ArgumentException(

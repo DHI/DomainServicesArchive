@@ -1,12 +1,13 @@
 ﻿namespace DHI.Services.Documents.WebApi
 {
-    using System.Collections.Generic;
-    using System.IO;
-    using System.Linq;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
     using Swashbuckle.AspNetCore.Annotations;
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
     using WebApiCore;
 
     /// <summary>
@@ -198,7 +199,15 @@
             {
                 parameters.Add(pair.Key, pair.Value);
             }
-            
+            string fileExtension = Path.GetExtension(file.FileName);
+            string idExtension = Path.GetExtension(id);
+            bool idHasExtension = !string.IsNullOrEmpty(idExtension);
+
+            if (!idHasExtension && !string.IsNullOrEmpty(fileExtension))
+            {
+                id += fileExtension;
+            }
+
             using (var stream = new MemoryStream())
             {
                 file.CopyTo(stream);

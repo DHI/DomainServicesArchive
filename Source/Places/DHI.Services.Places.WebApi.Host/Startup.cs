@@ -4,6 +4,12 @@
     using System.Collections.Generic;
     using System.IO;
     using System.Security.Claims;
+    using DHI.Services.GIS;
+    using DHI.Services.GIS.WebApi;
+    using DHI.Services.Provider.ShapeFile;
+    using DHI.Services.Scalars;
+    using DHI.Services.TimeSeries;
+    using DHI.Services.TimeSeries.CSV;
     using Microsoft.AspNetCore.Authentication.JwtBearer;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
@@ -16,8 +22,6 @@
     using Microsoft.OpenApi.Models;
     using Swashbuckle.AspNetCore.SwaggerUI;
     using WebApiCore;
-    using ConnectionRepository = Connections.WebApi.ConnectionRepository;
-    using ConnectionTypeService = Connections.WebApi.ConnectionTypeService;
 
     public class Startup
     {
@@ -96,7 +100,7 @@
 
                 setupAction.EnableAnnotations();
                 setupAction.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "DHI.Services.Places.WebApi.xml"));
-                setupAction.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "DHI.Services.Connections.WebApi.xml"));
+                //setupAction.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "DHI.Services.Connections.WebApi.xml"));
                 setupAction.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
                     Description = "Enter the word 'Bearer' followed by a space and the JWT.",
@@ -127,7 +131,7 @@
             });
 
             // DHI Domain Services
-            services.AddScoped(_ => new ConnectionTypeService(AppContext.BaseDirectory));
+            //services.AddScoped(_ => new ConnectionTypeService(AppContext.BaseDirectory));
         }
 
         public virtual void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -164,8 +168,30 @@
             AppDomain.CurrentDomain.SetData("DataDirectory", Path.Combine(contentRootPath, "App_Data"));
 
             // DHI Domain Services
-            var lazyCreation = Configuration.GetValue("AppConfiguration:LazyCreation", true);
-            Services.Configure(new ConnectionRepository("connections.json", SerializerOptionsDefault.Options), lazyCreation);
+            //var lazyCreation = Configuration.GetValue("AppConfiguration:LazyCreation", true);
+            //Services.Configure(new ConnectionRepository("connections.json", SerializerOptionsDefault.Options), lazyCreation);
+
+            ServiceLocator.Register(
+                new DiscreteTimeSeriesService<string, double>(new TimeSeriesRepository("[AppData]".Resolve())),
+                "csv"
+                );
+
+            ServiceLocator.Register(
+                new GisService<string>(new FeatureRepository("[AppData]shp".Resolve())),
+                "shp"
+                );
+
+            Dictionary<string, IDiscreteTimeSeriesService<string, double>> timeSeriesServices = new Dictionary<string, IDiscreteTimeSeriesService<string, double>>();
+            timeSeriesServices.Add("csv", Services.Get<IDiscreteTimeSeriesService<string, double>>("csv"));
+
+            Dictionary<string, IScalarService<string, int>> scalarServices = new Dictionary<string, IScalarService<string, int>>();
+            var gisService = Services.Get<IGisService<string>>("shp");
+
+            ServiceLocator.Register(
+                new PlaceService(new PlaceRepository("[AppData]places.json".Resolve()),
+                timeSeriesServices, scalarServices, gisService),
+                "json"
+                );
         }
     }
 }

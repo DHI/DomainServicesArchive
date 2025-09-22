@@ -10,12 +10,19 @@ namespace DHI.Services.Jobs.WebApi.Host.Test
     using Automations;
     using WebApiCore;
     using Xunit;
+    using System;
+    using DHI.Services.Jobs.WebApi.DTOs;
+    using System.IO;
+    using System.Reflection;
 
     [Collection("Controllers collection")]
     public class AutomationsControllerTest
     {
+        private readonly ControllersFixture _fixture;
+
         public AutomationsControllerTest(ControllersFixture fixture)
         {
+            _fixture = fixture;
             _client = fixture.Client;
             _serializerOptions = SerializerOptionsDefault.Options;
         }
@@ -209,17 +216,83 @@ namespace DHI.Services.Jobs.WebApi.Host.Test
         }
 
         [Fact]
+        public async Task AddAutomationWithTriggerConditionIsOk()
+        {
+            var request = new
+            {
+                Url = "/api/automations",
+                Body = new Dictionary<string, object>
+        {
+            { "$type", "DHI.Services.Jobs.Automations.Automation, DHI.Services.Jobs" },
+            { "name", "test" },
+            { "group", "test" },
+            { "taskId", "test" },
+            { "hostGroup", "test" },
+            { "priority", 0 },
+            { "tag", "test" },
+            { "isEnabled", true },
+            { "fullName", "test/test" },
+            { "id", "test/test" },
+            { "triggerCondition", new Dictionary<string, object>
+                {
+                    { "triggers", new List<Dictionary<string, object>>
+                        {
+                            new Dictionary<string, object>
+                            {
+                                { "$type", "DHI.Services.Jobs.Automations.Triggers.ScheduledTrigger, DHI.Services.Jobs" },
+                                { "id", "test" },
+                                { "description", "test" },
+                                { "isEnabled", true },
+                                { "type", "DHI.Services.Jobs.Automations.Triggers.ScheduledTrigger, DHI.Services.Jobs" },
+                                { "startTimeUtc", "2025-05-28T09:06:10.462Z" },
+                                { "interval", "1.00:00:00" }
+                            }
+                        }
+                    },
+                    { "conditional", "test" },
+                    { "isEnable", true }
+                }
+            },
+            { "taskParameters", new Dictionary<string, object>
+                {
+                    { "test", "test" }
+                }
+            },
+            { "parameters", new Dictionary<string, object>
+                {
+                    { "utcNow", "2025-05-28T09:06:19.214Z" },
+                    { "triggerNow", false }
+                }
+            }
+        }
+            };
+
+            // Add
+            var response = await _client.PostAsync(request.Url, ContentHelper.GetStringContent(request.Body));
+            var json = await response.Content.ReadAsStringAsync();
+
+            Assert.Equal(HttpStatusCode.Created, response.StatusCode);
+            var automation = JsonSerializer.Deserialize<Automation>(json, _serializerOptions);
+            Assert.Equal("test/test", automation.Id);
+
+            // Cleanup
+            var deleteResponse = await _client.DeleteAsync($"{request.Url}/{FullNameString.ToUrl(automation.FullName)}");
+            Assert.Equal(HttpStatusCode.NoContent, deleteResponse.StatusCode);
+        }
+
+        [Fact]
         public async Task DisableIsOk()
         {
             var request = new
             {
-                Url = "/api/automations/enable?id=my-group-1/my-automation&flag=false",
-                Body = new Dictionary<string, string>
+                Url = "/api/automations/my-group-1%2Fmy-automation/enable",
+                Body = new Dictionary<string, object>
                 {
+                    { "flag", false }
                 }
             };
 
-            var response = await _client.PostAsync(request.Url, ContentHelper.GetStringContent(request.Body));
+            var response = await _client.PutAsync(request.Url, ContentHelper.GetStringContent(request.Body));
             var json = await response.Content.ReadAsStringAsync();
             var automation = JsonSerializer.Deserialize<JsonElement>(json, _serializerOptions);
 
@@ -232,18 +305,55 @@ namespace DHI.Services.Jobs.WebApi.Host.Test
         {
             var request = new
             {
-                Url = "/api/automations/enable?id=my-group-1/my-automation&flag=true",
-                Body = new Dictionary<string, string>
+                Url = "/api/automations/my-group-1%2Fmy-automation/enable",
+                Body = new Dictionary<string, object>
                 {
+                    { "flag", true }
                 }
             };
 
-            var response = await _client.PostAsync(request.Url, ContentHelper.GetStringContent(request.Body));
+            var response = await _client.PutAsync(request.Url, ContentHelper.GetStringContent(request.Body));
             var json = await response.Content.ReadAsStringAsync();
             var automation = JsonSerializer.Deserialize<JsonElement>(json, _serializerOptions);
 
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
             Assert.True(automation.GetProperty("isEnabled").GetBoolean());
+        }
+
+        [Fact]
+        public async Task GetVersionIsOk()
+        {
+            var response = await _client.GetAsync("api/automations/version");
+            var json = await response.Content.ReadAsStringAsync();
+
+            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+
+            var isoString = JsonSerializer.Deserialize<string>(json);
+            var parsed = DateTime.Parse(isoString, null, System.Globalization.DateTimeStyles.RoundtripKind);
+
+            Assert.Equal(DateTimeKind.Utc, parsed.Kind);
+            Assert.True(parsed > DateTime.UtcNow.AddMinutes(-5));
+        }
+
+        [Fact]
+        public async Task GetVersionCreatesFileIfMissing()
+        {
+            var versionFilePath = Path.Combine(_fixture.TempAppDataPath, "version.txt");
+
+            if (File.Exists(versionFilePath))
+                File.Delete(versionFilePath);
+
+            Assert.False(File.Exists(versionFilePath), "Expected version file to be deleted before test");
+
+            var response = await _client.GetAsync("api/automations/version");
+            var json = await response.Content.ReadAsStringAsync();
+
+            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+            Assert.True(File.Exists(versionFilePath), "Expected version file to be created");
+
+            var text = File.ReadAllText(versionFilePath);
+            var parsed = DateTime.Parse(text, null, System.Globalization.DateTimeStyles.RoundtripKind);
+            Assert.Equal(DateTimeKind.Utc, parsed.Kind);
         }
     }
 }

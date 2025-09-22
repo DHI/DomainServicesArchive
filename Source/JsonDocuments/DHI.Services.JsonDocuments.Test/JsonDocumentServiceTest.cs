@@ -6,7 +6,6 @@
     using System.Security.Claims;
     using Argon;
     using AutoFixture.Xunit2;
-    using Logging;
     using Notifications;
     using Xunit;
 

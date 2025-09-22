@@ -30,6 +30,7 @@ echo [PUSH] dotnet nuget push ..\bin\%configuration%\DHI.Services.Meshes.WebApi.
   -k %NUGET_API_KEY_PUBLISH% ^
   -s https://api.nuget.org/v3/index.json
 dotnet nuget push ..\bin\%configuration%\DHI.Services.Meshes.WebApi.*.nupkg ^
+  --skip-duplicate ^
   -k %NUGET_API_KEY_PUBLISH% ^
   -s https://api.nuget.org/v3/index.json
 echo.

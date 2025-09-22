@@ -1,6 +1,5 @@
 namespace DHI.Services.Jobs.Automations;
 
-using Logging;
 using Microsoft.Extensions.Logging;
 
 public class TriggerService<TTaskId> : BaseDiscreteService<TriggerParameters<TTaskId>, TTaskId>

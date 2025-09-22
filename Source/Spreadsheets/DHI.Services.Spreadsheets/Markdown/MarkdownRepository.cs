@@ -117,7 +117,7 @@
             throw new NotSupportedException("Markdown files don't have named ranges.");
         }
 
-        public override Maybe<object[,]> GetRange(string id, string sheetName, Range range, ClaimsPrincipal user = null)
+        public override Maybe<object[,]> GetRange(string id, string sheetName, DHI.Services.Spreadsheets.Range range, ClaimsPrincipal user = null)
         {
             var filePathName = Path.Combine(_rootFolder, id);
             var document = MarkdownFile.Open(filePathName);

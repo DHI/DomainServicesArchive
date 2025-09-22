@@ -4,8 +4,8 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Security.Claims;
+    using System.Text.Json;
     using System.Threading.Tasks;
-    using Argon;
     using TimeSeries;
 
     /// <summary>
@@ -234,29 +234,52 @@
             }
 
             var modelDataReader = _modelDataReaderService.Get(scenario.ModelDataReaderId);
+            var parameterList = modelDataReader.GetParameterList();
+            var inputTimeSeriesList = modelDataReader.GetInputTimeSeriesList();
+
             foreach (var parameterValue in scenario.ParameterValues.ToArray())
             {
-                if (!modelDataReader.GetParameterList().ContainsKey(parameterValue.Key))
+                if (!parameterList.ContainsKey(parameterValue.Key))
                 {
                     throw new ArgumentException($"The parameter '{parameterValue.Key}' is not a valid parameter for model data reader '{scenario.ModelDataReaderId}'", nameof(scenario));
                 }
 
-                var type = modelDataReader.GetParameterList()[parameterValue.Key];
+                var expectedType = parameterList[parameterValue.Key];
                 var value = parameterValue.Value;
-                if (value is JToken token)
+
+                if (value is JsonElement jsonElement)
                 {
-                    value = token.ToObject(type);
+                    value = System.Text.Json.JsonSerializer.Deserialize(jsonElement.GetRawText(), expectedType);
                     scenario.ParameterValues[parameterValue.Key] = value;
                 }
-                else if (value.GetType() != type)
+                else if (value.GetType() != expectedType)
                 {
-                    throw new ArgumentException($"The type '{parameterValue.Value.GetType()}' of the value for parameter '{parameterValue.Key}' is not valid. Value must be of type '{type}'.", nameof(scenario));
+                    if (IsNumericType(value.GetType()) && IsNumericType(expectedType))
+                    {
+                        try
+                        {
+                            var converted = Convert.ChangeType(value, expectedType);
+                            scenario.ParameterValues[parameterValue.Key] = converted!;
+                        }
+                        catch (Exception)
+                        {
+                            throw new ArgumentException(
+                                $"Failed to convert value '{value}' of type '{value.GetType()}' to '{expectedType}' for parameter '{parameterValue.Key}'.",
+                                nameof(scenario));
+                        }
+                    }
+                    else
+                    {
+                        throw new ArgumentException(
+                            $"The type '{value.GetType()}' of the value for parameter '{parameterValue.Key}' is not valid. Value must be of type '{expectedType}'.",
+                            nameof(scenario));
+                    }
                 }
             }
 
             foreach (var inputTimeSeriesValue in scenario.InputTimeSeriesValues)
             {
-                if (!modelDataReader.GetInputTimeSeriesList().ContainsKey(inputTimeSeriesValue.Key))
+                if (!inputTimeSeriesList.ContainsKey(inputTimeSeriesValue.Key))
                 {
                     throw new ArgumentException($"The time series '{inputTimeSeriesValue.Key}' is not a valid input time series for model data reader '{scenario.ModelDataReaderId}'.", nameof(scenario));
                 }
@@ -267,5 +290,25 @@
                 }
             }
         }
+
+        private static bool IsNumericType(Type type)
+        {
+            return Type.GetTypeCode(type) switch
+            {
+                TypeCode.Byte or
+                TypeCode.SByte or
+                TypeCode.UInt16 or
+                TypeCode.UInt32 or
+                TypeCode.UInt64 or
+                TypeCode.Int16 or
+                TypeCode.Int32 or
+                TypeCode.Int64 or
+                TypeCode.Decimal or
+                TypeCode.Double or
+                TypeCode.Single => true,
+                _ => false,
+            };
+        }
+
     }
 }

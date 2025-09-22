@@ -11,7 +11,6 @@
     using DHI.Services.Authentication.PasswordHistory;
     using DHI.Services.Notifications;
     using DHI.Services.Test.Authentication.PasswordHistory;
-    using DHI.Services.Test.Logging;
     using Mails;
     using Microsoft.Extensions.Logging;
     using Microsoft.Extensions.Logging.Abstractions;

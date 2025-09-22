@@ -14,103 +14,124 @@ using Polly;
 using Swashbuckle.AspNetCore.SwaggerUI;
 using System.Security.Claims;
 using AccountRepository = DHI.Services.Accounts.AccountRepository;
-using ILogger = DHI.Services.Logging.SimpleLogger;
 using MailTemplateRepository = DHI.Services.Security.WebApi.MailTemplateRepository;
 using RefreshTokenRepository = DHI.Services.Security.WebApi.RefreshTokenRepository;
 using UserGroupRepository = DHI.Services.Security.WebApi.UserGroupRepository;
 using DHI.Services.Authentication.PasswordHistory;
 using Serilog.Extensions.Logging;
 using Serilog;
+using DHI.Services.Notifications;
 
-var builder = WebApplication.CreateBuilder(args); // Create a builder for configuring the application
-
-builder.Services.AddControllers(); // Add controllers to the services container, enabling MVC
-
-var configuration = builder.Configuration; // Access the configuration settings
-
-// Authentication
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(options =>
+public class Program
+{
+    public static void Main(string[] args)
     {
-        // Configure JWT Bearer authentication
-        options.TokenValidationParameters = new TokenValidationParameters
+        var builder = WebApplication.CreateBuilder(args); // Create a builder for configuring the application
+
+        builder.Services.AddControllers(); // Add controllers to the services container, enabling MVC
+
+        var configuration = builder.Configuration; // Access the configuration settings
+
+        // Authentication
+        builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            .AddJwtBearer(options =>
+            {
+                // Configure JWT Bearer authentication
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true, // Validate the token issuer
+                    ValidateAudience = true, // Validate the token audience
+                    ValidateLifetime = true, // Validate the token's expiration
+                    ValidateIssuerSigningKey = true, // Validate the signing key of the token
+                    ValidIssuer = configuration["Tokens:Issuer"], // Set the expected issuer
+                    ValidAudience = configuration["Tokens:Audience"], // Set the expected audience
+                    IssuerSigningKey = RSA.BuildSigningKey(configuration["Tokens:PublicRSAKey"].Resolve()) // Set the signing key
+                };
+            });
+
+        // Authorization
+        builder.Services.AddAuthorization(options =>
         {
-            ValidateIssuer = true, // Validate the token issuer
-            ValidateAudience = true, // Validate the token audience
-            ValidateLifetime = true, // Validate the token's expiration
-            ValidateIssuerSigningKey = true, // Validate the signing key of the token
-            ValidIssuer = configuration["Tokens:Issuer"], // Set the expected issuer
-            ValidAudience = configuration["Tokens:Audience"], // Set the expected audience
-            IssuerSigningKey = RSA.BuildSigningKey(configuration["Tokens:PublicRSAKey"].Resolve()) // Set the signing key
-        };
-    });
+            // Define authorization policies
+            options.AddPolicy("AdministratorsOnly", policy => policy.RequireClaim(ClaimTypes.GroupSid, "Administrators"));
+            options.AddPolicy("EditorsOnly", policy => policy.RequireClaim(ClaimTypes.GroupSid, "Editors"));
+        });
 
-// Authorization
-builder.Services.AddAuthorization(options =>
-{
-    // Define authorization policies
-    options.AddPolicy("AdministratorsOnly", policy => policy.RequireClaim(ClaimTypes.GroupSid, "Administrators"));
-    options.AddPolicy("EditorsOnly", policy => policy.RequireClaim(ClaimTypes.GroupSid, "Editors"));
-});
+        // API versioning
+        builder.Services.AddApiVersioning(options =>
+        {
+            // Configure API versioning
+            options.ReportApiVersions = true;
+            options.AssumeDefaultVersionWhenUnspecified = true;
+            options.DefaultApiVersion = new ApiVersion(1, 0);
+            options.ApiVersionReader = ApiVersionReader.Combine(
+                new QueryStringApiVersionReader("api-version", "version", "ver"),
+                new HeaderApiVersionReader("api-version")
+            );
+        });
 
-// API versioning
-builder.Services.AddApiVersioning(options =>
-{
-    // Configure API versioning
-    options.ReportApiVersions = true; 
-    options.AssumeDefaultVersionWhenUnspecified = true; 
-    options.DefaultApiVersion = new ApiVersion(1, 0); 
-    options.ApiVersionReader = ApiVersionReader.Combine(
-        new QueryStringApiVersionReader("api-version", "version", "ver"), 
-        new HeaderApiVersionReader("api-version") 
-    );
-});
+        // MVC configuration
+        var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+        builder.Services
+            .AddCors(options =>
+            {
+                var permittedOrigins = configuration.GetSection("PermittedOrigins")?.GetChildren().Select(c => c.Value).ToArray();
 
-// MVC configuration
-builder.Services
-    .AddResponseCompression(options => { options.EnableForHttps = true; }) // Enable response compression for HTTPS
-    .AddControllers() // enabling MVC
-    .AddJsonOptions(options =>
-    {
-        // Configure JSON serialization options
-        options.JsonSerializerOptions.WriteIndented = true; 
-        options.JsonSerializerOptions.DefaultIgnoreCondition = SerializerOptionsDefault.Options.DefaultIgnoreCondition; 
-        options.JsonSerializerOptions.AddConverters(SerializerOptionsDefault.Options.Converters); // Add custom converters
-    });
+                options.AddPolicy(name: MyAllowSpecificOrigins,
+                    policy =>
+                    {
+                        policy.WithOrigins(permittedOrigins)
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                    });
+            })
+            .AddResponseCompression(options => { options.EnableForHttps = true; }) // Enable response compression for HTTPS
+            .AddControllers() // enabling MVC
+            .AddJsonOptions(options =>
+            {
+                // Configure JSON serialization options
+                options.JsonSerializerOptions.WriteIndented = true;
+                options.JsonSerializerOptions.DefaultIgnoreCondition = SerializerOptionsDefault.Options.DefaultIgnoreCondition;
+                options.JsonSerializerOptions.AddConverters(SerializerOptionsDefault.Options.Converters); // Add custom converters
+            });
 
-// HSTS (HTTP Strict Transport Security)
-builder.Services.AddHsts(options =>
-{
-    // Configure HSTS for better security
-    options.Preload = true;
-    options.MaxAge = TimeSpan.FromDays(configuration.GetValue<double>("AppConfiguration:HstsMaxAgeInDays"));
-});
+        // HSTS (HTTP Strict Transport Security)
+        builder.Services.AddHsts(options =>
+        {
+            // Configure HSTS for better security
+            options.Preload = true;
+            options.MaxAge = TimeSpan.FromDays(configuration.GetValue<double>("AppConfiguration:HstsMaxAgeInDays"));
+        });
 
-// Swagger configuration
-builder.Services.AddSwaggerGen(options =>
-{
-    // Configure Swagger for API documentation
-    options.SwaggerDoc(configuration["Swagger:SpecificationName"], new OpenApiInfo
-    {
-        Title = configuration["Swagger:DocumentTitle"], // Set Swagger document title
-        Version = "1", // Set Swagger document version
-        Description = File.ReadAllText(configuration["Swagger:DocumentDescription"].Resolve()) // Set Swagger document description
-    });
+        // Swagger configuration
+        builder.Services.AddSwaggerGen(options =>
+        {
+            // Configure Swagger for API documentation
+            options.SwaggerDoc(configuration["Swagger:SpecificationName"], new OpenApiInfo
+            {
+                Title = configuration["Swagger:DocumentTitle"], // Set Swagger document title
+                Version = "1", // Set Swagger document version
+                Description = File.ReadAllText(configuration["Swagger:DocumentDescription"].Resolve()) // Set Swagger document description
+            });
 
-    options.EnableAnnotations(); // Enable annotations for Swagger
-    options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "DHI.Services.Security.WebApi.xml")); // Include XML comments for documentation
+            options.EnableAnnotations(); // Enable annotations for Swagger
+            var xmlPath = Path.Combine(AppContext.BaseDirectory, "DHI.Services.Security.WebApi.xml");
+            if (File.Exists(xmlPath))
+            {
+                options.IncludeXmlComments(xmlPath); // Include XML comments for documentation (use conditional because of integration test won't generate the XML file)
+            }
 
-    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-    {
-        // Define Bearer token security scheme
-        Description = "Enter the word 'Bearer' followed by a space and the JWT.",
-        Name = "Authorization", // Set header name for the token
-        In = ParameterLocation.Header, // Set token location in the request
-        Type = SecuritySchemeType.ApiKey, // Define the security scheme type as an API key
-        Scheme = "Bearer" // Set the scheme name
-    });
+            options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+            {
+                // Define Bearer token security scheme
+                Description = "Enter the word 'Bearer' followed by a space and the JWT.",
+                Name = "Authorization", // Set header name for the token
+                In = ParameterLocation.Header, // Set token location in the request
+                Type = SecuritySchemeType.ApiKey, // Define the security scheme type as an API key
+                Scheme = "Bearer" // Set the scheme name
+            });
 
-    options.AddSecurityRequirement(new OpenApiSecurityRequirement
+            options.AddSecurityRequirement(new OpenApiSecurityRequirement
     {
         // Define security requirements for the API
         {
@@ -128,99 +149,130 @@ builder.Services.AddSwaggerGen(options =>
             new List<string>()
         }
     });
-});
+        });
 
-// Pwned passwords
-builder.Services
-    .AddPwnedPasswordHttpClient(minimumFrequencyToConsiderPwned: 1) // Add a service to check for pwned passwords
-    .AddTransientHttpErrorPolicy(policyBuilder => policyBuilder.RetryAsync(3)) // Retry failed HTTP requests up to 3 times
-    .AddPolicyHandler(Policy.TimeoutAsync<HttpResponseMessage>(TimeSpan.FromSeconds(2))); // Set a timeout policy of 2 seconds
+        // Pwned passwords
+        builder.Services
+            .AddPwnedPasswordHttpClient(minimumFrequencyToConsiderPwned: 1) // Add a service to check for pwned passwords
+            .AddTransientHttpErrorPolicy(policyBuilder => policyBuilder.RetryAsync(3)) // Retry failed HTTP requests up to 3 times
+            .AddPolicyHandler(Policy.TimeoutAsync<HttpResponseMessage>(TimeSpan.FromSeconds(2))); // Set a timeout policy of 2 seconds
 
-// Password Policy
-builder.Services.AddScoped(_ => new PasswordPolicy
-{
-    // Define password policy
-    RequiredLength = 6, // Set minimum password length
-    RequiredUniqueChars = 0, // Set minimum number of unique characters
-    MinimumDigit = 1, // Set minimum number of digits
-    MinimumNonAlphanumeric = 0, // Set minimum number of non-alphanumeric characters
-    RequireNonAlphanumeric = false, // Do not require non-alphanumeric characters
-    RequireLowercase = false, // Do not require lowercase letters
-    RequireUppercase = false, // Do not require uppercase letters
-    RequireDigit = true // Require digits in the password
-});
+        // Password Policy
+        builder.Services.AddScoped(_ => new PasswordPolicy
+        {
+            // Define password policy
+            RequiredLength = 6, // Set minimum password length
+            RequiredUniqueChars = 0, // Set minimum number of unique characters
+            MinimumDigit = 1, // Set minimum number of digits
+            MinimumNonAlphanumeric = 0, // Set minimum number of non-alphanumeric characters
+            RequireNonAlphanumeric = false, // Do not require non-alphanumeric characters
+            RequireLowercase = false, // Do not require lowercase letters
+            RequireUppercase = false, // Do not require uppercase letters
+            RequireDigit = true // Require digits in the password
+        });
 
-// Password History Policy
-builder.Services.AddScoped(_ => new PasswordExpirationPolicy
-{
-    // Define password expiration and history policy
-    PreviousPasswordsReUseLimit = 3, // Set limit for reusing old passwords
-    PasswordExpiryDurationInDays = 5 // Set password expiration duration
-});
+        // Password History Policy
+        builder.Services.AddScoped(_ => new PasswordExpirationPolicy
+        {
+            // Define password expiration and history policy
+            PreviousPasswordsReUseLimit = 3, // Set limit for reusing old passwords
+            PasswordExpiryDurationInDays = 5 // Set password expiration duration
+        });
 
-// Login Attempt Policy
-builder.Services.AddScoped(_ => new LoginAttemptPolicy
-{
-    // Define login attempt policy
-    MaxNumberOfLoginAttempts = 2, // Set maximum number of login attempts before lockout
-    ResetInterval = TimeSpan.FromMinutes(1), // Set interval after which login attempts reset
-    LockedPeriod = TimeSpan.FromDays(10) // Set account lockout period
-});
+        // Login Attempt Policy
+        builder.Services.AddScoped(_ => new LoginAttemptPolicy
+        {
+            // Define login attempt policy
+            MaxNumberOfLoginAttempts = 2, // Set maximum number of login attempts before lockout
+            ResetInterval = TimeSpan.FromMinutes(1), // Set interval after which login attempts reset
+            LockedPeriod = TimeSpan.FromDays(10) // Set account lockout period
+        });
 
-// Set the data directory (App_Data folder) for DHI Domain Services
-var contentRootPath = builder.Configuration.GetValue("AppConfiguration:ContentRootPath", builder.Environment.ContentRootPath);
-AppDomain.CurrentDomain.SetData("DataDirectory", Path.Combine(contentRootPath, "App_Data")); // Set the data directory for the application
+        // Set the data directory (App_Data folder) for DHI Domain Services
+        var contentRootPath = builder.Configuration.GetValue("AppConfiguration:ContentRootPath", builder.Environment.ContentRootPath);
+        AppDomain.CurrentDomain.SetData("DataDirectory", Path.Combine(contentRootPath, "App_Data")); // Set the data directory for the application
 
-var seriLogger = new LoggerConfiguration()
-    .WriteTo.File("[AppData]log.txt".Resolve(), outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level}] {Message:lj}{NewLine}{Exception}") // Configure Serilog to log to a file with a specific format
-    .WriteTo.Console() // Also log to the console
-    .CreateLogger(); // Create the logger
+        var seriLogger = new LoggerConfiguration()
+            .WriteTo.File("[AppData]log.txt".Resolve(), outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level}] {Message:lj}{NewLine}{Exception}") // Configure Serilog to log to a file with a specific format
+            .WriteTo.Console() // Also log to the console
+            .CreateLogger(); // Create the logger
 
-var logger = new SerilogLoggerFactory(seriLogger)
-   .CreateLogger<Program>(); // Create a logger instance using Serilog
+        var logger = new SerilogLoggerFactory(seriLogger)
+           .CreateLogger<Program>(); // Create a logger instance using Serilog
 
-builder.Services.AddSerilog(seriLogger); // Register the Serilog logger with the dependency injection container
+        builder.Services.AddSerilog(seriLogger); // Register the Serilog logger with the dependency injection container
 
-// Configure the necessary services for constructor injection into controllers of DHI Domain Services Web APIs
+        // Configure the necessary services for constructor injection into controllers of DHI Domain Services Web APIs
 #warning In production code, you should use replace the JSON-file based repositories with, for example, the PostgreSQL repositories
-builder.Services.AddScoped<IAccountRepository>(_ => new AccountRepository("accounts.json", SerializerOptionsDefault.Options, null, null, _.GetRequiredService<LoginAttemptPolicy>())); // Register IAccountRepository with a JSON-based implementation
-builder.Services.AddScoped<IMailTemplateRepository>(_ => new MailTemplateRepository("mail-templates.json", SerializerOptionsDefault.Options)); // Register IMailTemplateRepository with a JSON-based implementation
-builder.Services.AddScoped<IUserGroupRepository>(_ => new UserGroupRepository("user-groups.json", SerializerOptionsDefault.Options)); // Register IUserGroupRepository with a JSON-based implementation
-builder.Services.AddScoped<IRefreshTokenRepository>(_ => new RefreshTokenRepository("refresh-tokens.json", SerializerOptionsDefault.Options)); // Register IRefreshTokenRepository with a JSON-based implementation
-builder.Services.AddScoped<IAuthenticationProvider>(_ => new AccountRepository("accounts.json", SerializerOptionsDefault.Options, null, null, _.GetRequiredService<LoginAttemptPolicy>())); // Register IAuthenticationProvider with a JSON-based implementation
-builder.Services.AddScoped<IPasswordHistoryRepository>(_ => new PasswordHistoryRepository("passwordhistory.json", SerializerOptionsDefault.Options)); // Register IPasswordHistoryRepository with a JSON-based implementation
+        var usePostgre = builder.Configuration.GetValue<bool>("Repository:UsePostgreSQL");
 
-var app = builder.Build(); // Build the application
+        if (usePostgre)
+        {
+            var connectionString = builder.Configuration.GetConnectionString("PostgreSQL") ?? builder.Configuration["Repository:PostgreSQL:ConnectionString"];
+            string logConnectionString = builder.Configuration["Repository:PostgreSQL:ConnectionString"];
 
-if (app.Environment.IsDevelopment())
-{
-    // Development-specific configuration
-    app.UseDeveloperExceptionPage(); // Use the developer exception page for detailed error information
-    app.UseSwagger(); // Enable Swagger middleware
-    app.UseSwaggerUI(options =>
-    {
-        var specificationName = configuration["Swagger:SpecificationName"];
-        options.SwaggerEndpoint($"../swagger/{specificationName}/swagger.json", configuration["Swagger:DocumentName"]); // Set Swagger endpoint
-        options.DocExpansion(DocExpansion.None); // Set Swagger UI to not expand document tree
-        options.DefaultModelsExpandDepth(-1); // Disable model expansion by default
-    });
+            builder.Services.AddScoped<INotificationRepository>(_ => new DHI.Services.Provider.PostgreSQL.NotificationRepository(logConnectionString));
+            builder.Services.AddScoped<IAccountRepository>(_ => new DHI.Services.Provider.PostgreSQL.AccountRepository(connectionString, null, SerializerOptionsDefault.Options.Converters, _.GetRequiredService<LoginAttemptPolicy>()));
+            builder.Services.AddScoped<IUserGroupRepository>(_ => new DHI.Services.Provider.PostgreSQL.UserGroupRepository(connectionString, null));
+            builder.Services.AddScoped<IRefreshTokenRepository>(_ => new DHI.Services.Provider.PostgreSQL.RefreshTokenRepository(connectionString, null));
+            builder.Services.AddScoped<IAuthenticationProvider>(_ => new DHI.Services.Provider.PostgreSQL.AccountRepository(connectionString, null, SerializerOptionsDefault.Options.Converters, _.GetRequiredService<LoginAttemptPolicy>()));
+            builder.Services.AddScoped<IPasswordHistoryRepository>(_ => new DHI.Services.Provider.PostgreSQL.PasswordHistoryRepository(connectionString, null, SerializerOptionsDefault.Options.Converters));
+        }
+        else
+        {
+            builder.Services.AddScoped<Microsoft.Extensions.Logging.ILogger>(_ => new SimpleLogger("[AppData]log.txt".Resolve()));
+            builder.Services.AddScoped<IAccountRepository>(_ => new AccountRepository("accounts.json", SerializerOptionsDefault.Options, null, null, _.GetRequiredService<LoginAttemptPolicy>())); // Register IAccountRepository with a JSON-based implementation
+            builder.Services.AddScoped<IUserGroupRepository>(_ => new UserGroupRepository("user-groups.json", SerializerOptionsDefault.Options)); // Register IUserGroupRepository with a JSON-based implementation
+            builder.Services.AddScoped<IRefreshTokenRepository>(_ => new RefreshTokenRepository("refresh-tokens.json", SerializerOptionsDefault.Options)); // Register IRefreshTokenRepository with a JSON-based implementation
+            builder.Services.AddScoped<IAuthenticationProvider>(_ => new AccountRepository("accounts.json", SerializerOptionsDefault.Options, null, null, _.GetRequiredService<LoginAttemptPolicy>())); // Register IAuthenticationProvider with a JSON-based implementation
+            builder.Services.AddScoped<IPasswordHistoryRepository>(_ => new PasswordHistoryRepository("passwordhistory.json", SerializerOptionsDefault.Options)); // Register IPasswordHistoryRepository with a JSON-based implementation
+        }
+
+        builder.Services.AddScoped<IMailTemplateRepository>(_ => new MailTemplateRepository("mail-templates.json", SerializerOptionsDefault.Options)); // Register IMailTemplateRepository with a JSON-based implementation
+
+        var app = builder.Build(); // Build the application
+
+        using (var scope = app.Services.CreateScope())
+        {
+            scope.ServiceProvider.GetRequiredService<IAccountRepository>().Count();
+            scope.ServiceProvider.GetRequiredService<IUserGroupRepository>().Count();
+            scope.ServiceProvider.GetRequiredService<IRefreshTokenRepository>().Count();
+            scope.ServiceProvider.GetRequiredService<IPasswordHistoryRepository>().Count();
+        }
+
+        if (app.Environment.IsDevelopment())
+        {
+            // Development-specific configuration
+            app.UseDeveloperExceptionPage(); // Use the developer exception page for detailed error information
+            app.UseSwagger(); // Enable Swagger middleware
+            app.UseSwaggerUI(options =>
+            {
+                var specificationName = configuration["Swagger:SpecificationName"];
+                options.SwaggerEndpoint($"../swagger/{specificationName}/swagger.json", configuration["Swagger:DocumentName"]); // Set Swagger endpoint
+                options.DocExpansion(DocExpansion.None); // Set Swagger UI to not expand document tree
+                options.DefaultModelsExpandDepth(-1); // Disable model expansion by default
+            });
+        }
+        else
+        {
+            app.UseHsts(); // Use HSTS in non-development environments
+        }
+
+        app.UseExceptionHandling();              // Handle exceptions early
+        app.UseHttpsRedirection();               // Redirect HTTP to HTTPS
+        app.UseResponseCompression();            // Compress responses
+        app.UseDefaultFiles();                   // Serve default files like index.html
+        app.UseStaticFiles();                    // Serve static files (wwwroot)
+        app.UseRouting();                        // Enable routing
+        app.UseCors(MyAllowSpecificOrigins);     // Apply CORS after routing
+        app.UseAuthentication();                 // Authenticate users
+        app.UseAuthorization();                  // Authorize users
+
+        app.UseEndpoints(endpoints =>
+        {
+            endpoints.MapControllers();          // Map API controller routes
+        });
+
+        app.Run();                               // Run the application
+    }
 }
-else
-{
-    app.UseHsts(); // Use HSTS in non-development environments
-}
-
-app.UseAuthentication(); // Enable authentication middleware
-app.UseDefaultFiles(); // Serve default files (e.g., index.html)
-app.UseStaticFiles(); // Serve static files
-app.UseHttpsRedirection(); // Redirect HTTP requests to HTTPS
-app.UseExceptionHandling(); // Custom exception handling middleware
-app.UseResponseCompression(); // Enable response compression
-app.UseRouting(); // Enable routing middleware
-app.UseAuthorization(); // Enable authorization middleware
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapControllers(); // Map controller endpoints
-});
-
-app.Run(); // Run the application

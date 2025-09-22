@@ -2,13 +2,42 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net472</TargetFrameworks>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <DefaultItemExcludes>$(DefaultItemExcludes);nuget\*.nupkg;nuget\*.log;</DefaultItemExcludes>
+	<DefaultItemExcludes>$(DefaultItemExcludes);nuget\*.nupkg;nuget\*.log</DefaultItemExcludes>
+	<NoWarn>1701;1702;1591</NoWarn>
+	<PackageId>DHI.Services.Physics</PackageId>
+	<Version>3.0.0</Version>
+	<PackageReleaseNotes>Add DHI.Services.Physics to nuget.org</PackageReleaseNotes>
+	<Company>DHI</Company>
+	<Authors>dhigroup</Authors>
+	<PackageProjectUrl>https://github.com/DHI/DomainServices/blob/master/README.md</PackageProjectUrl>
+	<RepositoryUrl>https://github.com/DHI/DomainServices</RepositoryUrl>
+	<RepositoryType>git</RepositoryType>
+	<Description>Physics Services for Domain Services</Description>
+	<Product>DHI Domain Services</Product>
+	<PackageIcon>ds-icon-64.png</PackageIcon>
+	<IncludeSymbols>true</IncludeSymbols>
+	<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+	<EmbedUntrackedSources>true</EmbedUntrackedSources>
+	<GenerateDocumentationFile>True</GenerateDocumentationFile>
+	<LangVersion>latest</LangVersion>
+	<PackageReadmeFile>readme.md</PackageReadmeFile>
   </PropertyGroup>
 
+	<PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+		<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+	</PropertyGroup>
+
   <ItemGroup>
-    <PackageReference Include="DHI.Physics" Version="3.0.3" />
-    <PackageReference Include="DHI.Services" Version="15.1.0" />
+    <PackageReference Include="DHI.Physics" Version="4.0.0" />
+    <PackageReference Include="DHI.Services" Version="16.1.0" />
   </ItemGroup>
+
+	<ItemGroup>
+		<None Include="nuget\readme.md">
+			<Pack>true</Pack>
+			<PackagePath></PackagePath>
+		</None>
+		<None Include="nuget\ds-icon-64.png" Pack="true" PackagePath="" />
+	</ItemGroup>
 
 </Project>

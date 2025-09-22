@@ -1,0 +1,48 @@
+{
+  "$type": "System.Collections.Generic.Dictionary\u00602[[System.Guid, mscorlib],[DHI.Services.Notifications.NotificationEntry, DHI.Services.Notifications.NotificationEntry]], mscorlib",
+  "89b1fb13-5080-49f5-b96c-4da92f6434f6": {
+    "$type": "DHI.Services.Notifications.NotificationEntry, DHI.Services",
+    "Id": "89b1fb13-5080-49f5-b96c-4da92f6434f6",
+    "DateTime": "2025-07-24T07:57:52.4927311Z",
+    "NotificationLevel": "Debug",
+    "Source": "MC",
+    "Tag": "tag",
+    "MachineName": "MRSM-PC1",
+    "Text": "This is a Debug test",
+    "Metadata": {
+      "additionalProp1": "additionalProp1",
+      "additionalProp2": "additionalProp2",
+      "additionalProp3": "additionalProp3"
+    }
+  },
+  "ec392540-9cce-4120-bc95-729f7f648551": {
+    "$type": "DHI.Services.Notifications.NotificationEntry, DHI.Services",
+    "Id": "ec392540-9cce-4120-bc95-729f7f648551",
+    "DateTime": "2025-07-24T07:58:23.1587988Z",
+    "NotificationLevel": "Information",
+    "Source": "MC",
+    "Tag": "tag",
+    "MachineName": "MRSM-PC1",
+    "Text": "This is a Information test",
+    "Metadata": {
+      "additionalProp1": "additionalProp1",
+      "additionalProp2": "additionalProp2",
+      "additionalProp3": "additionalProp3"
+    }
+  },
+  "1c75bd0d-854d-47fb-b427-1d96e8267381": {
+    "$type": "DHI.Services.Notifications.NotificationEntry, DHI.Services",
+    "Id": "1c75bd0d-854d-47fb-b427-1d96e8267381",
+    "DateTime": "2025-07-24T07:58:31.6973888Z",
+    "NotificationLevel": "Warning",
+    "Source": "MC",
+    "Tag": "tag",
+    "MachineName": "MRSM-PC1",
+    "Text": "This is a Warning test",
+    "Metadata": {
+      "additionalProp1": "additionalProp1",
+      "additionalProp2": "additionalProp2",
+      "additionalProp3": "additionalProp3"
+    }
+  }
+}

@@ -4,7 +4,6 @@ using System;
 using System.Globalization;
 using AutoFixture.Xunit2;
 using DHI.Services.Jobs.Automations.Triggers;
-using Logging;
 using Microsoft.Extensions.Logging;
 using Xunit;
 using Xunit.Abstractions;
@@ -34,15 +33,6 @@ public class ScheduledTriggerTest
     {
         var scheduledTrigger = new ScheduledTrigger("trigger1", "myScheduledTrigger", startTime, TimeSpan.FromDays(1));
         Assert.Throws<ArgumentNullException>(() => scheduledTrigger.Execute(_logger));
-    }
-
-    [Theory, AutoData]
-    public void IsMetWithMissingUtcNowParameterShouldThrow(DateTime startTime)
-    {
-        var scheduledTrigger = new ScheduledTrigger("trigger1", "myScheduledTrigger", startTime, TimeSpan.FromDays(1));
-        var parameters = new Parameters { { "now", DateTime.UtcNow.ToString(CultureInfo.InvariantCulture) } };
-        var e = Assert.Throws<ArgumentException>(() => scheduledTrigger.Execute(_logger, parameters));
-        Assert.Contains("A parameter 'utcNow' with a DateTime literal representing the current UTC time must be given.", e.Message);
     }
 
     [Theory, AutoData]

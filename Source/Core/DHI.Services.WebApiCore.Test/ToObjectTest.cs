@@ -2,7 +2,6 @@
 {
     using FluentAssertions;
     using FluentAssertions.Extensions;
-    using Logging;
     using Microsoft.Extensions.Logging;
     using Xunit;
 

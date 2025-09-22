@@ -14,6 +14,11 @@ public struct AutomationResult
         return new AutomationResult(true, result);
     }
 
+    public static AutomationResult Met(IDictionary<string, string> result, string jobTag)
+    {
+        return new AutomationResult(true, result, jobTag);
+    }
+
     public static AutomationResult NotMet()
     {
         return new AutomationResult(false, new Parameters());
@@ -25,7 +30,16 @@ public struct AutomationResult
         TaskParameters = taskParameters;
     }
 
+    private AutomationResult(bool isMet, IDictionary<string, string> taskParameters, string jobTag)
+    {
+        IsMet = isMet;
+        TaskParameters = taskParameters;
+        JobTag = jobTag;
+    }
+
     public IDictionary<string, string> TaskParameters { get; }
+
+    public string JobTag { get; }
 
     public bool IsMet { get; }
 }

@@ -1,0 +1,2 @@
+CREATE DATABASE "JobMinion";
+CREATE DATABASE "JobTitan";

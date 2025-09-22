@@ -1,0 +1,79 @@
+{
+  "$type": "System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[DHI.Services.IConnection, DHI.Services]], mscorlib",
+  "mc-ws1": {
+    "$type": "DHI.Services.GIS.WebApi.GroupedGisServiceConnection, DHI.Services.GIS.WebApi",
+    "ConnectionString": "database=mc2014.2",
+    "RepositoryType": "DHI.Services.Provider.MCLite.FeatureRepository, DHI.Services.Provider.MCLite",
+    "Name": "Local MC gis connection to workspace1",
+    "Id": "mc-ws1"
+  },
+  "mc-groupedmap": {
+    "$type": "DHI.Services.GIS.WebApi.GroupedMapServiceConnection, DHI.Services.GIS.WebApi",
+    "MapSourceConnectionString": "database=[AppData]MCSQLiteTest.sqlite;dbflavour=SQLite",
+    "MapSourceType": "DHI.Services.Provider.MCLite.GroupedMapSource, DHI.Services.Provider.MCLite",
+    "Name": "Local MCLite gis connection to workspace1",
+    "Id": "mc-groupedmap"
+  },
+  "mc-gis-single": {
+    "$type": "DHI.Services.GIS.WebApi.GisServiceConnection, DHI.Services.GIS.WebApi",
+    "ConnectionString": "host=localhost;port=5432;Database=TSJ-Vidaa;dbFlavour=PostgreSQL;workspace=workspace1;username=dss_admin;password=secretdss_admin",
+    "RepositoryType": "DHI.Services.Provider.MC.GIS.GISRepository, DHI.Services.Provider.MC.GIS",
+    "Name": "MC Gis connection",
+    "Id": "mc-gis-single"
+  },
+  "mc-gis-grouped": {
+    "$type": "DHI.Services.GIS.WebApi.GroupedGisServiceConnection, DHI.Services.GIS.WebApi",
+    "ConnectionString": "host=localhost;port=5432;Database=TSJ-Vidaa;dbFlavour=PostgreSQL;workspace=workspace1;username=dss_admin;password=secretdss_admin",
+    "RepositoryType": "DHI.Services.Provider.MC.GIS.GISRepository, DHI.Services.Provider.MC.GIS",
+    "Name": "MC Grouped Gis connection",
+    "Id": "mc-gis-grouped"
+  },
+  "shape": {
+    "$type": "DHI.Services.GIS.WebApi.GisServiceConnection, DHI.Services.GIS.WebApi",
+    "ConnectionString": "[AppData]shp",
+    "RepositoryType": "DHI.Services.Provider.ShapeFile.FeatureRepository, DHI.Services.Provider.ShapeFile",
+    "Name": "Shape file gis connection",
+    "Id": "shape"
+  },
+  "groupedmap-mclite": {
+    "$type": "DHI.Services.GIS.WebApi.GroupedMapServiceConnection, DHI.Services.GIS.WebApi",
+    "MapSourceConnectionString": "database=[AppData]MCSQLiteTest.sqlite;dbflavour=SQLite",
+    "MapSourceType": "DHI.Services.Provider.MCLite.GroupedMapSourceRepository, DHI.Services.Provider.MCLite",
+    "Name": "Local MCLite gis connection to workspace1",
+    "Id": "groupedmap-mclite"
+  },
+  "dfs2-map": {
+    "$type": "DHI.Services.GIS.WebApi.MapServiceConnection, DHI.Services.GIS.WebApi",
+    "MapSourceConnectionString": "[AppData]dfs2\\R20141001.dfs2",
+    "MapSourceType": "DHI.Services.Provider.MIKECore.Dfs2MapSource, DHI.Services.Provider.MIKECore",
+    "MapStyleConnectionString": "[AppData]styles.json",
+    "MapStyleRepositoryType": "DHI.Services.GIS.Maps.MapStyleRepository, DHI.Services.GIS",
+    "Name": "Dfs2 map connection",
+    "Id": "dfs2-map"
+  },
+  "dfs2-map-cached": {
+    "$type": "DHI.Services.GIS.WebApi.CachedMapServiceConnection, DHI.Services.GIS.WebApi",
+    "MapSourceConnectionString": "[AppData]dfs2\\R20141001.dfs2",
+    "MapSourceProperties": {
+      "$type": "DHI.Services.Parameters, DHI.Services",
+      "NameInfo": "Some info",
+      "KeywordInfo": "keyword1,keyword2",
+      "CachedImageWidth": 100,
+      "CacheExpirationInMinutes": 2
+    },
+    "MapSourceType": "DHI.Services.Provider.MIKECore.Dfs2MapSource, DHI.Services.Provider.MIKECore",
+    "MapStyleConnectionString": "[AppData]styles.json",
+    "MapStyleRepositoryType": "DHI.Services.GIS.Maps.MapStyleRepository, DHI.Services.GIS",
+    "Name": "Cached Dfs2 map service connection",
+    "Id": "dfs2-map-cached"
+  },
+  "dfsu-map": {
+    "$type": "DHI.Services.GIS.WebApi.MapServiceConnection, DHI.Services.GIS.WebApi",
+    "MapSourceConnectionString": "[AppData]",
+    "MapSourceType": "DHI.Services.Provider.MIKECore.DfsuMapSource, DHI.Services.Provider.MIKECore",
+    "MapStyleConnectionString": "[AppData]styles.json",
+    "MapStyleRepositoryType": "DHI.Services.GIS.Maps.MapStyleRepository, DHI.Services.GIS",
+    "Name": "MIKE dfsu map service connection",
+    "Id": "dfsu-map"
+  }
+}

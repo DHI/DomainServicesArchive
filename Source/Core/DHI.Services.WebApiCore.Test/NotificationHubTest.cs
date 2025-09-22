@@ -3,7 +3,6 @@
     using System;
     using System.Linq;
     using System.Threading.Tasks;
-    using Logging;
     using Microsoft.Extensions.Logging;
     using Xunit;
 

@@ -3,7 +3,6 @@
     using System;
     using System.Linq;
     using System.Net.Mail;
-    using DHI.Services.Logging;
     using DHI.Services.Authentication.PasswordHistory;
     using Mails;
     using Microsoft.Extensions.Logging;

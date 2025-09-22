@@ -1,0 +1,53 @@
+{
+  "$type": "System.Collections.Generic.Dictionary`2[[System.Guid, System.Private.CoreLib],[DHI.Services.Jobs.Job`2[[System.Guid, System.Private.CoreLib],[System.String, System.Private.CoreLib]], DHI.Services.Jobs]], System.Private.CoreLib",
+  "87a4ec9a-ebf9-49c8-a2a9-d7782668c038": {
+    "$type": "DHI.Services.Jobs.Job`2[[System.Guid, System.Private.CoreLib],[System.String, System.Private.CoreLib]], DHI.Services.Jobs",
+    "AccountId": "Admin",
+    "Requested": "2020-06-30T11:56:58.2645413+02:00",
+    "Status": "Cancelled",
+    "TaskId": "WriteToFile",
+    "Priority": 2,
+    "Id": "87a4ec9a-ebf9-49c8-a2a9-d7782668c038"
+  },
+  "944ce506-1b4d-46f4-a567-dee5315d406c": {
+    "$type": "DHI.Services.Jobs.Job, DHI.Services.Jobs",
+    "AccountId": "admin",
+    "Finished": "2021-10-14T20:03:56.7633788Z",
+    "HostId": "localhost",
+    "Requested": "2021-10-14T19:16:31.1369629Z",
+    "Rejected": "2021-10-14T19:56:28.0556154Z",
+    "Starting": "2021-10-14T20:03:55.7177604Z",
+    "Started": "2021-10-14T20:03:56.5607226Z",
+    "Status": "Error",
+    "TaskId": "WriteToFile",
+    "Priority": 1,
+    "Id": "944ce506-1b4d-46f4-a567-dee5315d406c",
+    "Added": "2021-10-14T19:16:31.1398753Z",
+    "Updated": "2021-10-14T20:03:56.8078396Z"
+  },
+  "e5f7ef20-f335-4245-a2a0-4ff0532280bf": {
+    "$type": "DHI.Services.Jobs.Job, DHI.Services.Jobs",
+    "AccountId": "admin",
+    "Finished": "2021-10-14T20:13:43.5287009Z",
+    "HostId": "localhost",
+    "Requested": "2021-10-14T20:12:43.1649877Z",
+    "Starting": "2021-10-14T20:13:42.7421776Z",
+    "Started": "2021-10-14T20:13:43.3465297Z",
+    "Status": "Completed",
+    "TaskId": "WriteToFile",
+    "Priority": 1,
+    "Id": "e5f7ef20-f335-4245-a2a0-4ff0532280bf",
+    "Added": "2021-10-14T20:12:43.1778728Z",
+    "Updated": "2021-10-14T20:13:43.5751631Z"
+  },
+  "8c0696ae-ad02-4669-93f0-376215e3e824": {
+    "$type": "DHI.Services.Jobs.Job`2[[System.Guid, System.Private.CoreLib],[System.String, System.Private.CoreLib]], DHI.Services.Jobs",
+    "AccountId": "admin",
+    "Requested": "2022-03-17T09:51:41.8468821Z",
+    "Status": "Pending",
+    "TaskId": "WriteToFile",
+    "Priority": 1,
+    "Id": "8c0696ae-ad02-4669-93f0-376215e3e824",
+    "Added": "2022-03-17T09:51:41.9909145Z"
+  }
+}

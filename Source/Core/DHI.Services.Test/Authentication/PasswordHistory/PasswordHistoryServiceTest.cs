@@ -2,11 +2,11 @@
 {
     using DHI.Services.Accounts;
     using DHI.Services.Authentication.PasswordHistory;
-    using DHI.Services.Logging;
-    using DHI.Services.Test.Logging;
+    using DHI.Services.Test.Notifications;
     using Microsoft.Extensions.Logging.Abstractions;
     using System;
     using System.Collections.Generic;
+    using System.Threading;
     using System.Threading.Tasks;
     using Xunit;
     using Xunit.Abstractions;
@@ -102,42 +102,55 @@
             var fakeLogger = new TestLoggerMicrosoft(_testOutputHelper);
             var passwordExpirationPolicy = new PasswordExpirationPolicy()
             {
-                PreviousPasswordsReUseLimit = 1,
+                PreviousPasswordsReUseLimit = 2,
                 PasswordExpiryDurationInDays = 1
             };
             var accountService = new AccountService(accountRepository);
-            var passwordHisttoryService = new PasswordHistoryService(passwordHistoryRepository, fakeLogger, accountRepository, passwordExpirationPolicy);
+            var passwordHistoryService = new PasswordHistoryService(passwordHistoryRepository, fakeLogger, accountRepository, passwordExpirationPolicy);
 
-            // Mock the data
+            // Mock the data - start with account having passwordA
             var accountData = new Account("john.doe", "john.doe");
-            accountData.SetPassword("password");
+            accountData.SetPassword("passwordA");
             accountService.Add(accountData);
 
-            // Act
-            // 1
-            var passHistory = await passwordHisttoryService.AddPasswordHistoryAsync(accountData, "password", DateTime.Now);
-            if (passHistory != null)
-            {
-                accountData.SetPassword("password");
-                accountService.UpdateMe(accountData);
-            }
-            // 2
-            passHistory = await passwordHisttoryService.AddPasswordHistoryAsync(accountData, "passwordB", DateTime.Now);
-            if (passHistory != null)
-            {
-                accountData.SetPassword("passwordB");
-                accountService.UpdateMe(accountData);
-            }
-            // 3
-            passHistory = await passwordHisttoryService.AddPasswordHistoryAsync(accountData, "passwordC", DateTime.Now);
-            if (passHistory != null)
-            {
-                accountData.SetPassword("passwordC");
-                accountService.UpdateMe(accountData);
-            }
+            // Act - Step 1: Add passwordA to history
+            _testOutputHelper.WriteLine("Adding passwordA to history");
+            var passHistoryA = await passwordHistoryService.AddPasswordHistoryAsync(accountData, "passwordA", DateTime.Now);
+            Assert.NotNull(passHistoryA);
 
-            // Assert
-            _ = Assert.ThrowsAsync<ArgumentException>(() => passwordHisttoryService.AddPasswordHistoryAsync(accountData, "passwordB", DateTime.Now));
+            // Step 2: Update to passwordB
+            _testOutputHelper.WriteLine("Updating to passwordB");
+            accountData.SetPassword("passwordB");
+            accountService.UpdateMe(accountData);
+            var passHistoryB = await passwordHistoryService.AddPasswordHistoryAsync(accountData, "passwordB", DateTime.Now);
+            Assert.NotNull(passHistoryB);
+            Assert.NotEqual(passHistoryA.Id, passHistoryB.Id);
+
+            // Step 3: Update to passwordC
+            _testOutputHelper.WriteLine("Updating to passwordC");
+            accountData.SetPassword("passwordC");
+            accountService.UpdateMe(accountData);
+            var passHistoryC = await passwordHistoryService.AddPasswordHistoryAsync(accountData, "passwordC", DateTime.Now);
+            Assert.NotNull(passHistoryC);
+            Assert.NotEqual(passHistoryB.Id, passHistoryC.Id);
+
+            // Step 4: Debug checking the current state
+            _testOutputHelper.WriteLine("Checking current password state");
+            var currentMatch = await passwordHistoryService.GetCurrentPasswordHistoryAsync(accountData.Id, "passwordC", null);
+            Assert.NotNull(currentMatch);
+            _testOutputHelper.WriteLine($"Current password is passwordC: {currentMatch != null}");
+
+            var isPasswordBUsed = await passwordHistoryService.IsPasswordAlreadyUsedAsync(accountData.Id, "passwordB", null);
+            _testOutputHelper.WriteLine($"Is passwordB already used: {isPasswordBUsed}");
+            Assert.True(isPasswordBUsed);
+
+            // Step 5: Try to reuse passwordB - should throw exception
+            _testOutputHelper.WriteLine("Trying to reuse passwordB");
+
+            var ex = await Assert.ThrowsAsync<ArgumentException>(async () =>
+                await passwordHistoryService.AddPasswordHistoryAsync(accountData, "passwordB", DateTime.Now)
+            );
+            Assert.Contains("Cannot use the same password as before", ex.Message);
         }
 
         [Theory, AutoPasswordHistoryData]

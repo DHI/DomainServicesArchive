@@ -1,12 +1,13 @@
 ﻿namespace DHI.Services.Jobs.Automations;
 
+using DHI.Services.Jobs.Automations.Triggers;
+using Expressions;
+using Microsoft.Extensions.Logging;
+using Scalars;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Expressions;
-using Logging;
-using Microsoft.Extensions.Logging;
-using Scalars;
+using System.Text.Json;
 
 public class AutomationExecutor
 {
@@ -23,10 +24,9 @@ public class AutomationExecutor
         _logger = logger;
     }
 
-    public AutomationResult Execute<T>(Automation<T> automation)
+    public AutomationResult Execute<T>(Automation<T> automation, IDictionary<string, string> runParams)
     {
         Guard.Against.Null(automation, nameof(automation));
-
         _logger.LogDebug("Executing automation {AutomationId}", automation.Id);
 
         if (!automation.IsEnabled)
@@ -35,127 +35,192 @@ public class AutomationExecutor
             return AutomationResult.NotMet();
         }
 
-        if (string.IsNullOrEmpty(automation.TriggerCondition.Conditional))
-        {
-            var res = ExecuteConditional(automation);
-            if (res.IsMet)
-            {
-                // trimmed the combined parameters (incl. dynamically generated in trigger) to match the original task parameters
-                // as a workflow task with additional parameters will be treated as an errorous submission when submitted to
-                // web api.
-                var trimmed = TrimTaskParameters(automation.TaskParameters.Keys, res.TaskParameters);
-                return AutomationResult.Met(trimmed);
-            }
+        var conditional = automation.TriggerCondition?.Conditional ?? string.Empty;
+        var triggers = automation.TriggerCondition?.Triggers ?? new List<ITrigger>();
+        var isImplicitAnd = string.IsNullOrEmpty(conditional);
 
-            return res;
+        if (isImplicitAnd && triggers.Count == 0)
+        {
+            WriteTriggerResultScalar(automation.Id, false, automation.HostGroup);
+            _logger.LogInformation("Conditional Failed: No triggers defined; exiting early");
+            return AutomationResult.NotMet();
         }
 
-        var evaluatedItems = new Dictionary<string, bool>();
-        var parameters = automation?.Parameters?.ToDictionary(k => k.Key, v => v.Value) ?? new Dictionary<string, string>(); //copy
-        foreach (var parameter in automation.TaskParameters)
+        var mergedParameters = new Dictionary<string, string>(automation.TaskParameters);
+
+        var (evaluated, updatedParameters) = EvaluateTriggers(
+                automationId: automation.Id,
+                hostGroup: automation.HostGroup,
+                triggers: triggers,
+                baseParameters: mergedParameters,
+                shortCircuitOnFirstFailure: isImplicitAnd,
+                runParams: runParams
+            );
+
+        mergedParameters = updatedParameters;
+
+        bool isMet;
+        if (isImplicitAnd)
         {
-            parameters[parameter.Key] = parameter.Value;
+            isMet = triggers
+                .Where(t => t.IsEnabled)
+                .All(t => evaluated.TryGetValue(t.Id, out var ok) && ok);
+
+            _logger.LogInformation("Result: {Result}", isMet);
+        }
+        else
+        {
+            isMet = ExpressionFactories.EvaluateExpressionNotation(conditional, ref evaluated);
+            _logger.LogInformation("Result: {Result}", isMet);
         }
 
-        foreach (var trigger in automation.TriggerCondition.Triggers)
+        if (!isMet)
+        {
+            return AutomationResult.NotMet();
+        }
+
+        var trimmed = TrimTaskParameters(automation.TaskParameters.Keys, mergedParameters);
+        return AutomationResult.Met(trimmed);
+    }
+
+    public AutomationResult Execute<T>(Automation<T> automation)
+            => Execute(automation, runParams: null);
+
+    /// <summary>
+    /// Evaluates triggers, writes per-trigger scalars, and merges parameters from passing triggers.
+    /// When shortCircuitOnFirstFailure is true, stops at the first failing trigger.
+    /// Returns the pass/fail map and the merged parameters at the time evaluation ended.
+    /// </summary>
+    private (Dictionary<string, bool> evaluated, Dictionary<string, string> mergedParameters) EvaluateTriggers(string automationId, string hostGroup, IList<ITrigger> triggers, Dictionary<string, string> baseParameters, bool shortCircuitOnFirstFailure, IDictionary<string, string> runParams)
+    {
+        var evaluated = new Dictionary<string, bool>();
+        var parameters = new Dictionary<string, string>(baseParameters);
+
+        var scheduledOverlayKeys = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
+        {
+            "utcNow", "utcPrev", "toleranceSeconds"
+        };
+
+        foreach (var trigger in triggers)
         {
             _logger.LogDebug("Evaluating trigger {TriggerId}", trigger.Id);
+
             if (!trigger.IsEnabled)
             {
                 _logger.LogInformation("Skipped: Trigger {TriggerId} is disabled", trigger.Id);
                 continue;
             }
 
-            var triggerResult = trigger.Execute(_logger, parameters);
+            var executionParameters = BuildExecutionParameters(parameters, trigger);
+
+            if (runParams is not null && (trigger is ScheduledTrigger ||
+                    trigger.Type == typeof(ScheduledTrigger)))
+            {
+                foreach (var k in scheduledOverlayKeys)
+                {
+                    if (runParams.TryGetValue(k, out var v) && v is not null)
+                    {
+                        executionParameters[k] = v;
+                    }
+                }
+            }
+
+            var triggerResult = trigger.Execute(_logger, executionParameters);
+
+            WriteTriggerResultScalar(automationId, triggerResult.IsMet, hostGroup, trigger.Id);
 
             if (!triggerResult.IsMet)
             {
-                WriteTriggerResultScalar(automation.Id, false, trigger.Id);
                 _logger.LogInformation("Failed: Trigger {TriggerId} is not met", trigger.Id);
-                evaluatedItems[trigger.Id] = false;
+                evaluated[trigger.Id] = false;
+
+                if (shortCircuitOnFirstFailure)
+                {
+                    return (evaluated, parameters);
+                }
+
                 continue;
             }
 
             _logger.LogInformation("Passed: Trigger {TriggerId} is met", trigger.Id);
-            _logger.LogDebug("Writing Scalar for {TriggerId}", trigger.Id);
+            evaluated[trigger.Id] = true;
 
-            WriteTriggerResultScalar(automation.Id, true, trigger.Id);
-            evaluatedItems[trigger.Id] = true;
-
-            foreach (var parameter in triggerResult.TaskParameters)
+            foreach (var kv in triggerResult.TaskParameters)
             {
-                parameters[parameter.Key] = parameter.Value;
+                parameters[kv.Key] = kv.Value;
             }
         }
 
-        var result = ExpressionFactories.EvaluateExpressionNotation(automation.TriggerCondition.Conditional, ref evaluatedItems);
-        _logger.LogInformation("Result: {Result}", result);
-        if (result)
-        {
-            // trimmed the combined parameters (incl. dynamically generated in trigger) to match the original task parameters
-            // as a workflow task with additional parameters will be treated as an errorous submission when submitted to
-            // web api.
-            var trimmed = TrimTaskParameters(automation.TaskParameters.Keys, parameters);
-            return AutomationResult.Met(trimmed);
-        }
-
-        return AutomationResult.NotMet();
+        return (evaluated, parameters);
     }
 
-    private IDictionary<string, string> TrimTaskParameters(Dictionary<string, string>.KeyCollection neededKeys, IDictionary<string, string> taskParameters)
+    /// <summary>
+    /// Builds the effective parameter set used to execute a trigger by layering `Extra` (if present) on top of the current parameters.
+    /// Properly converts JsonElement values to strings.
+    /// </summary>
+    private Dictionary<string, string> BuildExecutionParameters(
+        Dictionary<string, string> currentParameters,
+        ITrigger trigger)
     {
-        return neededKeys.ToDictionary(k => k, k => taskParameters[k]);
+        var executionParameters = new Dictionary<string, string>(currentParameters);
+
+        if (trigger is BaseTrigger baseTrigger && baseTrigger.Extra is not null)
+        {
+            foreach (var kvp in baseTrigger.Extra)
+            {
+                try
+                {
+                    string valueString = kvp.Value.ValueKind switch
+                    {
+                        JsonValueKind.String => kvp.Value.GetString(),
+                        JsonValueKind.Number => kvp.Value.ToString(),
+                        JsonValueKind.True => "true",
+                        JsonValueKind.False => "false",
+                        JsonValueKind.Null => null,
+                        _ => kvp.Value.ToString()
+                    };
+
+                    if (valueString != null)
+                    {
+                        executionParameters[kvp.Key] = valueString;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogWarning(ex, "Failed to parse Extra field {FieldKey} on trigger {TriggerId}", kvp.Key, trigger.Id);
+                }
+            }
+        }
+
+        return executionParameters;
     }
 
-    private AutomationResult ExecuteConditional<T>(Automation<T> automation)
+    /// <summary>
+    /// Safely trims to only the keys present in neededKeys (skips missing keys rather than throwing).
+    /// </summary>
+    private Dictionary<string, string> TrimTaskParameters(
+        Dictionary<string, string>.KeyCollection neededKeys,
+        Dictionary<string, string> taskParameters)
     {
-        _logger.LogDebug("Executing conditional for automation {AutomationId}", automation.Id);
-        if (automation.TriggerCondition.Triggers.Count == 0)
+        var trimmed = new Dictionary<string, string>();
+        foreach (var key in neededKeys)
         {
-            WriteTriggerResultScalar(automation.Id, false);
-            _logger.LogInformation("Conditional Failed: No triggers defined; exiting early");
-            return AutomationResult.NotMet();
-        }
-
-        var parameters = automation?.Parameters?.ToDictionary(k => k.Key, v => v.Value) ?? new Dictionary<string, string>(); //copy
-        foreach (var parameter in automation.TaskParameters)
-        {
-            parameters[parameter.Key] = parameter.Value;
-        }
-
-        foreach (var trigger in automation.TriggerCondition.Triggers)
-        {
-            _logger.LogDebug("Evaluating trigger {TriggerId}", trigger.Id);
-            if (!trigger.IsEnabled)
+            if (taskParameters.TryGetValue(key, out var value))
             {
-                _logger.LogInformation("Conditional Skipped: Trigger {TriggerId} is disabled", trigger.Id);
-                continue;
+                trimmed[key] = value;
             }
-
-            var triggerResult = trigger.Execute(_logger, parameters);
-            if (!triggerResult.IsMet)
+            else
             {
-                WriteTriggerResultScalar(automation.Id, false, trigger.Id);
-                _logger.LogInformation("Conditional Failed: Trigger {TriggerId} is not met", trigger.Id);
-                return AutomationResult.NotMet();
+                _logger.LogDebug("TrimTaskParameters: missing key '{Key}' in merged parameters; skipping.", key);
             }
-
-            foreach (var parameter in triggerResult.TaskParameters)
-            {
-                parameters[parameter.Key] = parameter.Value;
-            }
-
-            _logger.LogInformation("Conditional Passed: Trigger {TriggerId} is met", trigger.Id);
-            WriteTriggerResultScalar(automation.Id, true, trigger.Id);
         }
-
-        _logger.LogInformation("Conditional Passed: All triggers are met");
-        return AutomationResult.Met(parameters);
+        return trimmed;
     }
 
-    private void WriteTriggerResultScalar(string automationId, bool isMet, string triggerId = null)
+    private void WriteTriggerResultScalar(string automationId, bool isMet, string hostGroup, string triggerId = null)
     {
-        var scalarGroup = $"{_rootGroup}/{automationId}";
+        string hostGroupOrEmpty = string.IsNullOrEmpty(hostGroup) ? "Empty" : hostGroup;
+        var scalarGroup = $"{_rootGroup}/{automationId}/{hostGroupOrEmpty}";
         if (!string.IsNullOrEmpty(triggerId))
         {
             scalarGroup += $"/{triggerId}";

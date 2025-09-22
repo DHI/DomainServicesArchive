@@ -8,6 +8,7 @@
     using System.Net.Http;
     using System.Text.Json;
     using System.Threading.Tasks;
+    using DHI.Services.TimeSeries.Converters;
     using Microsoft.AspNetCore.Http;
     using Xunit;
 
@@ -746,6 +747,30 @@
             Assert.Equal(new DateTime(2015, 11, 1), DateTime.Parse(dataPoints[0][0].ToString(), CultureInfo.InvariantCulture));
             Assert.Equal(3.565, double.Parse(dataPoints[0][1].ToString(), CultureInfo.InvariantCulture), 3);
         }
+
+        [Fact]
+        public async Task GetStandardDeviationByPeriodWritesNullInsteadOfNaNWhenEnabled()
+        {
+            CustomSerializationSettings.UseNullForNaN = true;
+            try
+            {
+                var response = await _client.GetAsync($"api/timeseries/{_connectionId}/timeseries.csv;item1/standarddeviation/period/hourly");
+                var json = await response.Content.ReadAsStringAsync();
+
+                // Act
+                var dataPoints = JsonSerializer.Deserialize<object[][]>(json, _options);
+
+                // Assert
+                Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+                Assert.Equal(new DateTime(2015, 11, 9, 10, 0, 0), DateTime.Parse(dataPoints[0][0].ToString(), CultureInfo.InvariantCulture));
+                Assert.Null(dataPoints[0][1]);
+            }
+            finally
+            {
+                CustomSerializationSettings.UseNullForNaN = false;
+            }
+        }
+
 
         [Fact]
         public async Task GetStandardDeviationForManyIsOk()

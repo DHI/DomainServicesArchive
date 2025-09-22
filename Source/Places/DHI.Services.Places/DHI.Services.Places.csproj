@@ -1,13 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net472</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net472;net8.0</TargetFrameworks>
     <Nullable>enable</Nullable>
     <DefaultItemExcludes>$(DefaultItemExcludes);nuget\*.nupkg;nuget\*.log</DefaultItemExcludes>
     <NoWarn>1701;1702;1591</NoWarn>
     <PackageId>DHI.Services.Places</PackageId>
-    <Version>4.2.0</Version>
-    <PackageReleaseNotes>Updated DHI.Services.GIS to v12.1.0</PackageReleaseNotes>
+    <Version>4.4.0</Version>
+    <PackageReleaseNotes>Upgrade TimeSeries Package</PackageReleaseNotes>
     <Company>DHI</Company>
     <Authors>dhigroup</Authors>
     <PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
@@ -30,11 +30,11 @@
     <Compile Remove="Converters\PlaceDictionaryConverter.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="DHI.Services" Version="15.1.0" />
-    <PackageReference Include="DHI.Services.GIS" Version="12.1.0" />
-    <PackageReference Include="DHI.Services.Scalars" Version="5.0.0" />
-    <PackageReference Include="DHI.Services.TimeSeries" Version="6.0.2" />
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0">
+    <PackageReference Include="DHI.Services" Version="16.1.0" />
+    <PackageReference Include="DHI.Services.GIS" Version="12.2.1" />
+    <PackageReference Include="DHI.Services.Scalars" Version="5.2.1" />
+    <PackageReference Include="DHI.Services.TimeSeries" Version="7.1.1" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>

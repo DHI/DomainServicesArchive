@@ -2,7 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.IdentityModel.Tokens.Jwt;
     using System.IO;
     using System.Net.Http;
     using System.Net.Http.Headers;
@@ -13,7 +12,10 @@
     using Microsoft.AspNetCore.Mvc.Testing;
     using Microsoft.Extensions.Configuration;
     using Microsoft.IdentityModel.Tokens;
+    using System.IdentityModel.Tokens.Jwt;
     using WebApiCore;
+    using System.Security.Cryptography;
+    using System.Text;
 
     public class ControllersFixture : WebApplicationFactory<Program>
     {
@@ -26,7 +28,6 @@
             _tempContentRootPath = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString());
             _tempAppDataPath = Path.Combine(_tempContentRootPath, "App_Data");
             Directory.CreateDirectory(_tempAppDataPath);
-            _CopyToTempAppDataPath("connections.json");
             _CopyToTempAppDataPath("places.json");
             _CopyToTempAppDataPath("timeseries.csv");
             _CopyToTempAppDataPath("SwaggerInfo.md");
@@ -61,23 +62,52 @@
 
         private static string _GetJWT()
         {
-            var claims = new List<Claim>
+            var config = new ConfigurationBuilder()
+                .AddJsonFile("appsettings-test.json")
+                .Build();
+            var issuer = config["Tokens:Issuer"];
+            var audience = config["Tokens:Audience"];
+            var rsaKey = WebApiCore.RSA.BuildSigningKey(config["Tokens:PrivateRSAKey"].Resolve());
+            var rsa = rsaKey.Rsa;
+
+            var header = new Dictionary<string, object>
             {
-                new Claim(JwtRegisteredClaimNames.Sub, "john.doe"),
-                new Claim(ClaimTypes.Name, "john.doe"),
-                new Claim(ClaimTypes.GroupSid, "Administrators"),
-                new Claim(ClaimTypes.GroupSid, "Editors")
+                ["alg"] = SecurityAlgorithms.RsaSha256,
+                ["typ"] = "JWT"
             };
 
-            var config = new ConfigurationBuilder().AddJsonFile("appsettings-test.json").Build();
-            var key = RSA.BuildSigningKey(config["Tokens:PrivateRSAKey"].Resolve());
-            var token = new JwtSecurityToken(
-                config["Tokens:Issuer"],
-                config["Tokens:Audience"],
-                claims,
-                expires: DateTime.Now.AddMinutes(5),
-                signingCredentials: new SigningCredentials(key, SecurityAlgorithms.RsaSha256Signature, SecurityAlgorithms.Sha256Digest));
-            return new JwtSecurityTokenHandler().WriteToken(token);
+            var now = DateTimeOffset.UtcNow;
+            var payload = new Dictionary<string, object>
+            {
+                ["iss"] = issuer,
+                ["aud"] = audience,
+                ["sub"] = "john.doe",
+                ["name"] = "john.doe",
+                ["http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid"]
+                         = new[] { "Administrators", "Editors" },
+                ["nbf"] = now.ToUnixTimeSeconds(),
+                ["exp"] = now.AddMinutes(5).ToUnixTimeSeconds()
+            };
+
+            static string ToBase64Url(object obj)
+            {
+                var json = JsonSerializer.Serialize(obj);
+                var utf8Bytes = Encoding.UTF8.GetBytes(json);
+                return Base64UrlEncoder.Encode(utf8Bytes);
+            }
+
+            var encodedHeader = ToBase64Url(header);
+            var encodedPayload = ToBase64Url(payload);
+            var signingInput = $"{encodedHeader}.{encodedPayload}";
+
+            var signatureBytes = rsa.SignData(
+                Encoding.UTF8.GetBytes(signingInput),
+                HashAlgorithmName.SHA256,
+                RSASignaturePadding.Pkcs1
+            );
+            var encodedSignature = Base64UrlEncoder.Encode(signatureBytes);
+
+            return $"{signingInput}.{encodedSignature}";
         }
 
         private void _CopyToTempAppDataPath(string sourceFileName, string sourceDir = AppDataPath)

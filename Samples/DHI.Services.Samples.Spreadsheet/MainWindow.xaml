@@ -1,0 +1,165 @@
+﻿<Window x:Class="DHI.Services.Samples.Spreadsheet.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:DHI.Services.Samples.Spreadsheet.ViewModels"
+        xmlns:helpers="clr-namespace:DHI.Services.Samples.Spreadsheet.Helpers"
+        mc:Ignorable="d"
+        Title="Spreadsheets Playground"
+        Height="800" Width="1200"
+        WindowStartupLocation="CenterScreen"
+        MinHeight="680" MinWidth="1020">
+
+    <Window.Resources>
+        <helpers:BoolToVisibilityConverter x:Key="BoolToVisibility"/>
+    </Window.Resources>
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Connection -->
+        <GroupBox Header="Connection" Grid.Row="0" Margin="0,0,0,10">
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <!-- repo label -->
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="350"/>
+                    <!-- repo combo -->
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <!-- path label -->
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="*"/>
+                    <!-- path textbox -->
+                    <ColumnDefinition Width="6"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <!-- browse folder -->
+                    <ColumnDefinition Width="6"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <!-- browse file -->
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <!-- refresh/connect -->
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="Repository type:" VerticalAlignment="Center"/>
+                <ComboBox Grid.Column="2" Width="350"
+                  ItemsSource="{Binding RepositoryTypes}"
+                  SelectedItem="{Binding SelectedRepositoryType}"
+                  DisplayMemberPath="DisplayName"/>
+
+                <TextBlock Grid.Column="4" Text="Root folder or .xlsx:" VerticalAlignment="Center"/>
+                <TextBox Grid.Column="6" Text="{Binding ConnectionString}" 
+                 ToolTip="e.g. .\App_Data\Spreadsheets  OR  C:\data\foo.xlsx"/>
+
+                <Button Grid.Column="8" Content="Browse folder..." Command="{Binding BrowseFolderCommand}" Padding="10,4"/>
+                <Button Grid.Column="10" Content="Browse file..." Command="{Binding BrowseFileCommand}" Padding="10,4"/>
+
+                <StackPanel Grid.Column="12" Orientation="Horizontal">
+                    <Button Content="Refresh" Command="{Binding RefreshTypesCommand}" Margin="0,0,8,0" Padding="12,6"/>
+                    <Button Content="Connect" Command="{Binding ConnectCommand}" Padding="12,6"/>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+
+
+        <!-- Body -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="7*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Left: spreadsheets & selection -->
+            <Border Grid.Column="0" BorderBrush="#ddd" BorderThickness="1" CornerRadius="3" Margin="0,0,10,0">
+                <StackPanel Margin="10">
+                    <TextBlock Text="Spreadsheets" FontWeight="SemiBold" Margin="0,0,0,6"/>
+                    <ListBox ItemsSource="{Binding Spreadsheets}"
+                             SelectedItem="{Binding SelectedSpreadsheet}"
+                             DisplayMemberPath="DisplayName"
+                             Height="240"/>
+                    <Separator Margin="0,10,0,10"/>
+
+                    <StackPanel>
+                        <TextBlock Text="Sheet" Margin="0,0,0,6"/>
+                        <ComboBox ItemsSource="{Binding SheetNames}"
+                                  SelectedItem="{Binding SelectedSheetName}"/>
+                    </StackPanel>
+
+                    <Separator Margin="0,10,0,10"/>
+
+                    <TextBlock Text="Named ranges (from workbook)" Margin="0,0,0,6"/>
+                    <ListBox ItemsSource="{Binding DefinedNames}" Height="120"/>
+                </StackPanel>
+            </Border>
+
+            <!-- Right: Actions & Results -->
+            <Border Grid.Column="1" BorderBrush="#ddd" BorderThickness="1" CornerRadius="3">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel Margin="10">
+
+                        <TextBlock Text="Actions" FontWeight="SemiBold"/>
+
+                        <WrapPanel Margin="0,8,0,0">
+                            <Button Content="Load Used Range" Command="{Binding LoadUsedRangeCommand}" Padding="10,4"/>
+                        </WrapPanel>
+
+                        <StackPanel Margin="0,8,0,0">
+                            <TextBlock Text="Named Range:"/>
+                            <WrapPanel>
+                                <TextBox Width="220" Text="{Binding NamedRange}"/>
+                                <Button Content="Load Named Range" Command="{Binding LoadNamedRangeCommand}" Margin="8,0,0,0" Padding="10,4"/>
+                            </WrapPanel>
+                        </StackPanel>
+
+                        <StackPanel Margin="0,8,0,0">
+                            <TextBlock Text="Cell (1-based):"/>
+                            <WrapPanel>
+                                <TextBlock Text="Row:" VerticalAlignment="Center" Margin="0,0,6,0"/>
+                                <TextBox Width="80" Text="{Binding CellRow}"/>
+                                <TextBlock Text="Col:" VerticalAlignment="Center" Margin="12,0,6,0"/>
+                                <TextBox Width="80" Text="{Binding CellCol}"/>
+                                <Button Content="Get Cell Value" Command="{Binding GetCellValueCommand}" Margin="12,0,0,0" Padding="10,4"/>
+                            </WrapPanel>
+                            <TextBlock Text="{Binding CellValueText}" Margin="0,6,0,0"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="0,8,0,0">
+                            <TextBlock Text="Range (1-based): UpperLeft &amp; LowerRight"/>
+                            <WrapPanel>
+                                <TextBlock Text="UL Row:" VerticalAlignment="Center" Margin="0,0,6,0"/>
+                                <TextBox Width="60" Text="{Binding ULRow}"/>
+                                <TextBlock Text="UL Col:" VerticalAlignment="Center" Margin="6,0,6,0"/>
+                                <TextBox Width="60" Text="{Binding ULCol}"/>
+                                <TextBlock Text="LR Row:" VerticalAlignment="Center" Margin="12,0,6,0"/>
+                                <TextBox Width="60" Text="{Binding LRRow}"/>
+                                <TextBlock Text="LR Col:" VerticalAlignment="Center" Margin="6,0,6,0"/>
+                                <TextBox Width="60" Text="{Binding LRCol}"/>
+                                <Button Content="Get Range" Command="{Binding GetRangeCommand}" Margin="12,0,0,0" Padding="10,4"/>
+                            </WrapPanel>
+                        </StackPanel>
+
+                        <Separator Margin="0,8,0,8"/>
+
+                        <TextBlock Text="Values" FontWeight="SemiBold"/>
+                        <DataGrid ItemsSource="{Binding ValuesView}" AutoGenerateColumns="True" CanUserAddRows="False" Height="240" Margin="0,4,0,0"/>
+
+                        <TextBlock Text="Formats (UsedRange only)" FontWeight="SemiBold" Margin="0,8,0,0"/>
+                        <DataGrid ItemsSource="{Binding FormatsView}" AutoGenerateColumns="True" CanUserAddRows="False" Height="160" Margin="0,4,0,0"/>
+
+                    </StackPanel>
+                </ScrollViewer>
+            </Border>
+        </Grid>
+
+        <TextBlock Grid.Row="2" Text="{Binding ErrorText}" Foreground="#c0392b"
+                   Visibility="{Binding HasError, Converter={StaticResource BoolToVisibility}}"
+                   Margin="0,8,0,0"/>
+    </Grid>
+</Window>

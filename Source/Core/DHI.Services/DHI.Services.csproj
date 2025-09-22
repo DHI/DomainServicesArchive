@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFrameworks>netstandard2.0;net472</TargetFrameworks>
+        <TargetFrameworks>netstandard2.0;net472;net8.0</TargetFrameworks>
         <DefaultItemExcludes>$(DefaultItemExcludes);nuget\*.log</DefaultItemExcludes>
         <NoWarn>1701;1702;1591</NoWarn>
         <PackageId>DHI.Services</PackageId>
-        <Version>15.1.0</Version>
-        <PackageReleaseNotes>System.Text.Json Vurnerability Version Update, Auth updates, Microsoft ILogger support</PackageReleaseNotes>
+        <Version>16.1.0</Version>
+        <PackageReleaseNotes>Adding ToList() when Deserialize to fix possible runtime exceptions when entities is being modified during iteration; Use private CTOR for JsonConstructor inside NotificationEntry</PackageReleaseNotes>
         <Company>DHI</Company>
         <Authors>dhigroup</Authors>
         <PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>

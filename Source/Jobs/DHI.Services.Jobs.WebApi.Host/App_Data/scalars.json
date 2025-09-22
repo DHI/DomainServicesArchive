@@ -1,0 +1,93 @@
+{
+  "$type": "System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.Collections.Generic.IDictionary`2[[System.String, mscorlib],[DHI.Services.Scalars.Scalar`2[[System.String, mscorlib],[System.Int32, mscorlib]], DHI.Services.Scalars.Scalar`2]], mscorlib]], mscorlib",
+  "Workflow/DS-DEV1": {
+    "$type": "System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[DHI.Services.Scalars.Scalar`2[[System.String, mscorlib],[System.Int32, mscorlib]], DHI.Services.Scalars.Scalar`2]], mscorlib",
+    "Process Count": {
+      "$type": "DHI.Services.Scalars.Scalar`2[[System.String, mscorlib],[System.Int32, mscorlib]], DHI.Services.Scalars",
+      "Id": "Workflow/DS-DEV1/Process Count",
+      "Name": "Process Count",
+      "FullName": "Workflow/DS-DEV1/Process Count",
+      "Group": "Workflow/DS-DEV1",
+      "ValueTypeName": "System.Int32",
+      "Description": "string",
+      "Locked": true,
+      "_data": {
+        "Value": 0,
+        "Flag": 0,
+        "DateTime": "2025-07-31T04:56:44.473Z"
+      }
+    }
+  },
+  "Job Automator/MININT-92Q4KT1/my-group-1/my-automation/bluecastTriggerCon/Minion": {
+    "$type": "System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[DHI.Services.Scalars.Scalar`2[[System.String, mscorlib],[System.Int32, mscorlib]], DHI.Services.Scalars.Scalar`2]], mscorlib",
+    "Is Met": {
+      "$type": "DHI.Services.Scalars.Scalar`2[[System.String, mscorlib],[System.Int32, mscorlib]], DHI.Services.Scalars",
+      "Id": "Job Automator/MININT-92Q4KT1/my-group-1/my-automation/bluecastTriggerCon/Is Met",
+      "Name": "Is Met",
+      "FullName": "Job Automator/MININT-92Q4KT1/my-group-1/my-automation/bluecastTriggerCon/Minion/Is Met",
+      "Group": "Job Automator/MININT-92Q4KT1/my-group-1/my-automation/bluecastTriggerCon/Minion",
+      "ValueTypeName": "System.Boolean",
+      "Description": "string",
+      "Locked": true,
+      "_data": {
+        "Value": true,
+        "Flag": 0,
+        "DateTime": "2025-07-31T04:56:44.473Z"
+      }
+    }
+  },
+  "Job Automator/MININT-92Q4KT1/my-group-1/my-automation/Minion": {
+    "$type": "System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[DHI.Services.Scalars.Scalar`2[[System.String, mscorlib],[System.Int32, mscorlib]], DHI.Services.Scalars.Scalar`2]], mscorlib",
+    "Last Job Id": {
+      "$type": "DHI.Services.Scalars.Scalar`2[[System.String, mscorlib],[System.Int32, mscorlib]], DHI.Services.Scalars",
+      "Id": "Job Automator/MININT-92Q4KT1/my-group-1/my-automation/Minion/Last Job Id",
+      "Name": "Last Job Id",
+      "FullName": "Job Automator/MININT-92Q4KT1/my-group-1/my-automation/Minion/Last Job Id",
+      "Group": "Job Automator/MININT-92Q4KT1/my-group-1/my-automation/Minion",
+      "ValueTypeName": "System.String",
+      "Description": "string",
+      "Locked": false,
+      "_data": {
+        "Value": "87a4ec9a-ebf9-49c8-a2a9-d7782668c038",
+        "Flag": 0,
+        "DateTime": "2025-07-31T04:56:44.473Z"
+      }
+    }
+  },
+  "Job Automator/MININT-92Q4KT1/my-group-2/my-automation/bluecastTriggerCon/Titan": {
+    "$type": "System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[DHI.Services.Scalars.Scalar`2[[System.String, mscorlib],[System.Int32, mscorlib]], DHI.Services.Scalars.Scalar`2]], mscorlib",
+    "Is Met": {
+      "$type": "DHI.Services.Scalars.Scalar`2[[System.String, mscorlib],[System.Int32, mscorlib]], DHI.Services.Scalars",
+      "Id": "Job Automator/MININT-92Q4KT1/my-group-2/my-automation/bluecastTriggerCon/Titan/Is Met",
+      "Name": "Is Met",
+      "FullName": "Job Automator/MININT-92Q4KT1/my-group-2/my-automation/bluecastTriggerCon/Titan/Is Met",
+      "Group": "Job Automator/MININT-92Q4KT1/my-group-2/my-automation/bluecastTriggerCon/Titan",
+      "ValueTypeName": "System.Boolean",
+      "Description": "string",
+      "Locked": true,
+      "_data": {
+        "Value": true,
+        "Flag": 0,
+        "DateTime": "2025-07-31T04:56:44.473Z"
+      }
+    }
+  },
+  "Job Automator/MININT-92Q4KT1/my-group-2/my-automation/Titan": {
+    "$type": "System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[DHI.Services.Scalars.Scalar`2[[System.String, mscorlib],[System.Int32, mscorlib]], DHI.Services.Scalars.Scalar`2]], mscorlib",
+    "Last Job Id": {
+      "$type": "DHI.Services.Scalars.Scalar`2[[System.String, mscorlib],[System.Int32, mscorlib]], DHI.Services.Scalars",
+      "Id": "Job Automator/MININT-92Q4KT1/my-group-2/my-automation/Titan/Last Job Id",
+      "Name": "Last Job Id",
+      "FullName": "Job Automator/MININT-92Q4KT1/my-group-2/my-automation/Titan/Last Job Id",
+      "Group": "Job Automator/MININT-92Q4KT1/my-group-2/my-automation/Titan",
+      "ValueTypeName": "System.String",
+      "Description": "string",
+      "Locked": false,
+      "_data": {
+        "Value": "6f8b6ef1-5ae3-4697-9a6a-16cd15aa622f",
+        "Flag": 0,
+        "DateTime": "2025-07-31T04:56:44.473Z"
+      }
+    }
+  }
+}

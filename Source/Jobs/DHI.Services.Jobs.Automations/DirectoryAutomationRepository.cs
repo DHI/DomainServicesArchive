@@ -2,9 +2,11 @@
 
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Security.Claims;
+using System.Text.Encodings.Web;
 using System.Text.Json;
 
 /// <summary>
@@ -15,6 +17,8 @@ public class DirectoryAutomationRepository<TTaskId> : IAutomationRepository<TTas
 {
     private readonly DirectoryInfo _directoryPath;
     private readonly JsonSerializerOptions _jsonSerializerOptions;
+    private readonly string _versionFilePath;
+    private static readonly object _versionLock = new();
 
     /// <summary>
     /// Creates a new instance of <see cref="DirectoryAutomationRepository{TTaskId}"/>.
@@ -42,9 +46,12 @@ public class DirectoryAutomationRepository<TTaskId> : IAutomationRepository<TTas
 
         _jsonSerializerOptions = new JsonSerializerOptions(JsonSerializerDefaults.General)
         {
+            Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
             WriteIndented = true
         };
         Array.ForEach(AutomationRepositoryConverters.All.ToArray(), rc => _jsonSerializerOptions.Converters.Add(rc));
+
+        _versionFilePath = Path.Combine(_directoryPath.FullName, "version.txt");
     }
 
     /// <inheritdoc cref="IRepository{TEntity,TEntityId}.Get"/>>
@@ -125,6 +132,8 @@ public class DirectoryAutomationRepository<TTaskId> : IAutomationRepository<TTas
         {
             throw new InvalidOperationException($"Failed to write the automation '{id}' to the file system.");
         }
+
+        TouchVersion();
     }
 
     /// <inheritdoc cref="IUpdatableRepository{TEntity,TEntityId}.Remove">></inheritdoc>
@@ -141,6 +150,7 @@ public class DirectoryAutomationRepository<TTaskId> : IAutomationRepository<TTas
         if (file.Exists)
         {
             file.Delete();
+            TouchVersion();
         }
     }
 
@@ -222,6 +232,35 @@ public class DirectoryAutomationRepository<TTaskId> : IAutomationRepository<TTas
             .Where(a => a != null);
     }
 
+    public DateTime GetVersionTimestamp()
+    {
+        lock (_versionLock)
+        {
+            if (!File.Exists(_versionFilePath))
+            {
+                var now = DateTime.UtcNow;
+                File.WriteAllText(_versionFilePath, now.ToString("O"));
+                return now;
+            }
+
+            var text = File.ReadAllText(_versionFilePath);
+            return DateTime.TryParseExact(text, "O", CultureInfo.InvariantCulture,
+                                          DateTimeStyles.AssumeUniversal, out var ts)
+                   ? ts.ToUniversalTime()
+                   : DateTime.MinValue;
+        }
+    }
+
+    public DateTime TouchVersion()
+    {
+        lock (_versionLock)
+        {
+            var now = DateTime.UtcNow;
+            File.WriteAllText(_versionFilePath, now.ToString("O"));
+            return now;
+        }
+    }
+
     private bool TryReadJson(string filePath, out Automation<TTaskId> automation)
     {
         var contents = File.ReadAllText(filePath);
@@ -273,7 +312,7 @@ public class DirectoryAutomationRepository<TTaskId> : IAutomationRepository<TTas
     }
 }
 
-public class DirectoryAutomationRepository : DirectoryAutomationRepository<string>
+public class DirectoryAutomationRepository : DirectoryAutomationRepository<string>, IAutomationRepository
 {
     public DirectoryAutomationRepository(string filePath) : base(filePath)
     {

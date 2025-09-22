@@ -1,0 +1,29 @@
+{
+  "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[DHI.Services.Models.Scenario, DHI.Services.Models]], System.Private.CoreLib",
+  "scenario1": {
+    "$type": "DHI.Services.Models.Scenario, DHI.Services.Models",
+    "ModelDataReaderId": "fakeReader",
+    "ParameterValues": {
+      "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.Object, System.Private.CoreLib]], System.Private.CoreLib",
+      "foo": 123,
+      "bar": false,
+      "baz": [
+        "foo",
+        "bar",
+        "baz"
+      ],
+      "qux": {
+        "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.Int32, System.Private.CoreLib]], System.Private.CoreLib",
+        "james": 1234,
+        "joe": 5678,
+        "jess": 9876
+      }
+    },
+    "InputTimeSeriesValues": {
+      "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+      "ts1-in": "myTimeSeriesId"
+    },
+    "Name": "Scenario 1",
+    "Id": "scenario1"
+  }
+}

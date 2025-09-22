@@ -4,7 +4,9 @@
     using System.Collections.Generic;
     using System.IO;
     using System.Security.Claims;
-    using Connections.WebApi;
+    using DHI.Services.Rasters.Radar;
+    using DHI.Services.Rasters.Radar.DELIMITEDASCII;
+    using DHI.Services.Rasters.Radar.X00;
     using Microsoft.AspNetCore.Authentication.JwtBearer;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
@@ -18,7 +20,6 @@
     using Swashbuckle.AspNetCore.SwaggerUI;
     using WebApiCore;
     using Zones;
-    using ConnectionRepository = Connections.WebApi.ConnectionRepository;
     using ZoneRepository = Rasters.WebApi.ZoneRepository;
 
     public class Startup
@@ -102,7 +103,7 @@
 
                 setupAction.EnableAnnotations();
                 setupAction.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "DHI.Services.Rasters.WebApi.xml"));
-                setupAction.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "DHI.Services.Connections.WebApi.xml"));
+                //setupAction.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "DHI.Services.Connections.WebApi.xml"));
                 setupAction.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
                     Description = "Enter the word 'Bearer' followed by a space and the JWT.",
@@ -133,7 +134,7 @@
             });
 
             // DHI Domain Services
-            services.AddScoped(_ => new ConnectionTypeService(AppContext.BaseDirectory));
+            //services.AddScoped(_ => new ConnectionTypeService(AppContext.BaseDirectory));
             services.AddScoped<IZoneRepository>(provider => new ZoneRepository("zones.json"));
 
         }
@@ -172,8 +173,16 @@
             AppDomain.CurrentDomain.SetData("DataDirectory", Path.Combine(contentRootPath, "App_Data"));
 
             // Custom services
-            var lazyCreation = Configuration.GetValue("AppConfiguration:LazyCreation", true);
-            Services.Configure(new ConnectionRepository("connections.json"), lazyCreation);
+            //var lazyCreation = Configuration.GetValue("AppConfiguration:LazyCreation", true);
+            //Services.Configure(new ConnectionRepository("connections.json"), lazyCreation);
+
+            ServiceLocator.Register(
+                new RadarImageService<AsciiImage>(
+                    new DelimitedAsciiRepository(
+                        "[AppData]RadarImages;PM_{datetimeFormat}.txt;yyyyMMddHH_$$$".Resolve()
+                    )),
+                "ascii"
+                );
 
         }
     }

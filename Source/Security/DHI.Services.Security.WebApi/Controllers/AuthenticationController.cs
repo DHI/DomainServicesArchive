@@ -39,9 +39,9 @@
         private readonly UserGroupService _userGroupService;
         private readonly PasswordHistoryService _passwordHistoryService;
         private readonly PasswordExpirationPolicy _passwordExpirationPolicy;
+        private readonly IClaimsSet _claimsSet;
 
-
-        public AuthenticationController(
+		public AuthenticationController(
             IConfiguration configuration,
             IUserGroupRepository userGroupRepository,
             IRefreshTokenRepository refreshTokenRepository,
@@ -51,7 +51,8 @@
             PasswordExpirationPolicy passwordExpirationPolicy = null,
             OtpService otpService = null,
             ILogger logger = null,
-            LoginAttemptPolicy loginAttemptPolicy = null)
+            LoginAttemptPolicy loginAttemptPolicy = null,
+            IClaimsSet claimsSet = null)
         {
             _configuration = configuration;
             _userGroupService = new UserGroupService(userGroupRepository);
@@ -65,7 +66,8 @@
                 new AuthenticationService(authenticationProvider) :
                 new AuthenticationService(authenticationProvider, _loginAttemptPolicy);
             _otpService = otpService;
-        }
+			_claimsSet = claimsSet ?? new ClaimsSet(_userGroupService);
+		}
 
         /// <summary>
         ///     Creates a JWT authorization token.
@@ -160,7 +162,7 @@
                 }
             }
 
-            var claims = GetClaims(account);
+            var claims = _claimsSet.GetClaims(account);
             var (accessToken, accessTokenExpiration) = GenerateAccessToken(claims);
             var expirationTimeSpan = TimeSpan.FromDays(_configuration.GetValue("Tokens:RefreshExpirationInDays", 365));
             var refreshToken = _refreshTokenService.CreateRefreshToken(account.Id, expirationTimeSpan, clientIp);
@@ -197,8 +199,8 @@
                 return BadRequest("Account is disabled.");
             }
 
-            var claims = GetClaims(account);
-            var (newAccessToken, newAccessTokenExpiration) = GenerateAccessToken(claims);
+            var claims = _claimsSet.GetClaims(account);
+			var (newAccessToken, newAccessTokenExpiration) = GenerateAccessToken(claims);
             var newRefreshToken = _refreshTokenService.ExchangeRefreshToken(token, refreshToken.AccountId, expirationTimeSpan, clientIp);
             return Ok(
                 new
@@ -353,31 +355,7 @@
             return remoteIp;
         }
 
-        private IEnumerable<Claim> GetClaims(Account account)
-        {
-            var claims = new List<Claim>
-            {
-                new(JwtRegisteredClaimNames.Sub, account.Id),
-                new(ClaimTypes.Name, account.Name)
-            };
-
-            if (!string.IsNullOrEmpty(account.Email))
-            {
-                claims.Add(new Claim(JwtRegisteredClaimNames.Email, account.Email));
-            }
-
-            if (!string.IsNullOrEmpty(account.Company))
-            {
-                claims.Add(new Claim("company", account.Company));
-            }
-
-            claims.AddRange(account.Metadata.Select(kvp => new Claim(kvp.Key.ToString().ToLower(), kvp.Value.ToString())));
-            var roles = account.GetRoles();
-            claims.AddRange(roles.Select(role => new Claim(ClaimTypes.Role, role)));
-            var userGroups = _userGroupService.GetIds(account.Id);
-            claims.AddRange(userGroups.Select(userGroup => new Claim(ClaimTypes.GroupSid, userGroup)));
-            return claims;
-        }
+        
 
         private bool ValidateAccessToken(string token)
         {

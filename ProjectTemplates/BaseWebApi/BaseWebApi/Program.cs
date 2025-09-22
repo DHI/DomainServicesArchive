@@ -173,9 +173,8 @@ else
     app.UseHsts();
 }
 
-app.UseAuthentication();
-app.UseHttpsRedirection();
 app.UseExceptionHandling();
+app.UseHttpsRedirection();
 app.UseResponseCompression();
 app.UseRouting();
 app.UseAuthorization();

@@ -25,6 +25,9 @@ public class TriggerParameters<TTaskId> : BaseEntity<TTaskId>
     public Dictionary<string, TriggerParameter> Properties { get; set; }
     public string[] Required { get; set; }
     public string Type { get; set; } = "object";
+    public string FullTypeName { get; set; }
+    public string AssemblyName { get; set; }
+    public string AssemblyQualifiedTypeName { get; set; }
 }
 
 /// <summary>
@@ -46,4 +49,6 @@ public class TriggerParameter
     public string Format { get; set; }
     public string Title { get; set; }
     public string Type { get; set; } = "string";
+    public string ItemsType { get; set; }
+    public string[] EnumValues { get; set; }
 }

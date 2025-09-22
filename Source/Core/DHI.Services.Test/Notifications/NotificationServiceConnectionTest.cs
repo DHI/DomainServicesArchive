@@ -1,6 +1,5 @@
 ﻿namespace DHI.Services.Test.Notifications
 {
-    using DHI.Services.Logging;
     using DHI.Services.Notifications;
     using Xunit;
 

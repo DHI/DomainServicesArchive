@@ -1,15 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0;net8.0</TargetFrameworks>
     <nullable>enable</nullable>
     <DefaultItemExcludes>$(DefaultItemExcludes);nuget\*.nupkg;nuget\*.log</DefaultItemExcludes>
     <NoWarn>1701;1702;1591</NoWarn>
     <PackageId>DHI.Services.Models</PackageId>
-    <Version>3.1.0</Version>
+    <Version>4.1.0</Version>
     <Company>DHI</Company>
     <Authors>dhigroup</Authors>
-    <PackageReleaseNotes>Updated DHI.Services to v15.1.0 and DHI.Services.TimeSeries to v6.0.2</PackageReleaseNotes>
+    <PackageReleaseNotes>Fix ModelDataReader so we don't need to manually register .dll</PackageReleaseNotes>
     <PackageProjectUrl>https://github.com/DHI/DomainServices/blob/master/README.md</PackageProjectUrl>
     <RepositoryUrl>https://github.com/DHI/DomainServices</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
@@ -30,9 +30,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DHI.Services" Version="15.1.0" />
-    <PackageReference Include="DHI.Services.TimeSeries" Version="6.0.2" />
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0">
+    <PackageReference Include="DHI.Services" Version="16.1.0" />
+    <PackageReference Include="DHI.Services.TimeSeries" Version="7.1.1" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>

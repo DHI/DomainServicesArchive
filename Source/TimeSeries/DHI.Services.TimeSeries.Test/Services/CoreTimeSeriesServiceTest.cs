@@ -7,7 +7,6 @@
     using System.Reflection;
     using AutoFixture;
     using DHI.Services.TimeSeries;
-    using Logging;
     using Xunit;
 
     public class CoreTimeSeriesServiceTest : IClassFixture<TimeSeriesFixture>
