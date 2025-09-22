@@ -69,8 +69,8 @@
                 {
                     Status = "Finished",
                     Requested = new DateTime(2020, 10, 21, 10, 0, 0),
-                    Started = new DateTime(2020, 10, 21, 10, 0, 0).AddSeconds(3),
-                    Finished = new DateTime(2020, 10, 21, 10, 0, 0).AddMinutes(5),
+                    Start = new DateTime(2020, 10, 21, 10, 0, 0).AddSeconds(3),
+                    End = new DateTime(2020, 10, 21, 10, 0, 0).AddMinutes(5),
                     SimulationRange = new DateRange(new DateTime(2020, 10, 22), new DateTime(2020, 10, 24)),
 
                 },
@@ -78,14 +78,14 @@
                 {
                     Status = "Failed",
                     Requested = new DateTime(2020, 10, 21),
-                    Started = new DateTime(2020, 10, 21).AddSeconds(2),
+                    Start = new DateTime(2020, 10, 21).AddSeconds(2),
                     SimulationRange = new DateRange(new DateTime(2020, 11, 12), new DateTime(2020, 11, 14))
                 },
                 new Simulation(new Guid("185ba082-94ec-4b6a-bc7a-ceed263a33ed"), "scenario1")
                 {
                     Status = "Failed",
                     Requested = new DateTime(2020, 10, 22),
-                    Started = new DateTime(2020, 10, 22).AddSeconds(2),
+                    Start = new DateTime(2020, 10, 22).AddSeconds(2),
                     SimulationRange = new DateRange(new DateTime(2020, 11, 12), new DateTime(2020, 11, 14))
                 }
             }; 

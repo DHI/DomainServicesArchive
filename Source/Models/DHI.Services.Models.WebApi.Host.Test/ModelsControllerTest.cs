@@ -4,9 +4,9 @@
     using System.Linq;
     using System.Net;
     using System.Net.Http;
+    using System.Text.Json;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Http;
-    using Newtonsoft.Json;
     using Xunit;
 
     [Collection("Controllers collection")]
@@ -104,7 +104,7 @@
             var response = await _client.GetAsync($"api/models/readers/{ConnectionId}/{ReaderId}");
             var json = await response.Content.ReadAsStringAsync();
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
-            var reader = JsonConvert.DeserializeObject<ModelDataReaderDtoResponse>(json);
+            var reader = JsonSerializer.Deserialize<ModelDataReaderDtoResponse>(json, SerializerOptionsDefault.Options);
 
             Assert.Contains("foo", reader.Parameters);
             Assert.Equal(typeof(long), reader.Parameters["foo"]);
@@ -118,7 +118,7 @@
             var response = await _client.GetAsync($"api/models/readers/{ConnectionId}");
             var json = await response.Content.ReadAsStringAsync();
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
-            var readers = JsonConvert.DeserializeObject<IEnumerable<ModelDataReaderDtoRequest>>(json).ToArray();
+            var readers = JsonSerializer.Deserialize<IEnumerable<ModelDataReaderDtoRequest>>(json, SerializerOptionsDefault.Options).ToArray();
             
             Assert.NotEmpty(readers);
             Assert.Contains($"{ReaderId}", readers.Select(m => m.Id));
@@ -130,7 +130,7 @@
             var response = await _client.GetAsync($"api/models/readers/{ConnectionId}/ids");
             var json = await response.Content.ReadAsStringAsync();
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
-            var readerIds = JsonConvert.DeserializeObject<IEnumerable<string>>(json).ToArray();
+            var readerIds = JsonSerializer.Deserialize<IEnumerable<string>>(json).ToArray();
 
             Assert.NotEmpty(readerIds);
             Assert.Contains($"{ReaderId}", readerIds);
@@ -142,7 +142,7 @@
             var response = await _client.GetAsync($"api/models/readers/{ConnectionId}/count");
             var json = await response.Content.ReadAsStringAsync();
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
-            var count = JsonConvert.DeserializeObject<int>(json);
+            var count = JsonSerializer.Deserialize<int>(json, SerializerOptionsDefault.Options);
             Assert.True(count > 0);
         }
 
@@ -164,7 +164,7 @@
             var response = await _client.PostAsync(request.Url, ContentHelper.GetStringContent(request.Body));
             var json = await response.Content.ReadAsStringAsync();
             Assert.Equal(HttpStatusCode.Created, response.StatusCode);
-            var reader = JsonConvert.DeserializeObject<ModelDataReaderDtoRequest>(json);
+            var reader = JsonSerializer.Deserialize<ModelDataReaderDtoRequest>(json, SerializerOptionsDefault.Options);
             Assert.Equal($"http://localhost/api/models/readers/{ConnectionId}/{reader.Id}", response.Headers.Location.ToString());
             Assert.Equal(request.Body.Id, reader.Id);
 
@@ -173,7 +173,7 @@
             response = await _client.PutAsync(request.Url, ContentHelper.GetStringContent(request.Body));
             json = await response.Content.ReadAsStringAsync();
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
-            reader = JsonConvert.DeserializeObject<ModelDataReaderDtoRequest>(json);
+            reader = JsonSerializer.Deserialize<ModelDataReaderDtoRequest>(json, SerializerOptionsDefault.Options);
             Assert.Equal(request.Body.Name, reader.Name);
 
             // Delete

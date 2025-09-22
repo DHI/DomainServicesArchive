@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
 
     public static class StandardDeviationAnalysis
     {
@@ -43,6 +44,11 @@
         /// <returns>The standard deviation value of time series data.</returns>
         public static ITimeSeriesData<double> StandardDeviation(this ITimeSeriesData<double> data, Period period)
         {
+            if (!data.DateTimes.Any())
+            {
+                return new TimeSeriesData<double>();
+            }
+
             var sortedSet = new SortedSet<DataPoint<double>>();
             foreach (var group in data.GroupBy(period))
             {

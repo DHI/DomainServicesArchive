@@ -511,5 +511,57 @@
             response = await _client.GetAsync($"{request.Url}/{job.Id}");
             Assert.Equal(HttpStatusCode.NotFound, response.StatusCode);
         }
+
+        [Fact]
+        public async Task UpdateStatus_OnFinalJob_Returns409Conflict_AndDoesNotChangeState()
+        {
+            var id = new Guid("b1d70255-42f8-4c3c-b435-c888319dff76");
+
+            var request = new
+            {
+                Url = $"/api/jobs/{_connectionId}/status/{id}",
+                Body = new
+                {
+                    StatusMessage = "trying to regress",
+                    JobStatus = JobStatus.InProgress,
+                    Progress = 10
+                }
+            };
+
+            var response = await _client.PutAsync(request.Url, ContentHelper.GetStringContent(request.Body));
+            Assert.Equal(HttpStatusCode.Conflict, response.StatusCode);
+
+            var check = await _client.GetAsync($"api/jobs/{_connectionId}/{id}");
+            var json = await check.Content.ReadAsStringAsync();
+            var job = JsonConvert.Deserialize<Job<Guid, string>>(json, _options);
+
+            Assert.Equal(JobStatus.Completed, job.Status);
+        }
+
+        [Fact]
+        public async Task UpdateStatus_ResendingSameFinal_IsOk_AndRemainsFinal()
+        {
+            var id = new Guid("b1d70255-42f8-4c3c-b435-c888319dff76");
+
+            var request = new
+            {
+                Url = $"/api/jobs/{_connectionId}/status/{id}",
+                Body = new
+                {
+                    StatusMessage = "Completed again",
+                    JobStatus = JobStatus.Completed,
+                    Progress = (int?)null
+                }
+            };
+
+            var response = await _client.PutAsync(request.Url, ContentHelper.GetStringContent(request.Body));
+            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+
+            var check = await _client.GetAsync($"api/jobs/{_connectionId}/{id}");
+            var json = await check.Content.ReadAsStringAsync();
+            var job = JsonConvert.Deserialize<Job<Guid, string>>(json, _options);
+
+            Assert.Equal(JobStatus.Completed, job.Status);
+        }
     }
 }

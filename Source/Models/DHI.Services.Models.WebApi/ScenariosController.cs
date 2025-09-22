@@ -15,7 +15,7 @@
     ///     Scenarios API
     /// </summary>
     [Produces("application/json")]
-    [Route("api/scenarios/{connectionId}")]
+    [Route("api/models/scenarios/{connectionId}")]
     [Authorize]
     [ApiController]
     [ApiVersion("1")]

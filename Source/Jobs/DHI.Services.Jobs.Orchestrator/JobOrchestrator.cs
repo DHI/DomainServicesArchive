@@ -92,6 +92,7 @@
             {
                 _executionTimer.Start();
                 _heartbeatTimer.Start();
+                _timeoutTimer.Start();
                 _logger.LogInformation("Timers started.");
             }
             catch (Exception ex)
@@ -110,6 +111,7 @@
             {
                 _executionTimer.Stop();
                 _heartbeatTimer.Stop();
+                _timeoutTimer.Stop();
                 _logger.LogInformation("Timers stopped.");
             }
             catch (Exception ex)
@@ -185,7 +187,7 @@
         {
             try
             {
-                _heartbeatTimer.Stop();
+                _timeoutTimer.Stop();
                 Parallel.ForEach(_jobWorkers, jobWorker => { jobWorker.MonitorTimeouts(); });
             }
             catch (Exception ex)
@@ -194,7 +196,7 @@
             }
             finally
             {
-                _heartbeatTimer.Start();
+                _timeoutTimer.Start();
             }
         }
 

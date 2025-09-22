@@ -1,6 +1,5 @@
 namespace DHI.Services.Jobs.Orchestrator.Test
 {
-    using Logging;
     using Scalars;
     using System;
     using System.Collections.Generic;

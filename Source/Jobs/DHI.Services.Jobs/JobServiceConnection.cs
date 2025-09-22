@@ -3,7 +3,6 @@
     using System;
     using System.Reflection;
     using System.Runtime.ExceptionServices;
-    using Logging;
 
     /// <summary>
     /// Class JobServiceConnection.

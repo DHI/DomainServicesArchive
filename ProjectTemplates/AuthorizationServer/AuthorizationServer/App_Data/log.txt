@@ -1,1 +1,406 @@
-﻿
+﻿2025-05-31 21:32:13.243 +07:00 [Information] User profile is available. Using 'C:\Users\mrsm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-05-31 21:32:13.618 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/ - null null
+2025-05-31 21:32:13.708 +07:00 [Information] Application started. Press Ctrl+C to shut down.
+2025-05-31 21:32:13.709 +07:00 [Information] Hosting environment: Development
+2025-05-31 21:32:13.710 +07:00 [Information] Content root path: C:\Work\Code\DomainService\DSWorktree\ProjectTemplate\AuthorizationServer\ProjectTemplates\AuthorizationServer\AuthorizationServer
+2025-05-31 21:32:14.787 +07:00 [Error] An unhandled exception has occurred while executing the request.
+System.ArgumentException: Environment variable 'PublicRSAKey' was not found. (Parameter 'connectionString')
+   at DHI.Services.WebApiCore.ExtensionMethods.Resolve(String connectionString)
+   at Program.<>c__DisplayClass0_0.<<Main>$>b__0(JwtBearerOptions options) in C:\Work\Code\DomainService\DSWorktree\ProjectTemplate\AuthorizationServer\ProjectTemplates\AuthorizationServer\AuthorizationServer\Program.cs:line 35
+   at Microsoft.Extensions.Options.ConfigureNamedOptions`1.Configure(String name, TOptions options)
+   at Microsoft.Extensions.Options.OptionsFactory`1.Create(String name)
+   at Microsoft.Extensions.Options.OptionsMonitor`1.<>c.<Get>b__10_0(String name, IOptionsFactory`1 factory)
+   at Microsoft.Extensions.Options.OptionsCache`1.<>c__DisplayClass3_1`1.<GetOrAdd>b__2()
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Microsoft.Extensions.Options.OptionsCache`1.GetOrAdd[TArg](String name, Func`3 createOptions, TArg factoryArgument)
+   at Microsoft.Extensions.Options.OptionsMonitor`1.Get(String name)
+   at Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.InitializeAsync(AuthenticationScheme scheme, HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationHandlerProvider.GetHandlerAsync(HttpContext context, String authenticationScheme)
+   at Microsoft.AspNetCore.Authentication.AuthenticationService.AuthenticateAsync(HttpContext context, String scheme)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-05-31 21:32:14.945 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/ - 500 null text/html; charset=utf-8 1333.3616ms
+2025-05-31 21:32:14.952 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2025-05-31 21:32:14.952 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2025-05-31 21:32:14.962 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 13774 application/javascript; charset=utf-8 5.9962ms
+2025-05-31 21:32:15.024 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 73.033ms
+2025-05-31 21:32:15.043 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/favicon.ico - null null
+2025-05-31 21:32:15.202 +07:00 [Error] An unhandled exception has occurred while executing the request.
+System.ArgumentException: Environment variable 'PublicRSAKey' was not found. (Parameter 'connectionString')
+   at DHI.Services.WebApiCore.ExtensionMethods.Resolve(String connectionString)
+   at Program.<>c__DisplayClass0_0.<<Main>$>b__0(JwtBearerOptions options) in C:\Work\Code\DomainService\DSWorktree\ProjectTemplate\AuthorizationServer\ProjectTemplates\AuthorizationServer\AuthorizationServer\Program.cs:line 35
+   at Microsoft.Extensions.Options.ConfigureNamedOptions`1.Configure(String name, TOptions options)
+   at Microsoft.Extensions.Options.OptionsFactory`1.Create(String name)
+   at Microsoft.Extensions.Options.OptionsMonitor`1.<>c.<Get>b__10_0(String name, IOptionsFactory`1 factory)
+   at Microsoft.Extensions.Options.OptionsCache`1.<>c__DisplayClass3_1`1.<GetOrAdd>b__2()
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Microsoft.Extensions.Options.OptionsCache`1.GetOrAdd[TArg](String name, Func`3 createOptions, TArg factoryArgument)
+   at Microsoft.Extensions.Options.OptionsMonitor`1.Get(String name)
+   at Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.InitializeAsync(AuthenticationScheme scheme, HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationHandlerProvider.GetHandlerAsync(HttpContext context, String authenticationScheme)
+   at Microsoft.AspNetCore.Authentication.AuthenticationService.AuthenticateAsync(HttpContext context, String scheme)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-05-31 21:32:15.214 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/favicon.ico - 500 null text/plain; charset=utf-8 170.6609ms
+2025-05-31 21:33:06.565 +07:00 [Information] User profile is available. Using 'C:\Users\mrsm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-05-31 21:33:06.730 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/ - null null
+2025-05-31 21:33:06.804 +07:00 [Information] Application started. Press Ctrl+C to shut down.
+2025-05-31 21:33:06.805 +07:00 [Information] Hosting environment: Development
+2025-05-31 21:33:06.805 +07:00 [Information] Content root path: C:\Work\Code\DomainService\DSWorktree\ProjectTemplate\AuthorizationServer\ProjectTemplates\AuthorizationServer\AuthorizationServer
+2025-05-31 21:33:07.007 +07:00 [Information] Sending file. Request path: '/index.html'. Physical path: 'C:\Work\Code\DomainService\DSWorktree\ProjectTemplate\AuthorizationServer\ProjectTemplates\AuthorizationServer\AuthorizationServer\wwwroot\index.html'
+2025-05-31 21:33:07.027 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2025-05-31 21:33:07.027 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/prod.main.1f6fc83000c351be3f8c.chunk.js - null null
+2025-05-31 21:33:07.027 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/prod.vendor.4d93fe4c305d4ed9c1ad.chunk.js - null null
+2025-05-31 21:33:07.027 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/prod.runtime~main.43a228258dccd8ca0c83.js - null null
+2025-05-31 21:33:07.030 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2025-05-31 21:33:07.035 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/index.html - 200 null text/html 297.959ms
+2025-05-31 21:33:07.052 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 13774 application/javascript; charset=utf-8 28.2015ms
+2025-05-31 21:33:07.098 +07:00 [Information] Sending file. Request path: '/prod.runtime~main.43a228258dccd8ca0c83.js'. Physical path: 'C:\Work\Code\DomainService\DSWorktree\ProjectTemplate\AuthorizationServer\ProjectTemplates\AuthorizationServer\AuthorizationServer\wwwroot\prod.runtime~main.43a228258dccd8ca0c83.js'
+2025-05-31 21:33:07.098 +07:00 [Information] Sending file. Request path: '/prod.main.1f6fc83000c351be3f8c.chunk.js'. Physical path: 'C:\Work\Code\DomainService\DSWorktree\ProjectTemplate\AuthorizationServer\ProjectTemplates\AuthorizationServer\AuthorizationServer\wwwroot\prod.main.1f6fc83000c351be3f8c.chunk.js'
+2025-05-31 21:33:07.109 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 74.8568ms
+2025-05-31 21:33:07.110 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/prod.runtime~main.43a228258dccd8ca0c83.js - 200 2401 text/javascript 94.6109ms
+2025-05-31 21:33:07.110 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/prod.main.1f6fc83000c351be3f8c.chunk.js - 200 11541 text/javascript 94.5904ms
+2025-05-31 21:33:07.753 +07:00 [Information] Sending file. Request path: '/prod.vendor.4d93fe4c305d4ed9c1ad.chunk.js'. Physical path: 'C:\Work\Code\DomainService\DSWorktree\ProjectTemplate\AuthorizationServer\ProjectTemplates\AuthorizationServer\AuthorizationServer\wwwroot\prod.vendor.4d93fe4c305d4ed9c1ad.chunk.js'
+2025-05-31 21:33:07.802 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/prod.vendor.4d93fe4c305d4ed9c1ad.chunk.js - 200 8970046 text/javascript 782.2748ms
+2025-05-31 21:33:08.244 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/portal.json?cacheBust=1748701988 - application/json null
+2025-05-31 21:33:08.264 +07:00 [Information] Sending file. Request path: '/portal.json'. Physical path: 'C:\Work\Code\DomainService\DSWorktree\ProjectTemplate\AuthorizationServer\ProjectTemplates\AuthorizationServer\AuthorizationServer\wwwroot\portal.json'
+2025-05-31 21:33:08.265 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/portal.json?cacheBust=1748701988 - 200 623 application/json 20.8603ms
+2025-05-31 21:33:08.351 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/favicon.ico - null null
+2025-05-31 21:33:08.374 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/favicon.ico - 404 null null 23.5977ms
+2025-05-31 21:33:08.380 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/favicon.ico - null null
+2025-05-31 21:33:08.381 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/favicon.ico - 404 null null 1.432ms
+2025-05-31 21:33:08.381 +07:00 [Information] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/favicon.ico, Response status code: 404
+2025-05-31 21:33:08.381 +07:00 [Information] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/favicon.ico, Response status code: 404
+2025-05-31 21:33:23.897 +07:00 [Information] User profile is available. Using 'C:\Users\mrsm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-05-31 21:33:24.073 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2025-05-31 21:33:24.074 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/portal.json?cacheBust=1748702003 - application/json null
+2025-05-31 21:33:24.074 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2025-05-31 21:33:24.134 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 13774 application/javascript; charset=utf-8 74.3524ms
+2025-05-31 21:33:24.184 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 126.8245ms
+2025-05-31 21:33:24.199 +07:00 [Information] Application started. Press Ctrl+C to shut down.
+2025-05-31 21:33:24.199 +07:00 [Information] Hosting environment: Development
+2025-05-31 21:33:24.199 +07:00 [Information] Content root path: C:\Work\Code\DomainService\DSWorktree\ProjectTemplate\AuthorizationServer\ProjectTemplates\AuthorizationServer\AuthorizationServer
+2025-05-31 21:33:24.218 +07:00 [Information] Sending file. Request path: '/portal.json'. Physical path: 'C:\Work\Code\DomainService\DSWorktree\ProjectTemplate\AuthorizationServer\ProjectTemplates\AuthorizationServer\AuthorizationServer\wwwroot\portal.json'
+2025-05-31 21:33:24.220 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/portal.json?cacheBust=1748702003 - 200 623 application/json 162.9796ms
+2025-05-31 21:35:30.233 +07:00 [Information] User profile is available. Using 'C:\Users\mrsm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-05-31 21:35:30.604 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/portal.json?cacheBust=1748702123 - application/json null
+2025-05-31 21:35:30.603 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2025-05-31 21:35:30.604 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2025-05-31 21:35:30.716 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 13774 application/javascript; charset=utf-8 113.1098ms
+2025-05-31 21:35:30.776 +07:00 [Information] Application started. Press Ctrl+C to shut down.
+2025-05-31 21:35:30.807 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 224.8151ms
+2025-05-31 21:35:30.808 +07:00 [Information] Hosting environment: Development
+2025-05-31 21:35:30.808 +07:00 [Information] Content root path: C:\Work\Code\DomainService\DSWorktree\ProjectTemplate\AuthorizationServer\ProjectTemplates\AuthorizationServer\AuthorizationServer
+2025-05-31 21:35:30.831 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/favicon.ico - null null
+2025-05-31 21:35:31.049 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/favicon.ico - 404 null null 221.0461ms
+2025-05-31 21:35:31.054 +07:00 [Information] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/favicon.ico, Response status code: 404
+2025-05-31 21:35:31.069 +07:00 [Information] Sending file. Request path: '/portal.json'. Physical path: 'C:\Work\Code\DomainService\DSWorktree\ProjectTemplate\AuthorizationServer\ProjectTemplates\AuthorizationServer\AuthorizationServer\wwwroot\portal.json'
+2025-05-31 21:35:31.073 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/portal.json?cacheBust=1748702123 - 200 623 application/json 494.9153ms
+2025-05-31 21:48:35.170 +07:00 [Information] User profile is available. Using 'C:\Users\mrsm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-05-31 21:48:35.590 +07:00 [Information] Now listening on: https://localhost:5001
+2025-05-31 21:48:35.594 +07:00 [Information] Now listening on: http://localhost:5000
+2025-05-31 21:48:35.661 +07:00 [Information] Application started. Press Ctrl+C to shut down.
+2025-05-31 21:48:35.664 +07:00 [Information] Hosting environment: Development
+2025-05-31 21:48:35.666 +07:00 [Information] Content root path: C:\Work\Code\DomainService\DSWorktree\ProjectTemplate\AuthorizationServer\ProjectTemplates\AuthorizationServer\AuthorizationServer
+2025-05-31 21:48:37.250 +07:00 [Information] Request starting HTTP/2 GET https://localhost:5001/ - null null
+2025-05-31 21:48:37.632 +07:00 [Information] Sending file. Request path: '/index.html'. Physical path: 'C:\Work\Code\DomainService\DSWorktree\ProjectTemplate\AuthorizationServer\ProjectTemplates\AuthorizationServer\AuthorizationServer\wwwroot\index.html'
+2025-05-31 21:48:37.662 +07:00 [Information] Request starting HTTP/2 GET https://localhost:5001/prod.runtime~main.43a228258dccd8ca0c83.js - null null
+2025-05-31 21:48:37.662 +07:00 [Information] Request starting HTTP/2 GET https://localhost:5001/prod.main.1f6fc83000c351be3f8c.chunk.js - null null
+2025-05-31 21:48:37.662 +07:00 [Information] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
+2025-05-31 21:48:37.662 +07:00 [Information] Request starting HTTP/2 GET https://localhost:5001/prod.vendor.4d93fe4c305d4ed9c1ad.chunk.js - null null
+2025-05-31 21:48:37.679 +07:00 [Information] Request finished HTTP/2 GET https://localhost:5001/index.html - 200 null text/html 408.9381ms
+2025-05-31 21:48:37.684 +07:00 [Information] Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - null null
+2025-05-31 21:48:37.762 +07:00 [Information] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - 200 13774 application/javascript; charset=utf-8 100.1366ms
+2025-05-31 21:48:37.799 +07:00 [Information] Sending file. Request path: '/prod.runtime~main.43a228258dccd8ca0c83.js'. Physical path: 'C:\Work\Code\DomainService\DSWorktree\ProjectTemplate\AuthorizationServer\ProjectTemplates\AuthorizationServer\AuthorizationServer\wwwroot\prod.runtime~main.43a228258dccd8ca0c83.js'
+2025-05-31 21:48:37.808 +07:00 [Information] Sending file. Request path: '/prod.main.1f6fc83000c351be3f8c.chunk.js'. Physical path: 'C:\Work\Code\DomainService\DSWorktree\ProjectTemplate\AuthorizationServer\ProjectTemplates\AuthorizationServer\AuthorizationServer\wwwroot\prod.main.1f6fc83000c351be3f8c.chunk.js'
+2025-05-31 21:48:37.838 +07:00 [Information] Request finished HTTP/2 GET https://localhost:5001/prod.runtime~main.43a228258dccd8ca0c83.js - 200 2401 text/javascript 177.2926ms
+2025-05-31 21:48:37.842 +07:00 [Information] Request finished HTTP/2 GET https://localhost:5001/prod.main.1f6fc83000c351be3f8c.chunk.js - 200 11541 text/javascript 180.3541ms
+2025-05-31 21:48:37.877 +07:00 [Information] Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 195.4081ms
+2025-05-31 21:48:39.115 +07:00 [Information] Sending file. Request path: '/prod.vendor.4d93fe4c305d4ed9c1ad.chunk.js'. Physical path: 'C:\Work\Code\DomainService\DSWorktree\ProjectTemplate\AuthorizationServer\ProjectTemplates\AuthorizationServer\AuthorizationServer\wwwroot\prod.vendor.4d93fe4c305d4ed9c1ad.chunk.js'
+2025-05-31 21:48:39.120 +07:00 [Information] Request finished HTTP/2 GET https://localhost:5001/prod.vendor.4d93fe4c305d4ed9c1ad.chunk.js - 200 8970046 text/javascript 1458.2966ms
+2025-05-31 21:48:39.565 +07:00 [Information] Request starting HTTP/2 GET https://localhost:5001/portal.json?cacheBust=1748702920 - application/json null
+2025-05-31 21:48:39.578 +07:00 [Information] Sending file. Request path: '/portal.json'. Physical path: 'C:\Work\Code\DomainService\DSWorktree\ProjectTemplate\AuthorizationServer\ProjectTemplates\AuthorizationServer\AuthorizationServer\wwwroot\portal.json'
+2025-05-31 21:48:39.582 +07:00 [Information] Request finished HTTP/2 GET https://localhost:5001/portal.json?cacheBust=1748702920 - 200 623 application/json 17.1828ms
+2025-05-31 21:48:39.694 +07:00 [Information] Request starting HTTP/2 GET https://localhost:5001/favicon.ico - null null
+2025-05-31 21:48:39.748 +07:00 [Information] Request finished HTTP/2 GET https://localhost:5001/favicon.ico - 404 0 null 54.6747ms
+2025-05-31 21:48:39.751 +07:00 [Information] Request starting HTTP/2 GET https://localhost:5001/favicon.ico - null null
+2025-05-31 21:48:39.759 +07:00 [Information] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:5001/favicon.ico, Response status code: 404
+2025-05-31 21:48:39.762 +07:00 [Information] Request finished HTTP/2 GET https://localhost:5001/favicon.ico - 404 0 null 11.4461ms
+2025-05-31 21:48:39.771 +07:00 [Information] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:5001/favicon.ico, Response status code: 404
+2025-05-31 21:52:38.892 +07:00 [Information] User profile is available. Using 'C:\Users\mrsm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-05-31 21:52:39.398 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/ - null null
+2025-05-31 21:52:39.596 +07:00 [Information] Application started. Press Ctrl+C to shut down.
+2025-05-31 21:52:39.598 +07:00 [Information] Hosting environment: Development
+2025-05-31 21:52:39.598 +07:00 [Information] Content root path: C:\Work\Code\DomainService\DSWorktree\ProjectTemplate\AuthorizationServer\ProjectTemplates\AuthorizationServer\AuthorizationServer
+2025-05-31 21:52:39.932 +07:00 [Information] The file /index.html was not modified
+2025-05-31 21:52:39.977 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/index.html - 304 null text/html 590.9764ms
+2025-05-31 21:52:40.005 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/prod.main.1f6fc83000c351be3f8c.chunk.js - null null
+2025-05-31 21:52:40.005 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/prod.runtime~main.43a228258dccd8ca0c83.js - null null
+2025-05-31 21:52:40.005 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2025-05-31 21:52:40.012 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/prod.vendor.4d93fe4c305d4ed9c1ad.chunk.js - null null
+2025-05-31 21:52:40.023 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2025-05-31 21:52:40.024 +07:00 [Information] The file /prod.main.1f6fc83000c351be3f8c.chunk.js was not modified
+2025-05-31 21:52:40.033 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/prod.main.1f6fc83000c351be3f8c.chunk.js - 304 null text/javascript 41.3234ms
+2025-05-31 21:52:40.037 +07:00 [Information] The file /prod.vendor.4d93fe4c305d4ed9c1ad.chunk.js was not modified
+2025-05-31 21:52:40.044 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/prod.vendor.4d93fe4c305d4ed9c1ad.chunk.js - 304 null text/javascript 34.0772ms
+2025-05-31 21:52:40.045 +07:00 [Information] The file /prod.runtime~main.43a228258dccd8ca0c83.js was not modified
+2025-05-31 21:52:40.045 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/prod.runtime~main.43a228258dccd8ca0c83.js - 304 null text/javascript 54.0138ms
+2025-05-31 21:52:40.092 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 13774 application/javascript; charset=utf-8 69.5008ms
+2025-05-31 21:52:40.121 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 118.175ms
+2025-05-31 21:52:40.284 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/portal.json?cacheBust=1748703160 - application/json null
+2025-05-31 21:52:40.333 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/favicon.ico - null null
+2025-05-31 21:52:40.349 +07:00 [Information] Sending file. Request path: '/portal.json'. Physical path: 'C:\Work\Code\DomainService\DSWorktree\ProjectTemplate\AuthorizationServer\ProjectTemplates\AuthorizationServer\AuthorizationServer\wwwroot\portal.json'
+2025-05-31 21:52:40.353 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/portal.json?cacheBust=1748703160 - 200 623 application/json 68.6186ms
+2025-05-31 21:52:40.395 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/favicon.ico - 404 null null 62.832ms
+2025-05-31 21:52:40.397 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/favicon.ico - null null
+2025-05-31 21:52:40.400 +07:00 [Information] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/favicon.ico, Response status code: 404
+2025-05-31 21:52:40.400 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/favicon.ico - 404 null null 2.4584ms
+2025-05-31 21:52:40.401 +07:00 [Information] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/favicon.ico, Response status code: 404
+2025-05-31 21:57:14.928 +07:00 [Information] User profile is available. Using 'C:\Users\mrsm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-05-31 21:57:15.276 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/portal.json?cacheBust=1748703430 - application/json null
+2025-05-31 21:57:15.276 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2025-05-31 21:57:15.276 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2025-05-31 21:57:15.396 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 13774 application/javascript; charset=utf-8 152.319ms
+2025-05-31 21:57:15.484 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 242.2843ms
+2025-05-31 21:57:15.487 +07:00 [Information] Application started. Press Ctrl+C to shut down.
+2025-05-31 21:57:15.487 +07:00 [Information] Hosting environment: Development
+2025-05-31 21:57:15.488 +07:00 [Information] Content root path: C:\Work\Code\DomainService\DSWorktree\ProjectTemplate\AuthorizationServer\ProjectTemplates\AuthorizationServer\AuthorizationServer
+2025-05-31 21:57:15.523 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/favicon.ico - null null
+2025-05-31 21:57:15.590 +07:00 [Information] Sending file. Request path: '/portal.json'. Physical path: 'C:\Work\Code\DomainService\DSWorktree\ProjectTemplate\AuthorizationServer\ProjectTemplates\AuthorizationServer\AuthorizationServer\wwwroot\portal.json'
+2025-05-31 21:57:15.592 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/portal.json?cacheBust=1748703430 - 200 623 application/json 350.7973ms
+2025-05-31 21:57:15.618 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/favicon.ico - 404 null null 95.9755ms
+2025-05-31 21:57:15.622 +07:00 [Information] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/favicon.ico, Response status code: 404
+2025-05-31 21:57:15.641 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/favicon.ico - null null
+2025-05-31 21:57:15.647 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/favicon.ico - 404 null null 6.4592ms
+2025-05-31 21:57:15.648 +07:00 [Information] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/favicon.ico, Response status code: 404
+2025-05-31 23:07:27.857 +07:00 [Information] User profile is available. Using 'C:\Users\mrsm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-05-31 23:07:28.221 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/ - null null
+2025-05-31 23:07:28.362 +07:00 [Information] Application started. Press Ctrl+C to shut down.
+2025-05-31 23:07:28.363 +07:00 [Information] Hosting environment: Development
+2025-05-31 23:07:28.364 +07:00 [Information] Content root path: C:\Work\Code\DomainService\DSWorktree\ProjectTemplate\AuthorizationServer\ProjectTemplates\AuthorizationServer\AuthorizationServer
+2025-05-31 23:07:28.688 +07:00 [Information] The file /index.html was not modified
+2025-05-31 23:07:28.720 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/index.html - 304 null text/html 503.8169ms
+2025-05-31 23:07:28.749 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/prod.runtime~main.43a228258dccd8ca0c83.js - null null
+2025-05-31 23:07:28.749 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2025-05-31 23:07:28.749 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2025-05-31 23:07:28.749 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/prod.vendor.4d93fe4c305d4ed9c1ad.chunk.js - null null
+2025-05-31 23:07:28.755 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/prod.main.1f6fc83000c351be3f8c.chunk.js - null null
+2025-05-31 23:07:28.769 +07:00 [Information] The file /prod.vendor.4d93fe4c305d4ed9c1ad.chunk.js was not modified
+2025-05-31 23:07:28.770 +07:00 [Information] The file /prod.runtime~main.43a228258dccd8ca0c83.js was not modified
+2025-05-31 23:07:28.774 +07:00 [Information] The file /prod.main.1f6fc83000c351be3f8c.chunk.js was not modified
+2025-05-31 23:07:28.775 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/prod.main.1f6fc83000c351be3f8c.chunk.js - 304 null text/javascript 21.5567ms
+2025-05-31 23:07:28.775 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/prod.vendor.4d93fe4c305d4ed9c1ad.chunk.js - 304 null text/javascript 26.0359ms
+2025-05-31 23:07:28.775 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/prod.runtime~main.43a228258dccd8ca0c83.js - 304 null text/javascript 30.0846ms
+2025-05-31 23:07:28.823 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 13774 application/javascript; charset=utf-8 77.2237ms
+2025-05-31 23:07:28.851 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 110.5033ms
+2025-05-31 23:07:28.982 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/portal.json?cacheBust=1748707649 - application/json null
+2025-05-31 23:07:29.016 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/favicon.ico - null null
+2025-05-31 23:07:29.033 +07:00 [Information] Sending file. Request path: '/portal.json'. Physical path: 'C:\Work\Code\DomainService\DSWorktree\ProjectTemplate\AuthorizationServer\ProjectTemplates\AuthorizationServer\AuthorizationServer\wwwroot\portal.json'
+2025-05-31 23:07:29.035 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/portal.json?cacheBust=1748707649 - 200 623 application/json 53.1902ms
+2025-05-31 23:07:29.077 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/favicon.ico - 404 null null 61.9066ms
+2025-05-31 23:07:29.091 +07:00 [Information] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/favicon.ico, Response status code: 404
+2025-05-31 23:07:29.094 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/favicon.ico - null null
+2025-05-31 23:07:29.096 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/favicon.ico - 404 null null 2.1043ms
+2025-05-31 23:07:29.096 +07:00 [Information] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/favicon.ico, Response status code: 404
+2025-05-31 23:07:39.873 +07:00 [Information] Request starting HTTP/2 POST https://localhost:44338/api/tokens - application/json 82
+2025-05-31 23:07:39.885 +07:00 [Information] Executing endpoint 'DHI.Services.Security.WebApi.Controllers.AuthenticationController.CreateToken (DHI.Services.Security.WebApi)'
+2025-05-31 23:07:39.930 +07:00 [Information] Route matched with {action = "CreateToken", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateToken(DHI.Services.Security.WebApi.DTOs.ValidationDTO) on controller DHI.Services.Security.WebApi.Controllers.AuthenticationController (DHI.Services.Security.WebApi).
+2025-05-31 23:07:40.054 +07:00 [Information] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2025-05-31 23:07:40.110 +07:00 [Information] Executed action DHI.Services.Security.WebApi.Controllers.AuthenticationController.CreateToken (DHI.Services.Security.WebApi) in 172.1396ms
+2025-05-31 23:07:40.111 +07:00 [Information] Executed endpoint 'DHI.Services.Security.WebApi.Controllers.AuthenticationController.CreateToken (DHI.Services.Security.WebApi)'
+2025-05-31 23:07:40.113 +07:00 [Information] Request finished HTTP/2 POST https://localhost:44338/api/tokens - 400 null text/plain; charset=utf-8 240.1399ms
+2025-05-31 23:11:57.742 +07:00 [Information] User profile is available. Using 'C:\Users\mrsm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-05-31 23:11:58.211 +07:00 [Information] Request starting HTTP/1.1 POST http://localhost/api/accounts - application/json; charset=utf-8 424
+2025-05-31 23:11:58.226 +07:00 [Error] An unhandled exception has occurred while executing the request.
+System.ArgumentNullException: Value cannot be null. (Parameter 'input')
+   at System.Text.RegularExpressions.ThrowHelper.ThrowArgumentNullException(ExceptionArgument arg)
+   at System.Text.RegularExpressions.Regex.Match(String input)
+   at DHI.Services.WebApiCore.ExtensionMethods.Resolve(String connectionString)
+   at Program.<>c__DisplayClass0_0.<Main>b__6(SwaggerGenOptions options) in C:\Work\Code\DomainService\DSWorktree\ProjectTemplate\AuthorizationServer\ProjectTemplates\AuthorizationServer\AuthorizationServer\Program.cs:line 97
+   at Microsoft.Extensions.Options.ConfigureNamedOptions`1.Configure(String name, TOptions options)
+   at Microsoft.Extensions.Options.OptionsFactory`1.Create(String name)
+   at Microsoft.Extensions.Options.UnnamedOptionsManager`1.get_Value()
+   at Swashbuckle.AspNetCore.SwaggerGen.ConfigureSwaggerGeneratorOptions..ctor(IOptions`1 swaggerGenOptionsAccessor, IServiceProvider serviceProvider, IWebHostEnvironment hostingEnv)
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+   at System.Reflection.MethodBaseInvoker.InvokeWithFewArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.RuntimeConstructorInfo.Invoke(BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitIEnumerable(IEnumerableCallSite enumerableCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitNoCache(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Microsoft.Extensions.DependencyInjection.SwaggerGenServiceCollectionExtensions.<>c.<AddSwaggerGen>b__0_3(IServiceProvider s)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitFactory(FactoryCallSite factoryCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Microsoft.Extensions.DependencyInjection.SwaggerGenServiceCollectionExtensions.<>c.<AddSwaggerGen>b__0_1(IServiceProvider s)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitFactory(FactoryCallSite factoryCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.GetService(IServiceProvider sp, Type type, Type middleware)
+   at lambda_method60(Closure, Object, HttpContext, IServiceProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-05-31 23:11:58.248 +07:00 [Information] Request finished HTTP/1.1 POST http://localhost/api/accounts - 500 null text/plain; charset=utf-8 37.8116ms
+2025-05-31 23:39:02.931 +07:00 [Information] User profile is available. Using 'C:\Users\mrsm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-05-31 23:39:03.385 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/ - null null
+2025-05-31 23:39:03.658 +07:00 [Information] Application started. Press Ctrl+C to shut down.
+2025-05-31 23:39:03.659 +07:00 [Information] Hosting environment: Development
+2025-05-31 23:39:03.659 +07:00 [Information] Content root path: C:\Work\Code\DomainService\DSWorktree\ProjectTemplate\AuthorizationServer\ProjectTemplates\AuthorizationServer\AuthorizationServer
+2025-05-31 23:39:04.051 +07:00 [Information] The file /index.html was not modified
+2025-05-31 23:39:04.086 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/index.html - 304 null text/html 717.6369ms
+2025-05-31 23:39:04.132 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/prod.main.1f6fc83000c351be3f8c.chunk.js - null null
+2025-05-31 23:39:04.132 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/prod.runtime~main.43a228258dccd8ca0c83.js - null null
+2025-05-31 23:39:04.132 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/prod.vendor.4d93fe4c305d4ed9c1ad.chunk.js - null null
+2025-05-31 23:39:04.156 +07:00 [Information] The file /prod.main.1f6fc83000c351be3f8c.chunk.js was not modified
+2025-05-31 23:39:04.156 +07:00 [Information] The file /prod.vendor.4d93fe4c305d4ed9c1ad.chunk.js was not modified
+2025-05-31 23:39:04.157 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/prod.main.1f6fc83000c351be3f8c.chunk.js - 304 null text/javascript 38.1144ms
+2025-05-31 23:39:04.162 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/prod.vendor.4d93fe4c305d4ed9c1ad.chunk.js - 304 null text/javascript 30.891ms
+2025-05-31 23:39:04.162 +07:00 [Information] The file /prod.runtime~main.43a228258dccd8ca0c83.js was not modified
+2025-05-31 23:39:04.169 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/prod.runtime~main.43a228258dccd8ca0c83.js - 304 null text/javascript 37.4661ms
+2025-05-31 23:39:04.175 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2025-05-31 23:39:04.175 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2025-05-31 23:39:04.225 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 13774 application/javascript; charset=utf-8 49.4432ms
+2025-05-31 23:39:04.311 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 135.8895ms
+2025-05-31 23:39:04.954 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/portal.json?cacheBust=1748709545 - application/json null
+2025-05-31 23:39:05.004 +07:00 [Information] Sending file. Request path: '/portal.json'. Physical path: 'C:\Work\Code\DomainService\DSWorktree\ProjectTemplate\AuthorizationServer\ProjectTemplates\AuthorizationServer\AuthorizationServer\wwwroot\portal.json'
+2025-05-31 23:39:05.005 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/portal.json?cacheBust=1748709545 - 200 623 application/json 51.9376ms
+2025-05-31 23:39:05.152 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/favicon.ico - null null
+2025-05-31 23:39:05.209 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/favicon.ico - 404 null null 56.5543ms
+2025-05-31 23:39:05.211 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/favicon.ico - null null
+2025-05-31 23:39:05.212 +07:00 [Information] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/favicon.ico, Response status code: 404
+2025-05-31 23:39:05.213 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/favicon.ico - 404 null null 2.1094ms
+2025-05-31 23:39:05.214 +07:00 [Information] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/favicon.ico, Response status code: 404
+2025-06-01 13:30:26.338 +07:00 [Information] User profile is available. Using 'C:\Users\mrsm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-06-01 13:30:26.546 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/ - null null
+2025-06-01 13:30:26.564 +07:00 [Information] Application started. Press Ctrl+C to shut down.
+2025-06-01 13:30:26.570 +07:00 [Information] Hosting environment: Development
+2025-06-01 13:30:26.571 +07:00 [Information] Content root path: C:\Work\Code\DomainService\DSWorktree\ProjectTemplate\AuthorizationServer\ProjectTemplates\AuthorizationServer\AuthorizationServer
+2025-06-01 13:30:26.904 +07:00 [Information] Sending file. Request path: '/index.html'. Physical path: 'C:\Work\Code\DomainService\DSWorktree\ProjectTemplate\AuthorizationServer\ProjectTemplates\AuthorizationServer\AuthorizationServer\wwwroot\index.html'
+2025-06-01 13:30:26.911 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/index.html - 200 null text/html 369.9556ms
+2025-06-01 13:30:26.922 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/prod.main.1f6fc83000c351be3f8c.chunk.js - null null
+2025-06-01 13:30:26.922 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/prod.runtime~main.43a228258dccd8ca0c83.js - null null
+2025-06-01 13:30:26.922 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2025-06-01 13:30:26.921 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/prod.vendor.4d93fe4c305d4ed9c1ad.chunk.js - null null
+2025-06-01 13:30:26.921 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2025-06-01 13:30:26.949 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 13774 application/javascript; charset=utf-8 27.0586ms
+2025-06-01 13:30:26.950 +07:00 [Information] The file /prod.runtime~main.43a228258dccd8ca0c83.js was not modified
+2025-06-01 13:30:26.950 +07:00 [Information] The file /prod.vendor.4d93fe4c305d4ed9c1ad.chunk.js was not modified
+2025-06-01 13:30:26.952 +07:00 [Information] The file /prod.main.1f6fc83000c351be3f8c.chunk.js was not modified
+2025-06-01 13:30:26.953 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/prod.main.1f6fc83000c351be3f8c.chunk.js - 304 null text/javascript 36.0057ms
+2025-06-01 13:30:26.953 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/prod.runtime~main.43a228258dccd8ca0c83.js - 304 null text/javascript 33.5101ms
+2025-06-01 13:30:26.953 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/prod.vendor.4d93fe4c305d4ed9c1ad.chunk.js - 304 null text/javascript 39.6513ms
+2025-06-01 13:30:27.009 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 92.0447ms
+2025-06-01 13:30:27.186 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/portal.json?cacheBust=1748759427 - application/json null
+2025-06-01 13:30:27.206 +07:00 [Information] Sending file. Request path: '/portal.json'. Physical path: 'C:\Work\Code\DomainService\DSWorktree\ProjectTemplate\AuthorizationServer\ProjectTemplates\AuthorizationServer\AuthorizationServer\wwwroot\portal.json'
+2025-06-01 13:30:27.211 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/portal.json?cacheBust=1748759427 - 200 623 application/json 24.0758ms
+2025-06-01 13:30:27.275 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/favicon.ico - null null
+2025-06-01 13:30:27.292 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/favicon.ico - 404 null null 16.6486ms
+2025-06-01 13:30:27.293 +07:00 [Information] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/favicon.ico, Response status code: 404
+2025-06-01 13:30:27.294 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/favicon.ico - null null
+2025-06-01 13:30:27.295 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/favicon.ico - 404 null null 1.6439ms
+2025-06-01 13:30:27.296 +07:00 [Information] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/favicon.ico, Response status code: 404
+2025-06-01 13:30:33.030 +07:00 [Information] Request starting HTTP/2 POST https://localhost:44338/api/tokens - application/json 91
+2025-06-01 13:30:33.037 +07:00 [Information] Executing endpoint 'DHI.Services.Security.WebApi.Controllers.AuthenticationController.CreateToken (DHI.Services.Security.WebApi)'
+2025-06-01 13:30:33.052 +07:00 [Information] Route matched with {action = "CreateToken", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateToken(DHI.Services.Security.WebApi.DTOs.ValidationDTO) on controller DHI.Services.Security.WebApi.Controllers.AuthenticationController (DHI.Services.Security.WebApi).
+2025-06-01 13:30:33.121 +07:00 [Information] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2025-06-01 13:30:33.145 +07:00 [Information] Executed action DHI.Services.Security.WebApi.Controllers.AuthenticationController.CreateToken (DHI.Services.Security.WebApi) in 90.271ms
+2025-06-01 13:30:33.145 +07:00 [Information] Executed endpoint 'DHI.Services.Security.WebApi.Controllers.AuthenticationController.CreateToken (DHI.Services.Security.WebApi)'
+2025-06-01 13:30:33.147 +07:00 [Information] Request finished HTTP/2 POST https://localhost:44338/api/tokens - 400 null text/plain; charset=utf-8 116.3899ms
+2025-07-02 11:26:27.585 +07:00 [Information] User profile is available. Using 'C:\Users\mrsm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-07-02 11:26:27.986 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2025-07-02 11:26:27.986 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/portal.json?cacheBust=1751430380 - application/json null
+2025-07-02 11:26:27.986 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2025-07-02 11:26:28.080 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 13774 application/javascript; charset=utf-8 99.5126ms
+2025-07-02 11:26:28.244 +07:00 [Information] Application started. Press Ctrl+C to shut down.
+2025-07-02 11:26:28.244 +07:00 [Information] Hosting environment: Development
+2025-07-02 11:26:28.244 +07:00 [Information] Content root path: C:\Work\Code\DomainService\DSWorktree\ProjectTemplate\IntegrationTestHost\ProjectTemplates\AuthorizationServer\AuthorizationServer
+2025-07-02 11:26:28.448 +07:00 [Information] Sending file. Request path: '/portal.json'. Physical path: 'C:\Work\Code\DomainService\DSWorktree\ProjectTemplate\IntegrationTestHost\ProjectTemplates\AuthorizationServer\AuthorizationServer\wwwroot\portal.json'
+2025-07-02 11:26:28.452 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/portal.json?cacheBust=1751430380 - 200 623 application/json 474.2919ms
+2025-07-02 11:26:29.330 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 1352.5659ms
+2025-07-02 11:26:29.349 +07:00 [Information] Request starting HTTP/2 GET https://localhost:44338/favicon.ico - null null
+2025-07-02 11:26:29.369 +07:00 [Information] Request finished HTTP/2 GET https://localhost:44338/favicon.ico - 404 null null 20.4163ms
+2025-07-02 11:26:29.376 +07:00 [Information] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/favicon.ico, Response status code: 404
+2025-07-02 11:26:41.906 +07:00 [Information] User profile is available. Using 'C:\Users\mrsm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-07-02 11:26:42.187 +07:00 [Information] Now listening on: https://localhost:5001
+2025-07-02 11:26:42.190 +07:00 [Information] Now listening on: http://localhost:5000
+2025-07-02 11:26:42.265 +07:00 [Information] Application started. Press Ctrl+C to shut down.
+2025-07-02 11:26:42.267 +07:00 [Information] Hosting environment: Development
+2025-07-02 11:26:42.269 +07:00 [Information] Content root path: C:\Work\Code\DomainService\DSWorktree\ProjectTemplate\IntegrationTestHost\ProjectTemplates\AuthorizationServer\AuthorizationServer
+2025-07-02 11:26:43.864 +07:00 [Information] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
+2025-07-02 11:26:43.864 +07:00 [Information] Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - null null
+2025-07-02 11:26:43.913 +07:00 [Information] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - 200 13774 application/javascript; charset=utf-8 52.0559ms
+2025-07-02 11:26:44.006 +07:00 [Information] Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 146.7326ms
+2025-07-02 11:26:44.745 +07:00 [Information] Request starting HTTP/2 GET https://localhost:5001/portal.json?cacheBust=1751430405 - application/json null
+2025-07-02 11:26:44.811 +07:00 [Information] Request starting HTTP/2 GET https://localhost:5001/favicon.ico - null null
+2025-07-02 11:26:44.929 +07:00 [Information] Sending file. Request path: '/portal.json'. Physical path: 'C:\Work\Code\DomainService\DSWorktree\ProjectTemplate\IntegrationTestHost\ProjectTemplates\AuthorizationServer\AuthorizationServer\wwwroot\portal.json'
+2025-07-02 11:26:44.935 +07:00 [Information] Request finished HTTP/2 GET https://localhost:5001/portal.json?cacheBust=1751430405 - 200 623 application/json 190.0584ms
+2025-07-02 11:26:44.944 +07:00 [Information] Request finished HTTP/2 GET https://localhost:5001/favicon.ico - 404 0 null 133.0599ms
+2025-07-02 11:26:44.955 +07:00 [Information] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:5001/favicon.ico, Response status code: 404
+2025-07-02 11:26:44.995 +07:00 [Information] Request starting HTTP/2 GET https://localhost:5001/favicon.ico - null null
+2025-07-02 11:26:45.002 +07:00 [Information] Request finished HTTP/2 GET https://localhost:5001/favicon.ico - 404 0 null 7.1541ms
+2025-07-02 11:26:45.009 +07:00 [Information] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:5001/favicon.ico, Response status code: 404
+2025-07-02 11:26:48.191 +07:00 [Information] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
+2025-07-02 11:26:48.192 +07:00 [Information] Request starting HTTP/2 GET https://localhost:5001/_vs/browserLink - null null
+2025-07-02 11:26:48.203 +07:00 [Information] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - 200 13774 application/javascript; charset=utf-8 12.5288ms
+2025-07-02 11:26:48.248 +07:00 [Information] Request finished HTTP/2 GET https://localhost:5001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 56.725ms
+2025-07-02 11:26:48.363 +07:00 [Information] Request starting HTTP/2 GET https://localhost:5001/swagger/SecurityOpenAPISpecification/swagger.json - null null
+2025-07-02 11:26:48.574 +07:00 [Information] Request finished HTTP/2 GET https://localhost:5001/swagger/SecurityOpenAPISpecification/swagger.json - 200 null application/json;charset=utf-8 211.6773ms
+2025-07-02 11:27:05.278 +07:00 [Information] Request starting HTTP/2 POST https://localhost:5001/api/tokens - application/json 113
+2025-07-02 11:27:05.288 +07:00 [Information] CORS policy execution failed.
+2025-07-02 11:27:05.290 +07:00 [Information] Request origin https://localhost:5001 does not have permission to access the resource.
+2025-07-02 11:27:05.308 +07:00 [Information] Executing endpoint 'DHI.Services.Security.WebApi.Controllers.AuthenticationController.CreateToken (DHI.Services.Security.WebApi)'
+2025-07-02 11:27:05.332 +07:00 [Information] Route matched with {action = "CreateToken", controller = "Authentication"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateToken(DHI.Services.Security.WebApi.DTOs.ValidationDTO) on controller DHI.Services.Security.WebApi.Controllers.AuthenticationController (DHI.Services.Security.WebApi).
+2025-07-02 11:27:05.718 +07:00 [Information] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`3[[DHI.Services.Security.WebApi.DTOs.TokenDTO, DHI.Services.Security.WebApi, Version=7.0.0.0, Culture=neutral, PublicKeyToken=null],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[DHI.Services.Security.WebApi.DTOs.TokenDTO, DHI.Services.Security.WebApi, Version=7.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-02 11:27:05.754 +07:00 [Information] Executed action DHI.Services.Security.WebApi.Controllers.AuthenticationController.CreateToken (DHI.Services.Security.WebApi) in 412.4404ms
+2025-07-02 11:27:05.758 +07:00 [Information] Executed endpoint 'DHI.Services.Security.WebApi.Controllers.AuthenticationController.CreateToken (DHI.Services.Security.WebApi)'
+2025-07-02 11:27:05.763 +07:00 [Information] Request finished HTTP/2 POST https://localhost:5001/api/tokens - 200 null application/json; charset=utf-8 484.4962ms
+2025-07-02 11:27:22.952 +07:00 [Information] Request starting HTTP/2 GET https://localhost:5001/api/accounts/me - null null
+2025-07-02 11:27:22.997 +07:00 [Information] Executing endpoint 'DHI.Services.Security.WebApi.Controllers.AccountsController.GetMe (DHI.Services.Security.WebApi)'
+2025-07-02 11:27:23.004 +07:00 [Information] Route matched with {action = "GetMe", controller = "Accounts"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[DHI.Services.Security.WebApi.DTOs.AccountDTO] GetMe() on controller DHI.Services.Security.WebApi.Controllers.AccountsController (DHI.Services.Security.WebApi).
+2025-07-02 11:27:23.113 +07:00 [Information] Executing OkObjectResult, writing value of type 'DHI.Services.Security.WebApi.DTOs.AccountDTO'.
+2025-07-02 11:27:23.128 +07:00 [Information] Executed action DHI.Services.Security.WebApi.Controllers.AccountsController.GetMe (DHI.Services.Security.WebApi) in 120.4062ms
+2025-07-02 11:27:23.132 +07:00 [Information] Executed endpoint 'DHI.Services.Security.WebApi.Controllers.AccountsController.GetMe (DHI.Services.Security.WebApi)'
+2025-07-02 11:27:23.134 +07:00 [Information] Request finished HTTP/2 GET https://localhost:5001/api/accounts/me - 200 null application/json; charset=utf-8 181.7832ms

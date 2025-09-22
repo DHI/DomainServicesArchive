@@ -1,6 +1,5 @@
 namespace DHI.Services.Jobs
 {
-    using Logging;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -194,7 +193,11 @@ namespace DHI.Services.Jobs
 
             foreach (var job in jobsInProgress)
             {
-                if (!job.Heartbeat.HasValue || DateTime.UtcNow - job.Heartbeat!.Value > _heartbeatTimeout)
+                var lastBeat = job.Heartbeat
+                      ?? job.Started
+                      ?? job.Starting;
+
+                if (!lastBeat.HasValue || DateTime.UtcNow - lastBeat!.Value > _heartbeatTimeout)
                 {
                     _logger?.LogWarning("Job '{JobId}' exceeded the heartbeat timeout. Status will be set to Error.", job.Id);
                     UpdateJobStatus(job.Id, JobStatus.Error, nameof(MonitorInProgressHeartbeat), "Status set to Error by MonitorInProgressHeartbeat process.");
@@ -410,6 +413,7 @@ namespace DHI.Services.Jobs
 
             job.Status = JobStatus.InProgress;
             job.Started = DateTime.UtcNow;
+            job.Heartbeat = DateTime.UtcNow;
             UpdateJob(job, nameof(Worker_Executing));
             Executing?.Invoke(this, new EventArgs<Job<Guid, TTaskId>>(job));
         }

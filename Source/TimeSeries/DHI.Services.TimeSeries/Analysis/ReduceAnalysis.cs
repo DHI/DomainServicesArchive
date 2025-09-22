@@ -3,6 +3,7 @@
     using System;
     using System.Collections;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Threading.Tasks;
 
     /// <summary>
@@ -26,6 +27,11 @@
         {
             // Adapted code from 'Iterative version of Ramer-Douglas-Peucker line-simplification algorithm' from namekdev.net
             // https://www.namekdev.net/2014/06/iterative-version-of-ramer-douglas-peucker-line-simplification-algorithm/
+
+            if (!timeSeriesData.DateTimes.Any())
+            {
+                return new TimeSeriesData<double>();
+            }
 
             if (minimumCount < 3)
             {

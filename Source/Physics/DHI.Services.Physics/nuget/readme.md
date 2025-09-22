@@ -1,0 +1,1 @@
+- V 3.0.0 - Add DHI.Services.Physics to nuget.org 

@@ -8,7 +8,6 @@
     using AutoFixture.Kernel;
     using AutoFixture.Xunit2;
     using Jobs;
-    using Logging;
     using Mails;
     using Microsoft.Extensions.Logging;
     using Microsoft.Extensions.Logging.Abstractions;

@@ -16,3 +16,5 @@
 - v 15.1.0-rc3 - System.Text.Json Vurnerability Version Update
 - v 15.1.0-rc4 - Security upgrade System.Text.Json from 8.0.4 to 8.0.5
 - v 15.1.0 - System.Text.Json Vurnerability Version Update, Auth updates, Microsoft ILogger support
+- v 16.0.0 - To add .NET 8.0 for the target
+- v 16.1.0 - Adding ToList() when Deserialize to fix possible runtime exceptions when entities is being modified during iteration; Use private CTOR for JsonConstructor inside NotificationEntry

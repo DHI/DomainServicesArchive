@@ -33,10 +33,14 @@ jobs:
             - 'Source/Places/DHI.Services.Places/**'
           webapi:
             - 'Source/Places/DHI.Services.Places.WebApi/**'
-    - name: Setup .NET
+    - name: Setup .NET 5
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 5.0.x
+    - name: Setup .NET 8
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 8.0.x
     - name: Restore dependencies
       run: | 
         dotnet restore ./Source/Places/DHI.Services.Places.sln -s https://api.nuget.org/v3/index.json 

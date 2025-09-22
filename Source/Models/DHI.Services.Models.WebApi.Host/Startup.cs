@@ -15,11 +15,7 @@
     using Microsoft.Extensions.Hosting;
     using Microsoft.IdentityModel.Tokens;
     using Microsoft.OpenApi.Models;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
     using Swashbuckle.AspNetCore.SwaggerUI;
-    using TimeSeries;
-    using TimeSeries.Converters;
 
     public class Startup
     {
@@ -61,22 +57,18 @@
 
             // MVC
             services
-                .AddCors()
-                .AddResponseCompression()
+                .AddResponseCompression(opts => opts.EnableForHttps = true)
                 .AddControllers()
-                .AddNewtonsoftJson(options =>
+                .AddJsonOptions(opts =>
                 {
-                    options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
-                    options.SerializerSettings.TypeNameAssemblyFormatHandling = TypeNameAssemblyFormatHandling.Simple;
-                    options.SerializerSettings.Converters.Add(new IsoDateTimeConverter());
-                    options.SerializerSettings.Converters.Add(new StringEnumConverter());
-                    options.SerializerSettings.Converters.Add(new KeyValuePairConverter());
-                    options.SerializerSettings.Converters.Add(new DataPointConverter<double, int?>());
-                    options.SerializerSettings.Converters.Add(new TimeSeriesDataWFlagConverter<double, Dictionary<string, object>>());
-                    options.SerializerSettings.Converters.Add(new TimeSeriesDataWFlagConverter<double, int?>());
-                    options.SerializerSettings.Converters.Add(new TimeSeriesDataWFlagConverter<Vector<double>, int?>());
-                    options.SerializerSettings.Converters.Add(new TimeSeriesDataConverter<double>());
-                    options.SerializerSettings.Converters.Add(new TimeSeriesDataConverter<Vector<double>>());
+                    opts.JsonSerializerOptions.WriteIndented = true;
+
+                    opts.JsonSerializerOptions.DefaultIgnoreCondition
+                        = SerializerOptionsDefault.Options.DefaultIgnoreCondition;
+                    opts.JsonSerializerOptions.PropertyNamingPolicy
+                        = SerializerOptionsDefault.Options.PropertyNamingPolicy;
+                    opts.JsonSerializerOptions
+                           .AddConverters(SerializerOptionsDefault.Options.Converters);
                 });
 
             // HSTS
@@ -134,7 +126,6 @@
                     }
                 });
             });
-            services.AddSwaggerGenNewtonsoftSupport();
         }
 
         public virtual void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -171,10 +162,10 @@
             AppDomain.CurrentDomain.SetData("DataDirectory", Path.Combine(contentRootPath, "App_Data"));
 
             // Register services
-            var modelService = new ModelDataReaderService(new ModelDataReaderRepository("[AppData]models.json".Resolve()));
+            var modelService = new ModelDataReaderService(new ModelDataReaderRepository("[AppData]models.json".Resolve(), SerializerOptionsDefault.Options.Converters));
             ServiceLocator.Register(modelService, "json-models");
             var worker = new FakeScenarioWorker();
-            var scenarioService = new ScenarioService(new ScenarioRepositoryWithFakeFactory("[AppData]scenarios.json".Resolve()), modelService, worker);
+            var scenarioService = new ScenarioService(new ScenarioRepositoryWithFakeFactory("[AppData]scenarios.json".Resolve(), SerializerOptionsDefault.Options.Converters), modelService, worker);
             ServiceLocator.Register(scenarioService, "json-scenarios");
         }
     }

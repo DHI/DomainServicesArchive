@@ -17,8 +17,6 @@ public class Automation<TTaskId> : BaseGroupedEntity<string>
 
     public Dictionary<string, string> TaskParameters { get; set; } = new Dictionary<string, string>();
 
-    public Dictionary<string, string> Parameters { get; set; }
-
     public string HostGroup { get; set; }
 
     public int Priority { get; set; } = 1;
@@ -40,6 +38,10 @@ public class Automation<TTaskId> : BaseGroupedEntity<string>
     }
 
     public TriggerCondition TriggerCondition { get; set; }
+
+    public bool IsMet { get; set; } = false;
+
+    public Job<Guid, string>? LastJob { get; set; }
 }
 
 public class Automation : Automation<string>

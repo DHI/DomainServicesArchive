@@ -29,6 +29,7 @@ echo.
 
 echo [PUSH] dotnet nuget push ..\bin\%configuration%\DHI.Services.Rasters.WebApi.*.nupkg -k %NUGET_API_KEY_PUBLISH% -s https://api.nuget.org/v3/index.json
 dotnet nuget push ..\bin\%configuration%\DHI.Services.Rasters.WebApi.*.nupkg ^
+  --skip-duplicate ^
   -k %NUGET_API_KEY_PUBLISH% ^
   -s https://api.nuget.org/v3/index.json
 echo.

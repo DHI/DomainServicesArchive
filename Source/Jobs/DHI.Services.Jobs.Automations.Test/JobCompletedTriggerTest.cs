@@ -3,7 +3,6 @@
 using System;
 using AutoFixture.Xunit2;
 using DHI.Services.Jobs.Automations.Triggers;
-using Logging;
 using Microsoft.Extensions.Logging;
 using Xunit;
 using Xunit.Abstractions;

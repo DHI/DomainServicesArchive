@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.IO;
     using System.Security.Claims;
+    using DHI.Services.Provider.OpenXML;
     using Microsoft.AspNetCore.Authentication.JwtBearer;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
@@ -16,8 +17,6 @@
     using Microsoft.OpenApi.Models;
     using Swashbuckle.AspNetCore.SwaggerUI;
     using WebApiCore;
-    using ConnectionRepository = Connections.WebApi.ConnectionRepository;
-    using ConnectionTypeService = Connections.WebApi.ConnectionTypeService;
 
     public class Startup
     {
@@ -125,7 +124,7 @@
             });
 
             // DHI Domain Services
-            services.AddScoped(provider => new ConnectionTypeService(AppContext.BaseDirectory));
+            //services.AddScoped(provider => new ConnectionTypeService(AppContext.BaseDirectory));
         }
 
         public virtual void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -162,8 +161,13 @@
             AppDomain.CurrentDomain.SetData("DataDirectory", Path.Combine(contentRootPath, "App_Data"));
 
             // Custom services
-            var lazyCreation = Configuration.GetValue("AppConfiguration:LazyCreation", true);
-            Services.Configure(new ConnectionRepository("connections.json"), lazyCreation);
+            //var lazyCreation = Configuration.GetValue("AppConfiguration:LazyCreation", true);
+            //Services.Configure(new ConnectionRepository("connections.json"), lazyCreation);
+
+            ServiceLocator.Register(
+                new SpreadsheetService(new DHI.Services.Provider.OpenXML.SpreadsheetRepository("[AppData]".Resolve())),
+                "xlsx"
+                );
         }
     }
 }

@@ -4,7 +4,7 @@ using System.ComponentModel.Composition;
 using Triggers;
 
 [Export(typeof(ITriggerParameters))]
-[ExportMetadata("Id", nameof(SqlTriggerParameters))]
+[ExportMetadata("Id", nameof(SqlTrigger))]
 public class SqlTriggerParameters : ISqlTriggerParameters, ITriggerParameters
 {
     [TriggerParameter(true, title: "The queries to run", description: "A list of sql queries to be run to sequence, the results of a query will be feed into the next")]

@@ -2,7 +2,8 @@
 
 using System;
 using System.Collections.Generic;
-using Logging;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using Microsoft.Extensions.Logging;
 
 [Serializable]
@@ -36,4 +37,15 @@ public abstract class BaseTrigger : ITrigger
     public string Id { get; protected set; }
 
     public abstract AutomationResult Execute(ILogger logger, IDictionary<string, string> parameters = null);
+
+    [JsonExtensionData]
+    public Dictionary<string, JsonElement> Extra { get; set; }
+        = new(StringComparer.OrdinalIgnoreCase);
+
+    public string? this[string key]
+    {
+        get => Extra.TryGetValue(key, out var el) ? el.GetString() : null;
+        set => Extra[key] =
+            JsonDocument.Parse(JsonSerializer.Serialize(value)).RootElement;
+    }
 }

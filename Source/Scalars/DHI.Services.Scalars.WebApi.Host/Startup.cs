@@ -1,5 +1,6 @@
 ﻿namespace DHI.Services.Scalars.WebApi.Host
 {
+    using DHI.Services.Notifications;
     using Microsoft.AspNetCore.Authentication.JwtBearer;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
@@ -8,6 +9,7 @@
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
+    using Microsoft.Extensions.Logging;
     using Microsoft.IdentityModel.Tokens;
     using Microsoft.OpenApi.Models;
     using Swashbuckle.AspNetCore.SwaggerUI;
@@ -17,8 +19,6 @@
     using System.Security.Claims;
     using System.Text.Json.Serialization;
     using WebApiCore;
-    using ConnectionRepository = Connections.WebApi.ConnectionRepository;
-    using ConnectionTypeService = Connections.WebApi.ConnectionTypeService;
 
     public class Startup
     {
@@ -97,7 +97,7 @@
 
                 setupAction.EnableAnnotations();
                 setupAction.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "DHI.Services.Scalars.WebApi.xml"));
-                setupAction.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "DHI.Services.Connections.WebApi.xml"));
+                //setupAction.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "DHI.Services.Connections.WebApi.xml"));
                 setupAction.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
                     Description = "Enter the word 'Bearer' followed by a space and the JWT.",
@@ -128,7 +128,7 @@
             });
 
             // DHI Domain Services
-            services.AddScoped(_ => new ConnectionTypeService(AppContext.BaseDirectory));
+            //services.AddScoped(_ => new ConnectionTypeService(AppContext.BaseDirectory));
         }
 
         public virtual void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -166,8 +166,14 @@
             AppDomain.CurrentDomain.SetData("DataDirectory", Path.Combine(contentRootPath, "App_Data"));
 
             // Custom services
-            var lazyCreation = Configuration.GetValue("AppConfiguration:LazyCreation", true);
-            Services.Configure(new ConnectionRepository("connections.json"), lazyCreation);
+            //var lazyCreation = Configuration.GetValue("AppConfiguration:LazyCreation", true);
+            //Services.Configure(new ConnectionRepository("connections.json"), lazyCreation);
+
+            ServiceLocator.Register(
+                new GroupedScalarService<string, int>(
+                    new ScalarRepository("".Resolve())
+                    , new SimpleLogger("[AppData]scalars.log".Resolve())),
+                "fake");
         }
     }
 }

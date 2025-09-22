@@ -73,7 +73,7 @@
         /// <typeparam name="TConnection">The type of the connection.</typeparam>
         /// <param name="path">The path where to look for compatible providers.</param>
         /// <returns>ConnectionType.</returns>
-        public static ConnectionType CreateConnectionType<TConnection>(string? path = null) where TConnection : ModelDataReaderServiceConnection
+        public static ConnectionType CreateConnectionType<TConnection>(string? path = null) where TConnection : ScenarioServiceConnection
         {
             var connectionType = new ConnectionType("ScenarioServiceConnection", typeof(TConnection));
 

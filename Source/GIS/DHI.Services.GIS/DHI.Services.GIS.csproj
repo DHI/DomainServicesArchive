@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net472</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net472;net8.0</TargetFrameworks>
     <DefaultItemExcludes>$(DefaultItemExcludes);nuget\*.nupkg;nuget\*.log</DefaultItemExcludes>
     <NoWarn>1701;1702;1591</NoWarn>
     <PackageId>DHI.Services.GIS</PackageId>
-    <Version>12.1.0</Version>
-    <PackageReleaseNotes>Updated DHI.Services to v15.1.0 and DHI.Spatial to v2.6.2</PackageReleaseNotes>
+    <Version>13.0.1</Version>
+    <PackageReleaseNotes>Upgrade DHI.Spatial.GeoJson</PackageReleaseNotes>
     <Company>DHI</Company>
     <Authors>dhigroup</Authors>
     <PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
@@ -30,17 +30,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DHI.Services" Version="15.1.0" />
-    <PackageReference Include="DHI.Spatial" Version="2.6.2" />
-    <PackageReference Include="DHI.Spatial.GeoJson" Version="5.0.0" />
+    <PackageReference Include="DHI.Services" Version="16.1.0" />
+    <PackageReference Include="DHI.Spatial" Version="3.0.1" />
+    <PackageReference Include="DHI.Spatial.GeoJson" Version="7.0.0" />
     <PackageReference Include="FileCache" Version="3.3.0" />
+	<PackageReference Include="NETStandard.Library" Version="2.0.3" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
     <PackageReference Include="SkiaSharp" Version="2.88.8" />
     <PackageReference Include="System.Runtime.Caching" Version="6.0.0" />
-    <PackageReference Include="System.Text.Json" Version="8.0.5" />
   </ItemGroup>
 
   <ItemGroup>

@@ -2,13 +2,16 @@
 {
     using System.Net.Http;
     using System.Text;
-    using Newtonsoft.Json;
+    using System.Text.Json;
 
     public static class ContentHelper
     {
         public static StringContent GetStringContent(object obj)
         {
-            return new StringContent(JsonConvert.SerializeObject(obj), Encoding.UTF8, "application/json");
+            return new StringContent(
+            JsonSerializer.Serialize(obj, SerializerOptionsDefault.Options),
+            Encoding.UTF8,
+            "application/json");
         }
     }
 }

@@ -15,6 +15,10 @@
         /// <returns>TimeSeriesData&lt;System.Double&gt;.</returns>
         public static TimeSeriesData<double> TimeStepTrend(this ITimeSeriesData<double> timeSeriesData, TimeStepTrendType timeStepTrendType)
         {
+            if (!timeSeriesData.DateTimes.Any())
+            {
+                new TimeSeriesData<double>();
+            }
             var timeStepTrend = new TimeSeriesData<double>();
 
             switch (timeStepTrendType)

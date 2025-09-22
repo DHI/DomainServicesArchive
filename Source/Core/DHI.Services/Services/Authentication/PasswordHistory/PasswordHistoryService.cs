@@ -1,7 +1,6 @@
 ﻿namespace DHI.Services.Authentication.PasswordHistory
 {
     using DHI.Services.Accounts;
-    using DHI.Services.Logging;
     using Microsoft.Extensions.Logging;
     using System;
     using System.Collections.Concurrent;

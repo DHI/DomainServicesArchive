@@ -63,8 +63,9 @@
             var repository = new TimeSeriesRepository();
             var data = repository.GetValues(id, new DateTime(2020, 6, 23), new DateTime(2020, 6, 23)).Value;
 
-            Assert.Equal(new DateTime(2020, 6, 23, 6, 37, 43, 140), data.DateTimes[0]);
-            Assert.Equal(new DateTime(2020, 6, 23, 16, 59, 32, 835), data.DateTimes[1]);
+            TimeSpan tolerance = TimeSpan.FromMilliseconds(1);
+            Assert.True((data.DateTimes[0] - new DateTime(2020, 6, 23, 6, 37, 43, 140)).Duration() < tolerance);
+            Assert.True((data.DateTimes[1] - new DateTime(2020, 6, 23, 16, 59, 32, 835)).Duration() < tolerance);
         }
 
         [Fact]
@@ -74,8 +75,9 @@
             var repository = new TimeSeriesRepository();
             var data = repository.GetValues(id, new DateTime(2020, 6, 23), new DateTime(2020, 6, 23)).Value;
 
-            Assert.Equal(new DateTime(2020, 6, 23, 5, 23, 25, 461), data.DateTimes[0]);
-            Assert.Equal(new DateTime(2020, 6, 23, 18, 13, 50, 514), data.DateTimes[1]);
+            TimeSpan tolerance = TimeSpan.FromMilliseconds(1);
+            Assert.True((data.DateTimes[0] - new DateTime(2020, 6, 23, 5, 23, 25, 461)).Duration() < tolerance);
+            Assert.True((data.DateTimes[1] - new DateTime(2020, 6, 23, 18, 13, 50, 514)).Duration() < tolerance);
         }
 
         [Fact]

@@ -1,0 +1,152 @@
+﻿<Window x:Class="DHI.Services.Samples.Physics.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:DHI.Services.Samples.Physics.ViewModels"
+        mc:Ignorable="d"
+        Title="Physics Playground (Units &amp; Conversion)"
+        Height="600" Width="980"
+        WindowStartupLocation="CenterScreen"
+        MinHeight="480" MinWidth="860">
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <DockPanel Grid.Row="0" Margin="0,0,0,10">
+            <TextBlock Text="Search:" VerticalAlignment="Center" Margin="0,0,6,0"/>
+            <TextBox Width="260"
+                     Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
+                     ToolTip="Filter units list by Id/Abbreviation/Description"/>
+            <Separator Width="16" />
+            <Button Content="Reset"
+                    Command="{Binding ResetSearchCommand}"
+                    Padding="10,4"
+                    Margin="0,0,10,0"/>
+            <TextBlock Text="{Binding UnitCountText}" VerticalAlignment="Center" Foreground="#666"/>
+        </DockPanel>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="7*"/>
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Column="0" BorderBrush="#ddd" BorderThickness="1" CornerRadius="3" Margin="0,0,10,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Text="Units"
+                               FontWeight="Bold" Margin="8,6,8,4"/>
+
+                    <DataGrid Grid.Row="1"
+                              ItemsSource="{Binding UnitsView}"
+                              IsReadOnly="True"
+                              AutoGenerateColumns="False"
+                              SelectionMode="Single"
+                              SelectedItem="{Binding SelectedFromUnit}"
+                              Margin="6"
+                              HeadersVisibility="Column"
+                              CanUserAddRows="False"
+                              CanUserDeleteRows="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="*" />
+                            <DataGridTextColumn Header="Abbrev." Binding="{Binding Abbreviation}" Width="80"/>
+                            <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="2*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </Border>
+
+            <Border Grid.Column="1" BorderBrush="#ddd" BorderThickness="1" CornerRadius="3">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel Margin="10">
+
+                        <TextBlock Text="Unit Converter" FontWeight="Bold" FontSize="14"/>
+
+                        <Grid Margin="0,10,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="12"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Text="Value:"/>
+                            <TextBox Grid.Row="0" Grid.Column="2" Width="220"
+                                     Text="{Binding InputValue, UpdateSourceTrigger=PropertyChanged}"/>
+
+                            <TextBlock Grid.Row="1" Grid.Column="0" Margin="0,8,0,0" VerticalAlignment="Center" Text="From:"/>
+                            <ComboBox Grid.Row="1" Grid.Column="2" Margin="0,8,0,0" Width="320"
+                                      ItemsSource="{Binding FromUnits}"
+                                      SelectedItem="{Binding SelectedFromUnit}"
+                                      DisplayMemberPath="Display"
+                                      IsEditable="True" IsTextSearchEnabled="True"/>
+
+                            <TextBlock Grid.Row="2" Grid.Column="0" Margin="0,8,0,0" VerticalAlignment="Center" Text="To:"/>
+                            <ComboBox Grid.Row="2" Grid.Column="2" Margin="0,8,0,0" Width="320"
+                                      ItemsSource="{Binding ToUnits}"
+                                      SelectedItem="{Binding SelectedToUnit}"
+                                      DisplayMemberPath="Display"
+                                      IsEditable="True" IsTextSearchEnabled="True"/>
+
+                            <TextBlock Grid.Row="3" Grid.Column="0" Margin="0,8,0,0" VerticalAlignment="Center" Text="Decimals:"/>
+                            <TextBox Grid.Row="3" Grid.Column="2" Margin="0,8,0,0" Width="60"
+                                     Text="{Binding Decimals, UpdateSourceTrigger=PropertyChanged}"/>
+
+                            <StackPanel Grid.Row="4" Grid.Column="2" Orientation="Horizontal" Margin="0,12,0,0">
+                                <Button Content="Convert" Command="{Binding ConvertCommand}" Padding="14,6"/>
+                                <Button Content="Swap" Command="{Binding SwapCommand}" Padding="14,6" Margin="8,0,0,0"/>
+                            </StackPanel>
+                        </Grid>
+
+                        <Border Margin="0,16,0,0" Padding="10" BorderBrush="#ddd" BorderThickness="1" CornerRadius="3">
+                            <StackPanel>
+                                <TextBlock Text="Result" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding ResultText}" FontSize="16" Margin="0,6,0,0"/>
+                                <TextBlock Text="{Binding DimensionText}" Margin="0,6,0,0" Foreground="#666"/>
+                                <TextBlock Text="{Binding ErrorText}" Margin="0,6,0,0" Foreground="#c0392b"
+                                           Visibility="{Binding HasError, Converter={x:Static vm:BooleanToVisibilityConverter.Instance}}"/>
+                            </StackPanel>
+                        </Border>
+
+                        <GroupBox Header="Custom conversion (y = a·x + b)" Margin="0,16,0,0">
+                            <StackPanel Margin="8">
+                                <WrapPanel>
+                                    <TextBlock Text="From:" VerticalAlignment="Center" Margin="0,0,6,0"/>
+                                    <ComboBox Width="220" ItemsSource="{Binding UnitsView}" SelectedItem="{Binding CustomFromUnit}" DisplayMemberPath="Id"/>
+
+                                    <TextBlock Text="To:" VerticalAlignment="Center" Margin="12,0,6,0"/>
+                                    <ComboBox Width="220" ItemsSource="{Binding UnitsView}" SelectedItem="{Binding CustomToUnit}" DisplayMemberPath="Id"/>
+
+                                    <TextBlock Text="a:" VerticalAlignment="Center" Margin="12,0,6,0"/>
+                                    <TextBox Width="80" Text="{Binding CustomA, UpdateSourceTrigger=PropertyChanged}"/>
+
+                                    <TextBlock Text="b:" VerticalAlignment="Center" Margin="12,0,6,0"/>
+                                    <TextBox Width="80" Text="{Binding CustomB, UpdateSourceTrigger=PropertyChanged}"/>
+
+                                    <Button Content="Register" Command="{Binding RegisterCustomConversionCommand}" Margin="12,0,0,0" Padding="10,4"/>
+                                </WrapPanel>
+                                <TextBlock Text="If defined, a custom mapping overrides the default physical conversion for that exact (from → to) pair."
+                                           Foreground="#666" Margin="0,6,0,0"/>
+                            </StackPanel>
+                        </GroupBox>
+
+                    </StackPanel>
+                </ScrollViewer>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>

@@ -423,7 +423,7 @@
             if (entities != null)
             {
                 //insert comparer on child dictionary
-                foreach (var dictionary in entities)
+                foreach (var dictionary in entities.ToList())
                 {
                     entities[dictionary.Key] = new Dictionary<string, TEntity>(dictionary.Value, Comparer);
                 }

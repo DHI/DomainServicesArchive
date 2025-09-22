@@ -12,3 +12,8 @@
 - v 5.0.0-rc3 - Bug fixes
 - v 5.0.0-rc4 - IEC Security Web Api UI Integration & Core System.Text.Json Version Update
 - v 5.0.4 - To delete unused import DHI.Services.Logger
+- v 6.0.0 - Create a restriction to a non admin user access
+- v 7.0.0 - Change target framework to .NET 8.0
+- v 7.0.1 - Fix GET Me endpoint for NameIdentifier error at release mode
+- v 7.0.2 - Upgrade Domain Services Packages
+- v 7.0.3 - Add IClaimsSet for ClaimsSet Customization

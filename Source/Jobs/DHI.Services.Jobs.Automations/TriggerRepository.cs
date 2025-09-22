@@ -4,7 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition.Hosting;
 using System.Linq;
+using System.Reflection;
 using System.Security.Claims;
+using System.Text.Json;
 using TriggerParametersExport;
 
 public class TriggerRepository : ITriggerRepository
@@ -76,23 +78,102 @@ public class TriggerRepository : ITriggerRepository
     private TriggerParameters<string> GetParameters(string id, Type type)
     {
         var triggerAttributes = type
-                               .GetProperties()
-                               .Where(p => !p.GetCustomAttributes(typeof(TriggerParameterIgnoreAttribute), false).Any())
-                               .Where(p => p.GetCustomAttributes(typeof(TriggerParameterAttribute), false).Any())
-                               .Select(p =>
-                                {
-                                    var name = p.Name;
-                                    var attribute = p.GetCustomAttributes(typeof(TriggerParameterAttribute), false).FirstOrDefault() as TriggerParameterAttribute;
-                                    var required = attribute!.Required;
-                                    var parameters = TriggerParameter.FromAttribute(attribute);
-                                    return (name, parameters, required);
-                                })
-                               .ToArray();
+        .GetProperties(BindingFlags.Public | BindingFlags.Instance)
+        .Where(p => !p.GetCustomAttributes(typeof(TriggerParameterIgnoreAttribute), false).Any())
+        .Where(p => p.GetCustomAttributes(typeof(TriggerParameterAttribute), false).Any())
+        .Select(p =>
+        {
+            var name = p.Name;
+            var attribute = (TriggerParameterAttribute)p
+                .GetCustomAttributes(typeof(TriggerParameterAttribute), false)
+                .First();
+
+            var param = TriggerParameter.FromAttribute(attribute);
+            ApplyClrType(name, p.PropertyType, param);
+
+            var jsonName = JsonNamingPolicy.CamelCase.ConvertName(name);
+
+            var required = attribute.Required;
+            return (name: jsonName, parameters: param, required);
+        })
+        .ToArray();
 
         var required = triggerAttributes.Where(a => a.required).Select(a => a.name);
-
         var parameters = triggerAttributes.ToDictionary(a => a.name, a => a.parameters);
 
-        return new TriggerParameters<string>(id, parameters, required);
+        var triggerTypeName = id;
+        var knownTriggerNamespace = "DHI.Services.Jobs.Automations.Triggers";
+        var fullTriggerTypeName = $"{knownTriggerNamespace}.{triggerTypeName}";
+
+        var triggerType = AppDomain.CurrentDomain
+            .GetAssemblies()
+            .Select(a => a.GetType(fullTriggerTypeName, throwOnError: false))
+            .FirstOrDefault(t => t != null);
+
+        var result = new TriggerParameters<string>(id, parameters, required);
+
+        if (triggerType != null)
+        {
+            result.FullTypeName = triggerType.FullName;
+            result.AssemblyName = triggerType.Assembly.GetName().Name;
+            result.AssemblyQualifiedTypeName = $"{triggerType.FullName}, {triggerType.Assembly.GetName().Name}";
+        }
+        else
+        {
+            result.FullTypeName = type.FullName;
+            result.AssemblyName = type.Assembly.GetName().Name;
+            result.AssemblyQualifiedTypeName = $"{type.FullName}, {type.Assembly.GetName().Name}";
+        }
+
+        return result;
+    }
+
+    private static void ApplyClrType(string propName, Type t, TriggerParameter tp)
+    {
+        if (Nullable.GetUnderlyingType(t) is Type nt) t = nt;
+
+        if (t.IsArray)
+        {
+            tp.Type = "array";
+            tp.ItemsType = MapScalarType(t.GetElementType());
+            return;
+        }
+
+        if (t != typeof(string) && t.IsGenericType &&
+            typeof(System.Collections.IEnumerable).IsAssignableFrom(t))
+        {
+            var gt = t.GetGenericArguments()[0];
+            tp.Type = "array";
+            tp.ItemsType = MapScalarType(gt);
+            return;
+        }
+
+        if (t.IsEnum)
+        {
+            tp.Type = "string";
+            tp.EnumValues = Enum.GetNames(t);
+            return;
+        }
+
+
+        tp.Type = MapScalarType(t);
+
+    }
+
+    private static string MapScalarType(Type t, TriggerParameter tp = null)
+    {
+        if (t == typeof(string)) return "string";
+        if (t == typeof(bool)) return "boolean";
+        if (t == typeof(byte) || t == typeof(sbyte) ||
+            t == typeof(short) || t == typeof(ushort) ||
+            t == typeof(int) || t == typeof(uint) ||
+            t == typeof(long) || t == typeof(ulong)) return "integer";
+        if (t == typeof(float) || t == typeof(double) || t == typeof(decimal)) return "number";
+
+        if (t == typeof(DateTime) || t == typeof(DateTimeOffset)) { if (tp != null) tp.Format = "date-time"; return "string"; }
+        if (t == typeof(TimeSpan)) { if (tp != null) tp.Format = "duration"; return "string"; }
+        if (t == typeof(Guid)) { if (tp != null) tp.Format = "uuid"; return "string"; }
+
+        return "object";
     }
 }

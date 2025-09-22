@@ -39,7 +39,7 @@
             _hubContext = hubContext;
             _logger = logger;
             _filterService = new FilterService(filterRepository);
-            
+
             var jsonFormatter = mvcOptions?.Value.OutputFormatters
                 .OfType<SystemTextJsonOutputFormatter>()
                 .FirstOrDefault();
@@ -337,13 +337,52 @@
         {
             var user = HttpContext.User;
             var jobService = Services.Get<IJobService<string>>(connectionId);
-            var job = jobService.Get(id, user);
-            jobService.UpdateStatus(id, statusUpdateDTO.JobStatus, statusUpdateDTO.StatusMessage, statusUpdateDTO.Progress, user);
-            var groups = await GetGroups(user, job.Id, connectionId, jobService);
+
+            Job<Guid, string> current;
+            try
+            {
+                current = jobService.Get(id, user);
+            }
+            catch
+            {
+                return NotFound();
+            }
+
+            if (current == null)
+            {
+                return NotFound();
+            }
+
+            var incoming = statusUpdateDTO.JobStatus;
+
+            if (IsFinal(current.Status))
+            {
+                if (IsFinal(incoming) && incoming == current.Status)
+                {
+                    return Ok();
+                }
+
+                _logger.LogWarning(
+                    "Rejecting status update for job {JobId}. Current state {Current} is terminal; incoming {Incoming}.",
+                    id, current.Status, incoming
+                );
+
+                return StatusCode(StatusCodes.Status409Conflict, new
+                {
+                    message = string.Format("Job {0} is already in terminal state '{1}'. Further updates are not allowed.", id, current.Status)
+                });
+            }
+
+            jobService.UpdateStatus(id, incoming, statusUpdateDTO.StatusMessage, statusUpdateDTO.Progress, user);
+
+            var updated = jobService.Get(id, user);
+
+            var groups = await GetGroups(user, id, connectionId, jobService);
+
             var parameters = new Parameters
             {
-                { "id", job.Id.ToString() },
-                { "data", JsonSerializer.Serialize(job, _jsonSerializerOptions) },
+                { "id", updated.Id.ToString() },
+                { "data", JsonSerializer.Serialize(updated, _jsonSerializerOptions) },
                 { "userName", user.GetUserId() },
                 { "connectionId", connectionId }
             };
@@ -479,6 +518,14 @@
                     _logger.LogError(e, "Failed sending message");
                 }
             }
+        }
+
+        private static bool IsFinal(JobStatus status)
+        {
+            return status == JobStatus.Completed
+                || status == JobStatus.Error
+                || status == JobStatus.Cancelled
+                || status == JobStatus.TimedOut;
         }
     }
 }

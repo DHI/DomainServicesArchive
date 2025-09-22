@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net472</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net472;net8.0</TargetFrameworks>
     <DefaultItemExcludes>$(DefaultItemExcludes);nuget\*.nupkg;nuget\*.log</DefaultItemExcludes>
     <NoWarn>1701;1702;1591</NoWarn>
     <PackageId>DHI.Services.Policies</PackageId>
-    <Version>2.1.0</Version>
-    <PackageReleaseNotes>Updated DHI.Services to v15.1.0</PackageReleaseNotes>
+    <Version>2.2.2</Version>
+    <PackageReleaseNotes>Upgrade Domain Services Packages</PackageReleaseNotes>
     <Company>DHI</Company>
     <Authors>dhigroup</Authors>
     <PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
@@ -22,6 +22,7 @@
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <LangVersion>latest</LangVersion>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
+	  <PackageReadmeFile>readme.md</PackageReadmeFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
@@ -29,7 +30,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DHI.Services" Version="15.1.0" />
+    <PackageReference Include="DHI.Services" Version="16.1.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.0" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
       <PrivateAssets>all</PrivateAssets>
@@ -40,6 +41,10 @@
   </ItemGroup>
 
   <ItemGroup>
+	  <None Include="nuget\readme.md">
+		  <Pack>true</Pack>
+		  <PackagePath></PackagePath>
+	  </None>
     <None Include="nuget\ds-icon-64.png" Pack="true" PackagePath="" />
   </ItemGroup>
 

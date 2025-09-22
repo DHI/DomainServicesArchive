@@ -1,10 +1,10 @@
 ﻿namespace DHI.Services.Test
 {
+    using AutoFixture.Xunit2;
     using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
-    using AutoFixture.Xunit2;
     using Xunit;
 
     public sealed class GroupedJsonRepositoryTest : IDisposable
@@ -270,6 +270,54 @@
             e.Metadata.Add("Description", "A description");
 
             Assert.DoesNotContain("Description", _repository.Get(entity.FullName).Value.Metadata.Keys);
+        }
+
+        [Fact]
+        public void ModifyingDictionaryWhileEnumerating_ThrowsInvalidOperationException()
+        {
+            var entities = new Dictionary<string, IDictionary<string, FakeGroupedEntity>>
+            {
+                ["Group1"] = new Dictionary<string, FakeGroupedEntity>
+                {
+                    ["E1"] = new FakeGroupedEntity("E1", "Group1")
+                },
+                ["Group2"] = new Dictionary<string, FakeGroupedEntity>
+                {
+                    ["E2"] = new FakeGroupedEntity("E2", "Group2")
+                }
+            };
+
+            Assert.Throws<InvalidOperationException>(() =>
+            {
+                foreach (var kvp in entities)
+                {
+                    entities.Add(kvp.Key + "_copy",
+                                  kvp.Value);
+                }
+            });
+        }
+
+        [Fact]
+        public void ModifyingDictionaryFromSnapshot_DoesNotThrow()
+        {
+            var entities = new Dictionary<string, IDictionary<string, FakeGroupedEntity>>
+            {
+                ["Group1"] = new Dictionary<string, FakeGroupedEntity>
+                {
+                    ["E1"] = new FakeGroupedEntity("E1", "Group1")
+                },
+                ["Group2"] = new Dictionary<string, FakeGroupedEntity>
+                {
+                    ["E2"] = new FakeGroupedEntity("E2", "Group2")
+                }
+            };
+
+            foreach (var kvp in entities.ToList())
+            {
+                entities.Add(kvp.Key + "_copy", kvp.Value);
+            }
+
+            Assert.Equal(4, entities.Count);
         }
     }
 }

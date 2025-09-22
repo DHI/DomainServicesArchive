@@ -5,9 +5,8 @@
     using System.Threading.Tasks;
     using Accounts;
     using DHI.Services.Authentication;
-    using DHI.Services.Logging;
     using DHI.Services.Notifications;
-    using DHI.Services.Test.Logging;
+    using DHI.Services.Test.Notifications;
     using Microsoft.Extensions.Logging.Abstractions;
     using Xunit;
     using Xunit.Abstractions;

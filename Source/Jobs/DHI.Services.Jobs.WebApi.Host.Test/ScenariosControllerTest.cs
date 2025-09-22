@@ -21,6 +21,7 @@
         public ScenariosControllerTest(ControllersFixture factory) 
         {
             _factory = factory;
+            factory.DeleteFromTempAppDataPath("scenarios.json");
             _client = factory.Client;
             factory.CopyToTempAppDataPath("scenarios.json");
             _options = SerializerOptionsDefault.Options;

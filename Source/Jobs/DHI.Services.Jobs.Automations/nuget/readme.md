@@ -8,3 +8,25 @@
 - v 2.0.2-rc04 [Snyk] Security upgrade Npgsql 8.0.3 to 8.0.4
 - v 2.0.2-rc05 [Snyk] Security upgrade Npgsql 8.0.4 to 8.0.5
 - v 3.0.0 Change from MySql.Data to MySqlConnector
+- v 3.1.0 To add .NET 8.0 for the target
+- v 3.2.0 To pump Microsoft.Data.SqlClient version and fix vulnerability
+- v 3.2.1 To fix ITrigger issue when inserting TriggerConditions
+- v 3.3.0 Add IAutomationRepository contract into DirectoryAutomationRepository, add BluecastTrigger
+- v 3.3.1 Fix MEF name type
+- v 4.0.0 Remove Parameters inside Automations, Triggers now can accept anything inside
+- v 4.1.0 Supporting ScheduleTrigger when utcNow is not available inside TaskParam
+- v 4.1.1 Fix dynamic MEF assembly
+- v 4.1.2 Fix MEF getting from Trigger class instead of TriggerParameters
+- v 4.1.3 Deep Copy and add triggers.Extra into parameters at AutomationExecutor
+- v 5.0.0 Add versioning inside Automation Repository (breaks contract)
+- v 5.0.1 Add versioning support for AutomationService and fix path issue at AutomationRepository
+- v 5.0.2 Fix executionParameters issue inside AutomationExecutor
+- v 5.0.3 Upgrade Domain Services Packages
+- v 6.0.0 Upgrade Jobs Package and add Encoder for DirectoryAutomationsRepository
+- v 7.0.0 Add additional LastJob and IsMet properties inside Automation entity
+- v 7.0.1 Add ReadOnlyCompositeJob to handle multiple IJobRepository
+- v 7.0.2 Refactor AutomationExecutor code
+- v 7.0.3 Fix ScheduledTrigger to works with all generics scenarios
+- v 7.0.4 Mapping Type Triggers issue fix
+- v 7.0.5 Fix ScheduledTrigger to treat crossed from before start to at/after as a boundary
+- v 7.0.6 Add JobTag inside AutomationResult

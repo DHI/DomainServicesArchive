@@ -31,11 +31,12 @@
         ],
         "Conditional": "trigger1 AND trigger2"
       },
-        "FullName": "my-group-1/my-automation",
-        "Group": "my-group-1",
-        "Name": "my-automation",
-        "Id": "my-group-1/my-automation"
-      }
+      "FullName": "my-group-1/my-automation",
+      "Group": "my-group-1",
+      "Name": "my-automation",
+      "HostGroup": "Minion",
+      "Id": "my-group-1/my-automation"
+    }
   },
   "my-group-2": {
     "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[DHI.Services.Jobs.Automations.Automation`1[[System.String, System.Private.CoreLib]], DHI.Services.Jobs]], System.Private.CoreLib",
@@ -47,6 +48,7 @@
       "FullName": "my-group-2/my-automation",
       "Group": "my-group-2",
       "Name": "my-automation",
+      "HostGroup": "Titan",
       "Id": "my-group-2/my-automation"
     }
   }

@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:11
+    container_name: authserver_postgres
+    environment:
+      POSTGRES_DB: ProviderTest
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Solutions!
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  authserver:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: authserver
+    ports:
+      - "8080:5000"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://0.0.0.0:5000
+      Repository__PostgreSQL__ConnectionString: |
+        Server=authserver_postgres;Port=5432;Username=postgres;Password=Solutions!;Database=ProviderTest;
+      Repository__PostgreSQL__LogConnectionString: |
+        Server=authserver_postgres;Port=5432;Username=postgres;Password=Solutions!;Database=ProviderTest;Table=public.logging;
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  testrunner:
+    image: mcr.microsoft.com/dotnet/sdk:8.0
+    depends_on:
+      authserver:
+        condition: service_started
+    volumes:
+      - .:/src
+    environment:
+      TEST_PG_CONN: |
+        Server=postgres;Port=5432;Username=postgres;Password=Solutions!;Database=ProviderTest;
+    working_dir: /src
+    command: [
+      "bash","-c",
+      "dotnet restore AuthorizationServer.sln && \
+      dotnet test AuthorizationServer.Test/AuthorizationServer.Test.csproj \
+            --configuration Release --verbosity normal"
+  ]
+
+volumes:
+  pgdata:

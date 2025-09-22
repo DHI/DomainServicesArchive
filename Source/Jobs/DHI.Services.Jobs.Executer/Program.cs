@@ -11,7 +11,7 @@ using System.Reflection;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Text.Json;
-using Logging;
+using Notifications;
 using Microsoft.Extensions.Configuration;
 using System.Text.Json.Nodes;
 using Microsoft.Extensions.Logging;
@@ -123,7 +123,7 @@ internal class Program
         IConfiguration configuration = new ConfigurationBuilder().SetBasePath(GetBasePath()).AddJsonFile("appsettings.json", false, true).Build();
         var connectionString = configuration.GetValue("LoggerConnectionString", "[Path]DHI.Services.Jobs.Executer.log");
         connectionString = connectionString.Replace("[Path]", Path.GetDirectoryName(Uri.UnescapeDataString(new Uri(Assembly.GetExecutingAssembly().Location).AbsolutePath)) + @"\");
-        var loggerType = configuration.GetValue("LoggerType", "DHI.Services.Logging.SimpleLogger, DHI.Services");
+        var loggerType = configuration.GetValue("LoggerType", "DHI.Services.Notifications.SimpleLogger, DHI.Services");
         try
         {
             logger = (ILogger)Activator.CreateInstance(Type.GetType(loggerType)!, connectionString)!;

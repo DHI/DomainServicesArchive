@@ -4,7 +4,6 @@
     using AutoFixture;
     using AutoFixture.AutoMoq;
     using AutoFixture.Xunit2;
-    using Logging;
     using Notifications;
 
     [AttributeUsage(AttributeTargets.Method)]

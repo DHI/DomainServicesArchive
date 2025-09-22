@@ -4,7 +4,6 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Security.Claims;
-    using Logging;
     using Microsoft.Extensions.Logging;
     using Spatial;
     using TimeSeries;

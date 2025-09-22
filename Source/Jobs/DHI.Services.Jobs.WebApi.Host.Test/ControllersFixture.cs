@@ -24,12 +24,12 @@
             TempAppDataPath = Path.Combine(_tempContentRootPath, "App_Data");
             Directory.CreateDirectory(TempAppDataPath);
             CopyToTempAppDataPath("automations.json");
-            CopyToTempAppDataPath("connections.json");
             CopyToTempAppDataPath("grouped_hosts.json");
             CopyToTempAppDataPath("jobs.json", Directory.GetCurrentDirectory());
             CopyToTempAppDataPath("jobs2.json");
             CopyToTempAppDataPath("workflows.json");
             CopyToTempAppDataPath("workflows2.json");
+            CopyToTempAppDataPath("scenarios.json");
             CopyToTempAppDataPath("SwaggerInfo.md");
             Client = CreateClient();
             Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _GetJWT());
@@ -43,6 +43,17 @@
             var destinationFilePath = Path.Combine(TempAppDataPath, sourceFileName);
             File.Copy(Path.Combine(sourceDir, sourceFileName), destinationFilePath);
             new FileInfo(destinationFilePath).IsReadOnly = false;
+        }
+
+        public void DeleteFromTempAppDataPath(string fileName)
+        {
+            var filePath = Path.Combine(TempAppDataPath, fileName);
+            if (File.Exists(filePath))
+            {
+                var info = new FileInfo(filePath);
+                if (info.IsReadOnly) info.IsReadOnly = false;
+                info.Delete();
+            }
         }
 
         protected override void ConfigureWebHost(IWebHostBuilder builder)

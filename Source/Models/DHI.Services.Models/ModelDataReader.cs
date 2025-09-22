@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Text.Json.Serialization;
     using System.Threading.Tasks;
     using TimeSeries;
 
@@ -19,6 +20,7 @@
         /// </summary>
         /// <param name="id">The identifier.</param>
         /// <param name="name">The name.</param>
+        [JsonConstructor]
         public ModelDataReader(string id, string name) : base(id, name)
         {
             _modelDataReader = Activator.CreateInstance<TModelDataReader>();

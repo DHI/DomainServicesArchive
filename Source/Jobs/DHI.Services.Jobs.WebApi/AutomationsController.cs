@@ -1,13 +1,17 @@
 ﻿namespace DHI.Services.Jobs.WebApi
 {
+    using Automations;
+    using DHI.Services.Jobs.WebApi.DTOs;
+    using DHI.Services.Scalars;
     using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
     using Swashbuckle.AspNetCore.Annotations;
+    using System;
     using System.Collections.Generic;
-    using Automations;
-    using WebApiCore;
-    using Microsoft.AspNetCore.Http;
     using System.Text.Json;
+    using System.Web;
+    using WebApiCore;
 
     /// <summary>
     ///     Automations API
@@ -22,9 +26,9 @@
     {
         private readonly AutomationService _automationService;
 
-        public AutomationsController(IAutomationRepository repository)
+        public AutomationsController(IAutomationRepository repository, IScalarRepository<string, int> scalarRepository, IJobRepository<Guid, string> jobRepository)
         {
-            _automationService = new AutomationService(repository);
+            _automationService = new AutomationService(repository, scalarRepository, jobRepository);
         }
 
         /// <summary>
@@ -39,7 +43,8 @@
         public ActionResult<Automation> Get(string id)
         {
             var user = HttpContext.User;
-            return Ok(_automationService.Get(FullNameString.FromUrl(id), user));
+            var decodedId = HttpUtility.UrlDecode(id);
+            return Ok(_automationService.Get(FullNameString.FromUrl(decodedId), user));
         }
 
         /// <summary>
@@ -147,20 +152,22 @@
         public IActionResult Delete(string id)
         {
             var user = HttpContext.User;
-            _automationService.Remove(FullNameString.FromUrl(id), user);
+            var decodedId = HttpUtility.UrlDecode(id);
+            _automationService.Remove(FullNameString.FromUrl(decodedId), user);
             return NoContent();
         }
 
-        [HttpPost("enable")]
+        [HttpPut("{id}/enable")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [Consumes("application/json")]
-        public ActionResult<Automation> Enable(string id, bool flag)
+        public ActionResult<Automation> Enable(string id, [FromBody] EnableAutomationRequest request)
         {
             var user = HttpContext.User;
-            var automation = _automationService.Get(FullNameString.FromUrl(id), user);
+            var decodedId = HttpUtility.UrlDecode(id);
+            var automation = _automationService.Get(FullNameString.FromUrl(decodedId), user);
 
-            if (flag)
+            if (request.Flag)
             {
                 automation.Enable();
             }
@@ -171,6 +178,15 @@
 
             _automationService.Update(automation);
             return Ok(automation);
+        }
+
+        [HttpGet("version")]
+        public ActionResult<string> GetVersion()
+        {
+            var timestamp = _automationService.GetVersionTimestamp();
+            return timestamp.HasValue
+                ? Ok(timestamp.Value.ToString("O"))
+                : StatusCode(StatusCodes.Status501NotImplemented, "Versioning is not supported by the current repository.");
         }
     }
 }

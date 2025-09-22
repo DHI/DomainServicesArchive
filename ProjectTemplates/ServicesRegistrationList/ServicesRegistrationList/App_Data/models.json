@@ -1,0 +1,15 @@
+{
+    "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[DHI.Services.Models.IModelDataReader, DHI.Services.Models]], System.Private.CoreLib",
+  "fakeReader": {
+    "$type": "DHI.Services.Models.ModelDataReader`1[[BaseWebApi.FakeModelDataReader, BaseWebApi]], DHI.Services.Models",
+    "TypeName": "BaseWebApi.FakeModelDataReader",
+    "Name": "Fake model data reader",
+    "Id": "fakeReader"
+  },
+  "myReader": {
+    "$type": "DHI.Services.Models.ModelDataReader`1[[BaseWebApi.FakeModelDataReader, BaseWebApi]], DHI.Services.Models",
+    "TypeName": "BaseWebApi.FakeModelDataReader",
+    "Name": "My model data reader",
+    "Id": "myReader"
+  }
+}

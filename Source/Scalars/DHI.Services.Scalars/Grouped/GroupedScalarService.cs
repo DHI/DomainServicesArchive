@@ -3,7 +3,6 @@
     using System;
     using System.Collections.Generic;
     using System.Security.Claims;
-    using Logging;
     using Microsoft.Extensions.Logging;
 
     /// <summary>

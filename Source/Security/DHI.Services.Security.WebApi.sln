@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DHI.Services.Security.WebApi", "DHI.Services.Security.WebApi\DHI.Services.Security.WebApi.csproj", "{89DD6E12-65E5-4DA3-A4C8-C86886682DD1}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DHI.Services.Security.WebApi.Host", "DHI.Services.Security.WebApi.Host\DHI.Services.Security.WebApi.Host.csproj", "{307D104E-4C0C-45CD-9F4A-BEACD756F6A0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DHI.Services.Security.WebApi.Host.Test", "DHI.Services.Security.WebApi.Host.Test\DHI.Services.Security.WebApi.Host.Test.csproj", "{055AB7D7-06ED-4C8F-AAFF-0822D9192D82}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DHI.Services.Security.WebApi.Test", "DHI.Services.Security.WebApi.Test\DHI.Services.Security.WebApi.Test.csproj", "{B23FF72D-80F5-43D8-9A4B-F22F4914ECAE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DHI.Services.Security.WebApi", "DHI.Services.Security.WebApi\DHI.Services.Security.WebApi.csproj", "{FBDF833D-7BE2-78CB-E584-D32200C16374}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{89DD6E12-65E5-4DA3-A4C8-C86886682DD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{89DD6E12-65E5-4DA3-A4C8-C86886682DD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{89DD6E12-65E5-4DA3-A4C8-C86886682DD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{89DD6E12-65E5-4DA3-A4C8-C86886682DD1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{307D104E-4C0C-45CD-9F4A-BEACD756F6A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{307D104E-4C0C-45CD-9F4A-BEACD756F6A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{307D104E-4C0C-45CD-9F4A-BEACD756F6A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +29,10 @@ Global
 		{B23FF72D-80F5-43D8-9A4B-F22F4914ECAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B23FF72D-80F5-43D8-9A4B-F22F4914ECAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B23FF72D-80F5-43D8-9A4B-F22F4914ECAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBDF833D-7BE2-78CB-E584-D32200C16374}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBDF833D-7BE2-78CB-E584-D32200C16374}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBDF833D-7BE2-78CB-E584-D32200C16374}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBDF833D-7BE2-78CB-E584-D32200C16374}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -4,7 +4,6 @@
     using System.Linq;
     using AutoFixture;
     using AutoFixture.Xunit2;
-    using Logging;
     using Microsoft.Extensions.Logging;
 
     [AttributeUsage(AttributeTargets.Method)]

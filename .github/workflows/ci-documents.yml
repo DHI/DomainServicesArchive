@@ -32,10 +32,14 @@ jobs:
             - 'Source/Documents/DHI.Services.Documents/**'
           webapi:
             - 'Source/Documents/DHI.Services.Documents.WebApi/**'
-    - name: Setup .NET
+    - name: Setup .NET 5
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 5.0.x
+    - name: Setup .NET 8
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 8.0.x
     - name: Restore dependencies
       run: | 
         dotnet restore ./Source/Documents/DHI.Services.Documents.sln -s https://api.nuget.org/v3/index.json 

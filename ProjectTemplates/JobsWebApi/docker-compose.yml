@@ -1,0 +1,23 @@
+services:
+  postgres:
+    image: postgres:15
+    container_name: job-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: Solutions
+      POSTGRES_PASSWORD: P@ssword!
+      POSTGRES_DB: JobWorkflow
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init:/docker-entrypoint-initdb.d
+    ports:
+      - "5432:5432"
+    networks:
+      - job-network
+
+volumes:
+  postgres_data:
+
+networks:
+  job-network:
+    driver: bridge

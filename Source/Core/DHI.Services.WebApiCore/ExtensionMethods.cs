@@ -10,7 +10,7 @@
     using System.Text.Json;
     using System.Text.RegularExpressions;
     using System.Threading.Tasks;
-    using Logging;
+    using Notifications;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Http;
     using Microsoft.Extensions.Configuration;

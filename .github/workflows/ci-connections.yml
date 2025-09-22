@@ -33,37 +33,29 @@ jobs:
               - 'Source/Connections/DHI.Services.Connections.WebApi/**'
             converter:
               - 'Source/Connections/DHI.Services.Connections.Converter/**'
-      - name: Setup .NET
+      - name: Setup .NET 5
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: 5.0.x
+      - name: Setup .NET 8
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 8.0.x
       - name: Restore dependencies
         run: |
           dotnet restore ./Source/Connections/DHI.Services.Connections.WebApi.sln -s https://api.nuget.org/v3/index.json
-          dotnet restore ./Source/Connections/DHI.Services.Connections.Converter/DHI.Services.Connections.Converter.csproj -s https://api.nuget.org/v3/index.json
       - name: Build
         run: |
           dotnet build ./Source/Connections/DHI.Services.Connections.WebApi.sln --no-restore
-          dotnet build ./Source/Connections/DHI.Services.Connections.Converter/DHI.Services.Connections.Converter.csproj --configuration Release --no-restore
       - name: Test
         run: |
           dotnet test ./Source/Connections/DHI.Services.Connections.WebApi.Host.Test/DHI.Services.Connections.WebApi.Host.Test.csproj --no-build --verbosity normal
-          dotnet test ./Source/Connections/DHI.Services.Connections.Converter.Test/DHI.Services.Connections.Converter.Test.csproj --no-build --verbosity normal
       - name: Pack & Push WebApi
         if: |
           github.ref == 'refs/heads/master' &&
           steps.filter.outputs.webapi == 'true'
         shell: cmd
         working-directory: Source\Connections\DHI.Services.Connections.WebApi\nuget
-        env:
-          NUGET_API_KEY_PUBLISH: ${{ secrets.NUGET_API_KEY_PUBLISH }}
-        run: PackAndPushPublish.bat yes
-      - name: Pack & Push Converter
-        if: |
-          github.ref == 'refs/heads/master' &&
-          steps.filter.outputs.converter == 'true'
-        shell: cmd
-        working-directory: Source\Connections\DHI.Services.Connections.Converter\nuget
         env:
           NUGET_API_KEY_PUBLISH: ${{ secrets.NUGET_API_KEY_PUBLISH }}
         run: PackAndPushPublish.bat yes

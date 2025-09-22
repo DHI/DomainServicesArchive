@@ -43,14 +43,15 @@
                     if (jsonObject.ContainsKey(TypeDiscriminator))
                     {
                         var discriminatorType = jsonObject[TypeDiscriminator].ToString();
-                        jsonObject?.Remove(TypeDiscriminator);
                         var knownType = TryGetType(discriminatorType);
+
+                        jsonObject.Remove(TypeDiscriminator);
 
                         if (knownType != null)
                         {
-                            return (TClass)JsonSerializer.Deserialize(jsonObject.ToJsonString(),
-                                knownType!,
-                                options);
+                            var safeOptions = NewSerializerOptions<TriggerConverter>(options);
+
+                            return (ITrigger)JsonSerializer.Deserialize(jsonObject.ToJsonString(), knownType, safeOptions);
                         }
                     }
 

@@ -4,7 +4,6 @@
     using System.Collections.Generic;
     using System.Security.Claims;
     using Authorization;
-    using Logging;
     using Microsoft.Extensions.Logging;
 
     /// <summary>

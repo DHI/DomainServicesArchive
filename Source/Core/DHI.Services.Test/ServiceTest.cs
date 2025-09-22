@@ -1,7 +1,7 @@
 ﻿namespace DHI.Services.Test
 {
     using Accounts;
-    using DHI.Services.Logging;
+    using DHI.Services.Notifications;
     using Mails;
     using Microsoft.Extensions.Logging;
     using Xunit;

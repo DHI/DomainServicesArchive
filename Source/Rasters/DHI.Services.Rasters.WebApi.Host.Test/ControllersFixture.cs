@@ -24,7 +24,6 @@
             _tempContentRootPath = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString());
             _tempAppDataPath = Path.Combine(_tempContentRootPath, "App_Data");
             Directory.CreateDirectory(_tempAppDataPath);
-            _CopyToTempAppDataPath("connections.json");
             _CopyToTempAppDataPath("zones.json");
             _CopyToTempAppDataPath("SwaggerInfo.md");
             _CopyFolderToTempAppDataPath("RadarImages");

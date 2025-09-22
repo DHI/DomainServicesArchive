@@ -14,6 +14,11 @@
         /// <returns>ITimeSeriesData&lt;System.Double&gt;.</returns>
         public static TimeSeriesData<double> GapFill(this ITimeSeriesData<double> timeSeriesData, TimeSeriesDataType dataType = null)
         {
+            if (!timeSeriesData.DateTimes.Any())
+            {
+                return new TimeSeriesData<double>();
+            }
+
             if (dataType == null)
             {
                 dataType = TimeSeriesDataType.Instantaneous;

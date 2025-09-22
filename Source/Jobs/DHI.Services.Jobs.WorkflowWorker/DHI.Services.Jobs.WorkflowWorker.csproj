@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net5.0</TargetFramework>
+        <TargetFrameworks>net5.0;net8.0</TargetFrameworks>
         <DefaultItemExcludes>$(DefaultItemExcludes)nuget\*.log</DefaultItemExcludes>
         <NoWarn>1591</NoWarn>
         <PackageId>DHI.Services.Jobs.WorkflowWorker</PackageId>
-        <Version>4.1.0</Version>
-        <PackageReleaseNotes>Updated DHI.Services.Jobs to v15.0.0</PackageReleaseNotes>
+        <Version>4.2.2</Version>
+        <PackageReleaseNotes>Upgrade Jobs package</PackageReleaseNotes>
         <Company>DHI</Company>
         <Authors>dhigroup</Authors>
         <PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
@@ -30,7 +30,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="DHI.Services.Jobs" Version="15.0.0" />
+        <PackageReference Include="DHI.Services.Jobs" Version="16.0.2" />
         <PackageReference Include="Microsoft.AspNetCore.Owin" Version="5.0.11" />
         <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
         <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0" />

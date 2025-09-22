@@ -5,7 +5,6 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using Logging;
 using Microsoft.Extensions.Logging;
 using Polly;
 using Polly.Wrap;

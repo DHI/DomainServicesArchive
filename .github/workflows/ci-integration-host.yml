@@ -1,0 +1,67 @@
+name: ci-integration-host
+
+on:
+  pull_request:
+    branches:
+      - master
+    paths:
+      - 'ProjectTemplates/IntegrationTestHost/**'
+
+  push:
+    branches:
+      - master
+    paths:
+      - 'ProjectTemplates/IntegrationTestHost/**'
+
+jobs:
+  build-and-test:
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: pwsh
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up .NET 8 SDK
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Set up PostgreSQL (Windows)
+        uses: ikalnytskyi/action-setup-postgres@v4
+        with:
+          postgres-version: '15'
+          username: postgres
+          password: Solutions!
+          database: postgres
+          port: 5432
+      - name: Wait for PostgreSQL to become available
+        run: |
+          $maxAttempts = 10
+          $attempt = 0
+          while ($attempt -lt $maxAttempts) {
+            try {
+              psql -h localhost -U postgres -d postgres -c '\l'
+              break
+            } catch {
+              Write-Host "Waiting for PostgreSQL... ($attempt/$maxAttempts)"
+              Start-Sleep -Seconds 3
+              $attempt++
+            }
+          }
+        env:
+          PGPASSWORD: Solutions!
+      - name: Create AccountTest and JsonDocumentsTest databases
+        run: |
+          psql -h localhost -U postgres -d postgres -c 'CREATE DATABASE "AccountTest"'
+          psql -h localhost -U postgres -d postgres -c 'CREATE DATABASE "JsonDocumentsTest"'
+        env:
+          PGPASSWORD: Solutions!
+      - name: Run Integration Build Script
+        run: |
+          $basePath = Join-Path $env:GITHUB_WORKSPACE 'ProjectTemplates/BaseWebApi/BaseWebApi'
+          ./ProjectTemplates/IntegrationTestHost/IntegrationTestHost/build-integration-host.ps1 -baseWebApiSource $basePath
+        env:
+          GITHUB_ACTIONS: true

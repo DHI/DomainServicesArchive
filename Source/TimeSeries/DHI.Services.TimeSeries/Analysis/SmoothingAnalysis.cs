@@ -63,6 +63,11 @@
         /// <returns>ITimeSeriesData&lt;System.Double&gt;.</returns>
         public static TimeSeriesData<double> Smoothing(this ITimeSeriesData<double> timeSeriesData, int window, int order = 2)
         {
+            if (!timeSeriesData.DateTimes.Any())
+            {
+                return new TimeSeriesData<double>();
+            }
+
             if (window % 2 < 1)
             {
                 throw new ArgumentException("The window length must be odd.", nameof(window));

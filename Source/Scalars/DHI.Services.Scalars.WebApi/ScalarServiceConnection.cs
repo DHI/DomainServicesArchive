@@ -3,7 +3,6 @@
     using System;
     using System.Reflection;
     using System.Runtime.ExceptionServices;
-    using Logging;
     using Microsoft.Extensions.Logging;
     using WebApiCore;
 

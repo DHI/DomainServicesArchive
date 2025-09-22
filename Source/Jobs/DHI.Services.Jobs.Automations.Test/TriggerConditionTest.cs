@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using Automations;
 using Triggers;
-using Logging;
 using Scalars;
 using Xunit;
 using Xunit.Abstractions;
@@ -110,7 +109,7 @@ public class TriggerConditionTest
 
         var automation = new Automation("automation1", "group1", "task1")
         {
-            Parameters = parameters,
+            TaskParameters = parameters,
             TriggerCondition = condition
         };
         Assert.True(_executor.Execute(automation).IsMet);

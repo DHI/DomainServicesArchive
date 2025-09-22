@@ -5,6 +5,7 @@
     using System.IO;
     using System.Security.Claims;
     using DHI.Services.Filters;
+    using DHI.Services.TimeSeries.Converters;
     using DHI.Services.WebApiCore;
     using Microsoft.AspNetCore.Authentication.JwtBearer;
     using Microsoft.AspNetCore.Builder;
@@ -18,8 +19,6 @@
     using Microsoft.IdentityModel.Tokens;
     using Microsoft.OpenApi.Models;
     using Swashbuckle.AspNetCore.SwaggerUI;
-    using ConnectionRepository = Connections.WebApi.ConnectionRepository;
-    using ConnectionTypeService = Connections.WebApi.ConnectionTypeService;
 
     public class Startup
     {
@@ -65,6 +64,8 @@
                     new QueryStringApiVersionReader("api-version", "version", "ver"),
                     new HeaderApiVersionReader("api-version"));
             });
+
+            CustomSerializationSettings.UseNullForNaN = Configuration.GetValue<bool>("Serialization:UseNullForNaN");
 
             // MVC
             services
@@ -126,7 +127,7 @@
             });
 
             // DHI Domain Services
-            services.AddScoped(_ => new ConnectionTypeService(AppContext.BaseDirectory));
+            //services.AddScoped(_ => new ConnectionTypeService(AppContext.BaseDirectory));
 
             services.AddSingleton<IFilterRepository>(new FilterRepository("[AppData]signalr-filters.json".Resolve()));
 
@@ -169,8 +170,17 @@
             AppDomain.CurrentDomain.SetData("DataDirectory", Path.Combine(contentRootPath, "App_Data"));
 
             // DHI Domain Services  
-            var lazyCreation = Configuration.GetValue("AppConfiguration:LazyCreation", true);
-            Services.Configure(new ConnectionRepository("connections.json", SerializerOptionsDefault.Options), lazyCreation);
+            //var lazyCreation = Configuration.GetValue("AppConfiguration:LazyCreation", true);
+            //Services.Configure(new ConnectionRepository("connections.json", SerializerOptionsDefault.Options), lazyCreation);
+
+            ServiceLocator.Register(
+                new GroupedDiscreteTimeSeriesService<string, double>(new DHI.Services.TimeSeries.CSV.TimeSeriesRepository("[AppData]csv".Resolve())),
+                "csv"
+            );
+            ServiceLocator.Register(
+                new CoreTimeSeriesService(new DHI.Services.TimeSeries.Daylight.TimeSeriesRepository()),
+                "daylight"
+                );
 
             // For testing SignalR
             var timeSeriesList = new List<TimeSeries> { new TimeSeries("myTimeSeries", "My Time Series") };

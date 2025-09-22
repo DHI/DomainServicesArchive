@@ -3,6 +3,8 @@
     using System;
     using System.Collections.Generic;
     using System.Security.Claims;
+    using System.Text.Json;
+    using System.Text.Json.Serialization;
 
     /// <summary>
     ///     Json scenario repository.
@@ -11,6 +13,16 @@
     {
         public ScenarioRepository(string filePath) : base(filePath)
         {
+        }
+
+        public ScenarioRepository(string filePath, IEnumerable<JsonConverter> converters) : base(filePath, converters) { }
+
+        public ScenarioRepository(string filePath, JsonSerializerOptions jsonSerializerOptions) : base(filePath, jsonSerializerOptions)
+        {
+            ConfigureJsonSerializer((serializer, deserializer) =>
+            {
+                jsonSerializerOptions = jsonSerializerOptions ?? JsonSerializerOptions.Default;
+            });
         }
 
         public IEnumerable<string> GetInputTimeSeriesForSimulationModelObject(string simulationId, Guid modelObjectId, ClaimsPrincipal user = null)

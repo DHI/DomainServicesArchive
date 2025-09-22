@@ -106,7 +106,12 @@
                     var _value = value.Values[i].HasValue ? (double.Parse(value.Values[i].Value.ToString())) : double.NaN;
 
                     if (_value is double.NaN)
-                        writer.WriteStringValue($"{double.NaN}");
+                    {
+                        if (CustomSerializationSettings.UseNullForNaN)
+                            writer.WriteNullValue();
+                        else
+                            writer.WriteStringValue($"{double.NaN}");
+                    } 
                     else
                         writer.WriteNumberValue(_value);
                 }

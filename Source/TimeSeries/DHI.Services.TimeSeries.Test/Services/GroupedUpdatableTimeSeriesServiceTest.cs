@@ -6,7 +6,6 @@
     using System.Security.Claims;
     using AutoFixture;
     using DHI.Services.TimeSeries;
-    using Logging;
     using Xunit;
 
     public class GroupedUpdatableTimeSeriesServiceTest: IClassFixture<TimeSeriesFixture>

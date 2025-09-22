@@ -1,0 +1,364 @@
+﻿<Window x:Class="DHI.Services.Samples.Map.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Maps Playground (DFS2 / DFSU → MapService)"
+        Height="800" Width="1200"
+        WindowStartupLocation="CenterScreen"
+        MinWidth="1100" MinHeight="700">
+
+    <!-- We'll bind TabItem DataContext to window properties: Dfs2 and Dfsu -->
+    <TabControl>
+        <!-- DFS2 TAB -->
+        <TabItem Header="DFS2" DataContext="{Binding Dfs2}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="360"/>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Toolbar -->
+                <DockPanel Grid.Row="0" Grid.ColumnSpan="3" Margin="8">
+                    <TextBlock Text="Path:" VerticalAlignment="Center" Margin="0,0,6,0"/>
+                    <TextBox Text="{Binding SelectedPath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                             Width="520" Margin="0,0,8,0" VerticalAlignment="Center"/>
+                    <Button Content="Browse File…" Margin="0,0,6,0" Padding="10,4"
+                            Command="{Binding BrowseFileCommand}"/>
+                    <Button Content="Browse Folder…" Margin="0,0,6,0" Padding="10,4"
+                            Command="{Binding BrowseFolderCommand}"/>
+                    <Button Content="Reload" Margin="0,0,6,0" Padding="10,4"
+                            Command="{Binding ReloadCommand}"/>
+                    <Button Content="Render" Margin="6,0,0,0" Padding="12,4"
+                            Command="{Binding RenderCommand}"/>
+                    <Button Content="Save Image…" Margin="6,0,0,0" Padding="12,4"
+                            Command="{Binding SaveImageCommand}"/>
+                </DockPanel>
+
+                <!-- Left panel: settings -->
+                <ScrollViewer Grid.Row="1" Grid.Column="0" Margin="8" VerticalScrollBarVisibility="Auto">
+                    <StackPanel>
+
+                        <GroupBox Header="Source">
+                            <StackPanel Margin="6">
+                                <TextBlock Text="DFS2 File ID (filename)" />
+                                <ComboBox ItemsSource="{Binding SourceIds}" SelectedItem="{Binding SelectedSourceId}" />
+                            </StackPanel>
+                        </GroupBox>
+
+                        <GroupBox Header="Style">
+                            <StackPanel Margin="6">
+                                <TextBlock Text="Style Id (from styles.json, if present)" />
+                                <ComboBox ItemsSource="{Binding StyleIds}" SelectedItem="{Binding SelectedStyleId}" />
+                                <Separator Margin="0,8,0,8"/>
+                                <TextBlock Text="Inline Style Code (used if no styles.json or no selection)" />
+                                <TextBox Text="{Binding StyleCode, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            </StackPanel>
+                        </GroupBox>
+
+                        <GroupBox Header="Time / Item">
+                            <StackPanel Margin="6">
+                                <TextBlock Text="Time step" />
+                                <ComboBox ItemsSource="{Binding TimeSteps}" SelectedItem="{Binding SelectedTime}">
+                                    <ComboBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding StringFormat={}{0:u}}"/>
+                                        </DataTemplate>
+                                    </ComboBox.ItemTemplate>
+                                </ComboBox>
+                                <TextBlock Text="Item (name or number)" Margin="0,8,0,0"/>
+                                <TextBox Text="{Binding Item, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            </StackPanel>
+                        </GroupBox>
+
+                        <GroupBox Header="Image">
+                            <StackPanel Margin="6">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Width:" VerticalAlignment="Center" Margin="0,0,6,0"/>
+                                    <TextBox Width="80" Text="{Binding ImageWidth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                    <TextBlock Text="Height:" VerticalAlignment="Center" Margin="12,0,6,0"/>
+                                    <TextBox Width="80" Text="{Binding ImageHeight, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                </StackPanel>
+                                <TextBlock Text="CRS (fixed to EPSG:3857 for this provider)" Margin="0,8,0,0"/>
+                                <TextBox IsReadOnly="True" Text="{Binding CRS}" />
+                            </StackPanel>
+                        </GroupBox>
+
+                        <GroupBox Header="Bounding Box (EPSG:3857)">
+                            <Grid Margin="6">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <StackPanel Grid.Row="0" Grid.Column="0" Margin="0,0,6,0">
+                                    <TextBlock Text="Min X" />
+                                    <TextBox Text="{Binding MinX, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                </StackPanel>
+                                <StackPanel Grid.Row="0" Grid.Column="1">
+                                    <TextBlock Text="Min Y" />
+                                    <TextBox Text="{Binding MinY, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                </StackPanel>
+                                <StackPanel Grid.Row="1" Grid.Column="0" Margin="0,6,6,0">
+                                    <TextBlock Text="Max X" />
+                                    <TextBox Text="{Binding MaxX, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                </StackPanel>
+                                <StackPanel Grid.Row="1" Grid.Column="1" Margin="0,6,0,0">
+                                    <TextBlock Text="Max Y" />
+                                    <TextBox Text="{Binding MaxY, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                </StackPanel>
+                            </Grid>
+                        </GroupBox>
+
+                        <GroupBox Header="Parameters">
+                            <StackPanel Margin="6" Orientation="Vertical">
+                                <CheckBox Content="Include Vector" IsChecked="{Binding IncludeVector}" />
+                                <StackPanel Orientation="Horizontal" Margin="0,6,0,0">
+                                    <TextBlock Text="Vector color (hex):" VerticalAlignment="Center" Margin="0,0,6,0"/>
+                                    <TextBox Width="100" Text="{Binding VectorColor, Mode=TwoWay}" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="0,6,0,0">
+                                    <TextBlock Text="Vector max length:" VerticalAlignment="Center" Margin="0,0,6,0"/>
+                                    <TextBox Width="60" Text="{Binding VectorMaxLength, Mode=TwoWay}" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="0,6,0,0">
+                                    <TextBlock Text="Isoline:" VerticalAlignment="Center" Margin="0,0,6,0"/>
+                                    <ComboBox Width="160"
+                                              SelectedValuePath="Content"
+                                              SelectedValue="{Binding Isoline}">
+                                        <ComboBoxItem Content="None"/>
+                                        <ComboBoxItem Content="Major"/>
+                                        <ComboBoxItem Content="Minor"/>
+                                    </ComboBox>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="0,6,0,0">
+                                    <TextBlock Text="Coloring Type:" VerticalAlignment="Center" Margin="0,0,6,0"/>
+                                    <ComboBox Width="160"
+                                              SelectedValuePath="Content"
+                                              SelectedValue="{Binding ColoringType}">
+                                        <ComboBoxItem Content="DiscreteColoring"/>
+                                        <ComboBoxItem Content="ContinuousColoring"/>
+                                    </ComboBox>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="0,6,0,0">
+                                    <TextBlock Text="Shading Type:" VerticalAlignment="Center" Margin="0,0,6,0"/>
+                                    <ComboBox Width="160"
+                                              SelectedValuePath="Content"
+                                              SelectedValue="{Binding ShadingType}">
+                                        <ComboBoxItem Content="ShadedContour"/>
+                                        <ComboBoxItem Content="Plain"/>
+                                    </ComboBox>
+                                </StackPanel>
+                            </StackPanel>
+                        </GroupBox>
+
+                    </StackPanel>
+                </ScrollViewer>
+
+                <!-- Splitter -->
+                <GridSplitter Grid.Row="1" Grid.Column="1" Width="5" HorizontalAlignment="Stretch" Background="#ddd"/>
+
+                <!-- Right: map image -->
+                <Grid Grid.Row="1" Grid.Column="2" Margin="8">
+                    <Border BorderBrush="#ddd" BorderThickness="1" CornerRadius="2">
+                        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                            <Image Stretch="None" Source="{Binding MapImage}" />
+                        </ScrollViewer>
+                    </Border>
+                </Grid>
+
+                <!-- Status -->
+                <StatusBar Grid.Row="2" Grid.ColumnSpan="3">
+                    <StatusBarItem>
+                        <TextBlock Text="{Binding Status}" />
+                    </StatusBarItem>
+                </StatusBar>
+
+            </Grid>
+        </TabItem>
+
+        <!-- DFSU TAB (identical layout; bound to Dfsu VM) -->
+        <TabItem Header="DFSU" DataContext="{Binding Dfsu}">
+            <!-- exact same Grid content as above (copy/paste) -->
+            <!-- (For brevity, paste the same markup here; it binds to Dfsu) -->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="360"/>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Toolbar -->
+                <DockPanel Grid.Row="0" Grid.ColumnSpan="3" Margin="8">
+                    <TextBlock Text="Path:" VerticalAlignment="Center" Margin="0,0,6,0"/>
+                    <TextBox Text="{Binding SelectedPath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                             Width="520" Margin="0,0,8,0" VerticalAlignment="Center"/>
+                    <Button Content="Browse File…" Margin="0,0,6,0" Padding="10,4"
+                            Command="{Binding BrowseFileCommand}"/>
+                    <Button Content="Browse Folder…" Margin="0,0,6,0" Padding="10,4"
+                            Command="{Binding BrowseFolderCommand}"/>
+                    <Button Content="Reload" Margin="0,0,6,0" Padding="10,4"
+                            Command="{Binding ReloadCommand}"/>
+                    <Button Content="Render" Margin="6,0,0,0" Padding="12,4"
+                            Command="{Binding RenderCommand}"/>
+                    <Button Content="Save Image…" Margin="6,0,0,0" Padding="12,4"
+                            Command="{Binding SaveImageCommand}"/>
+                </DockPanel>
+
+                <!-- Left panel: settings -->
+                <ScrollViewer Grid.Row="1" Grid.Column="0" Margin="8" VerticalScrollBarVisibility="Auto">
+                    <StackPanel>
+
+                        <GroupBox Header="Source">
+                            <StackPanel Margin="6">
+                                <TextBlock Text="DFSU File ID (filename)" />
+                                <ComboBox ItemsSource="{Binding SourceIds}" SelectedItem="{Binding SelectedSourceId}" />
+                            </StackPanel>
+                        </GroupBox>
+
+                        <GroupBox Header="Style">
+                            <StackPanel Margin="6">
+                                <TextBlock Text="Style Id (from styles.json, if present)" />
+                                <ComboBox ItemsSource="{Binding StyleIds}" SelectedItem="{Binding SelectedStyleId}" />
+                                <Separator Margin="0,8,0,8"/>
+                                <TextBlock Text="Inline Style Code (used if no styles.json or no selection)" />
+                                <TextBox Text="{Binding StyleCode, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            </StackPanel>
+                        </GroupBox>
+
+                        <GroupBox Header="Time / Item">
+                            <StackPanel Margin="6">
+                                <TextBlock Text="Time step" />
+                                <ComboBox ItemsSource="{Binding TimeSteps}" SelectedItem="{Binding SelectedTime}">
+                                    <ComboBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding StringFormat={}{0:u}}"/>
+                                        </DataTemplate>
+                                    </ComboBox.ItemTemplate>
+                                </ComboBox>
+                                <TextBlock Text="Item (name or number)" Margin="0,8,0,0"/>
+                                <TextBox Text="{Binding Item, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            </StackPanel>
+                        </GroupBox>
+
+                        <GroupBox Header="Image">
+                            <StackPanel Margin="6">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Width:" VerticalAlignment="Center" Margin="0,0,6,0"/>
+                                    <TextBox Width="80" Text="{Binding ImageWidth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                    <TextBlock Text="Height:" VerticalAlignment="Center" Margin="12,0,6,0"/>
+                                    <TextBox Width="80" Text="{Binding ImageHeight, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                </StackPanel>
+                                <TextBlock Text="CRS (fixed to EPSG:3857 for this provider)" Margin="0,8,0,0"/>
+                                <TextBox IsReadOnly="True" Text="{Binding CRS}" />
+                            </StackPanel>
+                        </GroupBox>
+
+                        <GroupBox Header="Bounding Box (EPSG:3857)">
+                            <Grid Margin="6">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <StackPanel Grid.Row="0" Grid.Column="0" Margin="0,0,6,0">
+                                    <TextBlock Text="Min X" />
+                                    <TextBox Text="{Binding MinX, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                </StackPanel>
+                                <StackPanel Grid.Row="0" Grid.Column="1">
+                                    <TextBlock Text="Min Y" />
+                                    <TextBox Text="{Binding MinY, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                </StackPanel>
+                                <StackPanel Grid.Row="1" Grid.Column="0" Margin="0,6,6,0">
+                                    <TextBlock Text="Max X" />
+                                    <TextBox Text="{Binding MaxX, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                </StackPanel>
+                                <StackPanel Grid.Row="1" Grid.Column="1" Margin="0,6,0,0">
+                                    <TextBlock Text="Max Y" />
+                                    <TextBox Text="{Binding MaxY, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                </StackPanel>
+                            </Grid>
+                        </GroupBox>
+
+                        <GroupBox Header="Parameters">
+                            <StackPanel Margin="6" Orientation="Vertical">
+                                <CheckBox Content="Include Vector" IsChecked="{Binding IncludeVector}" />
+                                <StackPanel Orientation="Horizontal" Margin="0,6,0,0">
+                                    <TextBlock Text="Vector color (hex):" VerticalAlignment="Center" Margin="0,0,6,0"/>
+                                    <TextBox Width="100" Text="{Binding VectorColor, Mode=TwoWay}" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="0,6,0,0">
+                                    <TextBlock Text="Vector max length:" VerticalAlignment="Center" Margin="0,0,6,0"/>
+                                    <TextBox Width="60" Text="{Binding VectorMaxLength, Mode=TwoWay}" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="0,6,0,0">
+                                    <TextBlock Text="Isoline:" VerticalAlignment="Center" Margin="0,0,6,0"/>
+                                    <ComboBox Width="160"
+                                              SelectedValuePath="Content"
+                                              SelectedValue="{Binding Isoline}">
+                                        <ComboBoxItem Content="None"/>
+                                        <ComboBoxItem Content="Major"/>
+                                        <ComboBoxItem Content="Minor"/>
+                                    </ComboBox>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="0,6,0,0">
+                                    <TextBlock Text="Coloring Type:" VerticalAlignment="Center" Margin="0,0,6,0"/>
+                                    <ComboBox Width="160"
+                                              SelectedValuePath="Content"
+                                              SelectedValue="{Binding ColoringType}">
+                                        <ComboBoxItem Content="DiscreteColoring"/>
+                                        <ComboBoxItem Content="ContinuousColoring"/>
+                                    </ComboBox>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="0,6,0,0">
+                                    <TextBlock Text="Shading Type:" VerticalAlignment="Center" Margin="0,0,6,0"/>
+                                    <ComboBox Width="160"
+                                              SelectedValuePath="Content"
+                                              SelectedValue="{Binding ShadingType}">
+                                        <ComboBoxItem Content="ShadedContour"/>
+                                        <ComboBoxItem Content="Plain"/>
+                                    </ComboBox>
+                                </StackPanel>
+                            </StackPanel>
+                        </GroupBox>
+
+                    </StackPanel>
+                </ScrollViewer>
+
+                <GridSplitter Grid.Row="1" Grid.Column="1" Width="5" HorizontalAlignment="Stretch" Background="#ddd"/>
+
+                <Grid Grid.Row="1" Grid.Column="2" Margin="8">
+                    <Border BorderBrush="#ddd" BorderThickness="1" CornerRadius="2">
+                        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                            <Image Stretch="None" Source="{Binding MapImage}" />
+                        </ScrollViewer>
+                    </Border>
+                </Grid>
+
+                <StatusBar Grid.Row="2" Grid.ColumnSpan="3">
+                    <StatusBarItem>
+                        <TextBlock Text="{Binding Status}" />
+                    </StatusBarItem>
+                </StatusBar>
+
+            </Grid>
+        </TabItem>
+    </TabControl>
+</Window>

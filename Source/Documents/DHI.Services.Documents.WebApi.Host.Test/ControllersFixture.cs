@@ -24,7 +24,6 @@
             _tempContentRootPath = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString());
             TempAppDataPath = Path.Combine(_tempContentRootPath, "App_Data");
             Directory.CreateDirectory(TempAppDataPath);
-            _CopyToTempAppDataPath("connections.json");
             _CopyToTempAppDataPath("SwaggerInfo.md");
             _CopyToTempAppDataPath("MCSQLiteTest.sqlite");
             _CopyToTempAppDataPath("HowdyWorld.txt");

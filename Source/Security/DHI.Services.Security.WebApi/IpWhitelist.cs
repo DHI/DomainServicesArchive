@@ -31,9 +31,9 @@
 
             return networks.Any(n => n.Contains(ip));
 
-            static IPNetwork ParseInputToIpNetwork(string[] cidrBlocks)
+            static Microsoft.AspNetCore.HttpOverrides.IPNetwork ParseInputToIpNetwork(string[] cidrBlocks)
             {
-                return new IPNetwork(
+                return new Microsoft.AspNetCore.HttpOverrides.IPNetwork(
                     IPAddress.Parse(cidrBlocks[0]),
                     cidrBlocks.Length == 1 ?
                         32 :

@@ -41,7 +41,6 @@ public class AutomationRepositoryTest : IDisposable
             HostGroup = "hostGroup",
             Tag = "tag",
             TaskParameters = new Dictionary<string, string> { { "key", "value" }, { "number", "1" }, { "BoundariesJSonString", "[{\"ID\":\"TH\",\"west\":88.0,\"east\":110.0,\"south\":0.0,\"north\":18.0}]" } },
-            Parameters = new Dictionary<string, string> { { "key", "value" } },
             TriggerCondition = condition,
         };
         automation.Disable();
@@ -59,7 +58,7 @@ public class AutomationRepositoryTest : IDisposable
         Assert.Equal("value", actual.TaskParameters["key"]);
         Assert.Equal("1", actual.TaskParameters["number"]);
         Assert.Equal("[{\"ID\":\"TH\",\"west\":88.0,\"east\":110.0,\"south\":0.0,\"north\":18.0}]", actual.TaskParameters["BoundariesJSonString"]);
-        Assert.Equal("value", actual.Parameters["key"]);
+        Assert.Equal("value", actual.TaskParameters["key"]);
         Assert.Equal(2, actual.TriggerCondition.Triggers.Count);
         Assert.IsType<ScheduledTrigger>(actual.TriggerCondition.Triggers[0]);
         Assert.IsType<JobCompletedTrigger>(actual.TriggerCondition.Triggers[1]);
@@ -81,7 +80,6 @@ public class AutomationRepositoryTest : IDisposable
             HostGroup = "hostGroup",
             Tag = "tag",
             TaskParameters = new Dictionary<string, string> { { "key", "value" }, { "number", "1" }, { "BoundariesJSonString", "[{\"ID\":\"TH\",\"west\":88.0,\"east\":110.0,\"south\":0.0,\"north\":18.0}]" } },
-            Parameters = new Dictionary<string, string> { { "key", "value" } },
             TriggerCondition = condition,
         };
         _repository.Add(automation);
@@ -93,4 +91,26 @@ public class AutomationRepositoryTest : IDisposable
         var actual = maybe.Value;
         Assert.False(actual.IsEnabled);
     }
+
+    [Fact]
+    public void VersionFile_IsCreatedAndUpdated()
+    {
+        var versionPath = Path.Combine(Path.GetDirectoryName(_filePath)!, "version.txt");
+
+        if (File.Exists(versionPath)) File.Delete(versionPath);
+        Assert.False(File.Exists(versionPath));
+
+        var automation = new Automation("AutoVer", "GroupVer", "task");
+        _repository.Add(automation);
+
+        Assert.True(File.Exists(versionPath));
+        var ts1 = _repository.GetVersionTimestamp();
+
+        Thread.Sleep(10);
+        _repository.TouchVersion();
+        var ts2 = _repository.GetVersionTimestamp();
+
+        Assert.True(ts2 > ts1);
+    }
+
 }

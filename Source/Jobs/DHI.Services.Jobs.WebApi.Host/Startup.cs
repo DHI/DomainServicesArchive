@@ -1,14 +1,11 @@
 ﻿namespace DHI.Services.Jobs.WebApi.Host
 {
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.Composition.Hosting;
-    using System.IO;
-    using System.Security.Claims;
     using Automations;
+    using DHI.Services.Jobs.Scenarios;
+    using DHI.Services.Scalars;
     using Filters;
-    using Logging;
     using Microsoft.AspNetCore.Authentication.JwtBearer;
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Mvc;
@@ -19,11 +16,15 @@
     using Microsoft.Extensions.Logging;
     using Microsoft.IdentityModel.Tokens;
     using Microsoft.OpenApi.Models;
+    using Notifications;
     using Swashbuckle.AspNetCore.SwaggerUI;
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.Composition.Hosting;
+    using System.IO;
+    using System.Security.Claims;
     using WebApiCore;
     using Workflows;
-    using ConnectionRepository = Connections.WebApi.ConnectionRepository;
-    using ConnectionTypeService = Connections.WebApi.ConnectionTypeService;
     using AutomationRepository = WebApi.AutomationRepository;
 
     public class Startup
@@ -102,7 +103,7 @@
 
                 setupAction.EnableAnnotations();
                 setupAction.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "DHI.Services.Jobs.WebApi.xml"));
-                setupAction.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "DHI.Services.Connections.WebApi.xml"));
+                //setupAction.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "DHI.Services.Connections.WebApi.xml"));
                 setupAction.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
                     Description = "Enter the word 'Bearer' followed by a space and the JWT.",
@@ -135,9 +136,17 @@
             services.AddScoped<IHostRepository>(_ => new GroupedHostRepository("grouped_hosts.json"));
             services.AddScoped<IAutomationRepository>(_ => new AutomationRepository("automations.json"));
             services.AddScoped<ILogger>(_ => new SimpleLogger("[AppData]log.log".Resolve()));
+            services.AddSingleton<IJobRepository<Guid, string>>(sp =>
+            {
+                var jobRepo1 = new JobRepository("[AppData]jobs.json".Resolve());
+                var jobRepo2 = new JobRepository("[AppData]jobs2.json".Resolve());
+
+                return new ReadOnlyCompositeJobRepository(new[] { jobRepo1, jobRepo2 });
+            });
+            services.AddScoped<IScalarRepository<string, int>>(_ => new ScalarRepository("[AppData]scalars.json".Resolve()));
             services.AddSingleton<IFilterRepository>(_ => new FilterRepository("[AppData]signalr-filters.json".Resolve()));
             //services.AddSingleton<IFilterRepository>(provider => new FakeFilterRepository());
-            services.AddScoped(_ => new ConnectionTypeService(AppContext.BaseDirectory));
+            //services.AddScoped(_ => new ConnectionTypeService(AppContext.BaseDirectory));
 
             var container = GetTriggerCatalog();
             services.AddSingleton<ITriggerRepository>(new TriggerRepository(container));
@@ -180,9 +189,28 @@
             var contentRootPath = Configuration.GetValue("AppConfiguration:ContentRootPath", env.ContentRootPath);
             AppDomain.CurrentDomain.SetData("DataDirectory", Path.Combine(contentRootPath, "App_Data"));
 
-            // Custom services
-            var lazyCreation = Configuration.GetValue("AppConfiguration:LazyCreation", true);
-            Services.Configure(new ConnectionRepository("connections.json"), lazyCreation);
+            //var lazyCreation = Configuration.GetValue("AppConfiguration:LazyCreation", true);
+            //Services.Configure(new ConnectionRepository("connections.json"), lazyCreation);
+
+            ServiceLocator.Register(
+                new JobService<Workflow, string>(
+                    new JobRepository("jobs.json"),
+                    new TaskService<Workflow, string>(new WorkflowRepository("[AppData]workflows.json", SerializerOptionsDefault.Options.Converters)),
+                    null),
+                "wf-jobs"
+                );
+
+            ServiceLocator.Register(
+                new TaskService<Workflow, string>(new WorkflowRepository("[AppData]workflows.json")),
+                "wf-tasks"
+                );
+
+            ServiceLocator.Register(
+                    new ScenarioService(new ScenarioRepository("[AppData]scenarios.json".Resolve(), SerializerOptionsDefault.Options.Converters),
+                    new JobRepository("jobs.json")
+                    ),
+                "json-scenarios"
+                );
 
             var workflowRepository = new CodeWorkflowRepository("[AppData]workflows2.json".Resolve());
             var workflowService = new CodeWorkflowService(workflowRepository);

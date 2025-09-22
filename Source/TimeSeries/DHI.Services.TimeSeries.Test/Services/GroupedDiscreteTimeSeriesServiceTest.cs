@@ -9,7 +9,6 @@
     using AutoFixture;
     using CSV;
     using DHI.Services.TimeSeries;
-    using Logging;
     using Xunit;
 
     public class GroupedDiscreteTimeSeriesServiceTest: IClassFixture<TimeSeriesFixture>

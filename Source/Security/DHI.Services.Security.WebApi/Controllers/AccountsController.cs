@@ -404,11 +404,6 @@
                     return BadRequest(passwordHistory.AsString());
                 }
             }
-            
-            if (meDTO.UserGroups != null)
-            {
-                UpdateUserGroups(meDTO, account, user);
-            }
 
             _accountService.UpdateMe(account);
 
@@ -418,7 +413,7 @@
                 return NotFound();
             }
 
-            return Ok(AccountDTO.FromAccount(updatedAccount, meDTO.UserGroups));
+            return Ok(meDTO);
         }
 
         /// <summary>
@@ -430,9 +425,11 @@
         public ActionResult<AccountDTO> GetMe()
         {
             var user = HttpContext.User;
-            var claim = user.Claims.Single(c => c.Type == ClaimTypes.NameIdentifier).Value;
+            var userId = user.GetUserIdFromAnyClaim();
 
-            if (!_accountService.TryGet(claim, out var account, user))
+            if (userId is null) return Unauthorized();
+
+            if (!_accountService.TryGet(userId, out var account, user))
             {
                 return NotFound();
             }

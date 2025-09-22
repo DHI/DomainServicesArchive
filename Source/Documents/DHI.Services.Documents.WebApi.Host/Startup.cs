@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.IO;
     using System.Security.Claims;
+    using DHI.Services.Provider.MCLite;
     using Microsoft.AspNetCore.Authentication.JwtBearer;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
@@ -16,8 +17,6 @@
     using Microsoft.OpenApi.Models;
     using Swashbuckle.AspNetCore.SwaggerUI;
     using WebApiCore;
-    using ConnectionRepository = Connections.WebApi.ConnectionRepository;
-    using ConnectionTypeService = Connections.WebApi.ConnectionTypeService;
 
     public class Startup
     {
@@ -157,13 +156,26 @@
                 endpoints.MapControllers();
             });
 
-            // Set the data directory (App_Data folder)
             var contentRootPath = Configuration.GetValue("AppConfiguration:ContentRootPath", env.ContentRootPath);
-            AppDomain.CurrentDomain.SetData("DataDirectory", Path.Combine(contentRootPath, "App_Data"));
+            var appData = Path.Combine(contentRootPath, "App_Data");
+            AppDomain.CurrentDomain.SetData("DataDirectory", appData);
 
-            // Custom services
-            var lazyCreation = Configuration.GetValue("AppConfiguration:LazyCreation", true);
-            Services.Configure(new ConnectionRepository("connections.json", SerializerOptionsDefault.Options), lazyCreation);
+            ServiceLocator.Register(
+                new DocumentService<string>(
+                    new DocumentRepository("database=mc2014.2")
+                ),
+                "mc-doc"
+            );
+
+            var sqlitePath = Path.Combine(appData, "MCSQLiteTest.sqlite");
+            ServiceLocator.Register(
+                new GroupedDocumentService<string>(
+                    new DocumentRepository(
+                        $"database={sqlitePath};dbflavour=SQLite"
+                    )
+                ),
+                "mclite"
+            );
 
             // Document upload validators
             var documentService = Services.Get<DocumentService<string>>("mclite");

@@ -23,7 +23,6 @@
         /// <param name="machineName">The machine name.</param>
         /// <param name="dateTime">The date time.</param>
         /// <param name="metadata">Metadata.</param>
-        [JsonConstructor]
         public NotificationEntry(Guid id, NotificationLevel notificationLevel, string text, string source, string tag = null, string machineName = null, DateTime dateTime = default, IDictionary<string, object> metadata = null)
             : this()
         {
@@ -40,7 +39,36 @@
         }
 
         /// <summary>
+        /// NEW ctor – different **parameter order**, no defaults, has the attribute
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="notificationLevel"></param>
+        /// <param name="text"></param>
+        /// <param name="source"></param>
+        /// <param name="dateTime"></param>
+        /// <param name="tag"></param>
+        /// <param name="machineName"></param>
+        /// <param name="metadata"></param>
+        [JsonConstructor]
+        private NotificationEntry(Guid id, NotificationLevel notificationLevel, string text, string source, DateTime dateTime, string? tag, string? machineName, IDictionary<string, object>? metadata)
+            : this()
+        {
+            Guard.Against.NullOrEmpty(text, nameof(text));
+            Guard.Against.NullOrEmpty(source, nameof(source));
+            
+            Id = id;
+            NotificationLevel = notificationLevel;
+            Text = text;
+            Source = source;
+            Tag = tag;
+            DateTime = dateTime == default ? DateTime.Now : dateTime;
+            MachineName = string.IsNullOrWhiteSpace(machineName) ? Environment.GetEnvironmentVariable("COMPUTERNAME") : machineName;
+            _metadata = metadata ?? new Dictionary<string, object>();
+        }
+
+        /// <summary>
         ///     Initializes a new instance of the <see cref="NotificationEntry" /> struct.
+        ///     Just forwards to the new private one as before
         /// </summary>
         /// <param name="notificationLevel">The notification level.</param>
         /// <param name="text">The text message.</param>
@@ -48,10 +76,9 @@
         /// <param name="tag">A tag.</param>
         /// <param name="machineName">The machine name.</param>
         /// <param name="dateTime">The date time.</param>
-        public NotificationEntry(NotificationLevel notificationLevel, string text, string source, string tag = null, string machineName = null, DateTime dateTime = default)
-            : this(Guid.NewGuid(), notificationLevel, text, source, tag, machineName, dateTime)
-        {
-        }
+        public NotificationEntry(NotificationLevel notificationLevel, string text, string source, string? tag = null, string? machineName = null, DateTime dateTime = default, IDictionary<string, object>? metadata = null)
+        : this(Guid.NewGuid(), notificationLevel, text, source, dateTime, tag, machineName, metadata)
+        { }
 
         /// <summary>
         ///     Gets the unique identifier.

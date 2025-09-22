@@ -6,9 +6,8 @@
     using Accounts;
     using DHI.Services.Authentication;
     using DHI.Services.Authentication.PasswordHistory;
-    using DHI.Services.Logging;
     using DHI.Services.Test.Authentication.PasswordHistory;
-    using DHI.Services.Test.Logging;
+    using DHI.Services.Test.Notifications;
     using Mails;
     using Microsoft.Extensions.Logging.Abstractions;
     using Xunit;

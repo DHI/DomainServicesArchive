@@ -57,7 +57,13 @@
             };
 
             var actual = JsonSerializer.Serialize(sheet, options);
-            var expected = "{\"Id\":1001,\"Name\":\"name-1001\",\"Group\":\"group-00\",\"Data\":[[[1,2],[3,4]],[[0.10000000000000001,0.20000000000000001],[0.29999999999999999,0.40000000000000002]],[[\"one\",\"two\"],[\"three\",\"four\"]]],\"Metadata\":{},\"Permissions\":[]}";
+            #if NET5_0
+                var expected = "{\"Id\":1001,\"Name\":\"name-1001\",\"Group\":\"group-00\",\"Data\":[[[1,2],[3,4]],[[0.10000000000000001,0.20000000000000001],[0.29999999999999999,0.40000000000000002]],[[\"one\",\"two\"],[\"three\",\"four\"]]],\"Metadata\":{},\"Permissions\":[]}";
+            #elif NET8_0
+                var expected = "{\"Id\":1001,\"Name\":\"name-1001\",\"Group\":\"group-00\",\"Data\":[[[1,2],[3,4]],[[0.1,0.2],[0.3,0.4]],[[\"one\",\"two\"],[\"three\",\"four\"]]],\"Metadata\":{},\"Permissions\":[]}";
+            #else
+                throw new NotSupportedException("This test is only defined for .NET 5.0 and .NET 8.0.");
+            #endif
 
             Assert.Equal(expected, actual);
         }

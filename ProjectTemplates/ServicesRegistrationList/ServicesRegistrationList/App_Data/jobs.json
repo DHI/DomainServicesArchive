@@ -1,0 +1,72 @@
+{
+  "$type": "System.Collections.Generic.Dictionary`2[[System.Guid, mscorlib],[DHI.Services.Jobs.Job`2[[System.Guid, mscorlib],[System.String, mscorlib]], DHI.Services.Jobs]], mscorlib",
+  "52d09251-d58b-42fd-bc3e-40822c01c293": {
+    "$type": "DHI.Services.Jobs.Job`2[[System.Guid, mscorlib],[System.String, mscorlib]], DHI.Services.Jobs",
+    "AccountId": "User1",
+    "Requested": "2015-01-02T00:00:00",
+    "Started": "2015-01-02T00:00:01",
+    "Finished": "2015-01-02T00:01:00",
+    "Status": "Completed",
+    "Tag": "Job1",
+    "TaskId": "WriteToFile",
+    "Priority": 1,
+    "Id": "52d09251-d58b-42fd-bc3e-40822c01c293"
+  },
+  "fd73ba15-5985-4d3e-b7c6-a7e5f65bbc11": {
+    "$type": "DHI.Services.Jobs.Job`2[[System.Guid, mscorlib],[System.String, mscorlib]], DHI.Services.Jobs",
+    "AccountId": "User1",
+    "Requested": "2015-01-03T00:00:00",
+    "Started": "2015-01-03T00:00:01",
+    "Finished": "2015-01-03T00:01:00",
+    "Status": "Completed",
+    "Tag": "Job2",
+    "TaskId": "WriteToFile",
+    "Priority": 1,
+    "Id": "fd73ba15-5985-4d3e-b7c6-a7e5f65bbc11"
+  },
+  "b1d70255-42f8-4c3c-b435-c888319dff76": {
+    "$type": "DHI.Services.Jobs.Job`2[[System.Guid, mscorlib],[System.String, mscorlib]], DHI.Services.Jobs",
+    "AccountId": "User2",
+    "Requested": "2015-01-03T08:00:00",
+    "Started": "2015-01-03T00:08:01",
+    "Finished": "2015-01-03T00:09:00",
+    "Status": "Completed",
+    "Tag": "Job3",
+    "TaskId": "WriteToFile",
+    "Priority": 1,
+    "Id": "b1d70255-42f8-4c3c-b435-c888319dff76"
+  },
+  "bc82421d-9d47-4a93-b5bb-a32bc8ec3274": {
+    "$type": "DHI.Services.Jobs.Job`2[[System.Guid, mscorlib],[System.String, mscorlib]], DHI.Services.Jobs",
+    "AccountId": "User1",
+    "Requested": "2015-01-04T00:00:00",
+    "Started": "2015-01-04T01:00:01",
+    "Status": "Error",
+    "Tag": "Job4",
+    "TaskId": "WriteToFile",
+    "Priority": 1,
+    "Id": "bc82421d-9d47-4a93-b5bb-a32bc8ec3274"
+  },
+  "991131e3-39f6-40be-b2c3-4aff8e196abc": {
+    "$type": "DHI.Services.Jobs.Job`2[[System.Guid, mscorlib],[System.String, mscorlib]], DHI.Services.Jobs",
+    "AccountId": "User2",
+    "Requested": "2015-01-04T12:30:00",
+    "Started": "2015-01-04T12:30:03",
+    "Status": "InProgress",
+    "Tag": "Job5",
+    "TaskId": "WriteToFile",
+    "Priority": 10,
+    "Id": "991131e3-39f6-40be-b2c3-4aff8e196abc"
+  },
+  "111131e3-39f6-40be-b2c3-4aff8e196abc": {
+    "$type": "DHI.Services.Jobs.Job`2[[System.Guid, mscorlib],[System.String, mscorlib]], DHI.Services.Jobs",
+    "AccountId": "User2",
+    "Requested": "2015-01-04T12:30:00",
+    "Started": "2015-01-04T12:30:03",
+    "Status": "InProgress",
+    "Tag": "Job6",
+    "TaskId": "WriteToFile",
+    "Priority": 10,
+    "Id": "111131e3-39f6-40be-b2c3-4aff8e196abc"
+  }
+}

@@ -1,6 +1,5 @@
 ﻿namespace DHI.Services.Jobs.Automations.Test;
 
-using Logging;
 using Microsoft.Data.Sqlite;
 using Microsoft.Extensions.Logging;
 using Triggers;

@@ -410,43 +410,8 @@ namespace DHI.Services.Security.WebApi.Host.Test
             response = await _client.PutAsync(request.Url, ContentHelper.GetStringContent(request.Body));
             json = await response.Content.ReadAsStringAsync();
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
-            var updated = JsonSerializer.Deserialize<AccountDTO>(json, _options);
+            var updated = JsonSerializer.Deserialize<MeDTO>(json, _options);
             Assert.Equal(request.Body.Company, updated.Company);
-            Assert.DoesNotContain("Guests", updated.UserGroups);
-            Assert.Equal(3, updated.UserGroups.Count());
-        }
-
-        [Fact]
-        public async Task UpdateMeWithAccountPrivilegeToAdminReturns403Forbidden()
-        {
-            var response = await _clientNonAdmin.GetAsync("api/accounts/me");
-            var json = await response.Content.ReadAsStringAsync();
-            var me = JsonSerializer.Deserialize<AccountDTO>(json, _options);
-
-            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
-            Assert.Equal("user", me.Id);
-
-            var request = new
-            {
-                Url = "/api/accounts/me",
-                Body = new AccountDTO(me.Id, me.Name)
-                {
-                    Email = me.Email,
-                    Roles = me.Roles,
-                    Company = "DHI",
-                    UserGroups = new List<string>
-                    {
-                        "Guests",
-                        "Users",
-                        "Administrators"
-                    }
-                }
-            };
-
-            response = await _clientNonAdmin.PutAsync(request.Url, ContentHelper.GetStringContent(request.Body));
-            json = await response.Content.ReadAsStringAsync();
-            Assert.Equal(HttpStatusCode.InternalServerError, response.StatusCode);
-            Assert.Contains("Cannot add Administrators privilage for the account of", json);
         }
 
         [Fact]

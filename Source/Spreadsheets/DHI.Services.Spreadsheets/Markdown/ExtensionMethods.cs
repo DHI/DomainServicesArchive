@@ -1,6 +1,5 @@
 ﻿namespace DHI.Services.Spreadsheets.Markdown
 {
-    using Logging;
     using System;
     using System.Collections.Generic;
     using System.Globalization;

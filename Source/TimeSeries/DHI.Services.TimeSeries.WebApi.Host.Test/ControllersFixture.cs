@@ -27,7 +27,6 @@
             Directory.CreateDirectory(_tempAppDataPath);
             Directory.CreateDirectory(Path.Combine(_tempAppDataPath, "csv"));
             Directory.CreateDirectory(Path.Combine(_tempAppDataPath, "csv\\mysubfolder"));
-            _CopyToTempAppDataPath("connections.json");
             _CopyToTempAppDataPath("SwaggerInfo.md");
             _CopyToTempAppDataPath("csv\\timeseries.csv");
             _CopyToTempAppDataPath("csv\\timeseries2.csv");
